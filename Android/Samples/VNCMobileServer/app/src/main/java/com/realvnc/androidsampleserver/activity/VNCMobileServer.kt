@@ -9,23 +9,11 @@ package com.realvnc.androidsampleserver.activity
 import android.Manifest.permission
 import android.annotation.TargetApi
 import android.app.Activity
-import android.app.AlertDialog
 import android.app.Dialog
-import android.app.DialogFragment
-import android.app.admin.DevicePolicyManager
-import android.content.ActivityNotFoundException
-import android.content.ComponentName
-import android.content.Context
-import android.content.Intent
-import android.content.ServiceConnection
+import android.content.*
 import android.content.pm.PackageManager
 import android.net.Uri
-import android.os.Build
-import android.os.Bundle
-import android.os.Handler
-import android.os.IBinder
-import android.os.RemoteException
-import android.preference.PreferenceManager
+import android.os.*
 import android.provider.Settings
 import android.support.design.widget.NavigationView
 import android.support.v4.content.FileProvider
@@ -34,20 +22,14 @@ import android.support.v7.app.ActionBarDrawerToggle
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import android.view.MenuItem
-import android.view.View
-import android.widget.TextView
 import android.widget.Toast
 import com.realvnc.androidsampleserver.*
-
 import com.realvnc.androidsampleserver.VncServerState.VncServerMainState
-import com.realvnc.androidsampleserver.receiver.RemoteControlDeviceAdminReceiver
 import com.realvnc.androidsampleserver.service.HTTPTriggerService
 import com.realvnc.androidsampleserver.service.VncServerService
 import com.realvnc.vncserver.core.VncServerCoreErrors
 import kotlinx.android.synthetic.main.app_bar_main.*
-import kotlinx.android.synthetic.main.content_main.*
 import kotlinx.android.synthetic.main.main.*
-
 import java.io.File
 import java.io.FileInputStream
 import java.io.FileOutputStream
@@ -282,8 +264,6 @@ class VNCMobileServer : AppCompatActivity(), NavigationView.OnNavigationItemSele
             val perms = getIntent().getStringArrayExtra("permissions")
             Log.i(TAG, "Asked to request permissions")
             doRequestPermissions(perms, PERMISSIONS_REQUEST_STARTUP)
-        } else {
-            enableDeviceAdminIfRequired()
         }
 
         setIntent(Intent(SampleIntents.LAUNCHER_INTENT))
@@ -568,20 +548,6 @@ class VNCMobileServer : AppCompatActivity(), NavigationView.OnNavigationItemSele
         NotificationHelper.ServiceUtils.startForegroundServiceWithIntent(
                 this,
                 i);
-    }
-
-    @android.annotation.TargetApi(23)
-    private fun isPermissionGranted(permission: String): Boolean {
-        var isGranted = true
-        if (android.os.Build.VERSION.SDK_INT >= 23) {
-            /* From Android 6.0 onwards we need to request 'dangerous'
-             * permissions dynamically, they are no longer granted at
-             * install time. */
-            if (checkSelfPermission(permission) != PackageManager.PERMISSION_GRANTED) {
-                isGranted = false
-            }
-        }
-        return isGranted
     }
 
     @android.annotation.TargetApi(23)
@@ -875,52 +841,6 @@ class VNCMobileServer : AppCompatActivity(), NavigationView.OnNavigationItemSele
         mRcsApkFile = null
     }
 
-    private fun samsungRcsPresent(): Boolean {
-        try {
-            val rcsCls = Class.forName(SAMSUNG_REMOTE_CONTROL_CLASS)
-            return true
-        } catch (e: ClassNotFoundException) {
-            return false
-        }
-
-    }
-
-    private fun enableDeviceAdminIfRequired() {
-        // Device admin is required for the Samsung Remote Control Service.
-        // We need API level 17 (4.2) or above because we require the Samsung
-        // Enterprise License Management service. However, some devices running
-        // 4.2 have issues in the Samsung KNOX libraries, so limit ourselves to
-        // API level 18 and above.
-        val sharedPref = PreferenceManager.getDefaultSharedPreferences(this)
-        val requestedDeviceAdmin = sharedPref.getBoolean(ENABLE_DEVICE_ADMIN_REQUESTED, false)
-
-        if (isSamsungDevice &&
-                Build.VERSION.SDK_INT >= 18 /*JELLY_BEAN_MR2*/ &&
-                samsungRcsPresent() &&
-                !requestedDeviceAdmin) {
-            requestDeviceAdminIfDisabled()
-        }
-    }
-
-    // Returns true if it requested the device admin, false otherwise
-    private fun requestDeviceAdminIfDisabled(): Boolean {
-        // Check whether we already are a device admin
-        val mDpm = getSystemService(Context.DEVICE_POLICY_SERVICE) as DevicePolicyManager
-        val adminReceiverComponent = ComponentName(this, RemoteControlDeviceAdminReceiver::class.java)
-        if (!mDpm.isAdminActive(adminReceiverComponent)) {
-            Log.i(TAG, "Requesting to be added as a device administrator")
-            val intent = Intent(DevicePolicyManager.ACTION_ADD_DEVICE_ADMIN)
-            intent.putExtra(DevicePolicyManager.EXTRA_DEVICE_ADMIN, adminReceiverComponent)
-            startActivity(intent)
-
-            // Indicate that it has been requested
-            val sharedPref = PreferenceManager.getDefaultSharedPreferences(this)
-            sharedPref.edit().putBoolean(ENABLE_DEVICE_ADMIN_REQUESTED, true).apply()
-            return true
-        }
-        return false
-    }
-
     inner class CallbackHandler : IVncServerListener.Stub() {
         override fun listeningCb(ipAddresses: String) {
             updateStatusText()
@@ -1050,10 +970,6 @@ class VNCMobileServer : AppCompatActivity(), NavigationView.OnNavigationItemSele
         val PERMISSIONS_REQUEST_STARTUP = 1
         val PERMISSIONS_REQUEST_LOG = 2
         val PERMISSIONS_REQUEST_AUTOCONNECT = 3
-
-        private val SAMSUNG_REMOTE_CONTROL_CLASS = "com.realvnc.android.remote.samsung.SamsungRemoteControl"
-
-        private val ENABLE_DEVICE_ADMIN_REQUESTED = "enable_device_admin_already_requested"
 
         private/* Here we ought to be able to directly access the SUPPORTED_ABIS
          * field because we are within a TargetApi annotated method.

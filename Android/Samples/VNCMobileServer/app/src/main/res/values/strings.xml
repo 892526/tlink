@@ -20,6 +20,7 @@
 
 	<!-- Common -->
 	<string name="common_ok">OK</string>
+	<string name="common_agree">Agree</string>
 
 	<!-- Messages that can appear on the UI as the server status -->
 	<string name="SS_02_201">Starting server</string>

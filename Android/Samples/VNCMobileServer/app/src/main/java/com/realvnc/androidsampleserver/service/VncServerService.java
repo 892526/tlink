@@ -1507,18 +1507,10 @@ public class VncServerService extends Service
 
             ArrayList<String> permList = new ArrayList<String>();
             // We need this permission to read the license from the SD card.
-            if (isPermissionGranted(PERMISSION_READ_EXTERNAL_STORAGE)) {
+            if (isPermissionGranted(PERMISSION_READ_EXTERNAL_STORAGE) || useLicenseFileInAssetFolder) {
                 loadServerLicenses();
             } else {
                 permList.add(PERMISSION_READ_EXTERNAL_STORAGE);
-            }
-            // The SMS Receiver needs this permission for Mobile Bridge connections.
-            if (!isPermissionGranted(permission.RECEIVE_SMS)) {
-                permList.add(permission.RECEIVE_SMS);
-            }
-            // The HTTP Trigger needs this permission for Mobile Bridge connections.
-            if (!isPermissionGranted(permission.READ_PHONE_STATE)) {
-                permList.add(permission.READ_PHONE_STATE);
             }
             if (!permList.isEmpty()) {
                 requestPermissions(permList);
