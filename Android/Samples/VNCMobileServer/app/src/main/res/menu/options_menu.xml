@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 
+
+   Copyright (C) 2002-2018 RealVNC Ltd. All Rights Reserved.
+ 
+   This is a sample application intended to demonstrate part of the
+   VNC Mobile Solution SDK. It is not intended as a production-ready
+   component.
+
+-->
+
+
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+  <item android:id="@+id/listen"       android:title="@string/menu_listen"/>
+  <item android:id="@+id/stop"         android:title="@string/menu_stop"/>
+  <item android:id="@+id/disconnect"   android:title="@string/menu_disconnect"/>
+  <item android:id="@+id/connect"      android:title="@string/menu_connect"/>
+  <item android:id="@+id/auto_connect" android:title="@string/menu_auto_connect"/>
+  <item android:id="@+id/cmdstring"    android:title="@string/menu_cmdstring"/>
+  <item android:id="@+id/usb_connect"  android:title="@string/menu_usb_connect"/>
+  <item android:id="@+id/device_admin" android:title="@string/menu_device_admin"/>
+  <item android:id="@+id/settings"     android:title="@string/menu_settings"/>
+  <item android:id="@+id/showlog"      android:title="@string/menu_showlog"/>
+  <item android:id="@+id/about"        android:title="@string/menu_about"/>
+
+</menu>

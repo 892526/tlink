@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (C) 2002-2018 RealVNC Ltd. All Rights Reserved. -->
+<lint>
+
+<issue id="UnusedResources">
+  <ignore path="res/values/strings.xml" />
+</issue>
+
+<issue id="Overdraw">
+  <ignore path="res/layout/main.xml" />
+</issue>
+
+<issue id="WorldReadableFiles">
+  <ignore path="src/com/realvnc/androidsampleserver/ServiceInstaller.java" />
+  <ignore path="src/com/realvnc/androidsampleserver/alternate/ServiceInstaller.java" />
+</issue>
+
+<issue id="UnusedIds">
+  <ignore path="res/layout/auth_dialog.xml" />
+  <ignore path="res/layout/authreq_dialog.xml" />
+  <ignore path="res/layout/cmdstring_dialog.xml" />
+  <ignore path="res/layout/connect_dialog.xml" />
+  <ignore path="res/layout/http_accept.xml" />
+  <ignore path="res/layout/main.xml" />
+  <ignore path="res/layout/non_market_install_dialog.xml" />
+  <ignore path="res/layout/about_dialog.xml" />
+  <ignore path="res/layout/accessibility_dialog.xml" />
+</issue>
+
+<issue id="IconLocation">
+  <ignore path="res/drawable/vncicon.png" />
+  <ignore path="res/drawable/vncserver.png" />
+  <ignore path="res/drawable/vncserver48x48.png" />
+</issue>
+
+<issue id="ButtonOrder">
+  <ignore path="res/layout/cmdstring_dialog.xml" />
+  <ignore path="res/layout/connect_dialog.xml" />
+  <ignore path="res/layout/aap_not_chosen_dialog.xml" />
+</issue>
+
+<issue id="OldTargetApi" severity="ignore" />
+
+<issue id="Wakelock">
+  <ignore path="src/com/realvnc/androidsampleserver/service/VncServerService.java" />
+  <ignore path="src/com/realvnc/androidsampleserver/alternate/service/VncServerService.java" />
+</issue>
+
+<issue id="SelectableText">
+  <ignore path="res/layout/auth_dialog.xml" />
+  <ignore path="res/layout/main.xml" />
+</issue>
+
+<issue id="ButtonStyle" severity="ignore" />
+
+<issue id="GoogleAppIndexingWarning" severity="ignore" />
+<issue id="LogConditional" severity="ignore" />
+
+</lint>

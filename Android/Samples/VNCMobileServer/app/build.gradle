@@ -1,0 +1,88 @@
+/* Copyright (C) 2018 RealVNC Ltd.  All Rights Reserved. */
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+
+def keystorePropsFile = file('keystore.properties')
+def keystoreProps = null
+
+if (keystorePropsFile.exists()) {
+    keystoreProps = new Properties()
+    keystoreProps.load(new FileInputStream(keystorePropsFile))
+}
+
+android {
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    buildToolsVersion rootProject.ext.buildToolsVersion
+
+    defaultConfig {
+        applicationId 'com.realvnc.androidsampleserver'
+        minSdkVersion 21
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        versionCode 0
+        versionName '0.0.1'
+    }
+
+    /*
+    sourceSets {
+        main {
+            aidl.srcDirs 'src'
+            java.srcDirs 'src'
+        }
+    }
+    */
+
+    signingConfigs {
+        if (keystoreProps != null) {
+            sample {
+                storeFile rootProject.file(keystoreProps['storeFile'])
+                storePassword keystoreProps['storePassword']
+                keyAlias keystoreProps['keyAlias']
+                keyPassword keystoreProps['keyPassword']
+            }
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-project.txt'
+            if (keystoreProps != null) {
+                signingConfig signingConfigs.sample
+            }
+        }
+        debug {
+            if (keystoreProps != null) {
+                signingConfig signingConfigs.sample
+            }
+        }
+    }
+
+    lintOptions {
+        abortOnError true
+    }
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlinVersion"
+
+    implementation "com.android.support:appcompat-v7:${rootProject.ext.supportLibVersion}"
+    implementation "com.android.support:support-v4:${rootProject.ext.supportLibVersion}"
+    implementation 'com.android.support.constraint:constraint-layout:1.1.2'
+    implementation "com.android.support:design:${rootProject.ext.supportLibVersion}"
+
+
+    implementation project(':vncserversdk')
+    implementation project(':networkadvertisersdk')
+    if (file("../../../RootedRemoteControlService").exists()) {
+        implementation project(':rootedremotecontrolservice')
+    }
+    if (file("../../../SamsungRemoteControlService").exists()) {
+        implementation project(':samsungremotecontrolservice')
+    }
+    if (file("../../../RemoteViewService").exists()) {
+        implementation project(':remoteviewservice')
+    }
+}

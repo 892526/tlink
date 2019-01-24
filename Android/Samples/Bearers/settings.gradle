@@ -1,0 +1,4 @@
+/* Copyright (C) 2018 RealVNC Ltd.  All Rights Reserved. */
+include ':vncserversdk'
+
+project(':vncserversdk').projectDir = file('../../SDK')

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/VNCMobileServer.iml" filepath="$PROJECT_DIR$/VNCMobileServer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../VNCNetworkAdvertiserSDK/networkadvertisersdk.iml" filepath="$PROJECT_DIR$/../../VNCNetworkAdvertiserSDK/networkadvertisersdk.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../RemoteViewService/remoteviewservice.iml" filepath="$PROJECT_DIR$/../../RemoteViewService/remoteviewservice.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../RootedRemoteControlService/rootedremotecontrolservice.iml" filepath="$PROJECT_DIR$/../../RootedRemoteControlService/rootedremotecontrolservice.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../SamsungRemoteControlService/samsungremotecontrolservice.iml" filepath="$PROJECT_DIR$/../../SamsungRemoteControlService/samsungremotecontrolservice.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../SDK/vncserversdk.iml" filepath="$PROJECT_DIR$/../../SDK/vncserversdk.iml" />
+    </modules>
+  </component>
+</project>

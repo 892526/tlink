@@ -1,0 +1,62 @@
+# Copyright (C) 2002-2018 RealVNC Ltd. All Rights Reserved.
+#
+# Proguard configuration file defining proguard configuration
+# for the RealVNC Remote View Service.
+
+-keepclassmembers public class com.realvnc.android.remote.view.ViewRemoteControl {
+    public *** customStaticRequest(...);
+    public *** getRemoteControl(...);
+    public *** serviceAvailable(...);
+}
+
+-keep public class com.realvnc.android.remote.view.implementation.MediaProjectionActivity {
+      public protected *;
+}
+
+-keepclassmembers class * {
+      public void onFrameAvailable(***);
+}
+
+-keepclassmembers class com.realvnc.vr.** {
+      public void onStop();
+}
+
+-keepclassmembers class com.realvnc.vr.** {
+      public void onPaused();
+      public void onResumed();
+      public void onStopped();
+}
+
+-keep class android.os.RemoteControl$DeviceInfo {
+    <fields>;
+}
+
+# Ideally this would be a rule for any classes implementing
+# android.view.IRotationWatcher$Stub, but proguard doesn't seem
+# to allow that matching as the interface is unknown.
+-keepclassmembers class * {
+    void onRotationChanged(int);
+}
+
+# It is ok to have
+# "com.realvnc.android.remote.view.ViewRemoteControl" renamed as
+# long as the string referencing it is updated too
+-adaptclassstrings
+
+# Ignore warnings on Android OS internal classes that are referenced
+-dontwarn android.os.ServiceManager
+-dontwarn android.view.IWindowManager
+-dontwarn android.view.IWindowManager$Stub
+-dontwarn android.view.IRotationWatcher
+-dontwarn android.view.IRotationWatcher$Stub
+-dontwarn android.hardware.display.DisplayManagerGlobal
+-dontwarn android.hardware.display.IDisplayManager
+-dontwarn android.hardware.display.IDisplayManager$Stub
+-dontwarn android.hardware.display.IVirtualDisplayCallback
+-dontwarn android.hardware.display.IVirtualDisplayCallback$Stub
+-dontwarn android.media.projection.IMediaProjection
+-dontwarn android.media.projection.IMediaProjectionCallback
+-dontwarn android.media.projection.IMediaProjectionCallback$Stub
+-dontwarn android.media.projection.IMediaProjection$Stub
+
+# Keep all the internal SDK classes as they have already been proguarded

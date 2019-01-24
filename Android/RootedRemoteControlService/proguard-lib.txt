@@ -1,0 +1,47 @@
+# Copyright (C) 2002-2018 RealVNC Ltd. All Rights Reserved.
+#
+# Proguard configuration file defining proguard configuration
+# for the RealVNC rooted Remote Control Service.
+
+-keepclassmembers public class com.realvnc.android.remote.rooted.RootedRemoteControl {
+    public *** getRemoteControl(...);
+    public *** serviceAvailable(...);
+}
+
+-keep class android.os.RemoteControl$DeviceInfo {
+    <fields>;
+}
+
+# Ideally this would be a rule for any classes implementing
+# android.view.IRotationWatcher$Stub, but proguard doesn't seem
+# to allow that matching as the interface is unknown.
+-keepclassmembers class ** {
+    void onRotationChanged(int);
+}
+
+# It is ok to have
+# "com.realvnc.android.remote.rooted.RootedRemoteControl" renamed as
+# long as the string referencing it is updated too
+-adaptclassstrings
+
+# Ignore warnings on Android OS internal classes that are referenced
+-dontwarn android.view.IRotationWatcher$Stub
+-dontwarn android.os.ServiceManager
+-dontwarn android.view.IWindowManager
+-dontwarn android.view.IWindowManager$Stub
+-dontwarn android.view.IRotationWatcher
+-dontwarn android.view.IRotationWatcher$Stub
+
+# Keep all the internal SDK classes as they have already been proguarded
+-keep class com.realvnc.rr.c {
+    <init>(...);
+    *** q;
+    *** r;
+    *** a(...);
+    *** b(...);
+    *** n(...);
+    *** c(...);
+    *** o(...);
+    *** p(...);
+    *** d(...);
+}

@@ -1,0 +1,107 @@
+# Copyright (C) 2002-2018 RealVNC Ltd. All Rights Reserved.
+#
+# Proguard configuration file defining proguard configuration
+# for the RealVNC Server SDK
+
+# Native code uses some class constructors directly
+-keepclassmembers public class com.realvnc.mirrorlink.* {
+    <init>(...);
+}
+
+-keepclassmembers public class com.realvnc.vncserver.core.* {
+    <init>(...);
+}
+
+
+# Modify any string constants which mention classes,
+# this is needed to keep the references to bearers
+-adaptclassstrings
+
+# Keep constructors for bearers
+-keepclassmembers class ** implements com.realvnc.vncserver.core.VncBearer {
+    <init>(android.content.Context);
+}
+
+# Keep RemoteControlService classes which are used over IPC
+-keep class android.os.IRemoteControl
+-keep class android.os.IRemoteControlClient
+
+# Keep the AccessibilityService
+-keep public class com.realvnc.vncserver.android.implementation.ContextInformationAccessibilityService {
+      public protected !static *;
+}
+
+# Keep all the internal SDK classes as they have already been proguarded
+-keep class com.realvnc.vncserver.android.implementation.o {
+    <init>(...);
+    *** a(...);
+}
+-keep class com.realvnc.vncserver.android.implementation.v {
+    <init>(...);
+    *** u;
+    *** a(...);
+    *** b(...);
+    *** j(...);
+    *** i(...);
+    *** J(...);
+    *** K(...);
+    *** c(...);
+    *** L(...);
+    *** M(...);
+    *** N(...);
+    *** O(...);
+    *** P(...);
+    *** Q(...);
+    *** R(...);
+    *** S(...);
+    *** T(...);
+    *** U(...);
+    *** V(...);
+    *** W(...);
+    *** X(...);
+    *** Y(...);
+    *** d(...);
+    *** e(...);
+    *** Z(...);
+    *** k(...);
+    *** aa(...);
+    *** l(...);
+    *** f(...);
+    *** g(...);
+    *** h(...);
+    *** m(...);
+    *** ab(...);
+    *** ac(...);
+    *** n(...);
+    *** o(...);
+    *** p(...);
+    *** ad(...);
+    *** q(...);
+    *** ae(...);
+    *** af(...);
+    *** ag(...);
+    *** ah(...);
+    *** A(...);
+    *** B(...);
+    *** C(...);
+    *** D(...);
+    *** E(...);
+}
+-keep class com.realvnc.vncserver.android.implementation.aq {
+    <init>(...);
+    *** a(...);
+    *** b(...);
+    *** c(...);
+    *** d(...);
+    *** e(...);
+}
+-keep class com.realvnc.vncserver.android.implementation.aq$b {
+    <init>(...);
+    *** a;
+    *** b;
+}
+-keep class com.realvnc.vncserver.android.implementation.aq$a {
+    <init>(...);
+    *** a;
+    *** b;
+}

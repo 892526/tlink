@@ -1,0 +1,39 @@
+/* Copyright (C) 2018 RealVNC Ltd.  All Rights Reserved. */
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:2.3.1'
+    }
+}
+
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion 23
+    buildToolsVersion '25.0.0'
+
+    defaultConfig {
+        minSdkVersion 21
+        targetSdkVersion 23
+        versionCode 0
+        versionName 'development'
+    }
+
+    sourceSets {
+        main {
+            java.srcDirs 'src'
+            manifest.srcFile 'AndroidManifest.xml'
+        }
+    }
+
+    lintOptions {
+        abortOnError true
+    }
+}
+
+
+dependencies {
+    compile project(':vncserversdk')
+}

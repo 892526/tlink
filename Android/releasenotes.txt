@@ -1,0 +1,145 @@
+﻿Release Notes - VNC(R) Mobile Server SDK 4.1 for Android
+========================================================
+
+Issues fixed in this release:
+-----------------------------
+
+
+API changes
+-----------
+
+* Android support is now 5.0 to 7.0.
+
+* Server SDK now supports VA H.264 encoding.
+
+
+Known issues in this release:
+-----------------------------
+
+MOB-5284: Device administrator must be disabled before sample server
+          can be uninstalled.
+
+MOB-6122: One server crashes if you try to run two Android servers at
+          the same time.
+
+MOB-6147: When running on device which require screen polling to detect
+          changes the server can have high CPU usage.
+
+MOB-7286: Injecting 'å' character can fail on some devices. Other
+          characters, such as 'ö' and 'ä' are injected successfully. All
+          characters which can be produced from a physical key
+          combination are supported.
+
+MOB-7779: ICS Server shows that it is listening on a IPv6 address.
+
+MOB-7782: ICS device requires manual PIN entry when connecting to
+          a bluetooth device.
+
+MOB-8017: Android Server's landscape lock behavior forces portrait apps
+          into landscape on ICS devices.
+
+MOB-8048: Connection and Status URL does not update when upgrading the
+          VNC Mobile Server.
+
+MOB-8628: Pressing num pad keys does not bring up a calling screen on
+          Nexus 4.
+
+MOB-8629: Can't enter "€" or "£" on Nexus 4.
+
+MOB-8702: Unlocking Nexus 4 via skin, mouse or keyboard doesn't work.
+
+MOB-9005: Android Server Settings screen available while connected to a
+          viewer.
+
+MOB-9409: Unable to automatically pair with Bluetooth headsets when
+          Bluetooth settings open on device.
+
+MOB-9483: Some Android 4.3 devices will crash when touch events are
+          injected by the server SDK if the "Input -> Pointer location"
+          developer option is enabled. This is fixed in Android 4.4 by
+          this change: https://android.googlesource.com/platform/
+          frameworks/base.git/+/
+          2f1cd7e68bc1f45243191f63984523ba6d36b590%5E%21/#F0
+
+MOB-9911: Android Server listens for connections on Mobile Data even if
+          mobile data is switched off.
+
+MOB-9922: Google Play film not displayed in the viewer when connected on
+          the S4.
+
+MOB-10490: Listening server is not re-advertising itself as an available
+           wifi device if it had previously rejected Viewer's connection
+           attempt.
+
+MOB-10697: Applications can write arbitrary information into the
+           framebuffer in Android 4.4 when using the 4.4+ RCS. VNC
+           Automotive recommends using the 4.3-4.4 RCS for Android 4.4
+           instead.
+
+MOB-11917: No context information reported for Samsung devices based on
+           Android 5.0.
+
+MOB-12024: A non-platform-signed server on a rooted Android 5.0 device
+           does not have access to context information.
+
+MOB-12595: Only one app at a time might connect to the RVS.
+
+MOB-12616: On Android 5.1.0, when the Remote View Service is in use and
+           the screen capture permission has been permanently granted,
+           subsequent connections will cause the 'System UI' process to
+           crash. This issue does not occur on Android 5.0.1 or 5.1.1.
+
+MOB-13173: Android's on-screen keyboard will not pop up when using AAP
+           HID. This can be worked around in 5.0.1 by navigating to:
+           "Settings/Language & input/Current keyboard" and selecting
+           "Hardware, show input method"
+
+MOB-13293: Nexus 5X running Android 6.0 might generate a corrupted
+           framebuffer.
+
+MOB-13303: Landscape lock is lost if the phone is locked/unlocked while
+           using the Remote View Service.
+
+MOB-14947: Samsung Galaxy S4 running Android 4.4.2 might sometimes refuse
+           connections.
+
+MOB-14908: Switching apps during prompt for authorizing remote control on RCS
+           rejects authorization.
+
+MOB-17255: Samsung RCS requires license tied to APK.
+
+
+Note on USB tethering of Android phones
+=======================================
+
+VNC Automotive recommends that users follow these two rules when using USB
+tethering to connect to the Android VNC server:
+
+- Avoid enabling USB tethering and WiFi at the same time.
+
+- After turning off tethering, reboot the phone before trying to use
+  WiFi connectivity.
+
+Not following these rules can lead to obscure and erratic networking
+problems caused by Android using an inappropriate network address and
+DHCP configuration on the WiFi interface. If using AAP then none of
+these issues apply.
+
+Some kernel versions available for the Nexus One android device
+contain a bug where rapidly sending data over a tethered USB
+connection can cause the device to freeze and restart a couple of
+seconds later. This has been seen in kernel version 2.6.35.7, but may
+affect other kernel versions. Other Android devices, such as the Nexus
+S, are not affected. The RealVNC reference for this issue is MOB-6095.
+
+Trademark Information
+=====================
+
+RealVNC and VNC are trademarks of RealVNC Limited and are protected by
+trademark registrations and/or pending trademark applications in the
+European Union, United States of America and other jurisdictions.
+MirrorLink is a registered trademark of Car Connectivity Consortium LLC.
+Other trademarks are the property of their respective owners.
+Protected by UK patents 2481870, 2491657; US patents 8760366, 9137657; EU patent 2652951.
+
+Copyright (c) 2002-2018 RealVNC Ltd.  All rights reserved.

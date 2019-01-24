@@ -1,0 +1,31 @@
+# Copyright (C) 2002-2018 RealVNC Ltd. All Rights Reserved.
+#
+# Proguard configuration file defining proguard configuration
+# for the VNC Network Advertiser SDK
+
+# Keep all the internal SDK classes as they have already been proguarded
+-keep class com.realvnc.n.b {
+    <init>(...);
+    *** f;
+    *** a(...);
+    *** e(...);
+    *** b(...);
+    *** c(...);
+    *** f(...);
+    *** g(...);
+}
+-keep class com.realvnc.n.c {
+    <init>(...);
+    *** a(...);
+    *** b(...);
+}
+-keep class com.realvnc.n.e {
+    <init>(...);
+    *** f(...);
+    *** g(...);
+    *** h(...);
+    *** i(...);
+    *** j(...);
+    *** k(...);
+    *** b(...);
+}

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 
+
+   Copyright (C) 2002-2018 RealVNC Ltd. All Rights Reserved.
+ 
+   This is a sample application intended to demonstrate part of the
+   VNC Mobile Solution SDK. It is not intended as a production-ready
+   component.
+
+-->
+
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+
+  <TextView android:id="@+id/connect_dialog_text"
+    android:layout_width="fill_parent" 
+    android:layout_height="wrap_content" 
+    android:layout_marginTop="3dp"
+    android:gravity="center_horizontal"
+    android:text="@string/connect_dialog_text"/>
+
+  <EditText
+    android:id="@+id/connect_dialog_address"
+    android:inputType="text"
+    android:layout_height="wrap_content"
+    android:layout_width="fill_parent"
+    android:maxLines="1"/>
+
+  <LinearLayout
+    android:orientation="horizontal"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content">
+
+    <Button
+      android:id="@+id/connect_dialog_ok"
+      android:layout_width="wrap_content" 
+      android:layout_height="wrap_content" 
+      android:layout_weight="1"
+      android:text="@string/connect_dialog_ok"/>
+
+    <Button
+      android:id="@+id/connect_dialog_cancel"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_weight="1"
+      android:text="@string/connect_dialog_cancel"/>
+
+  </LinearLayout>
+
+</LinearLayout>

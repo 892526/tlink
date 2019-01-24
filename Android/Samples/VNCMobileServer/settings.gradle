@@ -1,0 +1,20 @@
+/* Copyright (C) 2018 RealVNC Ltd.  All Rights Reserved. */
+include ':app', ':vncserversdk', ':networkadvertisersdk'
+
+if (file("../../SamsungRemoteControlService").exists()) {
+    include ':samsungremotecontrolservice'
+    project(':samsungremotecontrolservice').projectDir = file('../../SamsungRemoteControlService')
+}
+
+if (file("../../RootedRemoteControlService").exists()) {
+    include ':rootedremotecontrolservice'
+    project(':rootedremotecontrolservice').projectDir = file('../../RootedRemoteControlService')
+}
+
+if (file("../../RemoteViewService").exists()) {
+    include ':remoteviewservice'
+    project(':remoteviewservice').projectDir = file('../../RemoteViewService')
+}
+
+project(':vncserversdk').projectDir = file('../../SDK')
+project(':networkadvertisersdk').projectDir = file('../../VNCNetworkAdvertiserSDK')

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2002-2018 RealVNC Ltd. All Rights Reserved. -->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+      package="com.realvnc.android.remote.view"
+      android:versionCode="1"
+      android:versionName="1.0">
+
+    <application>
+        <!-- Use an absolute path because this manifest will be merged into another
+              with a different package -->
+        <activity android:name="com.realvnc.android.remote.view.implementation.MediaProjectionActivity"
+                    android:exported="false">
+                    <!--android:theme="@android:style/Theme.NoDisplay"-->
+        </activity>
+    </application>
+
+</manifest>

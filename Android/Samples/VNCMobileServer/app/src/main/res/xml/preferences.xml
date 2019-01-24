@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 
+
+   Copyright (C) 2002-2018 RealVNC Ltd. All Rights Reserved.
+ 
+   This is a sample application intended to demonstrate part of the
+   VNC Mobile Solution SDK. It is not intended as a production-ready
+   component.
+
+-->
+
+
+<PreferenceScreen
+  xmlns:android="http://schemas.android.com/apk/res/android">
+
+	<PreferenceScreen
+	  android:title="@string/prefs_cat_vncsettings"
+	  android:summary="@string/prefs_cat_vncsettings_summary">
+
+	  <EditTextPreference
+		android:key="vnc_port"
+		android:title="@string/prefs_vnc_port"
+		android:summary="@string/prefs_vnc_port_summary"
+		android:numeric="integer"
+		android:defaultValue="5900"
+		android:maxLength="5"/> 
+
+	  <CheckBoxPreference
+		android:key="vnc_enable_network_advertiser"
+		android:title="@string/prefs_vnc_advertise_server"
+		android:summary="@string/prefs_vnc_advertise_server_summary"
+		android:defaultValue="1"/>
+
+	  <CheckBoxPreference
+		android:key="vnc_allow_view_only"
+		android:title="@string/prefs_vnc_allow_view_only"
+		android:summary="@string/prefs_vnc_allow_view_only_summary"
+		android:defaultValue="1"/>
+
+    </PreferenceScreen>
+   
+	<PreferenceScreen 
+	  android:title="@string/prefs_cat_security"
+	  android:summary="@string/prefs_cat_security_summary">
+
+	  <CheckBoxPreference
+		android:key="vnc_encryption"
+		android:title="@string/prefs_vnc_encryption"
+		android:summary="@string/prefs_vnc_encryption_summary"/>
+
+	  <ListPreference
+		android:key="vnc_authtype"
+		android:title="@string/prefs_vnc_authtype"
+		android:summary="@string/prefs_vnc_authtype_summary"
+		android:entries="@array/authtype_id"
+		android:entryValues="@array/authtype_value"/>
+
+	  <CheckBoxPreference
+		android:key="vnc_signature_validation"
+		android:title="@string/prefs_vnc_signature_validation"
+		android:summary="@string/prefs_vnc_signature_validation_summary"
+		android:defaultValue="1"/>
+
+	  <CheckBoxPreference
+		android:key="vnc_accept_prompt"
+		android:title="@string/prefs_vnc_accept_prompt"
+		android:summary="@string/prefs_vnc_accept_prompt_summary"/>
+
+    </PreferenceScreen>
+   
+	<PreferenceScreen 
+	  android:title="@string/prefs_cat_clipboard"
+	  android:summary="@string/prefs_cat_clipboard_summary">
+
+	  <CheckBoxPreference
+		android:key="vnc_clipboard"
+		android:title="@string/prefs_vnc_clipboard"
+		android:summary="@string/prefs_vnc_clipboard_summary"
+		android:defaultValue="1"/>
+
+	  <CheckBoxPreference
+		android:key="vnc_clipboard_on_connect"
+		android:title="@string/prefs_vnc_clipboard_on_connect"
+		android:summary="@string/prefs_vnc_clipboard_on_connect_summary"
+		android:dependency="vnc_clipboard"
+		android:defaultValue="0"/>
+
+    </PreferenceScreen>
+   
+	<PreferenceScreen 
+	  android:title="@string/prefs_cat_bridge"
+	  android:summary="@string/prefs_cat_bridge_summary">
+
+	  <CheckBoxPreference
+		android:key="vnc_sms_listener"
+		android:title="@string/prefs_sms_listener"
+		android:summary="@string/prefs_sms_listener_summary"
+		android:defaultValue="1"/>
+
+	  <EditTextPreference
+		android:summary="@string/prefs_url_connection_summary"
+		android:title="@string/prefs_url_connection"
+		android:key="url_connection" />
+
+	  <EditTextPreference
+		android:summary="@string/prefs_url_logging_summary"
+		android:title="@string/prefs_url_logging"
+		android:key="url_logging" />
+
+    </PreferenceScreen>
+ 
+	<PreferenceScreen 
+	  android:title="@string/prefs_cat_usb"
+	  android:summary="@string/prefs_cat_usb_summary">
+
+	  <ListPreference
+		android:key="vnc_usb_bearer"
+		android:title="@string/prefs_usb_bearer"
+		android:summary="@string/prefs_usb_bearer_summary"
+		android:entries="@array/usb_bearer_id"
+		android:entryValues="@array/usb_bearer_value"/>
+
+	  <ListPreference
+		android:key="vnc_usb_autoconnect"
+		android:title="@string/prefs_usb_autoconnect"
+		android:summary="@string/prefs_usb_autoconnect_summary"
+		android:entries="@array/usb_autoconnect_id"
+		android:entryValues="@array/usb_autoconnect_value"/>
+
+  </PreferenceScreen>
+ 
+</PreferenceScreen>

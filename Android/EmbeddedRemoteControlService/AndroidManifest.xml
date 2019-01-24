@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2002-2018 RealVNC Ltd. All Rights Reserved. -->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:tools="http://schemas.android.com/tools"
+      package="com.realvnc.android.remote.embedded"
+      android:versionCode="1"
+      android:versionName="1.0">
+  <!--
+      This RemoteControlService needs to be able to read the device's
+      screen image (READ_FRAME_BUFFER), inject input events into
+      arbitrary windows (INJECT_EVENTS) and set the orientation
+      (SET_ORIENTATION).
+  -->
+  <uses-permission
+      android:name="android.permission.READ_FRAME_BUFFER"
+      tools:ignore="ProtectedPermissions"/>
+  <uses-permission
+      android:name="android.permission.INJECT_EVENTS"
+      tools:ignore="ProtectedPermissions"/>
+  <uses-permission
+      android:name="android.permission.SET_ORIENTATION"
+      tools:ignore="ProtectedPermissions"/>
+
+  <!--
+      This RemoteControlService needs to be able to read the device's
+      screen contents as a video stream.
+  -->
+  <uses-permission android:name="android.permission.CAPTURE_VIDEO_OUTPUT"/>
+
+  <!--
+      This RemoteControlService adds the permission to allow the Server SDK to
+      get the running tasks list on Android 5.0 and above.
+  -->
+  <uses-permission android:name="android.permission.REAL_GET_TASKS"/>
+</manifest>

@@ -1,0 +1,22 @@
+# Copyright (C) 2002-2018 RealVNC Ltd. All Rights Reserved.
+#
+# Proguard configuration file defining proguard configuration
+# for the server SDK bearers
+
+-keepparameternames
+-renamesourcefileattribute SourceFile
+-keepattributes Exceptions, InnerClasses, Signature, Deprecated, SourceFile, LineNumberTable, *Annotation*, EnclosingMethod
+
+-keepclassmembers enum * {
+    public static **[] values();
+    public static ** valueOf(java.lang.String);
+}
+
+-keep public class com.realvnc.vncserver.android.bearers.* {
+      public protected *;
+}
+
+-keepclassmembernames class * {
+    java.lang.Class class$(java.lang.String);
+    java.lang.Class class$(java.lang.String, boolean);
+}

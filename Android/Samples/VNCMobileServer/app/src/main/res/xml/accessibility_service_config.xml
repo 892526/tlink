@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 
+
+   Copyright (C) 2002-2018 RealVNC Ltd. All Rights Reserved.
+ 
+   This is a sample application intended to demonstrate part of the
+   VNC Mobile Solution SDK. It is not intended as a production-ready
+   component.
+
+-->
+
+<accessibility-service xmlns:android="http://schemas.android.com/apk/res/android"
+    android:description="@string/accessibility_service_description"
+    android:accessibilityEventTypes="typeWindowStateChanged"
+    android:accessibilityFeedbackType="feedbackGeneric"
+    android:accessibilityFlags="flagDefault"
+    android:notificationTimeout="0"
+/>

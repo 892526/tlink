@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 
+
+   Copyright (C) 2002-2018 RealVNC Ltd. All Rights Reserved.
+ 
+   This is a sample application intended to demonstrate part of the
+   VNC Mobile Solution SDK. It is not intended as a production-ready
+   component.
+
+-->
+
+<resources>
+  <!-- If these values are changed then the bearer defaults will need
+       changing or the new values provided in the command string.
+    -->
+  <usb-accessory model="AAPTest" manufacturer="Example Company" version="0.1" />
+</resources>

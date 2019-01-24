@@ -1,0 +1,6 @@
+# This file should contain any additional proguard configuration
+# needed for the sample server.
+
+# Put as much code as possible in one place.
+-repackageclasses ''
+-allowaccessmodification

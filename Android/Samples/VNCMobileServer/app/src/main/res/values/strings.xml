@@ -1,0 +1,329 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 
+
+   Copyright (C) 2002-2018 RealVNC Ltd. All Rights Reserved.
+ 
+   This is a sample application intended to demonstrate part of the
+   VNC Mobile Solution SDK. It is not intended as a production-ready
+   component.
+
+-->
+
+
+<resources
+	xmlns:tools="http://schemas.android.com/tools">
+
+	<!-- Strings related to the main application screen -->
+
+	<string name="hello">Welcome to VNC Mobile Server for Android</string>
+	<string name="vncicon_description">RealVNC Ltd. company logo</string>
+
+	<string name="press_menu">Press MENU for options.</string>
+
+	<!-- The name here is filled in by the build script: -->
+	<string name="app_name">JK VNC SERVER</string>
+
+	<string name="menu_auto_connect">Auto Connect</string>
+	<string name="menu_usb_connect">Connect via USB</string>
+	<string name="menu_aap_connect">Connect via AAP</string>
+	<string name="menu_device_admin">Device administrator</string>
+	<string name="menu_connect">Connect</string>
+	<string name="menu_disconnect">Disconnect</string>
+	<string name="menu_listen">Listen</string>
+	<string name="menu_settings">Settings</string>
+	<string name="menu_stop">Stop</string>
+	<string name="menu_showlog">View log</string>
+	<string name="menu_about">About</string>
+	<string name="menu_cmdstring">Command string</string>
+
+	<string name="service_name">RealVNC Server</string>
+
+	<!-- Messages that can appear on the UI as the server status -->
+	<string name="status_starting">Starting server</string>
+
+	<string name="status_keygen">Generating key</string>
+	<string name="status_accept_auth">Accepting authentication</string>
+	<string name="status_accept_conn">Accepting connection</string>
+	<string name="status_connect">Connecting</string>
+	<string name="status_deny_auth">Denying authentication</string>
+	<string name="status_deny_conn">Denying connection</string>
+	<string name="status_listen">Starting listening</string>
+	<string name="status_reset">Resetting</string>
+	<string name="status_supply_auth">Supplying authentication</string>
+
+	<string name="status_accepting">Accepting connection</string>
+	<string name="status_authenticating">Authenticating</string>
+	<string name="status_requesting_auth">Requesting credentials</string>
+	<string name="status_connecting">Connecting</string>
+	<string name="status_disconnected">Disconnected</string>
+	<string name="status_listening">Listening on %s</string>
+	<string name="status_running">Connected to %s</string>
+
+	<string name="status_exception">Server status unknown: %s</string>
+
+	<!-- Messages that can appear in the "secondary status" line -->
+	<string name="status2_dialog">To continue, select the VNC icon in the notification area.</string>
+
+	<!-- Messages that can appear as part of the notifier in the
+	status bar at the top of the screen -->
+	<string name="notifier_connected_ticker">Connected to %s</string>
+	<string name="notifier_connected_title">VNC is connected</string>
+	<string name="notifier_connected_text">Select for VNC options.</string>
+
+	<string name="notifier_accept_ticker">Connection Request</string>
+	<string name="notifier_accept_title">VNC connection request</string>
+	<string name="notifier_accept_text">Select to accept or reject.</string>
+
+	<string name="notifier_auth_ticker">Connection Request</string>
+	<string name="notifier_auth_title">VNC connection request</string>
+	<string name="notifier_auth_text">Select to accept or reject.</string>
+
+	<string name="notifier_authreq_ticker">Connection Request</string>
+	<string name="notifier_authreq_title">VNC connection request</string>
+	<string name="notifier_authreq_text">Select to enter username and password.</string>
+
+	<!-- Standard VNC Mobile Solution error messages -->
+	<string name="error_vnc_0">No Error</string>
+	<string name="error_vnc_1">Insufficient System Resources</string>
+	<string name="error_vnc_2">Invalid State for Command</string>
+	<string name="error_vnc_3">Invalid Permissions</string>
+	<string name="error_vnc_20">General Network Error</string>
+	<string name="error_vnc_21">Unable to Contact Host</string>
+	<string name="error_vnc_22">Connection Refused</string>
+	<string name="error_vnc_23">Host Not Found</string>
+	<string name="error_vnc_24">Port in Use</string>
+	<string name="error_vnc_25">Invalid Port Number</string>
+	<string name="error_vnc_26">No Network Connection</string>
+	<string name="error_vnc_27">Connection Timed Out</string>
+	<string name="error_vnc_28">Network In Use</string>
+	<string name="error_vnc_30">USB not connected</string>
+	<string name="error_vnc_31">Functionality not supported on this device</string>
+	<string name="error_vnc_40">VNC Protocol Mismatch</string>
+	<string name="error_vnc_41">Login Details Rejected</string>
+	<string name="error_vnc_42">Not Licensed for Viewer</string>
+	<string name="error_vnc_43">Connection Closed</string>
+	<string name="error_vnc_44">Invalid Command String</string>
+	<string name="error_vnc_45">Unsupported Authentication</string>
+	<string name="error_vnc_46">RSA Key too big</string>
+	<string name="error_vnc_47">Crypto failure</string>
+	<string name="error_vnc_48">No Compatible Pixel Encodings</string>
+	<string name="error_vnc_49">Bad Pixel Format</string>
+	<string name="error_vnc_50">Data bearer not found</string>
+	<string name="error_vnc_51">Viewer Signature Rejected</string>
+	<string name="error_vnc_52">Insufficient buffer space</string>
+	<string name="error_vnc_53">License not valid</string>
+	<string name="error_vnc_54">Feature not licensed</string>
+	<string name="error_vnc_55">Viewer does not support a critical capability</string>
+	<string name="error_vnc_60">Invalid Parameter</string>
+	<string name="error_vnc_61">VNC Server API Uninitialized</string>
+	<string name="error_vnc_62">Invalid API Call</string>
+	<string name="error_vnc_63">Key Generation Failed</string>
+	<string name="error_vnc_64">Remote control service failed to start</string>
+	<string name="error_vnc_65">Already exists</string>
+	<string name="error_vnc_80">Data Relay Error</string>
+	<string name="error_vnc_81">Bad Data Relay Session Id</string>
+	<string name="error_vnc_82">Bad Data Relay Challenge</string>
+	<string name="error_vnc_83">Data Relay Timeout</string>
+	<string name="error_vnc_100">Rejected</string>
+	<string name="error_vnc_101">Failed to Fetch VNC Command</string>
+	<string name="error_vnc_102">Internal Error</string>
+	<string name="error_vnc_103">File Error</string>
+	<string name="error_vnc_104">Registry Error</string>
+	<string name="error_vnc_105">Ini File Error</string>
+	<string name="error_vnc_106">Command Superceded</string>
+	<string name="error_vnc_107">Unsupported application environment</string>
+
+	<string name="error_vnc_120">Screen capture not implemented on platform, remote control will not be possible.</string>
+	<string name="error_vnc_121">Required remote control support not present, remote control will not be possible.</string>
+	<string name="error_vnc_122">No suitable remote control service found, remote control will not be possible.</string>
+	<string name="error_vnc_123">Remote control service does not have required permissions, remote control will not be possible.</string>
+
+	<!-- Other errors that can appear in toast prompts -->
+	<string name="error_no_url">No rendezvous URL configured</string>
+	<string name="error_msgheader">Error %d: </string>
+	<string name="error_no_errmsg">Untranslated error %d</string>
+	<string name="error_creating_network_advertiser" tools:ignore="PluralsCandidate">Error %d creating network advertiser, server advertising is unavailable.</string>
+	<string name="error_starting_network_advertiser" tools:ignore="PluralsCandidate">Error %d starting network advertiser, server advertising is unavailable.</string>
+	<string name="error_network_advertiser_stopped">Network advertiser stopped with error %d, server advertising is unavailable.</string>
+
+	<!-- Authentication (server authenticates viewer) dialog -->
+	<string name="auth_dialog_title">Authentication</string>
+	<string name="auth_dialog_text">A viewer has provided the following username and password. Do you want to allow it to connect?</string>
+	<string name="auth_dialog_username">Username: %s</string>
+	<string name="auth_dialog_password">Password: %s</string>
+	<string name="auth_dialog_accept">Accept</string>
+	<string name="auth_dialog_reject">Reject</string>
+
+	<!-- Reverse authentication (viewer authenticates server) dialog -->
+	<string name="authreq_dialog_title">Enter Credentials</string>
+	<string name="authreq_dialog_text">The viewer has asked for login details.</string>
+	<string name="authreq_dialog_username">Username:</string>
+	<string name="authreq_dialog_password">Password:</string>
+	<string name="authreq_dialog_ok">Submit</string>
+
+	<!-- Dialog for accepting/rejecting incoming connections -->
+	<string name="accept_dialog_title">Accept Connection</string>
+	<string name="accept_dialog_text">A viewer at %s is attempting to connect to VNC Mobile Server. Allow the connection?</string>
+	<string name="accept_dialog_accept">Accept</string>
+	<string name="accept_dialog_reject">Reject</string>
+
+	<!-- Dialog for making outgoing connections -->
+	<string name="connect_dialog_title">Connect</string>
+	<string name="connect_dialog_text">Enter the address you wish to connect to:</string>
+	<string name="connect_dialog_ok">OK</string>
+	<string name="connect_dialog_cancel">Cancel</string>
+
+	<!-- Dialog for entering command strings -->
+	<string name="cmdstring_dialog_title">Enter Command</string>
+	<string name="cmdstring_dialog_text">Enter a VNC command string:</string>
+	<string name="cmdstring_dialog_ok">OK</string>
+	<string name="cmdstring_dialog_cancel">Cancel</string>
+
+	<!-- About dialog -->
+	<string name="about_dialog_title">About VNC Mobile Server</string>
+	<string name="about_dialog_text">VNC&#174; Mobile Server Sample Application\r\n\r\nVersion: %1$s\r\n\r\nCopyright &#169; RealVNC Limited, 2010&#8211;2018. All rights reserved. RealVNC and VNC are trademarks of RealVNC Limited and are protected by trademark registrations and/or pending trademark applications in the European Union, United States of America and other jurisdictions. Protected by UK patents 2481870, 2491657; US patents 8760366, 9137657; EU patent 2652951. For more information, see www.realvnc.com.\r\n\r\nDevice Signing Keys:\r\n%2$s</string>
+	<string name="about_dialog_ok">Dismiss</string>
+
+	<!-- Dialog for asking the user to enable non-market installation -->
+	<string name="non_market_install_dialog_title">Allow non-market installation?</string>
+	<string name="non_market_install_dialog_text">The VNC server needs to install the remote control service, but your device is set to disallow package installation outside Google Market. Do you want to change this setting?</string>
+	<string name="non_market_install_dialog_accept">Yes</string>
+	<string name="non_market_install_dialog_reject">No</string>
+
+	<!-- Dialog for asking the user to enable the accessibility service -->
+	<string name="accessibility_dialog_title">Accessibility service</string>
+	<string name="accessibility_dialog_text">The VNC Mobile Server needs an Accessibility Service to be able to filter drive-safe apps. You must enable this manually.</string>
+	<string name="accessibility_dialog_accept">Take me to Settings</string>
+	<string name="accessibility_dialog_reject">Later</string>
+
+	<!-- HTTP connection notifier -->
+	<string name="http_accept_notifier_ticker">Remote Control Attempt</string>
+	<string name="http_accept_notifier_title">Remote Control Attempt</string>
+	<string name="http_accept_notifier_text">VNC Mobile Bridge is attempting to control this device.</string>
+
+	<!-- HTTP connection accept/reject prompt -->
+	<string name="http_accept_title">Accept remote control?</string>
+	<string name="http_accept_text">VNC Mobile Bridge is attempting to control this device. Do you want to allow this connection?</string>
+	<string name="http_accept_accept">Accept</string>
+	<string name="http_accept_reject">Reject</string>
+
+	<!-- HTTP disconnection notifier -->
+	<string name="http_disconnect_notifier_ticker">Remote Control Finished</string>
+	<string name="http_disconnect_notifier_title">Remote Control Finished</string>
+	<string name="http_disconnect_notifier_text">VNC Mobile Bridge has disconnected.</string>
+
+	<!-- Strings related to the settings/preferences screens -->
+
+  <string name="app_settings_name">VNC Mobile Server Settings</string>
+
+	<string name="prefs_cat_vncsettings">VNC Settings</string>
+	<string name="prefs_cat_vncsettings_summary">Settings that control the behaviour of the VNC server.</string>
+
+	<string name="prefs_vnc_port">Listening port</string>
+	<string name="prefs_vnc_port_summary">Port number to listen on for incoming connections</string>
+
+	<string name="port_empty_title">No port number</string>
+	<string name="port_empty_message">The port number field must not be empty.</string>
+
+	<string name="port_range_title">Port out of range</string>
+	<string name="port_range_message">The port field must contain a number between 1 and 65535.</string>
+
+	<string name="prefs_vnc_accept_prompt">Accept prompt?</string>
+	<string name="prefs_vnc_accept_prompt_summary">Whether to prompt to accept or reject incoming connections</string>
+
+	<string name="prefs_vnc_advertise_server">Advertise server</string>
+	<string name="prefs_vnc_advertise_server_summary">Whether to advertise the VNC server on local networks when active</string>
+
+	<string name="prefs_cat_security">Security Settings</string>
+	<string name="prefs_cat_security_summary">Settings related to security and authentication</string>
+
+	<string name="prefs_vnc_encryption">Encryption</string>
+	<string name="prefs_vnc_encryption_summary">Whether to encrypt the connection to the viewer</string>
+
+	<string name="prefs_vnc_authtype">Authentication</string>
+	<string name="prefs_vnc_authtype_summary">Type of user/password authentication to use</string>
+
+	<string name="prefs_vnc_signature_validation">Internet signature validation</string>
+	<string name="prefs_vnc_signature_validation_summary">Whether to authenticate the viewer\'s key</string>
+
+	<string name="signature_validation_title">Signature validation disabled</string>
+	<string name="signature_validation_message">Signature validation has been disabled. Encryption or authentication must be enabled in order for signatures to be validated.</string>
+
+	<string name="clipboard_4_3_warning_title">Unreliable clipboard support</string>
+	<string name="clipboard_4_3_warning_message">Clipboard support in Android 4.3 is unreliable due to the Android Open Source project bug 58043. Enabling clipboard support can cause other applications to crash.</string>
+
+	<string name="prefs_cat_bridge">VNC Mobile Bridge</string>
+	<string name="prefs_cat_bridge_summary">Settings related to controlling the device from VNC Mobile Bridge</string>
+
+	<string name="prefs_url_connection">Connection URL</string>
+	<string name="prefs_url_connection_summary">URL to use when connecting via VNC Mobile Bridge</string>
+
+	<string name="prefs_url_logging">Status URL</string>
+	<string name="prefs_url_logging_summary">URL to use for reporting connection status</string>
+
+	<string name="url_empty_title">URL is empty</string>
+	<string name="url_empty_message">Please enter a valid VNC Mobile Bridge URL.</string>
+
+	<string name="url_invalid_title">URL is invalid</string>
+	<string name="url_invalid_message">Please enter a valid VNC Mobile Bridge URL.</string>
+
+	<string name="prefs_sms_listener">SMS Listener</string>
+	<string name="prefs_sms_listener_summary">Whether to respond to SMS triggers from VNC Mobile Bridge</string>
+
+	<string name="prefs_cat_clipboard">Clipboard Settings</string>
+	<string name="prefs_cat_clipboard_summary">Controls affecting sharing of the clipboard between viewer and server</string>
+
+	<string name="prefs_vnc_clipboard">Enable clipboard</string>
+	<string name="prefs_vnc_clipboard_summary">Whether to share the clipboard between the server and the viewer</string>
+
+	<string name="prefs_vnc_clipboard_on_connect">Update clipboard on connection</string>
+	<string name="prefs_vnc_clipboard_on_connect_summary">Whether to update the viewer\'s clipboard when a new connection is opened</string>
+
+	<string name="prefs_cat_usb">USB Settings</string>
+	<string name="prefs_cat_usb_summary">Enable or disable USB settings</string>
+
+	<string name="prefs_usb_bearer">USB bearer</string>
+	<string name="prefs_usb_bearer_summary">The bearer to use when connecting over USB</string>
+
+	<string name="ics_usb_tethering_title">Manual USB tethering required</string>
+	<string name="ics_usb_tethering_message">Warning: you have enabled tethering as the USB bearer on an unsupported device. You will need to manually enable USB tethering for connections to succeed.</string>
+
+	<string name="prefs_usb_autoconnect">Auto USB Connect</string>
+	<string name="prefs_usb_autoconnect_summary">Whether to automatically attempt to connect over USB when a connection is detected</string>
+
+	<string name="prefs_vnc_allow_view_only">Allow view-only</string>
+	<string name="prefs_vnc_allow_view_only_summary">Whether to continue when event injection is not possible</string>
+
+	<!-- Dialog for accepting/rejecting USB auto connect option -->
+	<string name="accept_usb_choice_dialog_title">Allow USB</string>
+	<string name="accept_usb_choice_dialog_text">Do you want to allow USB tethering so VNC Mobile Server can listen for USB connections? Note this may mean VNC Mobile Viewer is able to connect to and control the device.</string>
+	<string name="accept_usb_choice_dialog_accept">Accept</string>
+	<string name="accept_usb_choice_dialog_reject">Reject</string>
+
+	<!-- Dialog warning about AAP connection when not set as USB bearer -->
+	<string name="aap_not_chosen_dialog_title">AAP Connection Attempted</string>
+	<string name="aap_not_chosen_dialog_text">A VNC Mobile Viewer has attempted to start an AAP&#x2D;based USB connection. This connection attempt has been ignored as the server is not currently set up to use AAP for USB.</string>
+	<string name="aap_not_chosen_dialog_accept">OK</string>
+	<string name="aap_not_chosen_dialog_settings">Settings</string>
+
+	<string name="popup_ok_button">OK</string>
+
+	<string name="admin_receiver_description">Allow remote control</string>
+	<string name="admin_disable_warning">This may prevent the server from functioning.</string>
+	<string name="admin_already_admin">Already a device administrator</string>
+
+	<string name="accessibility_service_label">VNC Mobile Server app filtering</string>
+	<string name="accessibility_service_description">Monitors which app is being used during a VNC connection to filter drive-safe apps while driving</string>
+
+	<!-- Drawer -->
+	<string name="navigation_drawer_open">Open navigation drawer</string>
+	<string name="navigation_drawer_close">Close navigation drawer</string>
+
+	<!-- Navigation Menu -->
+	<string name="navigation_menu_about">About</string>
+	<string name="navigation_menu_qa">Q&amp;A</string>
+	<string name="navigation_menu_tos">Terms of service</string>
+	<string name="navigation_menu_oss">Open source licenses</string>
+	<string name="navigation_menu_version">Version</string>
+
+</resources>

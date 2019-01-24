@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+
+   Copyright (C) 2002-2018 RealVNC Ltd. All Rights Reserved.
+
+   This is a sample application intended to demonstrate part of the
+   VNC Mobile Solution SDK. It is not intended as a production-ready
+   component.
+
+-->
+
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+
+  <TextView android:id="@+id/authreq_dialog_text"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="3dp"
+    android:gravity="center_horizontal"
+    android:text="@string/authreq_dialog_text"/>
+
+  <LinearLayout
+    android:id="@+id/authreq_dialog_username_layout"
+    android:orientation="horizontal"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_weight="1"
+      android:layout_marginTop="3dp"
+      android:gravity="center_horizontal"
+      android:text="@string/authreq_dialog_username"/>
+
+    <EditText
+      android:id="@+id/authreq_dialog_username"
+      android:inputType="text"
+      android:layout_weight="1"
+      android:layout_height="wrap_content"
+      android:layout_width="wrap_content"
+      android:maxLines="1"/>
+
+  </LinearLayout>
+
+  <LinearLayout
+    android:id="@+id/authreq_dialog_password_layout"
+    android:orientation="horizontal"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_weight="1"
+      android:layout_marginTop="3dp"
+      android:gravity="center_horizontal"
+      android:text="@string/authreq_dialog_password"/>
+
+    <EditText
+      android:id="@+id/authreq_dialog_password"
+      android:layout_height="wrap_content"
+      android:layout_width="wrap_content"
+      android:layout_weight="1"
+      android:inputType="textPassword"
+      android:maxLines="1"/>
+  </LinearLayout>
+
+  <LinearLayout
+    android:orientation="horizontal"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content">
+
+    <Button
+      android:id="@+id/authreq_dialog_ok"
+      android:layout_width="0dip"
+      android:layout_height="wrap_content"
+      android:layout_weight="1"
+      android:text="@string/authreq_dialog_ok"/>
+
+  </LinearLayout>
+
+</LinearLayout>

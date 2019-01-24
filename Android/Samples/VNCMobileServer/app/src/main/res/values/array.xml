@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 
+
+   Copyright (C) 2002-2018 RealVNC Ltd. All Rights Reserved.
+ 
+   This is a sample application intended to demonstrate part of the
+   VNC Mobile Solution SDK. It is not intended as a production-ready
+   component.
+
+-->
+
+
+<resources>
+  <string-array name="authtype_id">
+	<item>Reverse</item>
+	<item>None</item>
+	<item>Password</item>    
+	<item>Username + password</item>   
+ </string-array>
+  
+  <string-array name="authtype_value">
+	<item>0</item>
+	<item>1</item>
+	<item>2</item>
+	<item>3</item>
+  </string-array>  
+
+  <string-array name="usb_bearer_id">
+    <item>USB Tethering (2.3 only)</item>
+    <item>Android Accessory Protocol (2.3.4+ only)</item>    
+  </string-array>
+  
+  <string-array name="usb_bearer_value">
+    <item>USB</item>
+    <item>AAP</item>
+  </string-array>  
+
+  <string-array name="usb_autoconnect_id">
+    <item>Off</item>
+    <item>On</item>    
+    <item>Always Ask</item>   
+  </string-array>
+  
+  <string-array name="usb_autoconnect_value">
+    <item>0</item>
+    <item>1</item>
+    <item>2</item>
+  </string-array>  
+</resources>
