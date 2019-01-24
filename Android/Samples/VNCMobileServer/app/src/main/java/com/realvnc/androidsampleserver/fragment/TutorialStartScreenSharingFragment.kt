@@ -14,12 +14,12 @@ import com.realvnc.androidsampleserver.R
 /**
  * A simple [Fragment] subclass.
  * Activities that contain this fragment must implement the
- * [TutorialStartFragment.OnFragmentInteractionListener] interface
+ * [TutorialStartScreenSharingFragment.OnFragmentInteractionListener] interface
  * to handle interaction events.
- * Use the [TutorialStartFragment.newInstance] factory method to
+ * Use the [TutorialStartScreenSharingFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
-class TutorialStartFragment : Fragment() {
+class TutorialStartScreenSharingFragment : Fragment() {
 
     /*------------------------------------------------------------------------------------------*/
     //  protected methods
@@ -29,7 +29,7 @@ class TutorialStartFragment : Fragment() {
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        val view = inflater.inflate(R.layout.fragment_tutorial_start, container, false)
+        val view = inflater.inflate(R.layout.fragment_tutorial_start_screen_sharing, container, false)
         initViewPager(view)
         return view
     }
@@ -40,20 +40,20 @@ class TutorialStartFragment : Fragment() {
 
     override fun onResume() {
         super.onResume()
-        activity?.title = getString(R.string.SS_81_3300)
+        activity?.title = getString(R.string.TID_5303)
     }
 
     /*------------------------------------------------------------------------------------------*/
     //  private methods
     /*------------------------------------------------------------------------------------------*/
     private fun initViewPager(view: View) {
-        val viewPager = view.findViewById<ViewPager>(R.id.fragment_tutorial_start_view_pager)
+        val viewPager = view.findViewById<ViewPager>(R.id.fragment_tutorial_launch_view_pager)
 
         viewPager?.let { viewPager ->
             viewPager.adapter = ViewPagerAdapter(childFragmentManager)
         }
 
-        val tabLayout = view.findViewById<TabLayout>(R.id.fragment_tutorial_start_tab_layout)
+        val tabLayout = view.findViewById<TabLayout>(R.id.fragment_tutorial_launch_tab_layout)
         tabLayout?.setupWithViewPager(viewPager, true)
     }
 
@@ -69,8 +69,15 @@ class TutorialStartFragment : Fragment() {
          */
         override fun getItem(position: Int): Fragment {
             return when (position) {
-                0 -> TutorialStartPage1Fragment.newInstance()
-                else -> TutorialStartPage1Fragment.newInstance()
+                0 -> TutorialStartScreenSharingPage1Fragment.newInstance()
+                1 -> TutorialStartScreenSharingPage2Fragment.newInstance()
+                2 -> TutorialStartScreenSharingPage3Fragment.newInstance()
+                3 -> TutorialStartScreenSharingPage4Fragment.newInstance()
+                4 -> TutorialStartScreenSharingPage5Fragment.newInstance()
+                5 -> TutorialStartScreenSharingPage6Fragment.newInstance()
+                6 -> TutorialStartScreenSharingPage7Fragment.newInstance()
+                7 -> TutorialStartScreenSharingPage8Fragment.newInstance()
+                else -> TutorialStartScreenSharingPage1Fragment.newInstance()
             }
         }
 
@@ -80,7 +87,7 @@ class TutorialStartFragment : Fragment() {
          * @return                      Page 数を返す
          */
         override fun getCount(): Int {
-            return 1
+            return 8
         }
     }
 
@@ -92,7 +99,7 @@ class TutorialStartFragment : Fragment() {
         /*------------------------------------------------------------------------------------------*/
         //  private members
         /*------------------------------------------------------------------------------------------*/
-        private val TAG = "TutorialStartFragment"
+        private val TAG = "TutorialStartScreenSharingFragment"
 
         /**
          * Use this factory method to create a new instance of
@@ -101,8 +108,8 @@ class TutorialStartFragment : Fragment() {
          * @return A new instance of fragment OverviewFragment.
          */
         // TODO: Rename and change types and number of parameters
-        fun newInstance(): TutorialStartFragment {
-            return TutorialStartFragment()
+        fun newInstance(): TutorialStartScreenSharingFragment {
+            return TutorialStartScreenSharingFragment()
         }
     }
 

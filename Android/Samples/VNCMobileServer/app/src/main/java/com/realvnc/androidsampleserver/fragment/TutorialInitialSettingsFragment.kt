@@ -10,17 +10,16 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.realvnc.androidsampleserver.R
-import kotlinx.android.synthetic.main.fragment_tutorial_bluetooth.*
 
 /**
  * A simple [Fragment] subclass.
  * Activities that contain this fragment must implement the
- * [TutorialBluetoothFragment.OnFragmentInteractionListener] interface
+ * [TutorialInitialSettingsFragment.OnFragmentInteractionListener] interface
  * to handle interaction events.
- * Use the [TutorialBluetoothFragment.newInstance] factory method to
+ * Use the [TutorialInitialSettingsFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
-class TutorialBluetoothFragment : Fragment() {
+class TutorialInitialSettingsFragment : Fragment() {
 
     /*------------------------------------------------------------------------------------------*/
     //  protected methods
@@ -30,7 +29,7 @@ class TutorialBluetoothFragment : Fragment() {
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        val view = inflater.inflate(R.layout.fragment_tutorial_bluetooth, container, false)
+        val view = inflater.inflate(R.layout.fragment_tutorial_initial_settings, container, false)
         initViewPager(view)
         return view
     }
@@ -41,20 +40,20 @@ class TutorialBluetoothFragment : Fragment() {
 
     override fun onResume() {
         super.onResume()
-        activity?.title = getString(R.string.SS_81_3100)
+        activity?.title = getString(R.string.TID_5302)
     }
 
     /*------------------------------------------------------------------------------------------*/
     //  private methods
     /*------------------------------------------------------------------------------------------*/
     private fun initViewPager(view: View) {
-        val viewPager = view.findViewById<ViewPager>(R.id.fragment_tutorial_bluetooth_view_pager)
+        val viewPager = view.findViewById<ViewPager>(R.id.fragment_tutorial_initial_settings_view_pager)
 
         viewPager?.let { viewPager ->
             viewPager.adapter = ViewPagerAdapter(childFragmentManager)
         }
 
-        val tabLayout = view.findViewById<TabLayout>(R.id.fragment_tutorial_bluetooth_tab_layout)
+        val tabLayout = view.findViewById<TabLayout>(R.id.fragment_tutorial_initial_settings_tab_layout)
         tabLayout?.setupWithViewPager(viewPager, true)
     }
 
@@ -70,9 +69,9 @@ class TutorialBluetoothFragment : Fragment() {
          */
         override fun getItem(position: Int): Fragment {
             return when (position) {
-                0 -> TutorialBluetoothPage1Fragment.newInstance()
-                1 -> TutorialBluetoothPage2Fragment.newInstance()
-                else -> TutorialBluetoothPage1Fragment.newInstance()
+                0 -> TutorialInitialSettingsPage2Fragment.newInstance()
+                1 -> TutorialInitialSettingsPage3Fragment.newInstance()
+                else -> TutorialInitialSettingsPage2Fragment.newInstance()
             }
         }
 
@@ -94,7 +93,7 @@ class TutorialBluetoothFragment : Fragment() {
         /*------------------------------------------------------------------------------------------*/
         //  private members
         /*------------------------------------------------------------------------------------------*/
-        private val TAG = "TutorialBluetoothFragment"
+        private val TAG = "TutorialInitialSettingsFragment"
 
         /**
          * Use this factory method to create a new instance of
@@ -103,8 +102,8 @@ class TutorialBluetoothFragment : Fragment() {
          * @return A new instance of fragment OverviewFragment.
          */
         // TODO: Rename and change types and number of parameters
-        fun newInstance(): TutorialBluetoothFragment {
-            return TutorialBluetoothFragment()
+        fun newInstance(): TutorialInitialSettingsFragment {
+            return TutorialInitialSettingsFragment()
         }
     }
 

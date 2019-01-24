@@ -5,19 +5,17 @@ import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import com.realvnc.androidsampleserver.R
-import com.realvnc.androidsampleserver.activity.TutorialActivity
 
 /**
  * A simple [Fragment] subclass.
  * Activities that contain this fragment must implement the
- * [TutorialFragment.OnFragmentInteractionListener] interface
+ * [TutorialStartScreenSharingPage7Fragment.OnFragmentInteractionListener] interface
  * to handle interaction events.
- * Use the [TutorialFragment.newInstance] factory method to
+ * Use the [TutorialStartScreenSharingPage7Fragment.newInstance] factory method to
  * create an instance of this fragment.
  */
-class TutorialFragment : Fragment() {
+class TutorialStartScreenSharingPage7Fragment : Fragment() {
 
     /*------------------------------------------------------------------------------------------*/
     //  protected methods
@@ -27,40 +25,23 @@ class TutorialFragment : Fragment() {
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        val view = inflater.inflate(R.layout.fragment_tutorial, container, false)
+        val view = inflater.inflate(R.layout.fragment_tutorial_start_screen_sharing_page7, container, false)
         return view
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        initView(view)
-    }
-
-    override fun onResume() {
-        super.onResume()
-        activity?.title = getString(R.string.tutorial_title)
     }
 
     /*------------------------------------------------------------------------------------------*/
-    private fun initView(view: View) {
-        val tutorialBluetooth = view.findViewById<Button>(R.id.fragment_tutorial_initial_settings)
-        tutorialBluetooth?.setOnClickListener {
-            (activity as? TutorialActivity)?.onInitialSettingsClicked()
-        }
-
-        val tutorialLaunch = view.findViewById<Button>(R.id.fragment_tutorial_start_screen_sharing)
-        tutorialLaunch?.setOnClickListener {
-            (activity as? TutorialActivity)?.onStartScreenSharingClicked()
-        }
-    }
-
+    //  Companion
     /*------------------------------------------------------------------------------------------*/
     companion object {
 
         /*------------------------------------------------------------------------------------------*/
         //  private members
         /*------------------------------------------------------------------------------------------*/
-        private val TAG = "TutorialFragment"
+        private val TAG = "TutorialStartScreenSharingPage7Fragment"
 
         /**
          * Use this factory method to create a new instance of
@@ -69,8 +50,8 @@ class TutorialFragment : Fragment() {
          * @return A new instance of fragment OverviewFragment.
          */
         // TODO: Rename and change types and number of parameters
-        fun newInstance(): TutorialFragment {
-            return TutorialFragment()
+        fun newInstance(): TutorialStartScreenSharingPage7Fragment {
+            return TutorialStartScreenSharingPage7Fragment()
         }
     }
 

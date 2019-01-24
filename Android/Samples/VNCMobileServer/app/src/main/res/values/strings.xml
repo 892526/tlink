@@ -318,8 +318,8 @@
 	<string name="navigation_drawer_close">Close navigation drawer</string>
 
 	<!-- Navigation Menu -->
-	<string name="SS_01_002">About this Application</string>
-	<string name="SS_01_004">Terms of service</string>
+	<string name="SS_01_002">Application Overview</string>
+	<string name="SS_01_004">Terms and Conditions</string>
 	<string name="SS_01_005">Open source licenses</string>
 	<string name="SS_01_006">Version : %s</string>
 
@@ -328,6 +328,8 @@
 
 	<!-- Tutorial -->
 	<string name="tutorial_title">Tutorial</string>
+	<string name="TID_5302">Initial Setting</string>
+	<string name="TID_5303">Start Screen Sharing</string>
 
 	<!-- Bluetooth -->
 	<string name="SS_81_3100">Bluetooth Pairing</string>
