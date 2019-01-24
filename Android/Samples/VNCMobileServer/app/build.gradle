@@ -20,8 +20,8 @@ android {
         applicationId 'com.jvckenwood.tlink'
         minSdkVersion 21
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 010020
-        versionName '1.0.2'
+        versionCode 010030
+        versionName '1.0.3'
 
         buildConfigField "long", "TIMESTAMP", System.currentTimeMillis() + "L"
     }

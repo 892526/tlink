@@ -1,11 +1,7 @@
 package com.realvnc.androidsampleserver.activity
 
-import android.support.v4.app.Fragment
-import android.support.v4.app.FragmentTransaction
-import android.support.v7.app.ActionBar
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.os.PersistableBundle
 import android.view.MenuItem
 
 import com.realvnc.androidsampleserver.R
@@ -51,8 +47,8 @@ class TutorialActivity : AppCompatActivity() {
     }
 
     /*------------------------------------------------------------------------------------------*/
-    fun onBluetoothTutorialClicked() {
-        val fragment = TutorialBluetoothFragment.newInstance()
+    fun onInitialSettingsClicked() {
+        val fragment = TutorialInitialSettingsFragment.newInstance()
         supportFragmentManager.beginTransaction()
                 .setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_left, R.anim.enter_from_left, R.anim.exit_to_right)
                 .replace(R.id.content_dummy, fragment)
@@ -60,15 +56,15 @@ class TutorialActivity : AppCompatActivity() {
                 .commit()
     }
 
-    fun onLaunchTutorialClicked() {
-        val fragment = TutorialLaunchFragment.newInstance()
+    fun onStartScreenSharingClicked() {
+        val fragment = TutorialStartScreenSharingFragment.newInstance()
         supportFragmentManager.beginTransaction()
                 .setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_left, R.anim.enter_from_left, R.anim.exit_to_right)
                 .replace(R.id.content_dummy, fragment)
                 .addToBackStack(null)
                 .commit()
     }
-
+    /*
     fun onStartTutorialClicked() {
         val fragment = TutorialStartFragment.newInstance()
         supportFragmentManager.beginTransaction()
@@ -77,7 +73,7 @@ class TutorialActivity : AppCompatActivity() {
                 .addToBackStack(null)
                 .commit()
     }
-
+    */
 
     /*------------------------------------------------------------------------------------------*/
     //  private methods

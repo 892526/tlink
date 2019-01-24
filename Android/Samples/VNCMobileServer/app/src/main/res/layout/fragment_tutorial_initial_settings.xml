@@ -36,19 +36,19 @@
     -->
 
     <android.support.v4.view.ViewPager
-        android:id="@+id/fragment_tutorial_bluetooth_view_pager"
+        android:id="@+id/fragment_tutorial_initial_settings_view_pager"
         android:layout_width="0dp"
         android:layout_height="0dp"
 
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/fragment_tutorial_bluetooth_tab_layout"
+        app:layout_constraintBottom_toTopOf="@id/fragment_tutorial_initial_settings_tab_layout"
         >
     </android.support.v4.view.ViewPager>
 
     <android.support.design.widget.TabLayout
-        android:id="@+id/fragment_tutorial_bluetooth_tab_layout"
+        android:id="@+id/fragment_tutorial_initial_settings_tab_layout"
         android:layout_width="wrap_content"
         android:layout_height="24dp"
 

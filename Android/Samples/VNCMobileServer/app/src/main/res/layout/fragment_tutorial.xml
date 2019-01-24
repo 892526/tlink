@@ -9,21 +9,6 @@
     android:padding="8dp"
     >
 
-    <!--
-    <TextView
-        android:id="@+id/fragment_tutorial_title"
-        style="@style/TutorialTitleStyle"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-
-        android:text="@string/tutorial_title"
-
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        />
-    -->
-
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -33,26 +18,19 @@
             android:layout_height="wrap_content"
             >
             <Button
-                android:id="@+id/fragment_tutorial_bt"
+                android:id="@+id/fragment_tutorial_initial_settings"
                 style="@style/TutorialButtonStyle"
-                android:text="@string/SS_81_3100"
+                android:text="@string/TID_5302"
 
                 app:layout_constraintTop_toTopOf="parent"
                 />
             <Button
-                android:id="@+id/fragment_tutorial_launch"
+                android:id="@+id/fragment_tutorial_start_screen_sharing"
                 style="@style/TutorialButtonStyle"
-                android:text="@string/SS_81_3200"
+                android:text="@string/TID_5303"
 
-                app:layout_constraintTop_toBottomOf="@+id/fragment_tutorial_bt"
+                app:layout_constraintTop_toBottomOf="@id/fragment_tutorial_initial_settings"
                 />
-            <Button
-                android:id="@+id/fragment_tutorial_start"
-                style="@style/TutorialButtonStyle"
-                android:text="@string/SS_81_3300"
-
-                app:layout_constraintTop_toBottomOf="@+id/fragment_tutorial_launch"
-            />
         </android.support.constraint.ConstraintLayout>
     </ScrollView>
 

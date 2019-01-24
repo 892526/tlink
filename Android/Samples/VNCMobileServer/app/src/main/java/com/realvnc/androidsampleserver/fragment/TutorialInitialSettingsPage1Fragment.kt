@@ -2,8 +2,6 @@ package com.realvnc.androidsampleserver.fragment
 
 import android.os.Bundle
 import android.support.v4.app.Fragment
-import android.support.v4.app.FragmentManager
-import android.support.v4.app.FragmentPagerAdapter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,12 +10,12 @@ import com.realvnc.androidsampleserver.R
 /**
  * A simple [Fragment] subclass.
  * Activities that contain this fragment must implement the
- * [TutorialLaunchPage2Fragment.OnFragmentInteractionListener] interface
+ * [TutorialInitialSettingsPage1Fragment.OnFragmentInteractionListener] interface
  * to handle interaction events.
- * Use the [TutorialLaunchPage2Fragment.newInstance] factory method to
+ * Use the [TutorialInitialSettingsPage1Fragment.newInstance] factory method to
  * create an instance of this fragment.
  */
-class TutorialLaunchPage2Fragment : Fragment() {
+class TutorialInitialSettingsPage1Fragment : Fragment() {
 
     /*------------------------------------------------------------------------------------------*/
     //  protected methods
@@ -27,7 +25,7 @@ class TutorialLaunchPage2Fragment : Fragment() {
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        val view = inflater.inflate(R.layout.fragment_tutorial_launch_page2, container, false)
+        val view = inflater.inflate(R.layout.fragment_tutorial_launch_page, container, false)
         return view
     }
 
@@ -43,7 +41,7 @@ class TutorialLaunchPage2Fragment : Fragment() {
         /*------------------------------------------------------------------------------------------*/
         //  private members
         /*------------------------------------------------------------------------------------------*/
-        private val TAG = "TutorialLaunchPage2Fragment"
+        private val TAG = "TutorialStartScreenSharingPage2Fragment"
 
         /**
          * Use this factory method to create a new instance of
@@ -52,8 +50,8 @@ class TutorialLaunchPage2Fragment : Fragment() {
          * @return A new instance of fragment OverviewFragment.
          */
         // TODO: Rename and change types and number of parameters
-        fun newInstance(): TutorialLaunchPage2Fragment {
-            return TutorialLaunchPage2Fragment()
+        fun newInstance(): TutorialInitialSettingsPage1Fragment {
+            return TutorialInitialSettingsPage1Fragment()
         }
     }
 

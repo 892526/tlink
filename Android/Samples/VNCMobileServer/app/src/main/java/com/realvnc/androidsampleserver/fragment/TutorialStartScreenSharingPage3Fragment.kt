@@ -2,8 +2,6 @@ package com.realvnc.androidsampleserver.fragment
 
 import android.os.Bundle
 import android.support.v4.app.Fragment
-import android.support.v4.app.FragmentManager
-import android.support.v4.app.FragmentPagerAdapter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,12 +10,12 @@ import com.realvnc.androidsampleserver.R
 /**
  * A simple [Fragment] subclass.
  * Activities that contain this fragment must implement the
- * [TutorialBluetoothPage1Fragment.OnFragmentInteractionListener] interface
+ * [TutorialStartScreenSharingPage3Fragment.OnFragmentInteractionListener] interface
  * to handle interaction events.
- * Use the [TutorialBluetoothPage1Fragment.newInstance] factory method to
+ * Use the [TutorialStartScreenSharingPage3Fragment.newInstance] factory method to
  * create an instance of this fragment.
  */
-class TutorialBluetoothPage1Fragment : Fragment() {
+class TutorialStartScreenSharingPage3Fragment : Fragment() {
 
     /*------------------------------------------------------------------------------------------*/
     //  protected methods
@@ -27,7 +25,7 @@ class TutorialBluetoothPage1Fragment : Fragment() {
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        val view = inflater.inflate(R.layout.fragment_tutorial_bluetooth_page1, container, false)
+        val view = inflater.inflate(R.layout.fragment_tutorial_start_screen_sharing_page3, container, false)
         return view
     }
 
@@ -43,7 +41,7 @@ class TutorialBluetoothPage1Fragment : Fragment() {
         /*------------------------------------------------------------------------------------------*/
         //  private members
         /*------------------------------------------------------------------------------------------*/
-        private val TAG = "TutorialBluetoothPage1Fragment"
+        private val TAG = "TutorialStartScreenSharingPage3Fragment"
 
         /**
          * Use this factory method to create a new instance of
@@ -52,8 +50,8 @@ class TutorialBluetoothPage1Fragment : Fragment() {
          * @return A new instance of fragment OverviewFragment.
          */
         // TODO: Rename and change types and number of parameters
-        fun newInstance(): TutorialBluetoothPage1Fragment {
-            return TutorialBluetoothPage1Fragment()
+        fun newInstance(): TutorialStartScreenSharingPage3Fragment {
+            return TutorialStartScreenSharingPage3Fragment()
         }
     }
 
