@@ -1,7 +1,7 @@
-/* Copyright (C) 2002-2018 RealVNC Ltd. All Rights Reserved.
+/* Copyright (C) 2002-2018 VNC Automotive Ltd.  All Rights Reserved.
  *
- * This is a sample application intended to demonstrate part of the
- * VNC Mobile Solution SDK. It is not intended as a production-ready
+ * This is a sample application intended to demonstrate part of a
+ * VNC Automotive SDK. It is not intended as a production-ready
  * component. */
 
 package com.realvnc.androidsampleserver;
@@ -12,9 +12,11 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.net.Uri;
-import android.os.BatteryManager;
 import android.os.ParcelFileDescriptor;
+import android.util.Log;
 
+import com.realvnc.androidsampleserver.activity.VNCMobileServer;
+import com.realvnc.androidsampleserver.activity.VNCMobileServerProxy;
 import com.realvnc.androidsampleserver.service.VncServerService;
 import com.realvnc.vncserver.android.bearers.VncAapBearer;
 import com.realvnc.vncserver.core.VncException;
@@ -44,12 +46,15 @@ public class AapConnectionManager {
     // When updating these values it is also necessary to update the
     // same values in the discoverer and USBAAP viewer bearer.
     //
-    private static final String DEFAULT_MANUFACTURER = "Example Company";
-    private static final String DEFAULT_MODEL = "AAPTest";
-    private static final String DEFAULT_DESCRIPTION = null;
-    private static final String DEFAULT_VERSION = "0.1";
-    private static final String DEFAULT_URI = "http://www.example.com";
-    private static final String DEFAULT_SERIAL = null;
+    private static final String DEFAULT_MANUFACTURER = "com.jvckenwood";
+    private static final String DEFAULT_MODEL        = "tlink";
+    private static final String DEFAULT_DESCRIPTION  = "tlink";
+    private static final String DEFAULT_VERSION      = "1.0";
+    private static final String DEFAULT_URI          = "https://play.google.com/store/apps/details?id=com.jvckenwood.tlink";
+    private static final String DEFAULT_SERIAL       = "1234567890";
+
+    private static final String USB_STATE_ACTION_VAR_NAME = "ACTION_USB_STATE";
+    private static final String USB_STATE_CONNECTED_VAR_NAME = "USB_CONNECTED";
 
     public interface Listener {
         public void accessoryDetached();
@@ -62,6 +67,8 @@ public class AapConnectionManager {
     private Class<?> mUsbManagerCls;
     private Object mUsbManager;
     private boolean mUseIntentForAccessory;
+    private String mUsbStateIntentAction;
+    private String mUsbStateConnectedKeyName;
 
     static private String getStaticStringField(Class<?> cls,
             String fieldName) {
@@ -94,25 +101,25 @@ public class AapConnectionManager {
         return ret;
     }
 
-    private void loadHoneycombUsbClasses()
+    private void loadUsbClasses()
         throws ClassNotFoundException {
         mUsbAccessoryCls = Class.forName("android.hardware.usb.UsbAccessory");
         mUsbManagerCls = Class.forName("android.hardware.usb.UsbManager");
         // mUsbManager = (UsbManager) mCtx.getSystemService(Context.USB_SERVICE);
-        String USB_SERVICE = getStaticStringField(Context.class, "USB_SERVICE");
+        final String USB_SERVICE
+                = AapConnectionManager.getStaticStringField(
+                        Context.class,
+                        "USB_SERVICE");
         mUsbManager = mCtx.getSystemService(USB_SERVICE);
         mUseIntentForAccessory = true;
-    }
-
-    private void loadGingerbreadUsbClasses()
-        throws ClassNotFoundException {
-        mUsbAccessoryCls = Class.forName("com.android.future.usb.UsbAccessory");
-        mUsbManagerCls = Class.forName("com.android.future.usb.UsbManager");
-        // mUsbManager = UsbManager.getInstance(mCtx);
-        mUsbManager = callMethod(mUsbManagerCls, null, "getInstance",
-                new Class<?>[] { Context.class },
-                mCtx);
-        mUseIntentForAccessory = false;
+        mUsbStateIntentAction
+                = AapConnectionManager.getStaticStringField(
+                        mUsbManagerCls,
+                        AapConnectionManager.USB_STATE_ACTION_VAR_NAME);
+        mUsbStateConnectedKeyName
+                = AapConnectionManager.getStaticStringField(
+                        mUsbManagerCls,
+                        AapConnectionManager.USB_STATE_CONNECTED_VAR_NAME);
     }
 
     private AapConnectionManager(Context ctx, Listener listener) {
@@ -155,6 +162,7 @@ public class AapConnectionManager {
     protected void AddUsbFilterActions(IntentFilter filter) {
         filter.addAction(getStaticStringField(mUsbManagerCls,
                         "ACTION_USB_ACCESSORY_DETACHED"));
+        filter.addAction(mUsbStateIntentAction);
     }
 
     protected boolean HasUsbAccessoryDetached(Intent intentReceived) {
@@ -238,6 +246,17 @@ public class AapConnectionManager {
                 accessory, "getUri", emptyList);
         final String serial = (String) callMethod(mUsbAccessoryCls,
                 accessory, "getSerial", emptyList);
+
+
+        //Log.d("AapConnectionManager", "----------------------------------------------------------------------");
+        //Log.d("AapConnectionManager", "manufacturer:" + manufacturer);
+        //Log.d("AapConnectionManager", "model       :" + model);
+        //Log.d("AapConnectionManager", "description :" + description);
+        //Log.d("AapConnectionManager", "version     :" + version);
+        //Log.d("AapConnectionManager", "uri         :" + uri);
+        //Log.d("AapConnectionManager", "serial      :" + serial);
+
+
         if(DEFAULT_MANUFACTURER != null &&
                 !DEFAULT_MANUFACTURER.equals(manufacturer)) {
             LOG.info("Accessory doesn't match manufacturer: " +
@@ -274,27 +293,36 @@ public class AapConnectionManager {
                     DEFAULT_SERIAL + " has: " + serial);
             return false;
         }
+
+        if (!VncServerApp.isAgreement()) {
+            Context context = VncServerApp.getContext();
+            Intent i = new Intent(context, VNCMobileServerProxy.class);
+            i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            context.startActivity(i);
+            return false;
+        }
+
         return true;
     }
 
     private void registerBroadcastReceiver() {
         IntentFilter f = new IntentFilter();
         AddUsbFilterActions(f);
-        f.addAction(Intent.ACTION_BATTERY_CHANGED);
         mBroadcastReceiver = new BroadcastReceiver() {
                 @Override
-                    public void onReceive(Context context, Intent intent) {
+                public void onReceive(Context context, Intent intent) {
+                    LOG.info("Receive intent: " + intent.toUri(Intent.URI_INTENT_SCHEME));
                     String action = intent.getAction();
-                    if (HasUsbAccessoryDetached(intent)) {
-                        LOG.info("USB Accessory removed");
-                        accessoryDetached();
-                    } else if (Intent.ACTION_BATTERY_CHANGED.equals(action)) {
-                        int plugState = intent.getIntExtra(BatteryManager.EXTRA_PLUGGED, 0);
-                        if (plugState != BatteryManager.BATTERY_PLUGGED_USB) {
-                            LOG.info("USB cable removed");
+                    if (mUsbStateIntentAction != null
+                            && mUsbStateIntentAction.equals(action)) {
+                        if (!intent.getBooleanExtra(mUsbStateConnectedKeyName, false)) {
+                            LOG.info("USB cable removed based on USB_STATE intent");
                             accessoryDetached();
                         }
-                    } else {
+                    } else if (HasUsbAccessoryDetached(intent)) {
+                        LOG.info("USB Accessory removed");
+                        accessoryDetached();
+                    }  else {
                         LOG.info("Unhandled intent in usbBroadcastReceiver");
                     }
                 }
@@ -369,42 +397,17 @@ public class AapConnectionManager {
     public static AapConnectionManager create(Context ctx, Listener listener) {
         AapConnectionManager ret = new AapConnectionManager(ctx, listener);
 
-        Throwable honeycombError = null;
         try {
-            ret.loadHoneycombUsbClasses();
-            LOG.info("Using Honeycomb's core-based AAP connection.");
+            ret.loadUsbClasses();
         } catch (Exception e) {
-            honeycombError = e;
+            LOG.log(Level.SEVERE, "Failed to load AAP classes", e);
+            return null;
         } catch (LinkageError e) {
-            honeycombError = e;
-        }
-        if (honeycombError == null) {
-            // Honeycomb core APIs are available
-            return ret;
+            LOG.log(Level.SEVERE, "Failed to load AAP classes", e);
+            return null;
         }
 
-        Throwable gingerbreadError = null;
-        try {
-            ret.loadGingerbreadUsbClasses();
-            LOG.info("Falling back to Google API-based AAP connection.");
-        } catch (Exception e) {
-            gingerbreadError = e;
-        } catch (LinkageError e) {
-            gingerbreadError = e;
-        }
-        if (gingerbreadError == null) {
-            // Google API based AAP classes are available
-            return ret;
-        }
-
-        LOG.log(Level.WARNING,
-                "Failed to load Honeycomb core-based AAP classes",
-                honeycombError);
-        LOG.log(Level.WARNING,
-                "Failed to load Google API-based AAP classes",
-                gingerbreadError);
-        LOG.severe("Failed to load any AAP classes");
-        return null;
+        return ret;
     }
 
 }

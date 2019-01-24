@@ -10,14 +10,81 @@
     tools:showIn="@layout/app_bar_main"
     >
 
-    <TextView
-        android:id="@+id/status_text"
+    <!-- Icon -->
+    <ImageView
+        android:id="@+id/content_main_icon"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
 
-        android:textColor="#000"
-        android:text=""
+        android:src="@mipmap/main_icon"
+        android:scaleType="fitCenter"
+
+        app:layout_constraintVertical_chainStyle="spread"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/content_main_tlink"
+        />
+
+    <!-- T-Link -->
+    <ImageView
+        android:id="@+id/content_main_tlink"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+
+        android:src="@mipmap/tlink_logo"
+        android:scaleType="fitCenter"
+
+        app:layout_constraintVertical_chainStyle="spread"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/content_main_icon"
+        app:layout_constraintBottom_toTopOf="@id/content_main_description"
+        />
+
+    <!-- Message -->
+    <TextView
+        android:id="@+id/content_main_description"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+
+        android:text="@string/main_string"
+        android:textSize="16sp"
+        android:textAlignment="center"
+
+        app:layout_constraintVertical_chainStyle="spread"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/content_main_tlink"
+        app:layout_constraintBottom_toTopOf="@id/content_main_avx"
+        />
+
+    <!-- AVX -->
+    <ImageView
+        android:id="@+id/content_main_avx"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+
+        android:src="@mipmap/main_avx"
+        android:scaleType="fitCenter"
+
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        />
+
+    <!-- Status Image -->
+    <!--
+    <ImageView
+        android:id="@+id/status_image"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"
+
+        android:src="@mipmap/cooperating"
+        android:scaleType="fitCenter"
 
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -26,31 +93,37 @@
         />
 
     <TextView
-        android:id="@+id/secondary_status_text"
+        android:id="@+id/status_text"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
 
-        android:textColor="#000"
-        android:text=""
+        android:textColor="@color/statusTextColor"
+        android:textSize="18sp"
+        android:singleLine="true"
+        android:ellipsize="end"
 
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/status_text"
+        app:layout_constraintBottom_toTopOf="@id/secondary_status_text"
         />
 
-    <ImageView
-        android:id="@+id/imageView"
+    <TextView
+        android:id="@+id/secondary_status_text"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:layout_marginBottom="24dp"
 
-        android:src="@drawable/vncserver"
-        android:scaleType="fitCenter"
-        android:contentDescription="@string/vncicon_description"
+        android:textColor="@color/statusTextColorSecondary"
+        android:textSize="16sp"
+        android:singleLine="true"
+        android:ellipsize="end"
 
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
         />
+    -->
 
 </android.support.constraint.ConstraintLayout>

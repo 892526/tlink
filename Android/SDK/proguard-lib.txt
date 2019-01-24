@@ -1,7 +1,7 @@
-# Copyright (C) 2002-2018 RealVNC Ltd. All Rights Reserved.
+# Copyright (C) 2002-2018 VNC Automotive Ltd.  All Rights Reserved.
 #
 # Proguard configuration file defining proguard configuration
-# for the RealVNC Server SDK
+# for the VNC Automotive Server SDK
 
 # Native code uses some class constructors directly
 -keepclassmembers public class com.realvnc.mirrorlink.* {
@@ -35,6 +35,24 @@
 -keep class com.realvnc.vncserver.android.implementation.o {
     <init>(...);
     *** a(...);
+}
+-keep class com.realvnc.vncserver.android.implementation.aq {
+    <init>(...);
+    *** a(...);
+    *** b(...);
+    *** c(...);
+    *** d(...);
+    *** e(...);
+}
+-keep class com.realvnc.vncserver.android.implementation.aq$b {
+    <init>(...);
+    *** a;
+    *** b;
+}
+-keep class com.realvnc.vncserver.android.implementation.aq$a {
+    <init>(...);
+    *** a;
+    *** b;
 }
 -keep class com.realvnc.vncserver.android.implementation.v {
     <init>(...);
@@ -86,22 +104,4 @@
     *** C(...);
     *** D(...);
     *** E(...);
-}
--keep class com.realvnc.vncserver.android.implementation.aq {
-    <init>(...);
-    *** a(...);
-    *** b(...);
-    *** c(...);
-    *** d(...);
-    *** e(...);
-}
--keep class com.realvnc.vncserver.android.implementation.aq$b {
-    <init>(...);
-    *** a;
-    *** b;
-}
--keep class com.realvnc.vncserver.android.implementation.aq$a {
-    <init>(...);
-    *** a;
-    *** b;
 }

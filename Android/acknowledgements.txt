@@ -1,7 +1,7 @@
-﻿VNC(R) Mobile Server SDK for Android is Copyright (C) 2009-2018 RealVNC Ltd. All
+﻿VNC Automotive Server SDK for Android is Copyright (C) 2009-2018 VNC Automotive Ltd. All
 Rights Reserved.
 
-VNC(R) Network Advertiser SDK for Android is Copyright (C) 2013-2018 RealVNC
+VNC Automotive Network Advertiser SDK for Android is Copyright (C) 2013-2018 VNC Automotive
 Ltd. All Rights Reserved.
 
 These components include several pieces of third party software whose copyright
@@ -551,6 +551,10 @@ Copyright notice for trio files:
 
 libupnp (pupnp) 1.6.19 (http://pupnp.sourceforge.net/):
 
+With the following additional CVEs fixed:
+CVE-2016-6255
+CVE-2016-886
+
 Copyright (c) 2000-2003 Intel Corporation 
 All rights reserved. 
 Copyright (c) 2005-2006 Rémi Turboult <r3mi@users.sourceforge.net>
@@ -668,7 +672,7 @@ the origin is not misrepresented.
 ===============================================================================
 
 This is D3DES (V5.09) by Richard Outerbridge with the double and
-triple-length support removed for use in VNC.  Also the bytebit[] array
+triple-length support removed for use by VNC Automotive.  Also the bytebit[] array
 has been reversed so that the most significant bit in each byte of the
 key is ignored, not the least significant.
 
@@ -696,10 +700,9 @@ Copyright (c) 1988,1989,1990,1991,1992 by Richard Outerbridge.
 
 Trademark Information
 =====================
-RealVNC and VNC are trademarks of RealVNC Limited and are protected by
+VNC Automotive is a trademark of VNC Automotive Limited and is protected by
 trademark registrations and/or pending trademark applications in the
 European Union, United States of America and other jurisdictions.
 Other trademarks are the property of their respective owners.
-Protected by UK patents 2481870, 2491657; US patents 8760366, 9137657; EU patent 2652951.
 
-Copyright (C) 2002-2018 RealVNC Ltd.  All Rights Reserved.
+Copyright (C) 2002-2018 VNC Automotive Ltd.  All Rights Reserved.

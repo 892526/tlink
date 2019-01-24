@@ -1,7 +1,7 @@
-/* Copyright (C) 2002-2018 RealVNC Ltd. All Rights Reserved.
+/* Copyright (C) 2002-2018 VNC Automotive Ltd.  All Rights Reserved.
  *
- * This is a sample application intended to demonstrate part of the
- * VNC Mobile Solution SDK. It is not intended as a production-ready
+ * This is a sample application intended to demonstrate part of a
+ * VNC Automotive SDK. It is not intended as a production-ready
  * component. */
 
 package com.realvnc.androidsampleserver;
@@ -10,20 +10,20 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 /**
- * This class represents the current state of the VNC server.
+ * This class represents the current state of the VNC Automotive server.
  * 
  * <p>This class exists because
- * the clients of the VNC server are, on Android, Activities ({@link Activity}). They may
+ * the clients of the VNC Automotive server are, on Android, Activities ({@link Activity}). They may
  * be created and destroyed at any time, so they can't rely on remembering the state of the
  * server as communicated to its clients using the callbacks in {@link IVncServerListener}.
  * The {@link Activity} may be started at any point and need to display status to the user
- * about what the VNC server is doing. To do that, it can call {@link IVncServerInterface#VNCServerStateGetState()}
+ * about what the VNC Automotive server is doing. To do that, it can call {@link IVncServerInterface#VNCServerStateGetState()}
  * to retrieve one of these state objects, which contains all the information it would otherwise
  * have received using the callbacks.</p>
  * 
- * <p>Note that this class is passed by value to clients of the VNC server. They should not
+ * <p>Note that this class is passed by value to clients of the VNC Automotive server. They should not
  * retain a reference to it and expect that reference to change. Instead, each time they
- * want to discover the state of the VNC server they should make a fresh call to 
+ * want to discover the state of the VNC Automotive server they should make a fresh call to 
  * {@link IVncServerInterface#VNCServerStateGetState()}.</p>
  * @author aat
  *
@@ -45,7 +45,7 @@ public class VncServerState implements Parcelable {
     private boolean usernameReq, passwordReq;
 
     /**
-     * Get the main state of the VNC server. This is as per the documentation
+     * Get the main state of the VNC Automotive server. This is as per the documentation
      * for libvncserver.
      */
     public VncServerMainState getState() {
@@ -107,7 +107,7 @@ public class VncServerState implements Parcelable {
     private VncServerState(Parcel in) {
         int versionNumber = in.readInt();
         if (versionNumber != 0)
-            throw new RuntimeException("Incompatible VNC server states");
+            throw new RuntimeException("Incompatible VNC Automotive server states");
         state = VncServerMainState.values()[in.readInt()];
         boolean apiIsCalled = (in.readInt() == 1);
         if (apiIsCalled)

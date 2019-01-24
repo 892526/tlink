@@ -1,7 +1,7 @@
-/* Copyright (C) 2002-2018 RealVNC Ltd. All Rights Reserved.
+/* Copyright (C) 2002-2018 VNC Automotive Ltd.  All Rights Reserved.
  *
- * This is a sample application intended to demonstrate part of the
- * VNC Mobile Solution SDK. It is not intended as a production-ready
+ * This is a sample application intended to demonstrate part of a
+ * VNC Automotive SDK. It is not intended as a production-ready
  * component. */
 
 package com.realvnc.androidsampleserver.activity;
@@ -11,6 +11,7 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import com.realvnc.androidsampleserver.SampleIntents;
+import com.realvnc.androidsampleserver.VncServerApp;
 
 
 /**
@@ -63,9 +64,16 @@ public class VNCMobileServerProxy extends Activity {
     }
 
     private void takeAction() {
-        Intent i = new Intent(this, VNCMobileServer.class);
-        i.setAction(SampleIntents.LAUNCHER_INTENT);
-        i.setPackage(getPackageName());
-        startActivity(i);
+        if (VncServerApp.isAgreement()) {
+            Intent i = new Intent(this, VNCMobileServer.class);
+            i.setAction(SampleIntents.LAUNCHER_INTENT);
+            i.setPackage(getPackageName());
+            startActivity(i);
+        }
+        else {
+            Intent i = new Intent(this, TermsOfServiceActivity.class);
+            i.putExtra("RequestAgreement", true);
+            startActivity(i);
+        }
     }
 }

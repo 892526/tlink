@@ -15,4 +15,4 @@ to a compatible viewer. The server application must obtain appropriate
 device admin authorization before this Remote Control Service can be
 used; see the sample server for details.
 
-Copyright (C) 2002-2018 RealVNC Ltd.  All Rights Reserved.
+Copyright (C) 2002-2018 VNC Automotive Ltd.  All Rights Reserved.

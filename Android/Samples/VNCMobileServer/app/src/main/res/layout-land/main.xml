@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+
+   Copyright (C) 2002-2018 VNC Automotive Ltd.  All Rights Reserved.
+
+   This is a sample application intended to demonstrate part of the
+   VNC Automotive SDK. It is not intended as a production-ready
+   component.
+
+-->
+
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        android:src="@mipmap/background02"
+        android:scaleType="fitXY"
+        />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true"
+        >
+        <android.support.v4.widget.DrawerLayout
+            android:id="@+id/drawer_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fitsSystemWindows="true"
+            tools:openDrawer="start"
+            tools:context=".activity.VNCMobileServer"
+            >
+
+          <include
+              layout="@layout/app_bar_main"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              />
+
+          <android.support.design.widget.NavigationView
+              android:id="@+id/nav_view"
+              android:layout_width="wrap_content"
+              android:layout_height="match_parent"
+              android:layout_gravity="start"
+              android:fitsSystemWindows="true"
+              android:background="@drawable/gradient_background"
+              app:headerLayout="@layout/navigation_view_header"
+              app:menu="@menu/navigation_view_menu"
+              />
+        </android.support.v4.widget.DrawerLayout>
+    </FrameLayout>
+
+</FrameLayout>

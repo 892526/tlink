@@ -1,16 +1,56 @@
-﻿Release Notes - VNC(R) Mobile Server SDK 4.1 for Android
+﻿Release Notes - VNC Automotive Server SDK 4.2 for Android
 ========================================================
+
+Compatibility Break
+-------------------
+
+In the Network Advertiser, the MobileSolution URN has changed from
+"urn:upnp-realvnc-com" to "urn:upnp-vncautomotive-com".
+
+As a result of this change, old versions of the Network Discoverer (pre-4.2)
+will no longer detect the Network Advertiser version 4.2 and above.
+
+To detect a version 4.2+ Network Advertiser, the viewer must be running a
+version 4.2+ Network Discoverer.
+
 
 Issues fixed in this release:
 -----------------------------
+
+MOB-14595: The server may fail to perform VNC Automotive AES authentication, which will
+           lead VNC Automotive connection to be disconnected at the VNC Automotive handshake stage.
+
+MOB-16786: The server may stop responding occasionally due to the
+           bug in network advertiser server.
+
+MOB-16819: The ZRLE encoded VNC Automotive frames may be corrupted and lead
+           the VNC Automotive connection to be disconnected. 
+
+MOB-16859: Server may crash when it receives text cut event from the viewer.
+
+MOB-17717: The network advertiser SDK does not send SSDP alive message often
+           enough.
+
+MOB-17339: No landscape lock when using RVS/AAP HID - Nexus 6P OS 7.0.
+
+MOB-17901: If an app is reinstalled the RCS does not show the authorisation
+           dialog again.
+
+MOB-18096: The server running on Samsung S6/S7 sends corrupted H.264 frames
+           when the orientation is landscape.
+
+MOB-18334: The server may close VNC Automotive connection if the orientation changes in
+           the beginning of VNC Automotive connection.
 
 
 API changes
 -----------
 
-* Android support is now 5.0 to 7.0.
+* A new API in VncContextInformationManager interface for registering
+  context information listener with priority on its invocation sequence.
 
-* Server SDK now supports VA H.264 encoding.
+* A new RCS custom command to globally enable/disable Android heads-up
+  notifications.
 
 
 Known issues in this release:
@@ -39,7 +79,7 @@ MOB-8017: Android Server's landscape lock behavior forces portrait apps
           into landscape on ICS devices.
 
 MOB-8048: Connection and Status URL does not update when upgrading the
-          VNC Mobile Server.
+          VNC Automotive Server.
 
 MOB-8628: Pressing num pad keys does not bring up a calling screen on
           Nexus 4.
@@ -72,8 +112,8 @@ MOB-10490: Listening server is not re-advertising itself as an available
            attempt.
 
 MOB-10697: Applications can write arbitrary information into the
-           framebuffer in Android 4.4 when using the 4.4+ RCS. VNC
-           Automotive recommends using the 4.3-4.4 RCS for Android 4.4
+           framebuffer in Android 4.4 when using the 4.4+ RCS. VNC Automotive
+            recommends using the 4.3-4.4 RCS for Android 4.4
            instead.
 
 MOB-11917: No context information reported for Samsung devices based on
@@ -106,6 +146,9 @@ MOB-14947: Samsung Galaxy S4 running Android 4.4.2 might sometimes refuse
 MOB-14908: Switching apps during prompt for authorizing remote control on RCS
            rejects authorization.
 
+MOB-15865: Drive safe app may be blocked after RFB4 session reconnect on
+           some Samsung devices.
+
 MOB-17255: Samsung RCS requires license tied to APK.
 
 
@@ -113,7 +156,7 @@ Note on USB tethering of Android phones
 =======================================
 
 VNC Automotive recommends that users follow these two rules when using USB
-tethering to connect to the Android VNC server:
+tethering to connect to the Android VNC Automotive server:
 
 - Avoid enabling USB tethering and WiFi at the same time.
 
@@ -130,16 +173,15 @@ contain a bug where rapidly sending data over a tethered USB
 connection can cause the device to freeze and restart a couple of
 seconds later. This has been seen in kernel version 2.6.35.7, but may
 affect other kernel versions. Other Android devices, such as the Nexus
-S, are not affected. The RealVNC reference for this issue is MOB-6095.
+S, are not affected. The VNC Automotive reference for this issue is MOB-6095.
 
 Trademark Information
 =====================
 
-RealVNC and VNC are trademarks of RealVNC Limited and are protected by
+VNC Automotive is a trademark of VNC Automotive Limited and is protected by
 trademark registrations and/or pending trademark applications in the
 European Union, United States of America and other jurisdictions.
 MirrorLink is a registered trademark of Car Connectivity Consortium LLC.
 Other trademarks are the property of their respective owners.
-Protected by UK patents 2481870, 2491657; US patents 8760366, 9137657; EU patent 2652951.
 
-Copyright (c) 2002-2018 RealVNC Ltd.  All rights reserved.
+Copyright (C) 2002-2018 VNC Automotive Ltd.  All Rights Reserved.

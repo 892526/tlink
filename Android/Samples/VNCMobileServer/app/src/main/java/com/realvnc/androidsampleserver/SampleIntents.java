@@ -1,7 +1,7 @@
-/* Copyright (C) 2002-2018 RealVNC Ltd. All Rights Reserved.
+/* Copyright (C) 2002-2018 VNC Automotive Ltd.  All Rights Reserved.
  *
- * This is a sample application intended to demonstrate part of the
- * VNC Mobile Solution SDK. It is not intended as a production-ready
+ * This is a sample application intended to demonstrate part of a
+ * VNC Automotive SDK. It is not intended as a production-ready
  * component. */
 
 package com.realvnc.androidsampleserver;
@@ -33,12 +33,14 @@ public class SampleIntents {
     /* Dialogs that the server activity can display. */
 
     public static final String HTTP_ACCEPT_DIALOG_INTENT = "com.realvnc.androidsampleserver.ACTION_HTTP_ACCEPT";
+    public static final String HTTP_DISCONNECT_DIALOG_INTENT = "com.realvnc.androidsampleserver.ACTION_HTTP_DISCONNECT";
     public static final String AUTH_ACCEPT_DIALOG_INTENT = "com.realvnc.androidsampleserver.ACTION_AUTH_ACCEPT";
     public static final String REVAUTH_PROMPT_DIALOG_INTENT = "com.realvnc.androidsampleserver.ACTION_REVAUTH_PROMPT";
     public static final String ACCEPT_PROMPT_DIALOG_INTENT = "com.realvnc.androidsampleserver.ACTION_ACCEPT_PROMPT";
     public static final String USB_CHOICE_DIALOG_INTENT = "com.realvnc.androidsampleserver.ACTION_USB_CHOICE";
     public static final String AAP_NOT_CHOSEN_DIALOG_INTENT = "com.realvnc.androidsampleserver.ACTION_AAP_NOT_CHOSEN";
     public static final String ACCESSIBILITY_DIALOG_INTENT = "com.realvnc.androidsampleserver.ACTION_ACCESSIBILITY";
+    public static final String OVERLAY_PERMISSION_DIALOG_INTENT = "com.realvnc.androidsampleserver.OVERLAY_PERMISSION";
 
     /* Requests that the server activity tries to install a remote control service */
     public static final String INSTALL_RCS_INTENT = "com.realvnc.androidsampleserver.ACTION_INSTALL_RCS";

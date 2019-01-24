@@ -1,0 +1,65 @@
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+
+    android:padding="8dp"
+    >
+
+    <!--
+    <TextView
+        android:id="@+id/fragment_tutorial_launch_title"
+        style="@style/TutorialTitleStyle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+
+        android:text="@string/tutorial_launch_title"
+
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/fragment_tutorial_launch_view_pager"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/fragment_tutorial_launch_title"
+        app:layout_constraintBottom_toTopOf="@id/fragment_tutorial_launch_tab_layout"
+        >
+    </android.support.v4.view.ViewPager>
+    -->
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/fragment_tutorial_launch_view_pager"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/fragment_tutorial_launch_tab_layout"
+        >
+    </android.support.v4.view.ViewPager>
+
+    <android.support.design.widget.TabLayout
+        android:id="@+id/fragment_tutorial_launch_tab_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="24dp"
+
+        app:tabBackground="@drawable/tab_indicator"
+        app:tabGravity="center"
+        app:tabIndicatorHeight="0dp"
+
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        >
+    </android.support.design.widget.TabLayout>
+
+</android.support.constraint.ConstraintLayout>

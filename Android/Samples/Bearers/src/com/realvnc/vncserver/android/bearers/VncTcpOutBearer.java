@@ -1,11 +1,11 @@
 /*
  * VncTcpOutBearer.java
  *
- * This is sample code intended to demonstrate part of the
- * VNC Mobile Solution SDK. It is not intended as a production-ready
+ * This is sample code intended to demonstrate part of a
+ * VNC Automotive SDK. It is not intended as a production-ready
  * component.
  *
- * Copyright (C) 2011-2018 RealVNC Ltd. All Rights Reserved.
+ * Copyright (C) 2011-2018 VNC Automotive Ltd.  All Rights Reserved.
  * Confidential and proprietary.
  */
 
@@ -232,8 +232,8 @@ public class VncTcpOutBearer extends VncTcpBearerBase implements VncBearer {
     public VncBearerInfo getInfo () {
         return new VncBearerInfo() {
                 public String getName() { return "C"; }
-                public String getFullName() { return "VNC TCP Connect bearer"; }
-                public String getDescription() { return "Makes outgoing TCP connections to a VNC Mobile Viewer or VNC Mobile Server"; }
+                public String getFullName() { return "VNC Automotive TCP Connect bearer"; }
+                public String getDescription() { return "Makes outgoing TCP connections to a VNC Automotive Viewer or VNC Automotive Server"; }
                 public String getVersionString () {
                     return VncVersionInfo.VNC_VERSION;
                 }   

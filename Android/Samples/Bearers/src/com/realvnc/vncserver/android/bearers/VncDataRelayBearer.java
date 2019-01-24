@@ -1,11 +1,11 @@
 /*
  * VncDataRelayBearer.java
  *
- * This is sample code intended to demonstrate part of the
- * VNC Mobile Solution SDK. It is not intended as a production-ready
+ * This is sample code intended to demonstrate part of a
+ * VNC Automotive SDK. It is not intended as a production-ready
  * component.
  *
- * Copyright (C) 2011-2018 RealVNC Ltd. All Rights Reserved.
+ * Copyright (C) 2011-2018 VNC Automotive Ltd.  All Rights Reserved.
  * Confidential and proprietary.
  */
 
@@ -181,8 +181,8 @@ public class VncDataRelayBearer extends VncTcpOutBearer implements VncBearer {
     public VncBearerInfo getInfo () {
         return new VncBearerInfo() {
             public String getName() { return "D"; }
-            public String getFullName() { return "VNC Data Relay bearer"; }
-            public String getDescription() { return "Makes outgoing TCP connections to a VNC Data Relay"; }
+            public String getFullName() { return "VNC Automotive Data Relay bearer"; }
+            public String getDescription() { return "Makes outgoing TCP connections to a VNC Automotive Data Relay"; }
             public String getVersionString () {
                 return VncVersionInfo.VNC_VERSION;
             }   
@@ -191,7 +191,7 @@ public class VncDataRelayBearer extends VncTcpOutBearer implements VncBearer {
 }
 
 /**
- * A class for setting up connection using the VNC Data Relay.  Speaks
+ * A class for setting up connection using the VNC Automotive Data Relay.  Speaks
  * Data Relay Transport Protocol to the relay until the connection is
  * either fully established or fails.
  * <p>

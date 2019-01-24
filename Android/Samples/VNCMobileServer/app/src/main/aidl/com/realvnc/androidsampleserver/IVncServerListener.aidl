@@ -1,16 +1,16 @@
-/* Copyright (C) 2002-2018 RealVNC Ltd. All Rights Reserved.
+/* Copyright (C) 2002-2018 VNC Automotive Ltd.  All Rights Reserved.
  *
- * This is a sample application intended to demonstrate part of the
- * VNC Mobile Solution SDK. It is not intended as a production-ready
+ * This is a sample application intended to demonstrate part of a
+ * VNC Automotive SDK. It is not intended as a production-ready
  * component. */
 
 package com.realvnc.androidsampleserver;
 
-/** Interface for callbacks from the VNC server to the user interface layer.
+/** Interface for callbacks from the VNC Automotive server to the user interface layer.
  * This interface should be implemented by the user interface program
- * (activity) which wishes to make use of the VNC server. It will need
+ * (activity) which wishes to make use of the VNC Automotive server. It will need
  * to know them in order to report progress to the user, but also so
- * that it knows what calls it can validly make into the VNC server at
+ * that it knows what calls it can validly make into the VNC Automotive server at
  * any given time.
  */
 interface IVncServerListener {
@@ -26,7 +26,7 @@ interface IVncServerListener {
      * that the IP address may be blank. */
     void connectedCb(String ipAddress);
 
-    /** All negotiation and authentication has succeeded, and the VNC
+    /** All negotiation and authentication has succeeded, and the VNC Automotive
      * connection is now up and running. */
     void runningCb();
 

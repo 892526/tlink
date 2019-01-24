@@ -1,88 +1,71 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- 
 
-   Copyright (C) 2002-2018 RealVNC Ltd. All Rights Reserved.
+   Copyright (C) 2002-2018 VNC Automotive Ltd.  All Rights Reserved.
  
-   This is a sample application intended to demonstrate part of the
-   VNC Mobile Solution SDK. It is not intended as a production-ready
+   This is a sample application intended to demonstrate part of a
+   VNC Automotive SDK. It is not intended as a production-ready
    component.
 
 -->
-
-
 <resources
 	xmlns:tools="http://schemas.android.com/tools">
 
-	<!-- Strings related to the main application screen -->
-
-	<string name="hello">Welcome to VNC Mobile Server for Android</string>
-	<string name="vncicon_description">RealVNC Ltd. company logo</string>
-
-	<string name="press_menu">Press MENU for options.</string>
-
 	<!-- The name here is filled in by the build script: -->
-	<string name="app_name">JK VNC SERVER</string>
+	<string name="SS_01_001">T-Link</string>
 
-	<string name="menu_auto_connect">Auto Connect</string>
-	<string name="menu_usb_connect">Connect via USB</string>
-	<string name="menu_aap_connect">Connect via AAP</string>
-	<string name="menu_device_admin">Device administrator</string>
-	<string name="menu_connect">Connect</string>
-	<string name="menu_disconnect">Disconnect</string>
-	<string name="menu_listen">Listen</string>
-	<string name="menu_settings">Settings</string>
-	<string name="menu_stop">Stop</string>
-	<string name="menu_showlog">View log</string>
-	<string name="menu_about">About</string>
-	<string name="menu_cmdstring">Command string</string>
+	<!-- Assets -->
+	<string name="application_overview">application_overview.html</string>
+	<string name="terms_of_service">terms_of_service.html</string>
 
-	<string name="service_name">RealVNC Server</string>
+	<!-- Common -->
+	<string name="common_ok">OK</string>
 
 	<!-- Messages that can appear on the UI as the server status -->
-	<string name="status_starting">Starting server</string>
+	<string name="SS_02_201">Starting server</string>
 
 	<string name="status_keygen">Generating key</string>
 	<string name="status_accept_auth">Accepting authentication</string>
 	<string name="status_accept_conn">Accepting connection</string>
-	<string name="status_connect">Connecting</string>
+	<string name="SS_02_202">Connecting</string>
 	<string name="status_deny_auth">Denying authentication</string>
 	<string name="status_deny_conn">Denying connection</string>
-	<string name="status_listen">Starting listening</string>
-	<string name="status_reset">Resetting</string>
+	<string name="SS_02_203">Starting listening</string>
+	<string name="SS_02_204">Resetting</string>
 	<string name="status_supply_auth">Supplying authentication</string>
 
-	<string name="status_accepting">Accepting connection</string>
+	<string name="SS_02_205">Accepting connection</string>
 	<string name="status_authenticating">Authenticating</string>
 	<string name="status_requesting_auth">Requesting credentials</string>
 	<string name="status_connecting">Connecting</string>
-	<string name="status_disconnected">Disconnected</string>
-	<string name="status_listening">Listening on %s</string>
-	<string name="status_running">Connected to %s</string>
+	<string name="SS_02_206">Disconnected</string>
+	<string name="SS_02_207">Listening on %s</string>
+	<string name="SS_02_208">Connected to %s</string>
 
-	<string name="status_exception">Server status unknown: %s</string>
+	<string name="SS_02_209">Server status unknown: %s</string>
 
 	<!-- Messages that can appear in the "secondary status" line -->
-	<string name="status2_dialog">To continue, select the VNC icon in the notification area.</string>
+	<string name="status2_dialog">To continue, select the VNC Automotive icon in the notification area.</string>
 
 	<!-- Messages that can appear as part of the notifier in the
 	status bar at the top of the screen -->
-	<string name="notifier_connected_ticker">Connected to %s</string>
-	<string name="notifier_connected_title">VNC is connected</string>
-	<string name="notifier_connected_text">Select for VNC options.</string>
+	<string name="SS_02_210">Connected to %s</string>
+	<string name="SS_02_211">T-Link is connected</string>
+	<string name="SS_02_212">Show the application.</string>
 
-	<string name="notifier_accept_ticker">Connection Request</string>
-	<string name="notifier_accept_title">VNC connection request</string>
-	<string name="notifier_accept_text">Select to accept or reject.</string>
+	<string name="SS_02_213">Connection Request</string>
+	<string name="SS_02_214">T-Link connection request</string>
+	<string name="SS_02_215">Select to accept or reject.</string>
 
-	<string name="notifier_auth_ticker">Connection Request</string>
-	<string name="notifier_auth_title">VNC connection request</string>
-	<string name="notifier_auth_text">Select to accept or reject.</string>
+	<!-- <string name="notifier_auth_ticker">Connection Request</string> -->
+	<!-- <string name="notifier_auth_title">T-Link connection request</string> -->
+	<!-- <string name="notifier_auth_text">Select to accept or reject.</string> -->
 
-	<string name="notifier_authreq_ticker">Connection Request</string>
-	<string name="notifier_authreq_title">VNC connection request</string>
+	<!-- <string name="notifier_authreq_ticker">Connection Request</string> -->
+	<!-- <string name="notifier_authreq_title">T-Link connection request</string> -->
 	<string name="notifier_authreq_text">Select to enter username and password.</string>
 
-	<!-- Standard VNC Mobile Solution error messages -->
+	<!-- Standard VNC Automotive error messages -->
 	<string name="error_vnc_0">No Error</string>
 	<string name="error_vnc_1">Insufficient System Resources</string>
 	<string name="error_vnc_2">Invalid State for Command</string>
@@ -98,7 +81,7 @@
 	<string name="error_vnc_28">Network In Use</string>
 	<string name="error_vnc_30">USB not connected</string>
 	<string name="error_vnc_31">Functionality not supported on this device</string>
-	<string name="error_vnc_40">VNC Protocol Mismatch</string>
+	<string name="error_vnc_40">RFB Protocol Mismatch</string>
 	<string name="error_vnc_41">Login Details Rejected</string>
 	<string name="error_vnc_42">Not Licensed for Viewer</string>
 	<string name="error_vnc_43">Connection Closed</string>
@@ -115,7 +98,7 @@
 	<string name="error_vnc_54">Feature not licensed</string>
 	<string name="error_vnc_55">Viewer does not support a critical capability</string>
 	<string name="error_vnc_60">Invalid Parameter</string>
-	<string name="error_vnc_61">VNC Server API Uninitialized</string>
+	<string name="error_vnc_61">VNC Automotive Server API Uninitialized</string>
 	<string name="error_vnc_62">Invalid API Call</string>
 	<string name="error_vnc_63">Key Generation Failed</string>
 	<string name="error_vnc_64">Remote control service failed to start</string>
@@ -125,7 +108,7 @@
 	<string name="error_vnc_82">Bad Data Relay Challenge</string>
 	<string name="error_vnc_83">Data Relay Timeout</string>
 	<string name="error_vnc_100">Rejected</string>
-	<string name="error_vnc_101">Failed to Fetch VNC Command</string>
+	<string name="error_vnc_101">Failed to Fetch Command String</string>
 	<string name="error_vnc_102">Internal Error</string>
 	<string name="error_vnc_103">File Error</string>
 	<string name="error_vnc_104">Registry Error</string>
@@ -139,12 +122,12 @@
 	<string name="error_vnc_123">Remote control service does not have required permissions, remote control will not be possible.</string>
 
 	<!-- Other errors that can appear in toast prompts -->
-	<string name="error_no_url">No rendezvous URL configured</string>
-	<string name="error_msgheader">Error %d: </string>
-	<string name="error_no_errmsg">Untranslated error %d</string>
-	<string name="error_creating_network_advertiser" tools:ignore="PluralsCandidate">Error %d creating network advertiser, server advertising is unavailable.</string>
-	<string name="error_starting_network_advertiser" tools:ignore="PluralsCandidate">Error %d starting network advertiser, server advertising is unavailable.</string>
-	<string name="error_network_advertiser_stopped">Network advertiser stopped with error %d, server advertising is unavailable.</string>
+	<string name="SS_03_257">No rendezvous URL configured</string>
+	<string name="SS_03_258">Error %d: </string>
+	<string name="SS_03_259">Untranslated error %d</string>
+	<string name="SS_03_260" tools:ignore="PluralsCandidate">Error %d creating network advertiser, server advertising is unavailable.</string>
+	<string name="SS_03_261" tools:ignore="PluralsCandidate">Error %d starting network advertiser, server advertising is unavailable.</string>
+	<string name="SS_03_262">Network advertiser stopped with error %d, server advertising is unavailable.</string>
 
 	<!-- Authentication (server authenticates viewer) dialog -->
 	<string name="auth_dialog_title">Authentication</string>
@@ -163,7 +146,7 @@
 
 	<!-- Dialog for accepting/rejecting incoming connections -->
 	<string name="accept_dialog_title">Accept Connection</string>
-	<string name="accept_dialog_text">A viewer at %s is attempting to connect to VNC Mobile Server. Allow the connection?</string>
+	<string name="accept_dialog_text">A viewer at %s is attempting to connect to VNC Automotive Server. Allow the connection?</string>
 	<string name="accept_dialog_accept">Accept</string>
 	<string name="accept_dialog_reject">Reject</string>
 
@@ -175,49 +158,55 @@
 
 	<!-- Dialog for entering command strings -->
 	<string name="cmdstring_dialog_title">Enter Command</string>
-	<string name="cmdstring_dialog_text">Enter a VNC command string:</string>
+	<string name="cmdstring_dialog_text">Enter a VNC Automotive command string:</string>
 	<string name="cmdstring_dialog_ok">OK</string>
 	<string name="cmdstring_dialog_cancel">Cancel</string>
 
 	<!-- About dialog -->
-	<string name="about_dialog_title">About VNC Mobile Server</string>
-	<string name="about_dialog_text">VNC&#174; Mobile Server Sample Application\r\n\r\nVersion: %1$s\r\n\r\nCopyright &#169; RealVNC Limited, 2010&#8211;2018. All rights reserved. RealVNC and VNC are trademarks of RealVNC Limited and are protected by trademark registrations and/or pending trademark applications in the European Union, United States of America and other jurisdictions. Protected by UK patents 2481870, 2491657; US patents 8760366, 9137657; EU patent 2652951. For more information, see www.realvnc.com.\r\n\r\nDevice Signing Keys:\r\n%2$s</string>
+	<string name="about_dialog_title">About VNC Automotive Server</string>
+	<string name="about_dialog_text" tools:ignore="TypographyDashes,TypographyOther">VNC Automotive Server Sample Application\r\n\r\nVersion: %1$s\r\n\r\nCopyright (C) 2010-2018 VNC Automotive Ltd.  All Rights Reserved. VNC Automotive is a trademark of VNC Automotive Limited and is protected by trademark registrations and/or pending trademark applications in the European Union, United States of America and other jurisdictions. For more information, see www.vncautomotive.com.\r\n\r\nDevice Signing Keys:\r\n%2$s</string>
 	<string name="about_dialog_ok">Dismiss</string>
 
 	<!-- Dialog for asking the user to enable non-market installation -->
 	<string name="non_market_install_dialog_title">Allow non-market installation?</string>
-	<string name="non_market_install_dialog_text">The VNC server needs to install the remote control service, but your device is set to disallow package installation outside Google Market. Do you want to change this setting?</string>
+	<string name="non_market_install_dialog_text">The VNC Automotive server needs to install the remote control service, but your device is set to disallow package installation outside Google Market. Do you want to change this setting?</string>
 	<string name="non_market_install_dialog_accept">Yes</string>
 	<string name="non_market_install_dialog_reject">No</string>
 
 	<!-- Dialog for asking the user to enable the accessibility service -->
-	<string name="accessibility_dialog_title">Accessibility service</string>
-	<string name="accessibility_dialog_text">The VNC Mobile Server needs an Accessibility Service to be able to filter drive-safe apps. You must enable this manually.</string>
-	<string name="accessibility_dialog_accept">Take me to Settings</string>
-	<string name="accessibility_dialog_reject">Later</string>
+	<string name="SS_04_201">Accessibility service</string>
+	<string name="SS_04_202">The T-Link Application needs an Accessibility Service to be able to filter drive-safe apps. You must enable this manually.</string>
+	<string name="SS_04_203">Take me to Settings</string>
+	<!-- <string name="accessibility_dialog_reject">Later</string> -->
+
+	<!-- Dialog for asking the user to grant the overlay permission -->
+	<string name="SS_04_204">Overlay Permission</string>
+	<string name="SS_04_205">T-Link application needs the Overlay Permission to be able to lock the orientation. You must enable this manually.</string>
+	<!-- <string name="overlay_permission_dialog_accept">Take me to Settings</string> -->
+	<!-- <string name="overlay_permission_dialog_reject">Later</string> -->
 
 	<!-- HTTP connection notifier -->
 	<string name="http_accept_notifier_ticker">Remote Control Attempt</string>
 	<string name="http_accept_notifier_title">Remote Control Attempt</string>
-	<string name="http_accept_notifier_text">VNC Mobile Bridge is attempting to control this device.</string>
+	<string name="http_accept_notifier_text">VNC Automotive Bridge is attempting to control this device.</string>
 
 	<!-- HTTP connection accept/reject prompt -->
 	<string name="http_accept_title">Accept remote control?</string>
-	<string name="http_accept_text">VNC Mobile Bridge is attempting to control this device. Do you want to allow this connection?</string>
+	<string name="http_accept_text">VNC Automotive Bridge is attempting to control this device. Do you want to allow this connection?</string>
 	<string name="http_accept_accept">Accept</string>
 	<string name="http_accept_reject">Reject</string>
 
 	<!-- HTTP disconnection notifier -->
 	<string name="http_disconnect_notifier_ticker">Remote Control Finished</string>
 	<string name="http_disconnect_notifier_title">Remote Control Finished</string>
-	<string name="http_disconnect_notifier_text">VNC Mobile Bridge has disconnected.</string>
+	<string name="http_disconnect_notifier_text">VNC Automotive Bridge has disconnected.</string>
 
 	<!-- Strings related to the settings/preferences screens -->
 
-  <string name="app_settings_name">VNC Mobile Server Settings</string>
+  <string name="app_settings_name">VNC Automotive Server Settings</string>
 
-	<string name="prefs_cat_vncsettings">VNC Settings</string>
-	<string name="prefs_cat_vncsettings_summary">Settings that control the behaviour of the VNC server.</string>
+	<string name="prefs_cat_vncsettings">RFB Settings</string>
+	<string name="prefs_cat_vncsettings_summary">Settings that control the behaviour of the RFB server.</string>
 
 	<string name="prefs_vnc_port">Listening port</string>
 	<string name="prefs_vnc_port_summary">Port number to listen on for incoming connections</string>
@@ -232,7 +221,7 @@
 	<string name="prefs_vnc_accept_prompt_summary">Whether to prompt to accept or reject incoming connections</string>
 
 	<string name="prefs_vnc_advertise_server">Advertise server</string>
-	<string name="prefs_vnc_advertise_server_summary">Whether to advertise the VNC server on local networks when active</string>
+	<string name="prefs_vnc_advertise_server_summary">Whether to advertise the RFB server on local networks when active</string>
 
 	<string name="prefs_cat_security">Security Settings</string>
 	<string name="prefs_cat_security_summary">Settings related to security and authentication</string>
@@ -252,23 +241,23 @@
 	<string name="clipboard_4_3_warning_title">Unreliable clipboard support</string>
 	<string name="clipboard_4_3_warning_message">Clipboard support in Android 4.3 is unreliable due to the Android Open Source project bug 58043. Enabling clipboard support can cause other applications to crash.</string>
 
-	<string name="prefs_cat_bridge">VNC Mobile Bridge</string>
-	<string name="prefs_cat_bridge_summary">Settings related to controlling the device from VNC Mobile Bridge</string>
+	<string name="prefs_cat_bridge">VNC Automotive Bridge</string>
+	<string name="prefs_cat_bridge_summary">Settings related to controlling the device from VNC Automotive Bridge</string>
 
 	<string name="prefs_url_connection">Connection URL</string>
-	<string name="prefs_url_connection_summary">URL to use when connecting via VNC Mobile Bridge</string>
+	<string name="prefs_url_connection_summary">URL to use when connecting via VNC Automotive Bridge</string>
 
 	<string name="prefs_url_logging">Status URL</string>
 	<string name="prefs_url_logging_summary">URL to use for reporting connection status</string>
 
 	<string name="url_empty_title">URL is empty</string>
-	<string name="url_empty_message">Please enter a valid VNC Mobile Bridge URL.</string>
+	<string name="url_empty_message">Please enter a valid VNC Automotive Bridge URL.</string>
 
 	<string name="url_invalid_title">URL is invalid</string>
-	<string name="url_invalid_message">Please enter a valid VNC Mobile Bridge URL.</string>
+	<string name="url_invalid_message">Please enter a valid VNC Automotive Bridge URL.</string>
 
 	<string name="prefs_sms_listener">SMS Listener</string>
-	<string name="prefs_sms_listener_summary">Whether to respond to SMS triggers from VNC Mobile Bridge</string>
+	<string name="prefs_sms_listener_summary">Whether to respond to SMS triggers from VNC Automotive Bridge</string>
 
 	<string name="prefs_cat_clipboard">Clipboard Settings</string>
 	<string name="prefs_cat_clipboard_summary">Controls affecting sharing of the clipboard between viewer and server</string>
@@ -296,13 +285,13 @@
 
 	<!-- Dialog for accepting/rejecting USB auto connect option -->
 	<string name="accept_usb_choice_dialog_title">Allow USB</string>
-	<string name="accept_usb_choice_dialog_text">Do you want to allow USB tethering so VNC Mobile Server can listen for USB connections? Note this may mean VNC Mobile Viewer is able to connect to and control the device.</string>
+	<string name="accept_usb_choice_dialog_text">Do you want to allow USB tethering so VNC Automotive Server can listen for USB connections? Note this may mean VNC Automotive Viewer is able to connect to and control the device.</string>
 	<string name="accept_usb_choice_dialog_accept">Accept</string>
 	<string name="accept_usb_choice_dialog_reject">Reject</string>
 
 	<!-- Dialog warning about AAP connection when not set as USB bearer -->
 	<string name="aap_not_chosen_dialog_title">AAP Connection Attempted</string>
-	<string name="aap_not_chosen_dialog_text">A VNC Mobile Viewer has attempted to start an AAP&#x2D;based USB connection. This connection attempt has been ignored as the server is not currently set up to use AAP for USB.</string>
+	<string name="aap_not_chosen_dialog_text">A VNC Automotive Viewer has attempted to start an AAP&#x2D;based USB connection. This connection attempt has been ignored as the server is not currently set up to use AAP for USB.</string>
 	<string name="aap_not_chosen_dialog_accept">OK</string>
 	<string name="aap_not_chosen_dialog_settings">Settings</string>
 
@@ -312,18 +301,48 @@
 	<string name="admin_disable_warning">This may prevent the server from functioning.</string>
 	<string name="admin_already_admin">Already a device administrator</string>
 
-	<string name="accessibility_service_label">VNC Mobile Server app filtering</string>
-	<string name="accessibility_service_description">Monitors which app is being used during a VNC connection to filter drive-safe apps while driving</string>
+	<!-- Accessibility -->
+	<!-- <string name="SS_01_001">T-Link</string> -->
+	<string name="SS_05_201">Monitors which app is being used during a T-Link connection to filter drive-safe apps while driving</string>
 
-	<!-- Drawer -->
+	<string name="SS_03_263">Orientation Lock disabled</string>
+
+	<string name="vnc_automotive_bridge">T-Link Bridge</string>
+	<string name="SS_02_216">T-Link Server</string>
+	<string name="SS_02_217">Service is running</string>
+
+	<!-- For Program -->
+	<string name="notification_channel_title">Service Notifications</string>
 	<string name="navigation_drawer_open">Open navigation drawer</string>
 	<string name="navigation_drawer_close">Close navigation drawer</string>
 
 	<!-- Navigation Menu -->
-	<string name="navigation_menu_about">About</string>
-	<string name="navigation_menu_qa">Q&amp;A</string>
-	<string name="navigation_menu_tos">Terms of service</string>
-	<string name="navigation_menu_oss">Open source licenses</string>
-	<string name="navigation_menu_version">Version</string>
+	<string name="SS_01_002">About this Application</string>
+	<string name="SS_01_004">Terms of service</string>
+	<string name="SS_01_005">Open source licenses</string>
+	<string name="SS_01_006">Version : %s</string>
+
+	<!-- Main -->
+	<string name="main_string">Screen Sharing App\nA new degree of Smartphone Integration\nDesigned for Display Audio</string>
+
+	<!-- Tutorial -->
+	<string name="tutorial_title">Tutorial</string>
+
+	<!-- Bluetooth -->
+	<string name="SS_81_3100">Bluetooth Pairing</string>
+	<string name="SS_81_3101">Activate Bluetooth\nsearch and select \"Car Multimedia\"</string>
+	<string name="SS_81_3102">Activate Bluetooth and select \"Car Multimedia\"</string>
+	<string name="SS_81_3103">Select \"Phone 1\" or \"Phone 2\"\nSelect \"Bluetoth Audio\"\nSelect \"T-Link\"\nPress "Yes"</string>
+
+    <!-- Bluetooth -->
+    <string name="SS_81_3200">Launch \"T-Link\" App</string>
+    <string name="SS_81_3201">Launch \"T-Link\" App</string>
+    <string name="SS_81_3202">If you need tick on,\nthen select \"OK\"</string>
+    <string name="SS_81_3203">If you need tick on,\nthen select \"START NOW\"</string>
+    <string name="SS_81_3204">Select \"TAKE ME TO SETTINGS\"</string>
+    <string name="SS_81_3205">Turn \"On\" </string>
+
+    <string name="SS_81_3300">Start Screen Sharing</string>
+    <string name="SS_81_3301">Select \"T-Link\"\nconnect your Smartphone via USB cable</string>
 
 </resources>

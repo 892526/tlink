@@ -2,10 +2,10 @@
 #
 # build-sample-server-android.sh (-h for help)
 #
-# The script builds all the samples which are part of the Android RealVNC
+# The script builds all the samples which are part of the Android VNC Automotive
 # Server SDK distribution.
 #
-# Copyright (C) 2014-2018 RealVNC Ltd.  All Rights Reserved.
+# Copyright (C) 2014-2018 VNC Automotive Ltd.  All Rights Reserved.
 
 set -e
 set -E
@@ -30,7 +30,7 @@ function get_component_path
       echo "Samples/Bearers"
       ;;
     mobileServer)
-      echo "Samples/VNCMobileServer"
+      echo "Samples/Server"
       ;;
     *)
       echo ""
@@ -72,7 +72,7 @@ function build_with_gradle
 
 }
 
-# Builds the Mobile Server sample application.
+# Builds the Server sample application.
 #
 # The current dir is the component dir.
 function build_mobile_server
@@ -102,7 +102,7 @@ function build_mobile_server
       local build_type="release"
   fi
 
-  cp -f app/build/outputs/apk/app-$build_type*.apk "$BINARIES"/$apk_name-$build_type.apk
+  cp -f app/build/outputs/apk/$build_type/app-$build_type*.apk "$BINARIES"/$apk_name-$build_type.apk
 }
 
 function build_bearers

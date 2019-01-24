@@ -1,4 +1,4 @@
-VNC(R) Mobile Server SDK for Android
+VNC Automotive Server SDK for Android
 ====================================
 
 In this directory you will find seven sub-directories:
@@ -19,35 +19,35 @@ In this directory you will find seven sub-directories:
                                     further information.
 
    SDK                            - This contains what you need to build your
-                                    own applications embedding an Android VNC
+                                    own applications embedding an Android VNC Automotive
                                     server.
 
-   VNCNetworkAdvertiserSDK        - This contains the VNC Network Advertiser
-                                    SDK, which you can use to make your VNC
+   VNCNetworkAdvertiserSDK        - This contains the VNC Automotive Network Advertiser
+                                    SDK, which you can use to make your VNC Automotive
                                     server application discoverable over IP
                                     networks.
 
    Samples                        - This contains a sample application which
-                                    embeds an Android VNC server, with full
+                                    embeds an Android VNC Automotive server, with full
                                     source code.
 
    Docs                           - This contains the documentation for the
-                                    RealVNC Server SDK, the VNC Network
+                                    VNC Automotive Server SDK, the VNC Automotive Network
                                     Advertiser SDK and the Bluetooth Audio
                                     Router in HTML format. Please refer to this
                                     for further information on the SDKs.
 
-Running the VNC Server Sample Application
+Running the VNC Automotive Server Sample Application
 =========================================
 
 What you need
 -------------
-1. Evaluation/VNCMobileServer/Android/VNCMobileServer.apk.
-   This is the sample GUI application. It contains the VNC Mobile
+1. Evaluation/Server/Android/Server.apk.
+   This is the sample GUI application. It contains the VNC Automotive
    Solution server SDK and a sample GUI.
 
 2. Suitable Android device or emulator.
-   The RealVNC Android server makes use of a new service called
+   The VNC Automotive Android server makes use of a new service called
    the remote control service. This service requires permissions
    which are typically configured as signature permissions. This
    means that any application making use of them must be signed
@@ -55,7 +55,7 @@ What you need
 
    Remote control services are provided for a variety of configurations.
 
-3. VNC viewer.
+3. VNC Automotive viewer.
    Configured as described later.
 
 How to use it
@@ -84,7 +84,7 @@ Does it use any internal unpublished APIs?
     Only internally. The API exposed to applications should be suitable to be
     added to Android as an officially supported API.
 
-Integrating the VNC Server into your application
+Integrating the VNC Automotive Server into your application
 ================================================
 
 See the instructions on the front page of the Javadoc documentation.
@@ -93,10 +93,9 @@ See the instructions on the front page of the Javadoc documentation.
 Trademark information
 =====================
 
-RealVNC and VNC are trademarks of RealVNC Limited and are protected by
+VNC Automotive is a trademark of VNC Automotive Limited and is protected by
 trademark registrations and/or pending trademark applications in the
 European Union, United States of America and other jurisdictions.
 Other trademarks are the property of their respective owners.
-Protected by UK patents 2481870, 2491657; US patents 8760366, 9137657; EU patent 2652951.
 
-Copyright (C) 2002-2018 RealVNC Ltd.  All Rights Reserved.
+Copyright (C) 2002-2018 VNC Automotive Ltd.  All Rights Reserved.

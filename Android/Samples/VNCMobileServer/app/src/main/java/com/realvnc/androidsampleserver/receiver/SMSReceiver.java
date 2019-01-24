@@ -1,7 +1,7 @@
-/* Copyright (C) 2002-2018 RealVNC Ltd. All Rights Reserved.
+/* Copyright (C) 2002-2018 VNC Automotive Ltd.  All Rights Reserved.
  *
- * This is a sample application intended to demonstrate part of the
- * VNC Mobile Solution SDK. It is not intended as a production-ready
+ * This is a sample application intended to demonstrate part of a
+ * VNC Automotive SDK. It is not intended as a production-ready
  * component. */
 
 package com.realvnc.androidsampleserver.receiver;
@@ -14,6 +14,7 @@ import android.telephony.SmsMessage;
 import android.util.Log;
 
 import com.realvnc.androidsampleserver.SampleIntents;
+import com.realvnc.androidsampleserver.NotificationHelper;
 import com.realvnc.androidsampleserver.service.HTTPTriggerService;
 
 public class SMSReceiver extends BroadcastReceiver {
@@ -63,7 +64,8 @@ public class SMSReceiver extends BroadcastReceiver {
             Intent i = new Intent(context, HTTPTriggerService.class);
             i.setAction(SampleIntents.HTTP_TRIGGER_INTENT);
             i.setPackage(context.getPackageName());
-            context.startService(i);
+            NotificationHelper.ServiceUtils
+                    .startForegroundServiceWithIntent(context, i);
 
         } else {
             Log.i(LOG_TAG, "Bad intent: " + intent.getAction());

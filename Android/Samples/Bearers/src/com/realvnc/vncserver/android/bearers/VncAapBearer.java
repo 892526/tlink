@@ -1,11 +1,11 @@
 /*
  * VncAapBearerBase.java
  *
- * This is sample code intended to demonstrate part of the
- * VNC Mobile Solution SDK. It is not intended as a production-ready
+ * This is sample code intended to demonstrate part of a
+ * VNC Automotive SDK. It is not intended as a production-ready
  * component.
  *
- * Copyright (C) 2011-2018 RealVNC Ltd. All Rights Reserved.
+ * Copyright (C) 2011-2018 VNC Automotive Ltd.  All Rights Reserved.
  * Confidential and proprietary.
  */
 
@@ -230,7 +230,7 @@ public class VncAapBearer implements VncBearer {
         private long mLastReadTime;
 
         ReadThread(WriteThread writeThread, InputStream underlyingStream) {
-            super("VNC AAP Read Thread");
+            super("VNC Automotive AAP Read Thread");
             mStream = underlyingStream;
             mWriteThread = writeThread;
             for(int i = 0; i < BUFFER_COUNT; ++i) {
@@ -404,7 +404,7 @@ public class VncAapBearer implements VncBearer {
         private boolean mWrittenData;
 
         WriteThread(OutputStream underlyingStream) {
-            super("VNC AAP Write Thread");
+            super("VNC Automotive AAP Write Thread");
             mStream = underlyingStream;
             for(int i = 0; i < BUFFER_COUNT; ++i) {
                 mFromThreadBuffers.add(ByteBuffer.allocate(BUFFER_SIZE));
@@ -772,7 +772,10 @@ public class VncAapBearer implements VncBearer {
                     public void run() {
                         long lastRead = mReadThread.lastReadTime();
                         long now = SystemClock.uptimeMillis();
-                        if (now - lastRead > (2 * HELLO_REPEAT_PERIOD)) {
+
+                        // MOB-18334: We use a 5 second timeout to allow sufficient
+                        // time for connection on changing orientation.
+                        if (now - lastRead > (5 * HELLO_REPEAT_PERIOD)) {
                             // Failed to receive data regularily enough,
                             // abort the connection.
                             LOG.severe("Frame receive timeout, now: " + now +
@@ -1129,7 +1132,7 @@ public class VncAapBearer implements VncBearer {
     public VncBearerInfo getInfo () {
         return new VncBearerInfo() {
             public String getName() { return "AAP"; }
-            public String getFullName() { return "VNC AAP bearer"; }
+            public String getFullName() { return "VNC Automotive AAP bearer"; }
             public String getDescription() { return "Uses Android Accessory Protocol to communicate with the viewer."; }
             public String getVersionString () {
                 return VncVersionInfo.VNC_VERSION;

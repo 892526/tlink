@@ -5,6 +5,7 @@ import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.realvnc.androidsampleserver.R
 
 /**
  * A simple [Fragment] subclass.
@@ -20,7 +21,8 @@ class OverviewFragment : WebViewFragment() {
     //  protected methods
     /*------------------------------------------------------------------------------------------*/
     override fun getDisplayUrl(): String {
-        return "http://www2.jvckenwood.com/cs/ce/mdvpj/kmi_summary.htm"
+        val file = "file:///android_asset/application_overview/${getString(R.string.application_overview)}"
+        return file
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -29,7 +31,7 @@ class OverviewFragment : WebViewFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        //activity!!.setTitle(R.string.overview)
+        activity!!.setTitle(R.string.SS_01_002)
     }
 
     companion object {

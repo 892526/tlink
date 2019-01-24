@@ -3,6 +3,7 @@ package com.realvnc.androidsampleserver.fragment
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.view.View
+import com.realvnc.androidsampleserver.R
 
 
 /**
@@ -31,7 +32,7 @@ class OpenSourceLicensesFragment : WebViewFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        //activity!!.setTitle(R.string.osl)
+        activity!!.setTitle(R.string.SS_01_005)
     }
 
     companion object {

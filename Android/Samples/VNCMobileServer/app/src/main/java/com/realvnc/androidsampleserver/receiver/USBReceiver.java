@@ -1,7 +1,7 @@
-/* Copyright (C) 2002-2018 RealVNC Ltd. All Rights Reserved.
+/* Copyright (C) 2002-2018 VNC Automotive Ltd.  All Rights Reserved.
  *
- * This is a sample application intended to demonstrate part of the
- * VNC Mobile Solution SDK. It is not intended as a production-ready
+ * This is a sample application intended to demonstrate part of a
+ * VNC Automotive SDK. It is not intended as a production-ready
  * component. */
 
 package com.realvnc.androidsampleserver.receiver;
@@ -14,6 +14,7 @@ import android.net.Uri;
 import android.util.Log;
 
 import com.realvnc.androidsampleserver.SampleIntents;
+import com.realvnc.androidsampleserver.NotificationHelper;
 import com.realvnc.androidsampleserver.VncUsbState;
 import com.realvnc.androidsampleserver.activity.VNCMobileServer;
 import com.realvnc.androidsampleserver.service.VncServerService;
@@ -69,7 +70,7 @@ public class USBReceiver extends BroadcastReceiver {
                  * for a disconnect. */
 
                 if(stage == VncUsbState.Stage.WAITING_FOR_DISCONNECT) {
-                    Log.i(LOG_TAG, "Stopping VNC server");
+                    Log.i(LOG_TAG, "Stopping VNC Automotive server");
                     resetServer(context);
                 }
                 String usbBearer = VncUsbState.getUsbBearer(context);
@@ -80,7 +81,8 @@ public class USBReceiver extends BroadcastReceiver {
                     i.setAction(SampleIntents.START_SERVER_INTENT);
                     i.setData(Uri.parse("vnccmd:v=1;t=AAP"));
                     i.setPackage(context.getPackageName());
-                    context.startService(i);
+                    NotificationHelper.ServiceUtils
+                            .startForegroundServiceWithIntent(context, i);
                 }
 
                 if(!(stage.mSwitchingOn &&
@@ -99,12 +101,13 @@ public class USBReceiver extends BroadcastReceiver {
                 if(stage == VncUsbState.Stage.WAITING_FOR_ACTIVE_TETHER) {
                     /* Was waiting for tethering to become active, so
                      * now ask the server to listen */
-                    Log.i(LOG_TAG, "Starting VNC server");
+                    Log.i(LOG_TAG, "Starting VNC Automotive server");
                     Intent i = new Intent(context, VncServerService.class);
                     i.setAction(SampleIntents.START_SERVER_INTENT);
                     i.setData(Uri.parse("vnccmd:v=1;t=USB"));
                     i.setPackage(context.getPackageName());
-                    context.startService(i);
+                    NotificationHelper.ServiceUtils
+                            .startForegroundServiceWithIntent(context, i);
                     VncUsbState.setStage(context,
                             VncUsbState.Stage.WAITING_FOR_DISCONNECT);
                 }
@@ -138,7 +141,7 @@ public class USBReceiver extends BroadcastReceiver {
 
                 if(stage == VncUsbState.Stage.WAITING_FOR_DISCONNECT) {
                     /* User has manually disabled USB tethering */
-                    Log.i(LOG_TAG, "Stopping VNC server");
+                    Log.i(LOG_TAG, "Stopping VNC Automotive server");
                     resetServer(context);
                     VncUsbState.setStage(context, VncUsbState.Stage.NOT_WAITING);
                 } else if(usbAutoconnectOption == VncUsbState.AutoTetherStatus.VNC_USB_AUTOCONNECT_ASK) {
@@ -165,6 +168,7 @@ public class USBReceiver extends BroadcastReceiver {
         i.setAction(SampleIntents.RESET_SERVER_INTENT);
         i.putExtra(SampleIntents.RESET_SERVER_WAIT_FOR_FLUSH_EXTRA, false);
         i.setPackage(context.getPackageName());
-        context.startService(i);
+        NotificationHelper.ServiceUtils
+                .startForegroundServiceWithIntent(context, i);
     }
 }

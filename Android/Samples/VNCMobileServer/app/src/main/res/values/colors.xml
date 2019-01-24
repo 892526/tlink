@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#FF4081</color>
+    <color name="colorPrimary">#760F25</color>
+    <color name="colorPrimaryDark">#510B1B</color>
+    <color name="colorAccent">#760F25</color>
+
+
+    <color name="statusTextColor">#FFFFFF</color>
+    <color name="statusTextColorSecondary">#C0C0C0</color>
+
+    <color name="navigationViewTopColor">#F0FFFFFF</color>
+    <color name="navigationViewBottomColor">#F0760F25</color>
 </resources>

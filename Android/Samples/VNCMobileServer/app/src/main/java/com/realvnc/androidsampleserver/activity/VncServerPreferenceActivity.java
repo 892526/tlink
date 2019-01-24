@@ -1,7 +1,7 @@
-/* Copyright (C) 2002-2018 RealVNC Ltd. All Rights Reserved.
+/* Copyright (C) 2002-2018 VNC Automotive Ltd.  All Rights Reserved.
  *
- * This is a sample application intended to demonstrate part of the
- * VNC Mobile Solution SDK. It is not intended as a production-ready
+ * This is a sample application intended to demonstrate part of a
+ * VNC Automotive SDK. It is not intended as a production-ready
  * component. */
 
 package com.realvnc.androidsampleserver.activity;
@@ -46,7 +46,7 @@ public class VncServerPreferenceActivity extends PreferenceActivity {
             //
             // https://code.google.com/p/android/issues/detail?id=58043
             //
-            // The internal RealVNC reference for this is MOB-9408
+            // The internal VNC Automotive reference for this is MOB-9408
             //
             // Testing for the exact "4.3" string is working on the
             // assumption that if "4.3.1" is ever released that it will
@@ -104,7 +104,7 @@ public class VncServerPreferenceActivity extends PreferenceActivity {
         }
     }
 
-    /* Constraints on VNC Mobile Bridge URL fields, which must not be
+    /* Constraints on VNC Automotive Bridge URL fields, which must not be
      * empty, and must be valid URLs */
 
     private class UrlChangeListener implements Preference.OnPreferenceChangeListener {

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
 
-   Copyright (C) 2002-2018 RealVNC Ltd. All Rights Reserved.
+   Copyright (C) 2002-2018 VNC Automotive Ltd.  All Rights Reserved.
 
    This is a sample application intended to demonstrate part of the
-   VNC Mobile Solution SDK. It is not intended as a production-ready
+   VNC Automotive SDK. It is not intended as a production-ready
    component.
 
 -->
@@ -20,7 +20,7 @@
     android:layout_height="wrap_content"
     android:layout_marginTop="3dp"
     android:gravity="center_horizontal"
-    android:text="@string/accessibility_dialog_text"/>
+    android:text="@string/SS_04_202"/>
 
   <LinearLayout
     android:orientation="horizontal"
@@ -32,15 +32,16 @@
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:layout_weight="1"
-      android:text="@string/accessibility_dialog_accept"/>
+      android:text="@string/SS_04_203"/>
 
+    <!--
     <Button
       android:id="@+id/accessibility_dialog_reject"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:layout_weight="1"
       android:text="@string/accessibility_dialog_reject"/>
-
+    -->
 
   </LinearLayout>
 

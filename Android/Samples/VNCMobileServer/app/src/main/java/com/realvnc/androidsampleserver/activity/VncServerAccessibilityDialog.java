@@ -1,7 +1,7 @@
-/* Copyright (C) 2002-2018 RealVNC Ltd. All Rights Reserved.
+/* Copyright (C) 2002-2018 VNC Automotive Ltd.  All Rights Reserved.
  *
- * This is a sample application intended to demonstrate part of the
- * VNC Mobile Solution SDK. It is not intended as a production-ready
+ * This is a sample application intended to demonstrate part of a
+ * VNC Automotive SDK. It is not intended as a production-ready
  * component. */
 
 package com.realvnc.androidsampleserver.activity;
@@ -25,7 +25,7 @@ public class VncServerAccessibilityDialog extends VncServerDialog {
     VncServerAccessibilityDialog(VNCMobileServer ctx) {
         super(ctx, true);
 
-        setTitle(R.string.accessibility_dialog_title);
+        setTitle(R.string.SS_04_201);
         setContentView(R.layout.accessibility_dialog);
 
         Button button;
@@ -33,8 +33,10 @@ public class VncServerAccessibilityDialog extends VncServerDialog {
         button = (Button) findViewById(R.id.accessibility_dialog_accept);
         button.setOnClickListener(onAccept);
 
+        /*
         button = (Button) findViewById(R.id.accessibility_dialog_reject);
         button.setOnClickListener(onReject);
+        */
     }
 
     private View.OnClickListener onAccept = new View.OnClickListener() {
@@ -48,9 +50,11 @@ public class VncServerAccessibilityDialog extends VncServerDialog {
             }
         };
 
+    /*
     private View.OnClickListener onReject = new View.OnClickListener() {
             public void onClick(View v) {
                 dismiss();
             }
         };
+    */
 }

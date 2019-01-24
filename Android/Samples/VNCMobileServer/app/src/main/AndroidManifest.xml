@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- 
 
-   Copyright (C) 2002-2018 RealVNC Ltd. All Rights Reserved.
+   Copyright (C) 2002-2018 VNC Automotive Ltd.  All Rights Reserved.
  
-   This is a sample application intended to demonstrate part of the
-   VNC Mobile Solution SDK. It is not intended as a production-ready
+   This is a sample application intended to demonstrate part of a
+   VNC Automotive SDK. It is not intended as a production-ready
    component.
 
 -->
@@ -31,6 +31,7 @@
     <uses-permission android:name="android.permission.WAKE_LOCK"/>
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
 
     <uses-feature android:name="android.hardware.usb.accessory"
                   android:required="false" />
@@ -39,9 +40,11 @@
 
     <application
         android:name=".VncServerApp"
-        android:icon="@drawable/vncserver48x48"
-        android:label="@string/app_name"
+        android:icon="@mipmap/ic_launcher"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:label="@string/SS_01_001"
         android:allowBackup="false"
+        android:supportsRtl="true"
         android:theme="@style/AppTheme"
         >
 
@@ -118,38 +121,53 @@
         <activity
             android:name=".activity.VNCMobileServer"
             android:launchMode="singleTask"
-            android:configChanges="orientation"
-            android:label="@string/app_name"
+            android:label="@string/SS_01_001"
             android:exported="false"
-            android:theme="@style/AppTheme.NoActionBar"
+            android:theme="@style/AppTheme.Translucent"
             >
         </activity>
 
 
-        <activity android:name=".activity.OpenSourceLicensesActivity"
-                  android:screenOrientation="portrait">
+        <activity
+            android:name=".activity.OpenSourceLicensesActivity"
+            android:theme="@style/SettingsTheme"
+            android:configChanges="orientation"
+            >
             <intent-filter>
                 <action android:name="com.jvckenwood.vncserver.activity.OpenSourceLicensesActivity"/>
                 <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
         </activity>
 
-        <activity android:name=".activity.TermsOfServiceActivity"
-                  android:screenOrientation="portrait">
+        <activity
+            android:name=".activity.TermsOfServiceActivity"
+            android:theme="@style/SettingsTheme"
+            android:configChanges="orientation">
             <intent-filter>
                 <action android:name="com.jvckenwood.vncserver.activity.TermsOfServiceActivity"/>
                 <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
         </activity>
 
-        <activity android:name=".activity.OverviewActivity"
-                  android:screenOrientation="portrait">
+        <activity
+            android:name=".activity.OverviewActivity"
+            android:theme="@style/SettingsTheme"
+            android:configChanges="orientation">
             <intent-filter>
                 <action android:name="com.jvckenwood.vncserver.activity.OverviewActivity"/>
                 <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
         </activity>
 
+        <activity
+            android:name=".activity.TutorialActivity"
+            android:theme="@style/SettingsTheme"
+            >
+            <intent-filter>
+                <action android:name="com.jvckenwood.vncserver.activity.TutorialActivity"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
 
 
 
@@ -167,7 +185,7 @@
                               android:required="false" />
 
         <service android:name="com.realvnc.vncserver.android.implementation.ContextInformationAccessibilityService"
-            android:label="@string/accessibility_service_label"
+            android:label="@string/SS_01_001"
             android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE">
           <intent-filter>
             <action android:name="android.accessibilityservice.AccessibilityService" />
@@ -177,6 +195,21 @@
             android:name="android.accessibilityservice"
             android:resource="@xml/accessibility_service_config" />
         </service>
+
+
+
+        <provider
+            android:authorities="com.realvnc.androidsampleserver.provider"
+            android:name="android.support.v4.content.FileProvider"
+            android:exported="false"
+            android:grantUriPermissions="true"
+            >
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_provider_meta_data"
+                />
+
+        </provider>
 
     </application>
 </manifest> 

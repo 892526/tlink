@@ -1,11 +1,11 @@
 /*
  * VncUsbBearer.java
  *
- * This is sample code intended to demonstrate part of the
- * VNC Mobile Solution SDK. It is not intended as a production-ready
+ * This is sample code intended to demonstrate part of a
+ * VNC Automotive SDK. It is not intended as a production-ready
  * component.
  *
- * Copyright (C) 2011-2018 RealVNC Ltd. All Rights Reserved.
+ * Copyright (C) 2011-2018 VNC Automotive Ltd.  All Rights Reserved.
  * Confidential and proprietary.
  */
 
@@ -241,8 +241,8 @@ public class VncUsbBearer extends VncTcpInBearer {
     public VncBearerInfo getInfo () {
         return new VncBearerInfo() {
             public String getName() { return "USB"; }
-            public String getFullName() { return "VNC USB bearer"; }
-            public String getDescription() { return "Listens for USB connections from a VNC Mobile Viewer or VNC Mobile Server"; }
+            public String getFullName() { return "VNC Automotive USB bearer"; }
+            public String getDescription() { return "Listens for USB connections from a VNC Automotive Viewer or VNC Automotive Server"; }
             public String getVersionString () {
                 return VncVersionInfo.VNC_VERSION;
             }   

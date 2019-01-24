@@ -1,11 +1,11 @@
 /*
  * VncTcpBearerBase.java
  *
- * This is sample code intended to demonstrate part of the
- * VNC Mobile Solution SDK. It is not intended as a production-ready
+ * This is sample code intended to demonstrate part of a
+ * VNC Automotive SDK. It is not intended as a production-ready
  * component.
  *
- * Copyright (C) 2011-2018 RealVNC Ltd. All Rights Reserved.
+ * Copyright (C) 2011-2018 VNC Automotive Ltd.  All Rights Reserved.
  * Confidential and proprietary.
  */
 

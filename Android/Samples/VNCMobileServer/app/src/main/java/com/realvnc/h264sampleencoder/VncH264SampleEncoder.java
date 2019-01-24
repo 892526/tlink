@@ -1,7 +1,7 @@
-/* Copyright (C) 2017-2018 RealVNC Ltd.  All Rights Reserved.
+/* Copyright (C) 2017-2018 VNC Automotive Ltd.  All Rights Reserved.
  *
- * This is a sample application intended to demonstrate part of the
- * VNC Mobile Solution SDK. It is not intended as a production-ready
+ * This is a sample application intended to demonstrate part of a
+ * VNC Automotive SDK. It is not intended as a production-ready
  * component. */
 
 package com.realvnc.h264sampleencoder;
@@ -10,6 +10,7 @@ import android.annotation.TargetApi;
 import android.media.MediaCodec;
 import android.media.MediaCodecInfo;
 import android.os.Build;
+import android.util.Log;
 import android.view.Surface;
 
 import com.realvnc.vncserver.android.VncH264Encoder;
@@ -22,6 +23,8 @@ import java.util.logging.Logger;
 
 @TargetApi(Build.VERSION_CODES.LOLLIPOP)
 public class VncH264SampleEncoder extends VncH264Encoder {
+
+    private final String TAG = "VncH264SampleEncoder";
 
     private enum ExpectedBufferType {
         PARAMETER_SETS,
@@ -70,6 +73,13 @@ public class VncH264SampleEncoder extends VncH264Encoder {
             return false;
         }
 
+        if(((width & 0x07) + (height & 0x07)) != 0) {
+            return false;
+        }
+
+        Log.i(TAG, "queryResolutionSupport w:"+width+",h:"+height+"@"+videoCapabilities.isSizeSupported(width,height));
+
+
         return videoCapabilities.isSizeSupported(width, height);
     }
 
@@ -94,8 +104,7 @@ public class VncH264SampleEncoder extends VncH264Encoder {
 
             if(widthToTry < width) {
 
-                final int heightToTry
-                        = (int)Math.ceil(ratio * (float)widthToTry);
+                final int heightToTry = ((int)Math.ceil(ratio * (float)widthToTry)) & 0xfffff0;
 
                 if(videoCapabilities.isSizeSupported(widthToTry, heightToTry)) {
 
@@ -115,6 +124,12 @@ public class VncH264SampleEncoder extends VncH264Encoder {
                             heightToTry));
                 }
             }
+        }
+
+        int widthToTry2  = width & 0xfffffff0;
+        int heightToTry2 = ((int)Math.ceil(ratio * (float)widthToTry2)) & 0xfffff0;
+        if(videoCapabilities.isSizeSupported(widthToTry2, heightToTry2)) {
+            return new VncSizeInt(widthToTry2, heightToTry2);
         }
 
         return null;

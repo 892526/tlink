@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".activity.VNCMobileServer"
+    tools:showIn="@layout/app_bar_main"
+    >
+
+    <!-- Icon -->
+    <ImageView
+        android:id="@+id/content_main_icon"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+
+        android:src="@mipmap/main_icon_land"
+        android:scaleType="fitCenter"
+
+        app:layout_constraintVertical_chainStyle="spread"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/content_main_tlink"
+        />
+
+    <!-- T-Link -->
+    <ImageView
+        android:id="@+id/content_main_tlink"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+
+        android:src="@mipmap/tlink_logo_land"
+        android:scaleType="fitCenter"
+
+        app:layout_constraintVertical_chainStyle="spread"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/content_main_icon"
+        app:layout_constraintBottom_toTopOf="@id/content_main_description"
+        />
+
+    <!-- Message -->
+    <TextView
+        android:id="@+id/content_main_description"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+
+        android:text="@string/main_string"
+        android:textSize="14sp"
+        android:textAlignment="center"
+
+        app:layout_constraintVertical_chainStyle="spread"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/content_main_tlink"
+        app:layout_constraintBottom_toTopOf="@id/content_main_avx"
+        />
+
+    <!-- AVX -->
+    <ImageView
+        android:id="@+id/content_main_avx"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+
+        android:src="@mipmap/main_avx_land"
+        android:scaleType="fitCenter"
+
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        />
+
+
+    <!-- Status Image -->
+    <!--
+    <ImageView
+        android:id="@+id/status_image"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:visibility="invisible"
+
+        android:src="@mipmap/cooperating"
+        android:scaleType="fitCenter"
+
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/easy_link_title_imageview"
+        app:layout_constraintBottom_toBottomOf="@id/guideline_3"
+        />
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/status_image"
+        app:layout_constraintBottom_toBottomOf="parent"
+        >
+        <TextView
+            android:id="@+id/status_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+
+            android:textColor="@color/statusTextColor"
+            android:textSize="16sp"
+            android:singleLine="true"
+            android:ellipsize="end"
+            />
+
+        <TextView
+            android:id="@+id/secondary_status_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+
+            android:textColor="@color/statusTextColorSecondary"
+            android:textSize="12sp"
+            android:singleLine="true"
+            android:ellipsize="end"
+            />
+
+    </LinearLayout>
+    -->
+
+</android.support.constraint.ConstraintLayout>

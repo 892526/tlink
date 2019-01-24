@@ -1,7 +1,7 @@
-# Copyright (C) 2002-2018 RealVNC Ltd. All Rights Reserved.
+# Copyright (C) 2002-2018 VNC Automotive Ltd.  All Rights Reserved.
 #
 # Proguard configuration file defining proguard configuration
-# for the RealVNC embedded Remote Control Service.
+# for the VNC Automotive embedded Remote Control Service.
 
 -keepclassmembers public class com.realvnc.android.remote.embedded.EmbeddedRemoteControl {
     public *** getRemoteControl(...);
@@ -49,14 +49,3 @@
 -dontwarn android.hardware.display.VirtualDisplay
 
 # Keep all the internal SDK classes as they have already been proguarded
--keep class com.realvnc.er.i {
-    <init>(...);
-    *** d;
-    *** b(...);
-    *** a(...);
-    *** c(...);
-}
--keep class com.realvnc.er.n {
-    <init>(...);
-    *** a(...);
-}

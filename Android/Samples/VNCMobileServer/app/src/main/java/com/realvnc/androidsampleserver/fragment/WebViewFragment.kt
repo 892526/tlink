@@ -49,16 +49,16 @@ abstract class WebViewFragment() : Fragment() {
         val view = inflater.inflate(R.layout.fragment_webview, container, false)
 
         // << get progress bar object >>
-        progressBar = view.findViewById(R.id.progressbar)
+        progressBar = view.findViewById(R.id.progressbar) as ProgressBar
 
         // << get error view object >>
         errorView = view.findViewById(R.id.errorview)
 
         //
-        webView = view.findViewById(R.id.webview)
-        webView!!.loadUrl(getDisplayUrl())
+        webView = view.findViewById(R.id.webview) as WebView
+        webView?.loadUrl(getDisplayUrl())
 
-        webView!!.webViewClient = object : WebViewClient() {
+        webView?.webViewClient = object : WebViewClient() {
 
             private var isFailure = false
 
@@ -70,33 +70,40 @@ abstract class WebViewFragment() : Fragment() {
                 progressBar!!.visibility = View.VISIBLE
                 webView!!.visibility = View.INVISIBLE
                 errorView!!.visibility = View.INVISIBLE
+
+                onPageStarted(view)
             }
 
             override fun onPageFinished(view: WebView, url: String) {
                 super.onPageFinished(view, url)
 
                 if (isFailure) {
-                    errorView!!.visibility = View.VISIBLE
-                    webView!!.visibility = View.INVISIBLE
+                    errorView?.visibility = View.VISIBLE
+                    webView?.visibility = View.INVISIBLE
                 } else {
-                    errorView!!.visibility = View.INVISIBLE
-                    webView!!.visibility = View.VISIBLE
+                    errorView?.visibility = View.INVISIBLE
+                    webView?.visibility = View.VISIBLE
                 }
 
-                progressBar!!.visibility = View.INVISIBLE
+                progressBar?.visibility = View.INVISIBLE
+
+                onPageFinished(view)
             }
 
             override fun onReceivedError(view: WebView, request: WebResourceRequest, error: WebResourceError) {
                 if (request.isForMainFrame) {
                     isFailure = true
                 }
+                onReceivedError(view)
             }
-
-
         }
 
         return view
     }
+
+    protected open fun onPageStarted(view: WebView)   {}
+    protected open fun onPageFinished(view: WebView)  {}
+    protected open fun onReceivedError(view: WebView) {}
 
     companion object {
         /*------------------------------------------------------------------------------------------*/

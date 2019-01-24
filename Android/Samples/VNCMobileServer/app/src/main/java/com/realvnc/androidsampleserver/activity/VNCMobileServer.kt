@@ -7,15 +7,17 @@
 package com.realvnc.androidsampleserver.activity
 
 import android.Manifest.permission
+import android.annotation.TargetApi
 import android.app.Activity
+import android.app.AlertDialog
 import android.app.Dialog
+import android.app.DialogFragment
 import android.app.admin.DevicePolicyManager
 import android.content.ActivityNotFoundException
 import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
 import android.content.ServiceConnection
-import android.content.SharedPreferences
 import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Build
@@ -26,39 +28,31 @@ import android.os.RemoteException
 import android.preference.PreferenceManager
 import android.provider.Settings
 import android.support.design.widget.NavigationView
+import android.support.v4.content.FileProvider
 import android.support.v4.view.GravityCompat
 import android.support.v7.app.ActionBarDrawerToggle
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
-import android.view.Menu
-import android.view.MenuInflater
 import android.view.MenuItem
 import android.view.View
 import android.widget.TextView
 import android.widget.Toast
+import com.realvnc.androidsampleserver.*
 
-import com.realvnc.androidsampleserver.IVncServerInterface
-import com.realvnc.androidsampleserver.IVncServerListener
-import com.realvnc.androidsampleserver.R
-import com.realvnc.androidsampleserver.SampleIntents
-import com.realvnc.androidsampleserver.ServiceInstaller
-import com.realvnc.androidsampleserver.VncServerApp
-import com.realvnc.androidsampleserver.VncServerState
 import com.realvnc.androidsampleserver.VncServerState.VncServerMainState
-import com.realvnc.androidsampleserver.VncUsbState
 import com.realvnc.androidsampleserver.receiver.RemoteControlDeviceAdminReceiver
 import com.realvnc.androidsampleserver.service.HTTPTriggerService
 import com.realvnc.androidsampleserver.service.VncServerService
 import com.realvnc.vncserver.core.VncServerCoreErrors
 import kotlinx.android.synthetic.main.app_bar_main.*
+import kotlinx.android.synthetic.main.content_main.*
 import kotlinx.android.synthetic.main.main.*
 
 import java.io.File
 import java.io.FileInputStream
 import java.io.FileOutputStream
 import java.io.IOException
-import java.lang.reflect.Field
-import java.util.Locale
+import java.util.*
 
 // We could use
 //   import com.android.future.usb.UsbManager;
@@ -119,14 +113,31 @@ class VNCMobileServer : AppCompatActivity(), NavigationView.OnNavigationItemSele
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.main)
-        setSupportActionBar(toolbar)
-        title = resources.getString(R.string.app_name)
 
+        // << Set the ActionBar >>
+        setSupportActionBar(toolbar)
+        title = resources.getString(R.string.SS_01_001)
+        supportActionBar?.setDisplayShowTitleEnabled(false)
+
+        // << Set the NavigationDrawer >>
         val toggle = ActionBarDrawerToggle(this, drawer_layout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close)
         drawer_layout.addDrawerListener(toggle)
         toggle.syncState()
 
+        // << Set the version name >>
         nav_view.setNavigationItemSelectedListener(this)
+        val versionMenuItem = nav_view.menu?.findItem(R.id.navigation_view_menu_version)
+        versionMenuItem?.let {
+            val packageInfo   = packageManager.getPackageInfo(this.packageName, 0)
+            val versionString = getString(R.string.SS_01_006, packageInfo.versionName)
+
+            it.title = if (BuildConfig.DEBUG) {
+                "$versionString@${Date(BuildConfig.TIMESTAMP)}"
+            }
+            else {
+                versionString
+            }
+        }
 
         ServiceInstaller.getSystemSigningKeys(this)
         Log.i(TAG, "device = " + Build.DEVICE)
@@ -144,7 +155,6 @@ class VNCMobileServer : AppCompatActivity(), NavigationView.OnNavigationItemSele
         serviceIntent.action = SampleIntents.BIND_SERVICE_INTENT
         serviceIntent.`package` = packageName
         bindService(serviceIntent, mServiceInterfaceConnection, Context.BIND_AUTO_CREATE)
-
 
     }
 
@@ -181,6 +191,7 @@ class VNCMobileServer : AppCompatActivity(), NavigationView.OnNavigationItemSele
     public override fun onResume() {
         super.onResume()
 
+        updateStatusImage()
         updateStatusText()
 
         if (mServiceInterface != null) {
@@ -195,23 +206,49 @@ class VNCMobileServer : AppCompatActivity(), NavigationView.OnNavigationItemSele
         }
     }
 
-    public override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent) {
+    public override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
 
         if (requestCode == ACTIVITY_ENABLE_NON_MARKET_INSTALL) {
             tryToInstallService()
         } else if (requestCode == ACTIVITY_INSTALL_SERVICE) {
             reportInstallationResult(VncServerCoreErrors.VNCSERVER_ERR_NONE)
+        } else if (requestCode == MANAGE_OVERLAY_PERMISSION_REQUEST) {
+            handleOverlayPermissionRequestResult()
         }
 
     }
 
+    @TargetApi(26)
+    private fun handleOverlayPermissionRequestResult() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            if (Settings.canDrawOverlays(this)) {
+                Log.i(TAG,"Overlay Permission granted");
+
+                if (mServiceInterface != null) {
+                    try {
+                        mServiceInterface?.VNCServerSetLandscapeLock(true)
+                    } catch (e: RemoteException) {
+                        Log.e(TAG, "Failed to set orientation lock with exception: $e")
+                    }
+                } else {
+                    Log.w(TAG,"Failed to set orientation lock: service interface not set")
+                }
+            } else {
+                Log.w(TAG,"Overlay Permission denied: orientation lock disabled")
+                Toast.makeText(this, resources.getString(R.string.SS_03_263), Toast.LENGTH_LONG).show()
+            }
+        }
+    }
+
     private fun takeAction() {
         // Don't try to redo the action if relaunched from history
-        var intent: String? = SampleIntents.LAUNCHER_INTENT
-        if (getIntent().flags and Intent.FLAG_ACTIVITY_LAUNCHED_FROM_HISTORY == 0)
-            intent = getIntent().action
-
+        val intent =
+        if((getIntent().getFlags() and Intent.FLAG_ACTIVITY_LAUNCHED_FROM_HISTORY) == 0) {
+            getIntent().getAction()
+        } else {
+            SampleIntents.LAUNCHER_INTENT
+        }
 
         if (intent == SampleIntents.ACCEPT_PROMPT_DIALOG_INTENT) {
 
@@ -219,40 +256,28 @@ class VNCMobileServer : AppCompatActivity(), NavigationView.OnNavigationItemSele
             args.putString("address", mState!!.connectedAddress)
             showDialog(DIALOG_ACCEPT, args)
 
-        } else if (intent == SampleIntents.USB_CHOICE_DIALOG_INTENT) {
-
-            val args = Bundle()
-            showDialog(DIALOG_USB_CHOICE, args)
-
-        } else if (intent == SampleIntents.REVAUTH_PROMPT_DIALOG_INTENT) {
-
-            val args = Bundle()
-            args.putBoolean("username", mState!!.usernameReq)
-            args.putBoolean("password", mState!!.passwordReq)
-            showDialog(DIALOG_AUTH_REQ, args)
-
-        } else if (intent == SampleIntents.AUTH_ACCEPT_DIALOG_INTENT) {
-
-            val args = Bundle()
-            args.putString("username", mState!!.username)
-            args.putString("password", mState!!.password)
-            showDialog(DIALOG_AUTH, args)
-
-        } else if (intent == SampleIntents.HTTP_ACCEPT_DIALOG_INTENT) {
-            showDialog(DIALOG_HTTP_ACCEPT)
-        } else if (intent == SampleIntents.INSTALL_RCS_INTENT) {
-            Log.i(TAG, "Asked to install RCS")
-            mRequestedNonMarketInstall = false
-            mRcsApkFile = getIntent().data
-            tryToInstallService()
         } else if (intent == SampleIntents.AAP_NOT_CHOSEN_DIALOG_INTENT) {
             Log.i(TAG, "Asked to display warning about AAP")
             val args = Bundle()
             showDialog(DIALOG_AAP_NOT_CHOSEN, args)
         } else if (intent == SampleIntents.ACCESSIBILITY_DIALOG_INTENT) {
             Log.i(TAG, "Asked to request that the accessibilty service be enabled")
+            /*
             val args = Bundle()
             showDialog(DIALOG_ACCESSIBILITY, args)
+            */
+            val dialog = AccessibilityDialogFragment()
+            dialog.show(supportFragmentManager, "")
+
+        } else if (intent == SampleIntents.OVERLAY_PERMISSION_DIALOG_INTENT) {
+            Log.i(TAG, "Asked to request overlay permission")
+            /*
+            val args = Bundle()
+            showDialog(DIALOG_OVERLAY_PERMISSION, args)
+            */
+            val dialog = OverlayPermissionDialogFragment()
+            dialog.show(supportFragmentManager, "")
+
         } else if (intent == SampleIntents.REQUEST_PERMISSIONS_INTENT) {
             val perms = getIntent().getStringArrayExtra("permissions")
             Log.i(TAG, "Asked to request permissions")
@@ -296,6 +321,8 @@ class VNCMobileServer : AppCompatActivity(), NavigationView.OnNavigationItemSele
             DIALOG_AAP_NOT_CHOSEN -> return VncServerAapNotChosenDialog(this)
 
             DIALOG_ACCESSIBILITY -> return VncServerAccessibilityDialog(this)
+
+            DIALOG_OVERLAY_PERMISSION -> return VncServerOverlayPermissionDialog(this)
         }
 
         throw IllegalArgumentException("Bad dialog ID " + id)
@@ -325,214 +352,9 @@ class VNCMobileServer : AppCompatActivity(), NavigationView.OnNavigationItemSele
         }
     }
 
-    /*
-    override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        val inflater = menuInflater
-        inflater.inflate(R.menu.options_menu, menu)
-        return true
-    }
-
-    override fun onPrepareOptionsMenu(menu: Menu): Boolean {
-        var isListening = false
-        var isConnected = false
-        var isBroken = false
-        var isGeneratingKey = false
-
-        if (mState != null) {
-            val s = mState!!.state
-            if (s == VncServerMainState.KEYGEN) {
-                isGeneratingKey = true
-            }
-            if (s == VncServerMainState.LISTENING) {
-                isListening = true
-            } else if (s == VncServerMainState.CONNECTING ||
-                    s == VncServerMainState.ACCEPTING ||
-                    s == VncServerMainState.AUTHENTICATING ||
-                    s == VncServerMainState.REQUESTING_AUTH ||
-                    mState!!.isRunning) {
-                isConnected = true
-            } else if (s == VncServerMainState.ERROR && mState!!.errorCode == VncServerCoreErrors.VNCSERVER_ERR_ENVIRONMENT) {
-                isBroken = true
-
-            }
-        }
-
-        if (isBroken || isGeneratingKey) {
-            menu.findItem(R.id.settings).isVisible = false
-            menu.findItem(R.id.listen).isVisible = false
-            menu.findItem(R.id.usb_connect).isVisible = false
-            menu.findItem(R.id.connect).isVisible = false
-            menu.findItem(R.id.stop).isVisible = false
-            menu.findItem(R.id.disconnect).isVisible = false
-            menu.findItem(R.id.auto_connect).isVisible = false
-            menu.findItem(R.id.cmdstring).isVisible = false
-            menu.findItem(R.id.device_admin).isVisible = false
-        } else if (isListening) {
-            menu.findItem(R.id.settings).isVisible = false
-            menu.findItem(R.id.listen).isVisible = false
-            menu.findItem(R.id.usb_connect).isVisible = false
-            menu.findItem(R.id.connect).isVisible = false
-            menu.findItem(R.id.stop).isVisible = true
-            menu.findItem(R.id.disconnect).isVisible = false
-            menu.findItem(R.id.auto_connect).isVisible = true
-            menu.findItem(R.id.cmdstring).isVisible = true
-            menu.findItem(R.id.device_admin).isVisible = false
-        } else if (isConnected) {
-            menu.findItem(R.id.settings).isVisible = false
-            menu.findItem(R.id.listen).isVisible = false
-            menu.findItem(R.id.usb_connect).isVisible = false
-            menu.findItem(R.id.connect).isVisible = false
-            menu.findItem(R.id.stop).isVisible = false
-            menu.findItem(R.id.disconnect).isVisible = true
-            menu.findItem(R.id.auto_connect).isVisible = false
-            menu.findItem(R.id.cmdstring).isVisible = true
-            menu.findItem(R.id.device_admin).isVisible = false
-        } else {
-            menu.findItem(R.id.settings).isVisible = true
-            menu.findItem(R.id.listen).isVisible = true
-            menu.findItem(R.id.usb_connect).isVisible = true
-            menu.findItem(R.id.connect).isVisible = true
-            menu.findItem(R.id.stop).isVisible = false
-            menu.findItem(R.id.disconnect).isVisible = false
-            menu.findItem(R.id.auto_connect).isVisible = true
-            menu.findItem(R.id.cmdstring).isVisible = true
-            menu.findItem(R.id.device_admin).isVisible = isSamsungDevice
-        }
-
-        return super.onPrepareOptionsMenu(menu)
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when (item.itemId) {
-
-            R.id.listen -> {
-                /* Get listening port number from the preferences. */
-                val prefs = PreferenceManager.getDefaultSharedPreferences(baseContext)
-                val listenPort = Integer.parseInt(prefs.getString("vnc_port", "5900"))
-
-                val cmdString = "vnccmd:v=1;t=L;p=" + listenPort
-
-                try {
-                    mServiceInterface!!.VNCServerConnect(cmdString, true)
-                } catch (e: RemoteException) {
-                    Log.e(TAG, "Failed to connect with exception: " + e)
-                }
-
-                return true
-            }
-
-            R.id.auto_connect -> {
-                // We need this permission in order to get the device's IMEI.
-                if (isPermissionGranted(permission.READ_PHONE_STATE)) {
-                    autoConnect()
-                } else {
-                    doRequestPermissions(arrayOf(permission.READ_PHONE_STATE),
-                            PERMISSIONS_REQUEST_AUTOCONNECT)
-                }
-                return true
-            }
-
-            R.id.usb_connect -> {
-                try {
-                    mServiceInterface!!.VNCServerConnect("vnccmd:v=1;t=" + VncUsbState.getUsbBearer(baseContext), true)
-                } catch (e: RemoteException) {
-                    Log.e(TAG, "Failed to connect with exception: " + e)
-                }
-
-                return true
-            }
-
-            R.id.stop -> {
-                try {
-                    mServiceInterface!!.VNCServerReset()
-                } catch (e: RemoteException) {
-                    Log.e(TAG, "Failed to reset server with exception: " + e)
-                }
-
-                return true
-            }
-
-            R.id.disconnect -> {
-                try {
-                    mServiceInterface!!.VNCServerDisconnect()
-                } catch (e: RemoteException) {
-                    Log.e(TAG, "Failed to disconnect server with exception: " + e)
-                }
-
-                return true
-            }
-
-            R.id.settings -> {
-                val i = Intent(this, VncServerPreferenceActivity::class.java)
-                i.action = SampleIntents.PREFERENCES_INTENT
-                i.`package` = packageName
-                startActivity(i)
-                return true
-            }
-
-            R.id.showlog -> {
-                /* We need this permission in order to copy the log to the SD
-             * card, so external applications are able to open it. */
-                if (isPermissionGranted(permission.WRITE_EXTERNAL_STORAGE)) {
-                    showLog()
-                } else {
-                    doRequestPermissions(arrayOf(permission.WRITE_EXTERNAL_STORAGE),
-                            PERMISSIONS_REQUEST_LOG)
-                }
-                return true
-            }
-
-            R.id.about -> {
-                // Log device signing keys and details useful for debugging.
-                ServiceInstaller.getSystemSigningKeys(this)
-                Log.i(TAG, "device = " + Build.DEVICE)
-                Log.i(TAG, "version_release = " + Build.VERSION.RELEASE)
-                Log.i(TAG, "model = " + Build.MODEL)
-                Log.i(TAG, "product = " + Build.PRODUCT)
-                Log.i(TAG, "cpu_abi options = " + java.util.Arrays.toString(supportedAbis))
-                Log.i(TAG, "api_level = " + Build.VERSION.SDK_INT)
-
-                val about_args = Bundle()
-
-                try {
-                    about_args.putString("version", mServiceInterface!!.VNCServerGetVersionString())
-                } catch (e: RemoteException) {
-                    Log.e(TAG, "Failed to get version string with exception: " + e)
-                    about_args.putString("version", "?")
-                }
-
-                showDialog(DIALOG_ABOUT, about_args)
-                return true
-            }
-
-            R.id.connect -> {
-                val connect_args = Bundle()
-                connect_args.putString("address", mApp!!.GetPreviousConnect())
-                showDialog(DIALOG_CONNECT, connect_args)
-                return true
-            }
-
-            R.id.cmdstring -> {
-                val cmdstring_args = Bundle()
-                cmdstring_args.putString("cmdstring", mApp!!.GetPreviousCmdString())
-                showDialog(DIALOG_COMMAND_STRING, cmdstring_args)
-                return true
-            }
-
-            R.id.device_admin -> {
-                if (!requestDeviceAdminIfDisabled()) {
-                    Toast.makeText(this, resources.getString(R.string.admin_already_admin), Toast.LENGTH_LONG).show()
-                }
-                return true
-            }
-        }
-
-        Log.e(TAG, "Unknown menu option")
-
-        return false
-    }
-    */
-
+    /**
+     * onBackP
+     */
     override fun onBackPressed() {
         if (drawer_layout.isDrawerOpen(GravityCompat.START)) {
             drawer_layout.closeDrawer(GravityCompat.START)
@@ -547,22 +369,29 @@ class VNCMobileServer : AppCompatActivity(), NavigationView.OnNavigationItemSele
 
         when (item.itemId) {
             R.id.navigation_view_menu_about -> {
-                //intent = Intent(this, OverviewActivity::class.java)
-                Toast.makeText(this, "Unimplemented.", Toast.LENGTH_SHORT).show()
+                intent = Intent(this, OverviewActivity::class.java)
             }
+            /*
             R.id.navigation_view_menu_qa -> {
                 //val uri = Uri.parse("http://www.kenwood.com/jp/products/car_audio/app/kenwood_music_info/faq.html")
                 //intent  = Intent(Intent.ACTION_VIEW, uri)
                 Toast.makeText(this, "Unimplemented.", Toast.LENGTH_SHORT).show()
             }
+            */
             R.id.navigation_view_menu_tos -> {
-                //intent = Intent(this, TermsOfServiceActivity::class.java)
-                Toast.makeText(this, "Unimplemented.", Toast.LENGTH_SHORT).show()
+                intent = Intent(this, TermsOfServiceActivity::class.java)
             }
             R.id.navigation_view_menu_oss -> {
-                //intent = Intent(this, OpenSourceLicensesActivity::class.java)
-                Toast.makeText(this, "Unimplemented.", Toast.LENGTH_SHORT).show()
+                intent = Intent(this, OpenSourceLicensesActivity::class.java)
             }
+            R.id.navigation_view_menu_tutorial -> {
+                intent = Intent(this, TutorialActivity::class.java)
+            }
+            /*
+            R.id.navigation_view_menu_version -> {
+                //showLog()
+            }
+            */
             else -> {
                 return false
             }
@@ -701,19 +530,27 @@ class VNCMobileServer : AppCompatActivity(), NavigationView.OnNavigationItemSele
             var logFile = File(logPath)
             /* See if we can place it on the SD card, as that's
              * more likely to be readable by other applications. */
-            val sdFile = File(getExternalFilesDir(null),
-                    logFile.name)
+
+            val sdFile = File(getExternalFilesDir(null), logFile.name)
             if (copyFile(logFile, sdFile)) {
-                logFile = sdFile
+                //logFile = sdFile
             } else {
                 // If we failed then just make the file world-readable.
                 Runtime.getRuntime().exec("chmod 644 " + logPath)
             }
 
+            /*
             val i = Intent(Intent.ACTION_VIEW)
             val uri = Uri.fromFile(logFile)
             i.setDataAndType(uri, "text/plain")
             startActivity(i)
+            */
+
+            val uri = FileProvider.getUriForFile(this, "com.realvnc.androidsampleserver.provider", logFile)
+            val intent = Intent(Intent.ACTION_VIEW).setDataAndType(uri, "text/plain")
+            intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
+            startActivity(intent)
+
         } catch (e: ActivityNotFoundException) {
             Log.e(TAG, "Failed to open log with exception: " + e)
         } catch (e: RemoteException) {
@@ -728,7 +565,9 @@ class VNCMobileServer : AppCompatActivity(), NavigationView.OnNavigationItemSele
         val i = Intent(this, HTTPTriggerService::class.java)
         i.action = SampleIntents.HTTP_TRIGGER_INTENT
         i.`package` = packageName
-        startService(i)
+        NotificationHelper.ServiceUtils.startForegroundServiceWithIntent(
+                this,
+                i);
     }
 
     @android.annotation.TargetApi(23)
@@ -761,30 +600,45 @@ class VNCMobileServer : AppCompatActivity(), NavigationView.OnNavigationItemSele
         } catch (e: NoSuchFieldException) {
             /* This happens if there was no string resource
              * corresponding to this error code */
-            statusText = resources.getString(R.string.error_no_errmsg)
+            statusText = resources.getString(R.string.SS_03_259)
         } catch (e: IllegalAccessException) {
             Log.e(TAG, "Failed to get error string with exception: " + e)
-            statusText = resources.getString(R.string.status_exception,
+            statusText = resources.getString(R.string.SS_02_209,
                     e.message)
         }
 
-        val header = resources.getString(R.string.error_msgheader, code)
+        val header = resources.getString(R.string.SS_03_258, code)
         return header + statusText
     }
 
     private fun updateStatusText(message: String?, secondaryMessage: String? = null) {
+        /*
         Log.i(TAG, "Status: $message $secondaryMessage")
 
         mHandler.post {
-            val statusText = findViewById<View>(R.id.status_text) as TextView
+            val statusText = findViewById(R.id.status_text) as TextView
             statusText.text = message
 
-            val secondaryStatusText = findViewById<View>(R.id.secondary_status_text) as TextView
+            val secondaryStatusText = findViewById(R.id.secondary_status_text) as TextView
             if (secondaryMessage == null)
                 secondaryStatusText.text = ""
             else
                 secondaryStatusText.text = secondaryMessage
         }
+        */
+    }
+
+    private fun updateStatusImage() {
+        /*
+        status_image.visibility = when (mState?.state) {
+            VncServerState.VncServerMainState.CONNECTING, VncServerState.VncServerMainState.RUNNING -> {
+                View.VISIBLE
+            }
+            else -> {
+                View.INVISIBLE
+            }
+        }
+        */
     }
 
     /**
@@ -801,7 +655,7 @@ class VNCMobileServer : AppCompatActivity(), NavigationView.OnNavigationItemSele
         var statusText: String? = null
         var secondaryStatusText: String? = null
         if (mServiceInterface == null) {
-            statusText = resources.getString(R.string.status_starting)
+            statusText = resources.getString(R.string.SS_02_201)
         } else {
             try {
                 mPreviousState = mState
@@ -828,32 +682,34 @@ class VNCMobileServer : AppCompatActivity(), NavigationView.OnNavigationItemSele
                         VncServerState.VncServerAPICalledState.KEYGEN -> statusText = resources.getString(R.string.status_keygen)
                         VncServerState.VncServerAPICalledState.ACCEPT_AUTH -> statusText = resources.getString(R.string.status_accept_auth)
                         VncServerState.VncServerAPICalledState.ACCEPT_CONN -> statusText = resources.getString(R.string.status_accept_conn)
-                        VncServerState.VncServerAPICalledState.CONNECT -> statusText = resources.getString(R.string.status_connect)
+                        VncServerState.VncServerAPICalledState.CONNECT -> statusText = resources.getString(R.string.SS_02_202)
                         VncServerState.VncServerAPICalledState.DENY_AUTH -> statusText = resources.getString(R.string.status_deny_auth)
                         VncServerState.VncServerAPICalledState.DENY_CONN -> statusText = resources.getString(R.string.status_deny_conn)
-                        VncServerState.VncServerAPICalledState.LISTEN -> statusText = resources.getString(R.string.status_listen)
-                        VncServerState.VncServerAPICalledState.RESET -> statusText = resources.getString(R.string.status_reset)
+                        VncServerState.VncServerAPICalledState.LISTEN -> statusText = resources.getString(R.string.SS_02_203)
+                        VncServerState.VncServerAPICalledState.RESET -> statusText = resources.getString(R.string.SS_02_204)
                         VncServerState.VncServerAPICalledState.SUPPLY_AUTH -> statusText = resources.getString(R.string.status_supply_auth)
                     }
                 } else {
                     when (mState!!.state) {
-                        VncServerState.VncServerMainState.ACCEPTING -> statusText = resources.getString(R.string.status_accepting)
+                        VncServerState.VncServerMainState.ACCEPTING -> statusText = resources.getString(R.string.SS_02_205)
                         VncServerState.VncServerMainState.AUTHENTICATING -> statusText = resources.getString(R.string.status_authenticating)
                         VncServerState.VncServerMainState.REQUESTING_AUTH -> statusText = resources.getString(R.string.status_requesting_auth)
-                        VncServerState.VncServerMainState.CONNECTING -> statusText = resources.getString(R.string.status_connecting)
-                        VncServerState.VncServerMainState.DISCONNECTED -> statusText = resources.getString(R.string.status_disconnected)
-                        VncServerState.VncServerMainState.LISTENING -> statusText = resources.getString(R.string.status_listening,
-                                mState!!.listeningAddress)
-                        VncServerState.VncServerMainState.RUNNING -> statusText = resources.getString(R.string.status_running,
-                                mState!!.connectedAddress)
-                        VncServerState.VncServerMainState.ERROR ->
-
+                        VncServerState.VncServerMainState.CONNECTING -> statusText = resources.getString(R.string.SS_02_202)
+                        VncServerState.VncServerMainState.DISCONNECTED -> statusText = resources.getString(R.string.SS_02_206)
+                        VncServerState.VncServerMainState.LISTENING -> statusText = resources.getString(R.string.SS_02_207, mState!!.listeningAddress)
+                        VncServerState.VncServerMainState.RUNNING -> statusText = resources.getString(R.string.SS_02_208, mState!!.connectedAddress)
+                        VncServerState.VncServerMainState.ERROR -> {
+                            if (mState?.errorCode == 0) {
+                                return
+                            }
                             statusText = getErrorString(mState!!.errorCode)
+                        }
                     }
+                    updateStatusImage()
                 }
             } catch (e: Exception) {
                 Log.e(TAG, "Failed to update status with exception: " + e)
-                statusText = resources.getString(R.string.status_exception,
+                statusText = resources.getString(R.string.SS_02_209,
                         e.message)
             }
 
@@ -870,7 +726,9 @@ class VNCMobileServer : AppCompatActivity(), NavigationView.OnNavigationItemSele
         } else {
             i.action = "com.realvnc.androidsampleserver.HTTP_ACCEPT_REJECT"
         }
-        startService(i)
+        NotificationHelper.ServiceUtils.startForegroundServiceWithIntent(
+                this,
+                i)
     }
 
     fun handleAuthResult(accept: Boolean) {
@@ -1174,6 +1032,7 @@ class VNCMobileServer : AppCompatActivity(), NavigationView.OnNavigationItemSele
 
         val ACTIVITY_INSTALL_SERVICE = 2
         val ACTIVITY_ENABLE_NON_MARKET_INSTALL = 3
+        val MANAGE_OVERLAY_PERMISSION_REQUEST = 4
 
         val DIALOG_ABOUT = 1
         val DIALOG_ACCEPT = 2
@@ -1186,6 +1045,7 @@ class VNCMobileServer : AppCompatActivity(), NavigationView.OnNavigationItemSele
         val DIALOG_USB_CHOICE = 9
         val DIALOG_AAP_NOT_CHOSEN = 10
         val DIALOG_ACCESSIBILITY = 11
+        val DIALOG_OVERLAY_PERMISSION = 12
 
         val PERMISSIONS_REQUEST_STARTUP = 1
         val PERMISSIONS_REQUEST_LOG = 2

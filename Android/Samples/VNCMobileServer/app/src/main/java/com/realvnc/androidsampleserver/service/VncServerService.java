@@ -1,7 +1,7 @@
-/* Copyright (C) 2002-2018 RealVNC Ltd. All Rights Reserved.
+/* Copyright (C) 2002-2018 VNC Automotive Ltd.  All Rights Reserved.
  *
- * This is a sample application intended to demonstrate part of the
- * VNC Mobile Solution SDK. It is not intended as a production-ready
+ * This is a sample application intended to demonstrate part of a
+ * VNC Automotive SDK. It is not intended as a production-ready
  * component. */
 
 package com.realvnc.androidsampleserver.service;
@@ -9,14 +9,14 @@ package com.realvnc.androidsampleserver.service;
 import android.Manifest.permission;
 import android.annotation.TargetApi;
 import android.app.Notification;
-import android.app.PendingIntent;
+import android.app.NotificationManager;
 import android.app.Service;
-import android.content.ActivityNotFoundException;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.SharedPreferences;
+import android.content.pm.ActivityInfo;
 import android.content.pm.PackageManager;
 import android.content.res.AssetManager;
 import android.content.res.Resources;
@@ -30,19 +30,21 @@ import android.os.Looper;
 import android.os.PowerManager;
 import android.os.RemoteCallbackList;
 import android.os.RemoteException;
-import android.os.SystemClock;
 import android.preference.PreferenceManager;
 import android.provider.Settings;
 import android.util.Log;
 import android.util.Pair;
 import android.widget.Toast;
 
+import com.jvckenwood.aessampleapp.AesUtility;
+import com.jvckenwood.aessampleapp.VncLicenseEncryptionConst;
 import com.realvnc.androidsampleserver.AapConnectionManager;
 import com.realvnc.androidsampleserver.IVncServerInterface;
 import com.realvnc.androidsampleserver.IVncServerListener;
 import com.realvnc.androidsampleserver.R;
 import com.realvnc.androidsampleserver.SampleIntents;
 import com.realvnc.androidsampleserver.ServiceInstaller;
+import com.realvnc.androidsampleserver.NotificationHelper;
 import com.realvnc.androidsampleserver.VncConfigFile;
 import com.realvnc.androidsampleserver.VncServerState;
 import com.realvnc.androidsampleserver.VncServerState.VncServerAPICalledState;
@@ -51,6 +53,8 @@ import com.realvnc.androidsampleserver.VncUsbState;
 import com.realvnc.androidsampleserver.activity.VNCMobileServer;
 import com.realvnc.btaudiorouter.VncBtAudioRouter;
 import com.realvnc.h264sampleencoder.VncH264SampleEncoder;
+import com.realvnc.jvckenwood.WhiteListManager;
+import com.realvnc.jvckenwood.util.StringUtility;
 import com.realvnc.networkadvertisersdk.VNCNetworkAdvertiserException;
 import com.realvnc.util.VncLog;
 import com.realvnc.vncserver.android.VncCommandString;
@@ -78,13 +82,12 @@ import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Locale;
 import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- * This service runs a VNC server in the background within Android.
+ * This service runs a VNC Automotive server in the background within Android.
  * It's a {@link Service} so that it doesn't exit just because the foreground
  * application ("{@link Activity}"), {@link VNCMobileServer},
  * has been sent to the background.
@@ -125,6 +128,14 @@ public class VncServerService extends Service
     private static final String DATA_RELAY_TYPE = "D";
     private static final String SIGNATURE_KEY = "sig";
     private static final int MAXIMUM_SIGNATURE_LENGTH = 32;
+
+    private NotificationManager mNotificationManager;
+
+    private static final int FOREGROUND_SERVICE_NOTIFICATION_ID =
+            NotificationHelper.UniqueIdGenerator.generate();
+
+    private static final int STATUS_NOTIFICATION_ID =
+            NotificationHelper.UniqueIdGenerator.generate();
 
     /**
      * The last created server.
@@ -183,6 +194,9 @@ public class VncServerService extends Service
     // The network advertiser for this server
     private NetworkAdvertiser mAdvertiser;
 
+    // Whether the landscape orientation lock is currently set
+    private boolean mLandscapeLockSet;
+
     public class VNCBroadcastReceiver extends BroadcastReceiver {
 
         @Override
@@ -239,35 +253,45 @@ public class VncServerService extends Service
                 mAdvertiser.serverListening(ipAddresses);
             } catch (VNCNetworkAdvertiserException e) {
                 LOG.log(Level.SEVERE, "Failed to start network advertiser", e);
-                toast(getResources().getString(R.string.error_starting_network_advertiser,
+                toast(getResources().getString(R.string.SS_03_261,
                                                e.errorCode));
             }
         }
         updateVncNotifier();
 
         dispatchBroadcast(new BroadcastDispatcher() {
-                public void dispatch(IVncServerListener l) throws RemoteException {
-                    l.listeningCb(ipAddresses);
-                }
-            });
+            @Override
+            public void dispatch(
+                    final IVncServerListener l) throws RemoteException {
+                l.listeningCb(ipAddresses);
+            }
+        });
     }
 
     public void connectingCb(VncServer obj) {
         Log.i(TAG, "connectingCb");
+
         mCurrentState = new VncServerState(VncServerMainState.CONNECTING,null,null);
         if (mAdvertiser != null) {
             mAdvertiser.serverConnecting();
         }
 
         dispatchBroadcast(new BroadcastDispatcher() {
-                public void dispatch(IVncServerListener l) throws RemoteException {
-                    l.connectingCb();
-                }
-            });
+            @Override
+            public void dispatch(
+                    final IVncServerListener l) throws RemoteException {
+                l.connectingCb();
+            }
+        });
     }
 
     public void connectedCb(VncServer obj, final String ipAddress) {
         Log.i(TAG, "connectedCb " + ipAddress);
+
+        if (mAutomotiveExt != null) {
+            mAutomotiveExt.connected();
+        }
+
         if (mAdvertiser != null) {
             mAdvertiser.serverConnected();
         }
@@ -302,10 +326,12 @@ public class VncServerService extends Service
         }
 
         dispatchBroadcast(new BroadcastDispatcher() {
-                public void dispatch(IVncServerListener l) throws RemoteException {
-                    l.connectedCb(ipAddress);
-                }
-            });
+            @Override
+            public void dispatch(
+                    final IVncServerListener l) throws RemoteException {
+                l.connectedCb(ipAddress);
+            }
+        });
     }
 
     public void runningCb(VncServer obj) {
@@ -314,16 +340,22 @@ public class VncServerService extends Service
         updateVncNotifier();
 
         dispatchBroadcast(new BroadcastDispatcher() {
-                public void dispatch(IVncServerListener l) throws RemoteException {
-                    l.runningCb();
-                }
-            });
+            @Override
+            public void dispatch(
+                    final IVncServerListener l) throws RemoteException {
+                l.runningCb();
+            }
+        });
     }
 
     public synchronized void disconnectedCb(VncServer obj) {
         Log.i(TAG, "disconnectedCb");
         Log.i(TAG, "state is: " + mCurrentState.getState());
         Log.i(TAG, "server state is: " + mServer.getState());
+
+        if (mAutomotiveExt != null) {
+            mAutomotiveExt.disconnected();
+        }
 
         // Check that this isn't a delayed disconnected callback
         if (mServer.getState() !=
@@ -337,11 +369,13 @@ public class VncServerService extends Service
         updateVncNotifier();
 
         dispatchBroadcast(new BroadcastDispatcher() {
-                public void dispatch(IVncServerListener l) throws RemoteException {
-                    Log.i(TAG, "disconnectedCb: " + l);
-                    l.disconnectedCb();
-                }
-            });
+            @Override
+            public void dispatch(
+                    final IVncServerListener l) throws RemoteException {
+                Log.i(TAG, "disconnectedCb: " + l);
+                l.disconnectedCb();
+            }
+        });
 
         mConnectivityChanging = false;
 
@@ -385,10 +419,12 @@ public class VncServerService extends Service
         mCurrentState = new VncServerState(VncServerMainState.DISCONNECTED);
 
         dispatchBroadcast(new BroadcastDispatcher() {
-                public void dispatch(IVncServerListener l) throws RemoteException {
-                    l.keygenCb(keyPair);
-                }
-            });
+            @Override
+            public void dispatch(
+                    final IVncServerListener l) throws RemoteException {
+                l.keygenCb(keyPair);
+            }
+        });
         checkQueuedCommand();
     }
 
@@ -447,10 +483,12 @@ public class VncServerService extends Service
         updateVncNotifier();
 
         dispatchBroadcast(new BroadcastDispatcher() {
-                public void dispatch(IVncServerListener l) throws RemoteException {
-                    l.authCb(username, password);
-                }
-            });
+            @Override
+            public void dispatch(
+                    final IVncServerListener l) throws RemoteException {
+                l.authCb(username, password);
+            }
+        });
     }
 
     public void loginCb (VncServer vncServer,
@@ -466,10 +504,12 @@ public class VncServerService extends Service
         updateVncNotifier();
 
         dispatchBroadcast(new BroadcastDispatcher() {
-                public void dispatch(IVncServerListener l) throws RemoteException {
-                    l.loginCb(usernameReq, passwordReq);
-                }
-            });
+            @Override
+            public void dispatch(
+                    final IVncServerListener l) throws RemoteException {
+                l.loginCb(usernameReq, passwordReq);
+            }
+        });
     }
 
     public void remoteControlAvailableCb (VncServer vncServer,
@@ -554,14 +594,15 @@ public class VncServerService extends Service
         } catch(NoSuchFieldException e2) {
             /* This happens if there was no string resource
              * corresponding to this error code */
-            s = getResources().getString(R.string.error_no_errmsg, errorCode);
+            s = getResources().getString(R.string.SS_03_259, errorCode);
         } catch(Exception e2) {
             s = e2.getMessage();
         }
 
         LOG.info("Error: " + errorCode + " message '" + s + "'");
         if((errorCode != VncServerCoreErrors.VNCSERVER_ERR_PERMISSIONS) &&
-           (errorCode != VncServerCoreErrors.VNCSERVER_ERR_UNABLE_TO_START_SERVICE)) {
+           (errorCode != VncServerCoreErrors.VNCSERVER_ERR_UNABLE_TO_START_SERVICE) &&
+           (errorCode != 0)) {
             toast(s);
         }
 
@@ -570,10 +611,12 @@ public class VncServerService extends Service
         }
 
         dispatchBroadcast(new BroadcastDispatcher() {
-                public void dispatch(IVncServerListener l) throws RemoteException {
-                    l.errorCb(errorCode);
-                }
-            });
+            @Override
+            public void dispatch(
+                    final IVncServerListener l) throws RemoteException {
+                l.errorCb(errorCode);
+            }
+        });
 
         String listeningType = null;
         if (mListeningCommand != null) {
@@ -608,20 +651,21 @@ public class VncServerService extends Service
     private void dispatchBroadcast(final BroadcastDispatcher bd) {
         // ensure all callbacks come from the main service thread
         mHandler.post(new Runnable() {
-                public void run() {
-                    int i = mListeners.beginBroadcast();
-                    while (i > 0) {
-                        i--;
-                        try {
-                            bd.dispatch(mListeners.getBroadcastItem(i));
-                        } catch (RemoteException e) {
-                            // The RemoteCallbackList will take care of removing
-                            // the dead object for us.
-                        }
+            @Override
+            public void run() {
+                int i = mListeners.beginBroadcast();
+                while (i > 0) {
+                    i--;
+                    try {
+                        bd.dispatch(mListeners.getBroadcastItem(i));
+                    } catch (RemoteException e) {
+                        // The RemoteCallbackList will take care of removing
+                        // the dead object for us.
                     }
-                    mListeners.finishBroadcast();
                 }
-            });
+                mListeners.finishBroadcast();
+            }
+        });
     }
 
     private boolean mAutoReListen;
@@ -631,12 +675,18 @@ public class VncServerService extends Service
     private RemoteCallbackList<IVncServerListener> mListeners = new RemoteCallbackList<IVncServerListener>();
 
     private class VncServerClient extends IVncServerInterface.Stub {
-        public void registerListener(IVncServerListener listener) {
-            if(listener != null) mListeners.register(listener);
+        public void registerListener(
+                final IVncServerListener listener) {
+            if(listener != null) {
+                mListeners.register(listener);
+            }
         }
 
-        public void unregisterListener(IVncServerListener listener) {
-            if(listener != null) mListeners.unregister(listener);
+        public void unregisterListener(
+                final IVncServerListener listener) {
+            if(listener != null) {
+                mListeners.unregister(listener);
+            }
         }
 
         public void VNCServerReset() {
@@ -645,11 +695,12 @@ public class VncServerService extends Service
 
         public void VNCServerDisconnect() {
             mAsyncHandler.post(new Runnable() {
-                    public void run() {
-                        mDisconnectRequested = true;
-                        mServer.reset();
-                    }
-                });
+                @Override
+                public void run() {
+                    mDisconnectRequested = true;
+                    mServer.reset();
+                }
+            });
         }
 
         public VncServerState VNCServerStateGetState() {
@@ -701,19 +752,23 @@ public class VncServerService extends Service
         public void VNCServerRequestDialog() {
             mCurrentState.setRequestingDialog(true);
             dispatchBroadcast(new BroadcastDispatcher() {
-                    public void dispatch(IVncServerListener l) throws RemoteException {
-                        l.updateUiCb();
-                    }
-                });
+                @Override
+                public void dispatch(
+                        final IVncServerListener l) throws RemoteException {
+                    l.updateUiCb();
+                }
+            });
         }
 
         public void VNCServerClearRequestDialog() {
             mCurrentState.setRequestingDialog(false);
             dispatchBroadcast(new BroadcastDispatcher() {
-                    public void dispatch(IVncServerListener l) throws RemoteException {
-                        l.updateUiCb();
-                    }
-                });
+                @Override
+                public void dispatch(
+                        final IVncServerListener l) throws RemoteException {
+                    l.updateUiCb();
+                }
+            });
         }
 
         public void VNCServerSetError(int errorCode) {
@@ -728,6 +783,9 @@ public class VncServerService extends Service
             loadServerLicenses();
         }
 
+        public void VNCServerSetLandscapeLock(final boolean landscapeLock) {
+            doSetLandscapeLock(landscapeLock);
+        }
     }
 
     void actOnCurrentCommand() {
@@ -801,26 +859,63 @@ public class VncServerService extends Service
         ServiceInstaller.do_install(this);
     }
 
+    private void doSetLandscapeLock(final boolean landscapeLock) {
+        if (Build.VERSION.SDK_INT == Build.VERSION_CODES.N_MR1) {
+            return;
+        }
+
+        mHandler.post(new Runnable() {
+            @Override
+            @TargetApi(26)
+            public void run() {
+
+                if (mLandscapeLockSet == landscapeLock) {
+                    LOG.info("Landscape lock already set to: " + mLandscapeLockSet);
+                    return;
+                }
+
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M
+                        && !Settings.canDrawOverlays(VncServerService.this)) {
+                    LOG.info("Requesting Overlay Permission to lock orientation");
+                    final Intent intent = new Intent(
+                            VncServerService.this,
+                            VNCMobileServer.class);
+                    intent.setAction(SampleIntents.OVERLAY_PERMISSION_DIALOG_INTENT);
+                    intent.setPackage(getPackageName());
+                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    startActivity(intent);
+                    return;
+                }
+
+                LOG.info("Setting landscape lock: " + landscapeLock);
+                try{
+                    if (landscapeLock) {
+                        mServer.getOrientationManager().lockOrientationEx(
+                                VncOrientationManager.ORIENTATION_LANDSCAPE_LOCK);
+                    } else {
+                        mServer.getOrientationManager().lockOrientationEx(
+                                VncOrientationManager.ORIENTATION_DISABLE_LOCK);
+                    }
+                    mLandscapeLockSet = landscapeLock;
+                } catch(final VncException ve) {
+                    LOG.log(
+                            Level.WARNING,
+                            "Could not "+ (landscapeLock ? "enable" : "disable")
+                                    + " landscape lock",
+                            ve);
+                }
+            }
+        });
+    }
+
+    /*--------------------------------------------------------------------------------------------*/
+    //  Extension message
+    /*--------------------------------------------------------------------------------------------*/
     private class AutomotiveExt
         implements VncExtensionListener,
                    VncContextInformationManager.Listener,
                    VncContextInformationManager.AccessibilityServiceProvider {
-        private PowerManager mPowerManager;
-        private PowerManager.WakeLock mWakeLock;
-        private boolean mWakeLockAcquired = false;
-        private VncServerService mSvc;
-        private String mLastTopActivityName;
-        private String mTopActivityName = UNKNOWN_ACTIVITY_NAME;
-        private String mTopPackageName = UNKNOWN_ACTIVITY_NAME;
-        private boolean mContextListenerRegistered;
-        private VncExtension mExtHandle;
-        // The time of last voice command launch in uptime of milliseconds.
-        private long mLastVoiceLaunchTime = 0;
-        // The minimum time period in millseconds required between two successive
-        // voice command launch. If time period between two successive launches is
-        // less than this required period, then the second launch will be ignored.
-        // We use 200ms here because the maximum delay of UI context update is 200ms.
-        private static final long MIN_VOICE_COMMAND_LAUNCH_TIME_GAP_MS = 200;
+        private boolean mContextListenerRegistered = false;
 
         private static final String UNKNOWN_ACTIVITY_NAME = "Unknown";
 
@@ -842,7 +937,35 @@ public class VncServerService extends Service
         private static final int TMCAT_SYSTEM_UI = 0xffff0000;
         private static final int TMCAT_UNKNOWN = 0;
 
-        public AutomotiveExt(VncServerService svc) {
+        /*----------------------------------------------------------------------------------------*/
+        //  Definitions
+        /*----------------------------------------------------------------------------------------*/
+        private static final String MESSAGE_NAME = "com.jvckenwood.realvnc";
+
+        private static final int MESSAGE_ID_FG_APP_INFO = 0x8001;
+
+        private static final int APPLICATION_KIND_WHITE = 0x02;
+        private static final int APPLICATION_KIND_GRAY  = 0x01;
+        private static final int APPLICATION_KIND_BLACK = 0x00;
+
+        /*----------------------------------------------------------------------------------------*/
+        //  Variables
+        /*----------------------------------------------------------------------------------------*/
+        private VncServerService mSvc;
+        private PowerManager mPowerManager;
+        private PowerManager.WakeLock mWakeLock;
+        private boolean mWakeLockAcquired;
+
+        private VncExtension mExtHandle;
+
+        private String mLastTopActivityName = null;
+        private String mTopActivityName     = UNKNOWN_ACTIVITY_NAME;
+        private String mTopPackageName      = UNKNOWN_ACTIVITY_NAME;
+
+        /*----------------------------------------------------------------------------------------*/
+        //  Constructor
+        /*----------------------------------------------------------------------------------------*/
+        AutomotiveExt(VncServerService svc) {
             mSvc = svc;
 
             mPowerManager = (PowerManager)svc.getSystemService(Context.POWER_SERVICE);
@@ -854,86 +977,68 @@ public class VncServerService extends Service
             mWakeLockAcquired = false;
         }
 
-        public void register(VncServer server) throws VncException {
-            mExtHandle = mServer.registerExtension("com.realvnc.automotive", this);
+        /*----------------------------------------------------------------------------------------*/
+        //  Public / Package Private Functions
+        /*----------------------------------------------------------------------------------------*/
+        void register(VncServer server) throws VncException {
+            mExtHandle = mServer.registerExtension(MESSAGE_NAME, this);
         }
 
-        public void extensionEnabled(VncServer server,
-                                     VncExtension extension,
-                                     boolean enabledFlag) {
+        /*----------------------------------------------------------------------------------------*/
+        @Override
+        public void extensionEnabled(VncServer server, VncExtension extension, boolean enabledFlag) {
             LOG.info("Automotive extension: enabled=" + enabledFlag);
-            if(!enabledFlag)
-                disconnected();
+
+            if (enabledFlag) {
+                //connected();
+            }
+            else {
+                //disconnected();
+            }
         }
 
+        @Override
         public void extensionMessageReceived(VncServer server,
                                              VncExtension extension,
                                              byte[] payload,
                                              int payloadOffset,
                                              int payloadLength) {
-            if(payloadLength < 7) {
-                LOG.info("com.realvnc.automotive: payload length " + payloadLength + " too short!");
-                return;
-            }
+        }
 
-            int msgtype = (payload[payloadOffset] << 8) + payload[payloadOffset + 1];
-            int version =
-                (payload[payloadOffset + 2] << 24) +
-                (payload[payloadOffset + 3] << 16) +
-                (payload[payloadOffset + 4] << 8) +
-                (payload[payloadOffset + 5] << 0);
+        /*----------------------------------------------------------------------------------------*/
+        //  Private Functions
+        /*----------------------------------------------------------------------------------------*/
+        private void connected() {
+            Log.d(TAG, "connected");
+            setStayAwake(true);
+            setLandscapeLock(true);
 
-            if(version != 1) {
-                LOG.info("com.realvnc.automotive: ignoring version=" + version);
-                return;
-            }
-
-            switch(msgtype) {
-            case AUTOEXT_FG_APP_REPORTING:
-                if(payload[payloadOffset + 6] != 0) {
+            VncServerService.this.mAsyncHandler.post(new Runnable() {
+                @Override
+                public void run() {
                     mLastTopActivityName = null;
                     registerContextListener();
-                } else {
-                    unregisterContextListener();
                 }
-                break;
-
-            case AUTOEXT_FG_APP_MINIMISE:
-                int rx_category =
-                    (payload[payloadOffset + 6] << 24) +
-                    (payload[payloadOffset + 7] << 16) +
-                    (payload[payloadOffset + 8] << 8) +
-                    (payload[payloadOffset + 9] << 0);
-                String rx_name = new String(payload, payloadOffset + 14, payloadLength - 14);
-                appMinimiseRequest(server, rx_name, rx_category);
-                break;
-
-            case AUTOEXT_FG_APP_SCREEN_LOCK_DISABLE:
-                setStayAwake(payload[payloadOffset + 6] != 0);
-                break;
-
-            case AUTOEXT_FG_APP_LANDSCAPE_LOCK:
-                setLandscapeLock(payload[payloadOffset + 6] != 0);
-                break;
-
-            case AUTOEXT_FG_APP_VOICE_COMMAND:
-                startVoiceMode(payload[payloadOffset + 6]);
-                break;
-
-            default:
-                LOG.info("com.realvnc.automotive: received unknown message " + msgtype);
-                break;
-            }
+            });
         }
 
-        public void disconnected() {
+        private void disconnected() {
+            Log.d(TAG, "disconnected");
             setStayAwake(false);
             setLandscapeLock(false);
-            unregisterContextListener();
+
+            VncServerService.this.mAsyncHandler.post(new Runnable() {
+                @Override
+                public void run() {
+                    unregisterContextListener();
+                }
+            });
         }
 
-        public void registerContextListener() {
-            LOG.info("com.realvnc.automotive: start app reporting");
+        /*-------------------------------------------------------   ---------------------------------*/
+        private void registerContextListener() {
+            Log.i(TAG, "+++++++++++++++++++++++++ registerContextListener +++++++++++++++++++++++++++++++++");
+            //LOG.info("com.realvnc.automotive: start app reporting");
             if (!mContextListenerRegistered) {
                 mServer.getContextInformationManager().addListener(this);
                 mServer.getContextInformationManager().addAccessibilityServiceProvider(this);
@@ -941,8 +1046,8 @@ public class VncServerService extends Service
             }
         }
 
-        public void unregisterContextListener() {
-            LOG.info("com.realvnc.automotive: stop app reporting");
+        private void unregisterContextListener() {
+            //LOG.info("com.realvnc.automotive: stop app reporting");
             if (mContextListenerRegistered) {
                 mServer.getContextInformationManager().removeAccessibilityServiceProvider(this);
                 mServer.getContextInformationManager().removeListener(this);
@@ -950,7 +1055,36 @@ public class VncServerService extends Service
             }
         }
 
-        public void setStayAwake(boolean stayAwake) {
+        @Override
+        synchronized public void contextInformationChanged(List<CapturedContextInformation> items, int flags) {
+            Log.i(TAG, "contextInformationChanged items:" + items.size() + " -------------------------------------------------->");
+
+            if (items.size() < 1) {
+                mTopPackageName  = UNKNOWN_ACTIVITY_NAME;
+                mTopActivityName = UNKNOWN_ACTIVITY_NAME;
+            } else {
+                /* Only care about the top most context information */
+                CapturedContextInformation top = items.get(items.size() - 1);
+                try {
+                    ActivityInfo activityInfo = getPackageManager().getActivityInfo(top.getActivity(), 0);
+                    if (activityInfo == null) {
+                        return;
+                    }
+                    mTopActivityName = activityInfo.loadLabel(getPackageManager()).toString();
+                    //Log.d(TAG, "name : " + mTopActivityName);
+                }
+                catch (PackageManager.NameNotFoundException e) {
+                    //mTopActivityName = UNKNOWN_ACTIVITY_NAME;
+                    //Log.d(TAG, "name : Name not found exception.");
+                    return;
+                }
+                mTopPackageName = top.getActivity().getPackageName();
+            }
+            checkActivity();
+        }
+
+        /*----------------------------------------------------------------------------------------*/
+        private void setStayAwake(boolean stayAwake) {
 
             LOG.info("com.realvnc.automotive: disable screensaver: " + stayAwake);
 
@@ -966,272 +1100,14 @@ public class VncServerService extends Service
             }
         }
 
-        public void setLandscapeLock(boolean landscapeLock) {
+        /*----------------------------------------------------------------------------------------*/
+        public void setLandscapeLock(final boolean landscapeLock) {
             LOG.info("com.realvnc.automotive: setting landscape lock: " + landscapeLock);
-            try{
-                if (landscapeLock) {
-                    mServer.getOrientationManager().lockOrientationEx(
-                            VncOrientationManager.ORIENTATION_LANDSCAPE_LOCK);
-                } else {
-                    mServer.getOrientationManager().lockOrientationEx(
-                            VncOrientationManager.ORIENTATION_DISABLE_LOCK);
-                }
-            } catch(VncException ve) {
-                LOG.log(
-                        Level.WARNING, 
-                        "Could not "+ (landscapeLock ? "enable" : "disable") 
-                                + " landscape lock",
-                        ve);
-            }
+            doSetLandscapeLock(landscapeLock);
         }
 
-        public void startVoiceMode(int msg) {
-            if(msg != 1) {
-                LOG.info("com.realvnc.automotive: unknown voice command msg: " + msg);
-            } else {
-                // Prevent launching voice command multiple times in short period.
-                final long nowTime = SystemClock.uptimeMillis();
-                if (nowTime < mLastVoiceLaunchTime + MIN_VOICE_COMMAND_LAUNCH_TIME_GAP_MS) {
-                    // we prevent the second lauch within 200ms after last launch
-                    // 200ms is maximum UI context information update interval.
-                    LOG.warning("Try to launch voice command multple time in short period, voice command launch is ignored");
-                    return;
-                }
-                mLastVoiceLaunchTime = nowTime;
-                if (launchVoiceActivity())
-                    return;
-                // Failed to find any usable voice command application
-                LOG.severe("Failed to find any suitable voice command activity");
-            }
-        }
-
-        private boolean launchVoiceActivity() {
-            // Returns true on successful launch, false otherwise.
-
-            // Try a list of known intents for voice commands.
-            Vector<Intent> voiceIntents = new Vector<Intent>();
-            String[][] classesToTry = {
-                {"com.android.voicedialer",
-                 "com.android.voicedialer.VoiceDialerActivity"},
-                // Only include the bluetooth voice dialer activity if
-                // connected over bluetooth
-                (mBtHeadset.isConnected()) ? new String[] {
-                    "com.android.voicedialer",
-                    "com.android.voicedialer.BluetoothVoiceDialerActivity"} :
-                null,
-                {"com.google.android.googlequicksearchbox",
-                        "com.google.android.googlequicksearchbox.VoiceSearchActivity"},
-                {"com.google.android.voicesearch",
-                        "com.google.android.voicesearch.RecognitionActivity"},
-            };
-
-            for (String[] classes : classesToTry) {
-                if (classes == null)
-                    continue;
-                if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP &&
-                        mTopPackageName.equals(classes[0])) {
-                    // MOB-13157: if we launch voice command application when
-                    // it is front most running and then press Back button to
-                    // switch to pevious application, we may be not able to
-                    // get UI context update from Android system. This just
-                    // happens on server before Lollipop without RCS. To fix
-                    // this issue, we ignore voice command launch if voice
-                    // command application is front most running.
-                    LOG.warning("Voice command application is front most running, voice command launch is ignored");
-                    return true;
-                }
-                Intent toAdd = new Intent(Intent.ACTION_MAIN);
-                toAdd.setClassName(classes[0], classes[1]);
-                voiceIntents.add(toAdd);
-            }
-
-            // Finally try the official intent
-            voiceIntents.add(new Intent(Intent.ACTION_VOICE_COMMAND));
-
-            for (Intent i : voiceIntents) {
-                try {
-                    i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                    i.addFlags(Intent.FLAG_ACTIVITY_RESET_TASK_IF_NEEDED);
-                    mSvc.startActivity(i);
-                    return true;
-                } catch(ActivityNotFoundException e) {
-                    LOG.info("com.realvnc.automotive: failed to start voice command application " + i + "as it can't be found");
-                } catch(SecurityException e) {
-                    LOG.info("com.realvnc.automotive: failed to start voice command application " + i + "due to security error: " + e.getMessage());
-                }
-            }
-            return false;
-        }
-
-        public int getCategory(String name) {
-
-            String nameLc = name.toLowerCase(Locale.US);
-
-            if(name.startsWith("com.android.launcher"))
-                return TMCAT_HOME_SCREEN;
-
-            else if(name.startsWith("com.google.android.carhome"))
-                return TMCAT_HOME_SCREEN;
-
-            else if(name.startsWith("com.google.android.launcher"))
-                return TMCAT_HOME_SCREEN;
-
-            else if(name.startsWith("com.sonyericsson.home"))
-                return TMCAT_HOME_SCREEN;
-
-            else if(name.startsWith("com.android.music"))
-                return TMCAT_MUSIC_APP;
-
-            else if(name.startsWith("com.android.voicedialer"))
-                return TMCAT_VOICE_COMMAND;
-
-            // AKA S-Voice
-            else if(name.startsWith("com.vlingo.midas.gui.ConversationActivity"))
-                return TMCAT_VOICE_COMMAND;
-
-            else if(name.startsWith("com.htc.HTCSpeaker.Action.VRActivity"))
-                return TMCAT_VOICE_COMMAND;
-
-            else if(name.startsWith("com.google.android.maps"))
-                return TMCAT_MAPS;
-
-            else if(name.startsWith("com.android.contacts.DialtactsActivity"))
-                return TMCAT_PHONE_CONTACT_LIST;
-
-            else if(name.startsWith("com.android.contacts.activities.DialtactsActivity"))
-                return TMCAT_PHONE_CONTACT_LIST;
-
-            else if(name.startsWith("com.google.android.dialer.extensions.GoogleDialtactsActivity"))
-                return TMCAT_PHONE_CONTACT_LIST;
-
-            else if(name.startsWith("com.android.dialer.DialtactsActivity"))
-                return TMCAT_PHONE_CONTACT_LIST;
-
-            else if(name.startsWith("com.android.contacts.activities.PeopleActivity"))
-                return TMCAT_PHONE_CONTACT_LIST;
-
-            else if(name.startsWith("com.sec.android.app.fm"))
-                return TMCAT_MUSIC_APP;
-
-            else if(name.startsWith("com.sec.android.app.music"))
-                return TMCAT_MUSIC_APP;
-
-            else if(name.startsWith("com.google.android.googlequicksearchbox"))
-                return TMCAT_VOICE_COMMAND;
-
-            else if(name.startsWith("com.google.android.voicesearch"))
-                return TMCAT_VOICE_COMMAND;
-
-            else if(name.startsWith("com.android.phone"))
-                return TMCAT_PHONE;
-
-            else if(name.startsWith("com.google.android.gsf.update.SystemUpdateInstallDialog"))
-                return TMCAT_SYSTEM_UI;
-
-            else if(name.equals("com.android.systemui"))
-                return TMCAT_SYSTEM_UI;
-
-            else if(name.equals(VncContextInformationManager.CLASS_KEYGUARD))
-                return TMCAT_SYSTEM_UI;
-
-            // Sony Xperia Z
-
-            else if(nameLc.startsWith("com.sonymobile.carhome.ui.dashboard"))
-                return TMCAT_HOME_SCREEN;
-
-            else if(nameLc.startsWith("com.sonyericsson.music"))
-                return TMCAT_MUSIC_APP;
-
-            else if(nameLc.startsWith("com.sonymobile.carhome.ui.contacts.favoritesactivity"))
-                return TMCAT_PHONE_CONTACT_LIST;
-
-            else if(nameLc.startsWith("com.sonymobile.carhome.ui.contacts.contactsactivity"))
-                return TMCAT_PHONE_CONTACT_LIST;
-
-            else if(nameLc.startsWith("com.sonymobile.carhome.ui.contacts.phoneactivity"))
-                return TMCAT_PHONE;
-
-            else if(nameLc.startsWith("com.sonymobile.carhome.ui.contacts.dialeractivity"))
-                return TMCAT_PHONE;
-
-            else if(nameLc.startsWith("com.sonymobile.carhome.ui.contacts")) // catch others
-                return TMCAT_PHONE;
-
-            else if(nameLc.startsWith("com.sonymobile.carhome.ui.widgetview.widgetviewactivity"))
-                return TMCAT_MAPS;
-
-            else if(nameLc.startsWith("com.sonymobile.carhome.ui")) // catch others
-                return TMCAT_HOME_SCREEN;
-
-            else if(nameLc.startsWith("com.sonyericsson.fmradio"))
-                return TMCAT_MUSIC_APP;
-
-            else if(nameLc.startsWith("com.sonyericsson.trackid"))
-                return TMCAT_MUSIC_APP;
-
-            // Popup for accepting/declining T&Cs
-            else if(nameLc.startsWith("com.sonyericsson.legal"))
-                return TMCAT_SYSTEM_UI;
-
-            // Sony Xperia Z1
-
-            else if(name.startsWith("com.sonymobile.home.HomeActivity"))
-                return TMCAT_HOME_SCREEN;
-
-            else if(name.startsWith("com.sonyericsson.android.socialphonebook.DialerEntryActivity"))
-                return TMCAT_PHONE;
-
-            else if(name.startsWith("se.appello"))
-                return TMCAT_MAPS;
-
-            // HTC One
-            else if(name.startsWith("com.android.htcdialer.CarmodeDialer"))
-                return TMCAT_PHONE;
-
-            else if(name.startsWith("com.htc.launcher"))
-                return TMCAT_HOME_SCREEN;
-
-            else if(name.startsWith("com.htc.AutoMotive"))
-                return TMCAT_HOME_SCREEN;
-
-            else if(name.startsWith("com.htc.music.carmode.CarLibraryActivity"))
-                return TMCAT_MUSIC_APP;
-
-            // Samsung S6
-            else if(name.startsWith("com.sec.android.app.launcher"))
-                return TMCAT_HOME_SCREEN;
-
-            // Nexus 5X
-            else if(name.startsWith("com.google.android.music"))
-                return TMCAT_MUSIC_APP;
-
-            else
-                return TMCAT_UNKNOWN;
-        }
-
-        synchronized public void contextInformationChanged(
-                List<CapturedContextInformation> items, int flags) {
-            if (items.size() < 1) {
-                mTopActivityName = UNKNOWN_ACTIVITY_NAME;
-            } else {
-                /* Only care about the top most context information */
-                CapturedContextInformation top = items.get(items.size() - 1);
-                String topClass = top.getActivity().getClassName();
-                String topPackage = top.getActivity().getPackageName();
-                /* Check if this is a dialog or similar */
-                if (topClass.startsWith("android.")) {
-                    /* If the package name has changed, use that as the
-                     * activity name until we have more information. */
-                    if (!topPackage.equals(mTopPackageName)) {
-                        LOG.info("Package " + topPackage + " started with floating window");
-                        mTopActivityName = topPackage;
-                    }
-                } else {
-                    mTopActivityName = topClass;
-                }
-                mTopPackageName = topPackage;
-            }
-            checkActivity();
+        private byte getApplicationType(String name) {
+            return APPLICATION_KIND_WHITE;
         }
 
         synchronized public void accessibilityServiceRequired() {
@@ -1247,49 +1123,77 @@ public class VncServerService extends Service
             return mTopActivityName;
         }
 
-        public void checkActivity() {
-            String name = getTopActivityName();
+        private byte[] createAppInfoCommand(String activityName, String packageName) {
+            int type = WhiteListManager.INSTANCE.check(packageName).getValue();
+
+
+            //toast(packageName + "@" + Integer.toString(type));
+
+
+            int activityNameLength = activityName.getBytes().length + 1;
+            int packageNameLength  = packageName.getBytes().length  + 1;
+            int payloadSize        = 2 + 2 + packageNameLength + 2 + activityNameLength + 1;
+
+            int offset = 0;
+            byte[] msg = new byte[payloadSize];
+
+            // << Copy the message ID >>
+            System.arraycopy(new byte[] {
+                            (byte)(MESSAGE_ID_FG_APP_INFO >>> 8),
+                            (byte)(MESSAGE_ID_FG_APP_INFO)
+                    }, 0,
+                    msg, 0, 2);
+            offset += 2;
+
+            // << Copy the package name length >>
+            System.arraycopy(new byte[] {
+                            (byte)((packageNameLength >> 8) & 255),
+                            (byte)((packageNameLength >> 0) & 255)
+                    }, 0,
+                    msg, offset, 2);
+            offset += 2;
+
+            // << Copy the package name >>
+            System.arraycopy(packageName.getBytes(), 0, msg, offset, packageNameLength - 1);
+            offset += packageNameLength;
+
+            // << Copy the activity name length >>
+            System.arraycopy(new byte[] {
+                            (byte)((activityNameLength >> 8) & 255),
+                            (byte)((activityNameLength >> 0) & 255)
+                    }, 0,
+                    msg, offset, 2);
+            offset += 2;
+
+            // << Copy the activity name >>
+            System.arraycopy(activityName.getBytes(), 0, msg, offset, activityNameLength - 1);
+            offset += activityNameLength;
+
+            msg[offset] = (byte)type;
+
+            Log.i(TAG, "Send:ActivityName[" + activityName + "], Package[" +
+                    "" + packageName + "], level[" + type +"]");
+            Log.i(TAG, "Length:"+payloadSize+"["+StringUtility.ByteToHexString(msg)+"]");
+
+            return msg;
+        }
+
+        private void checkActivity() {
+            String activityName = getTopActivityName();
+            String packageName  = mTopPackageName;
+
+            Log.i(TAG, "checkActivity@[ Activity:"+activityName+", Package:"+packageName + " ]");
+
+            if (WhiteListManager.INSTANCE.isIgnoreApplication(packageName)) {
+                return;
+            }
 
             if(mExtHandle != null) {
-                if(!name.equals(mLastTopActivityName)) {
-                    int category = getCategory(name);
-
-                    LOG.info("com.realvnc.automotive: frontmost app: " + name + " category " + category);
-
-                    int length = name.length();
-
-                    byte[] msg = new byte[length + 14];
-
-                    System.arraycopy(new byte[] {
-                                (byte)(AUTOEXT_FG_APP_REPORTING_RESPONSE >>> 8),
-                                (byte)(AUTOEXT_FG_APP_REPORTING_RESPONSE), // type
-                                0, 0, 0, 1, // version
-                                (byte)((category >> 24) & 255),
-                                (byte)((category >> 16) & 255),
-                                (byte)((category >> 8) & 255),
-                                (byte)((category >> 0) & 255),
-                                (byte)((length >> 24) & 255),
-                                (byte)((length >> 16) & 255),
-                                (byte)((length >> 8) & 255),
-                                (byte)((length >> 0) & 255)
-                            }, 0,
-                            msg, 0, 14);
-
-                    System.arraycopy(name.getBytes(), 0,
-                                     msg, 14, length);
-
-                    try {
-                        mSvc.mServer.sendExtensionMessage(mExtHandle,
-                                                          msg,
-                                                          0, msg.length);
-                    } catch(VncException e) {
-                        // Ignore - but clear the name, meaning we'll
-                        // try again in a second when the thread wakes
-                        // back up
-                        name = "";
-                    }
-
-                    mLastTopActivityName = name;
+                byte[] sendData = createAppInfoCommand(activityName, packageName);
+                try {
+                    mSvc.mServer.sendExtensionMessage(mExtHandle, sendData, 0, sendData.length);
+                }
+                catch(VncException e) {
                 }
             }
         }
@@ -1332,6 +1236,7 @@ public class VncServerService extends Service
             return maxDurationMillis;
         }
 
+        /*
         public void appMinimiseRequest(VncServer server,
                                        String rx_name, int rx_category) {
             String cur_name = getTopActivityName();
@@ -1359,6 +1264,7 @@ public class VncServerService extends Service
                 }
             }
         }
+        */
     }
 
     private AutomotiveExt mAutomotiveExt;
@@ -1370,78 +1276,72 @@ public class VncServerService extends Service
     private void updateVncNotifier_i() {
         boolean visible = false;
         boolean pester = false;
-        String intent = SampleIntents.SHOW_UI_INTENT;
-        Resources res = getResources();
-        Context context = getApplicationContext();
+        String intentAction = SampleIntents.SHOW_UI_INTENT;
+        final Resources res = getResources();
+        final Context context = getApplicationContext();
 
-        Notification.Builder builder = new Notification.Builder(context);
-        builder.setSmallIcon(R.drawable.vncicon);
+        final Notification.Builder builder =
+                NotificationHelper.getNotificationBuilder(context);
+        builder.setSmallIcon(R.mipmap.icon_notification);
 
         switch(mCurrentState.getState()) {
 
-        case CONNECTING:
-            visible = mCurrentState.requestingDialog();
-            pester = visible;
-            builder.setContentTitle(res.getString(R.string.notifier_accept_title));
-            builder.setContentText(res.getString(R.string.notifier_accept_text));
-            builder.setTicker(res.getString(R.string.notifier_accept_ticker));
-            intent = SampleIntents.ACCEPT_PROMPT_DIALOG_INTENT;
-            break;
+            case CONNECTING:
+                visible = mCurrentState.requestingDialog();
+                pester = visible;
+                builder.setContentTitle(res.getString(R.string.SS_02_214));
+                builder.setContentText(res.getString(R.string.SS_02_215));
+                builder.setTicker(res.getString(R.string.SS_02_213));
+                intentAction = SampleIntents.ACCEPT_PROMPT_DIALOG_INTENT;
+                break;
 
-        case RUNNING:
-            builder.setContentTitle(res.getString(R.string.notifier_connected_title));
-            builder.setContentText(res.getString(R.string.notifier_connected_text));
-            builder.setTicker(res.getString(R.string.notifier_connected_ticker,
-                                            mCurrentState.getConnectedAddress()));
-            builder.setOngoing(true);
-            visible = true;
-            pester = false;
-            break;
+            case RUNNING:
+                builder.setContentTitle(res.getString(R.string.SS_02_211));
+                builder.setContentText(res.getString(R.string.SS_02_212));
+                builder.setTicker(res.getString(R.string.SS_02_210,
+                        mCurrentState.getConnectedAddress()));
+                builder.setOngoing(true);
+                visible = true;
+                pester = false;
+                break;
 
-        case DISCONNECTED:
-            visible = false;
-            break;
+            case AUTHENTICATING:
+                builder.setContentTitle(res.getString(R.string.SS_02_214));
+                builder.setContentText(res.getString(R.string.SS_02_215));
+                builder.setTicker(res.getString(R.string.SS_02_213));
+                visible = mCurrentState.requestingDialog();
+                pester = visible;
+                intentAction = SampleIntents.AUTH_ACCEPT_DIALOG_INTENT;
+                break;
 
-        case LISTENING:
-            visible = false;
-            break;
+            case REQUESTING_AUTH:
+                builder.setContentTitle(res.getString(R.string.SS_02_214));
+                builder.setContentText(res.getString(R.string.notifier_authreq_text));
+                builder.setTicker(res.getString(R.string.SS_02_213));
+                visible = mCurrentState.requestingDialog();
+                pester = visible;
+                intentAction = SampleIntents.REVAUTH_PROMPT_DIALOG_INTENT;
+                break;
 
-        case AUTHENTICATING:
-            builder.setContentTitle(res.getString(R.string.notifier_auth_title));
-            builder.setContentText(res.getString(R.string.notifier_auth_text));
-            builder.setTicker(res.getString(R.string.notifier_auth_ticker));
-            visible = mCurrentState.requestingDialog();
-            pester = visible;
-            intent = SampleIntents.AUTH_ACCEPT_DIALOG_INTENT;
-            break;
+            case DISCONNECTED:
+                // Deliberate fallthrough.
+            case LISTENING:
+                // Deliberate fallthrough.
+            case ERROR:
+                visible = false;
+                break;
 
-        case REQUESTING_AUTH:
-            builder.setContentTitle(res.getString(R.string.notifier_authreq_title));
-            builder.setContentText(res.getString(R.string.notifier_authreq_text));
-            builder.setTicker(res.getString(R.string.notifier_authreq_ticker));
-            visible = mCurrentState.requestingDialog();
-            pester = visible;
-            intent = SampleIntents.REVAUTH_PROMPT_DIALOG_INTENT;
-            break;
-
-        case ERROR:
-            visible = false;
-            break;
-
-        default:
-            // no change, leave the notifier as it is
-            return;
-
+            default:
+                // no change, leave the notifier as it is
+                return;
         }
 
-        Intent notificationIntent = new Intent(context, VNCMobileServer.class);
-        notificationIntent.setAction(intent);
-        notificationIntent.setPackage(getPackageName());
-        // Due to the issue 63236 in Android Open Source Project (ROM 4.4 only),
-        // we always clear previous cached pending intent before sending notification.
-        builder.setContentIntent(PendingIntent.getActivity(this, 0, notificationIntent, PendingIntent.FLAG_CANCEL_CURRENT));
+        NotificationHelper.setServerContentIntent(
+                context,
+                builder,
+                intentAction);
 
-        Notification notification = builder.getNotification();
+        final Notification notification = builder.getNotification();
 
         if(pester) {
             // We require input from the user before proceeding.
@@ -1454,23 +1354,22 @@ public class VncServerService extends Service
         }
 
         // Clear the previous notification.
-        stopForeground(true);
+        mNotificationManager.cancel(VncServerService.STATUS_NOTIFICATION_ID);
 
         if(visible) {
-            /* Display the notification and set this service
-             * as foreground. Doing this hints to Android that
-             * it shouldn't be killed when hunting for background
-             * processes to destroy when looking for free memory. */
-            startForeground(1, notification);
+            mNotificationManager.notify(
+                    VncServerService.STATUS_NOTIFICATION_ID,
+                    notification);
         }
     }
 
     private void updateVncNotifier() {
         mHandler.post(new Runnable() {
-                public void run() {
-                    updateVncNotifier_i();
-                }
-            });
+            @Override
+            public void run() {
+                updateVncNotifier_i();
+            }
+        });
     }
 
     @android.annotation.TargetApi(21)
@@ -1505,15 +1404,26 @@ public class VncServerService extends Service
     @Override
     public synchronized void onCreate() {
 
+        super.onCreate();
+
+        mNotificationManager =
+                NotificationHelper.getNotificationManager(
+                        getApplicationContext());
+
+        // Start the service in the foreground with a user-visible notification
+        NotificationHelper.ServiceUtils.startServiceInForeground(
+                this,
+                VncServerService.FOREGROUND_SERVICE_NOTIFICATION_ID,
+                getString(R.string.SS_02_216),
+                getString(R.string.SS_02_217),
+                R.mipmap.icon_notification);
+
         String filePath = getFileStreamPath(LOG_FILE).getAbsolutePath();
         VncLog.init(filePath, true);
 
         LOG.setLevel(Level.INFO);
 
-        LOG.info("*** VNC SERVER SERVICE STARTS ***");
-
-        // Clear any notifications which might be around (MOB-6999).
-        stopForeground(true);
+        LOG.info("*** VNC AUTOMOTIVE SERVER SERVICE STARTS ***");
 
         // Log device signing keys and details useful for debugging.
         ServiceInstaller.getSystemSigningKeys(this);
@@ -1547,7 +1457,7 @@ public class VncServerService extends Service
         mReceiver = new VNCBroadcastReceiver();
         registerReceiver(mReceiver, filter);
 
-        // Dig out some useful information to pass into the VNC server which we create.
+        // Dig out some useful information to pass into the VNC Automotive server which we create.
         //noinspection HardwareIds
         String deviceIdentifier = Settings.Secure.getString(
                 getApplicationContext().getContentResolver(),
@@ -1591,7 +1501,7 @@ public class VncServerService extends Service
             } catch (VNCNetworkAdvertiserException e) {
                 mAdvertiser = null;
                 LOG.log(Level.SEVERE, "Failed to create network advertiser", e);
-                toast(getResources().getString(R.string.error_creating_network_advertiser,
+                toast(getResources().getString(R.string.SS_03_260,
                                                e.errorCode));
             }
 
@@ -1686,26 +1596,30 @@ public class VncServerService extends Service
 
                 try {
                     // Assetのファイルをオープン
-                    InputStream is = assetManager.open(fullPath);
-                    StringBuilder sb = new StringBuilder();
-                    byte[] buf = new byte[1024];
+                    InputStream           inputStream  = assetManager.open(fullPath);
+                    ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+
                     int read;
-                    // 読み込む
-                    while((read = is.read(buf)) > 0) {
-                        sb.append(new String(buf, 0, read, "UTF-8"));
+                    byte[] readBuf = new byte[1024];
+                    while ((read=inputStream.read(readBuf)) > 0) {
+                        outputStream.write(readBuf, 0, read);
                     }
 
-                    // 文字列として取得
-                    String licenseText = sb.toString();
+                    // << decryption >>
+                    byte[] decData = AesUtility.Companion.decrypt(outputStream.toByteArray(), VncLicenseEncryptionConst.Companion.getPassKey(), VncLicenseEncryptionConst.Companion.getInitialVector());
+                    if (decData != null) {
+                        String licenseText = new String(decData);
 
-                    // ライセンス情報追加
-                    licenses.add(new Pair<String, String>(fullPath, licenseText));
+                        // ライセンス情報追加
+                        licenses.add(new Pair<>(fullPath, licenseText));
 
-                    // 追加数インクリメント
-                    ++added;
+                        // 追加数インクリメント
+                        ++added;
+                    }
 
-                    // ストリーム閉じる
-                    is.close();
+                    // << Close the streams. >>
+                    inputStream.close();
+                    outputStream.close();
                 }
                 catch (IOException e) {
                     Log.e(TAG, "Failed to open Asset license file: " + filePath);
@@ -1781,7 +1695,7 @@ public class VncServerService extends Service
                     mAdvertiser.addLicense(license.second);
                 }
             } catch (VncException e) {
-                LOG.info(license.first + " does not contain a valid VNC license.");
+                LOG.info(license.first + " does not contain a valid VNC Automotive license.");
             } catch (VNCNetworkAdvertiserException e) {
                 LOG.info(license.first + " was not accepted by the network advertiser");
             }
@@ -1896,7 +1810,7 @@ public class VncServerService extends Service
 
         VncLog.destroy();
 
-        LOG.info("*** VNC SERVER SERVICE EXITS ***");
+        LOG.info("*** VNC AUTOMOTIVE SERVER SERVICE EXITS ***");
     }
 
     @Override
@@ -2061,10 +1975,13 @@ public class VncServerService extends Service
     }
 
     private void startSelf() {
-        Intent i = new Intent(this, VncServerService.class);
-        i.setAction(SampleIntents.RUN_SERVER_INTENT);
-        i.setPackage(getPackageName());
-        startService(i);
+        final Intent intent = new Intent(
+                this,
+                VncServerService.class);
+        intent.setAction(SampleIntents.RUN_SERVER_INTENT);
+        intent.setPackage(getPackageName());
+        NotificationHelper.ServiceUtils
+                .startForegroundServiceWithIntent(this, intent);
     }
 
     /**
@@ -2127,7 +2044,7 @@ public class VncServerService extends Service
     @Override
     public void advertiserStopped(int error) {
         if (error != VNCNetworkAdvertiserException.STOPPED) {
-            toast(getResources().getString(R.string.error_network_advertiser_stopped,
+            toast(getResources().getString(R.string.SS_03_262,
                                            error));
         }
     }

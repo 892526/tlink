@@ -1,0 +1,59 @@
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+
+    android:background="@mipmap/background01"
+    android:padding="8dp"
+    >
+
+    <!--
+    <TextView
+        android:id="@+id/fragment_tutorial_title"
+        style="@style/TutorialTitleStyle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+
+        android:text="@string/tutorial_title"
+
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+    -->
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+            <Button
+                android:id="@+id/fragment_tutorial_bt"
+                style="@style/TutorialButtonStyle"
+                android:text="@string/SS_81_3100"
+
+                app:layout_constraintTop_toTopOf="parent"
+                />
+            <Button
+                android:id="@+id/fragment_tutorial_launch"
+                style="@style/TutorialButtonStyle"
+                android:text="@string/SS_81_3200"
+
+                app:layout_constraintTop_toBottomOf="@+id/fragment_tutorial_bt"
+                />
+            <Button
+                android:id="@+id/fragment_tutorial_start"
+                style="@style/TutorialButtonStyle"
+                android:text="@string/SS_81_3300"
+
+                app:layout_constraintTop_toBottomOf="@+id/fragment_tutorial_launch"
+            />
+        </android.support.constraint.ConstraintLayout>
+    </ScrollView>
+
+</android.support.constraint.ConstraintLayout>

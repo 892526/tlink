@@ -1,7 +1,7 @@
-/* Copyright (C) 2002-2018 RealVNC Ltd. All Rights Reserved.
+/* Copyright (C) 2002-2018 VNC Automotive Ltd.  All Rights Reserved.
  *
- * This is a sample application intended to demonstrate part of the
- * VNC Mobile Solution SDK. It is not intended as a production-ready
+ * This is a sample application intended to demonstrate part of a
+ * VNC Automotive SDK. It is not intended as a production-ready
  * component. */
 
 package com.realvnc.androidsampleserver.service;
@@ -41,7 +41,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- * Manages the server's VNC Network Advertiser.
+ * Manages the server's VNC Automotive Network Advertiser.
  *
  * The Network Advertiser is used to advertise the server over IP networks.
  * An instance of this class is created and managed by the VncServerService.
@@ -51,11 +51,11 @@ public class NetworkAdvertiser implements VNCNetworkAdvertiserListener {
     private static final Logger LOG = Logger.getLogger(NetworkAdvertiser.class.getName());
 
     // The base product string to use (with an appended version number)
-    private static final String BASE_PRODUCT_DETAIL_STRING  = "RealVNC-MobileSolution-Server";
+    private static final String BASE_PRODUCT_DETAIL_STRING  = "VNCAutomotive-MobileSolution-Server";
 
-    // VNC server details
-    private static final String SERVER_NAME                 = "RealVNC\u00AE Android Sample Server";
-    private static final String SERVER_MANUFACTURER         = "RealVNC Ltd";
+    // VNC Automotive server details
+    private static final String SERVER_NAME                 = "VNC Automotive Android Sample Server";
+    private static final String SERVER_MANUFACTURER         = "VNC Automotive Ltd";
 
     // The shared preferences that we use
     private static final String PREFERENCE_VNC_ENABLE_NETWORK_ADVERTISER  = "vnc_enable_network_advertiser";
@@ -65,7 +65,7 @@ public class NetworkAdvertiser implements VNCNetworkAdvertiserListener {
     public interface Listener {
 
         /**
-         * Called when the VNC Network Advertiser has stopped running.
+         * Called when the VNC Automotive Network Advertiser has stopped running.
          *
          * The error code describing the reason for the stoppage is reported.
          * VNCNetworkAdvertiserException.STOPPED indicates that the advertiser
@@ -160,7 +160,7 @@ public class NetworkAdvertiser implements VNCNetworkAdvertiserListener {
         VNCNetworkAdvertiserDeviceIdentity identity = createDeviceIdentity();
         mAdvertiser.setDeviceIdentity(identity);
 
-        // Set the VNC server details
+        // Set the VNC Automotive server details
         VNCNetworkAdvertiserServerDetails serverDetails =
             new VNCNetworkAdvertiserServerDetails(SERVER_NAME,
                                                   mServer.getVersionString(),
@@ -175,23 +175,23 @@ public class NetworkAdvertiser implements VNCNetworkAdvertiserListener {
             byte[] iconData = drawableToPNGBytes(serverIcon);
             VNCNetworkAdvertiserIcon icon = mAdvertiser.iconCreate(iconDetails, iconData);
 
-            // Provide the VNC server details with the icon
+            // Provide the VNC Automotive server details with the icon
             VNCNetworkAdvertiserIcon[] icons = new VNCNetworkAdvertiserIcon[] { icon };
             mAdvertiser.setGlobalServerDetails(serverDetails, icons);
 
             // Release our reference to the icon, now that it has been associated
-            // with the VNC server.
+            // with the VNC Automotive server.
             mAdvertiser.iconRelease(icon);
         } else {
-            // Provide the VNC server details with no icon
+            // Provide the VNC Automotive server details with no icon
             mAdvertiser.setGlobalServerDetails(serverDetails, null);
         }
     }
 
     /**
-     * Adds a VNC license for the Network Advertiser.
+     * Adds a VNC Automotive license for the Network Advertiser.
      *
-     * @param licenseText The entire text of the VNC license.
+     * @param licenseText The entire text of the VNC Automotive license.
      *
      * @throws VNCNetworkAdvertiserException if a network advertiser error occurs.
      */
@@ -264,13 +264,13 @@ public class NetworkAdvertiser implements VNCNetworkAdvertiserListener {
     }
 
     /**
-     * Notifies that the VNC server has started listening.
+     * Notifies that the VNC Automotive server has started listening.
      *
-     * The VNC Network Advertiser is started if not already running. If ipAddresses
+     * The VNC Automotive Network Advertiser is started if not already running. If ipAddresses
      * contains no valid IPv4 addresses, then no network interfaces are registered.
      *
      * @param ipAddresses A comma-separated list containing the IPv4 addresses (if
-     * any) that the VNC server is listening on.
+     * any) that the VNC Automotive server is listening on.
      *
      * @throws VNCNetworkAdvertiserException if a network advertiser error occurs.
      */
@@ -335,9 +335,9 @@ public class NetworkAdvertiser implements VNCNetworkAdvertiserListener {
     }
 
     /**
-     * Notifies that the VNC server has started connecting to a viewer.
+     * Notifies that the VNC Automotive server has started connecting to a viewer.
      *
-     * The VNC Network Advertiser continues running, but stops providing command
+     * The VNC Automotive Network Advertiser continues running, but stops providing command
      * strings.
      */
     public synchronized void serverConnecting() {
@@ -345,9 +345,9 @@ public class NetworkAdvertiser implements VNCNetworkAdvertiserListener {
     }
 
     /**
-     * Notifies that the VNC server has connected to a viewer.
+     * Notifies that the VNC Automotive server has connected to a viewer.
      *
-     * The VNC Network Advertiser continues running, but stops providing command
+     * The VNC Automotive Network Advertiser continues running, but stops providing command
      * strings.
      */
     public synchronized void serverConnected() {
@@ -355,9 +355,9 @@ public class NetworkAdvertiser implements VNCNetworkAdvertiserListener {
     }
 
     /**
-     * Notifies that the VNC server is no longer connecting, connected or listening.
+     * Notifies that the VNC Automotive server is no longer connecting, connected or listening.
      *
-     * The VNC Network Advertiser is stopped if running.
+     * The VNC Automotive Network Advertiser is stopped if running.
      */
     public synchronized void serverStopped() {
         mServerListening = false;

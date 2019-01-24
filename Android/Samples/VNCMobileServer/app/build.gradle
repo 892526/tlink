@@ -1,4 +1,4 @@
-/* Copyright (C) 2018 RealVNC Ltd.  All Rights Reserved. */
+/* Copyright (C) 2018 VNC Automotive Ltd.  All Rights Reserved. */
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-kapt'
 apply plugin: 'kotlin-android'
@@ -17,21 +17,14 @@ android {
     buildToolsVersion rootProject.ext.buildToolsVersion
 
     defaultConfig {
-        applicationId 'com.realvnc.androidsampleserver'
+        applicationId 'com.jvckenwood.tlink'
         minSdkVersion 21
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 0
-        versionName '0.0.1'
-    }
+        versionCode 010010
+        versionName '1.0.1'
 
-    /*
-    sourceSets {
-        main {
-            aidl.srcDirs 'src'
-            java.srcDirs 'src'
-        }
+        buildConfigField "long", "TIMESTAMP", System.currentTimeMillis() + "L"
     }
-    */
 
     signingConfigs {
         if (keystoreProps != null) {
@@ -59,8 +52,17 @@ android {
         }
     }
 
+    applicationVariants.all { variant ->
+        variant.outputs.all {
+            def versionName = defaultConfig.versionName
+            def newName     = "JKCVncServer_v${versionName}-${variant.name}.apk"
+            outputFileName  = newName
+        }
+    }
+
     lintOptions {
-        abortOnError true
+        checkReleaseBuilds false
+        abortOnError false
     }
 }
 
@@ -79,10 +81,11 @@ dependencies {
     if (file("../../../RootedRemoteControlService").exists()) {
         implementation project(':rootedremotecontrolservice')
     }
-    if (file("../../../SamsungRemoteControlService").exists()) {
-        implementation project(':samsungremotecontrolservice')
-    }
+    //if (file("../../../SamsungRemoteControlService").exists()) {
+    //    implementation project(':samsungremotecontrolservice')
+    //}
     if (file("../../../RemoteViewService").exists()) {
         implementation project(':remoteviewservice')
     }
+    implementation 'com.google.code.gson:gson:2.8.5'
 }

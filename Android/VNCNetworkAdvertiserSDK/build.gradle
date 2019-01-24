@@ -1,13 +1,12 @@
-/* Copyright (C) 2017-2018 RealVNC Ltd.  All Rights Reserved. */
+/* Copyright (C) 2017-2018 VNC Automotive Ltd.  All Rights Reserved. */
 apply plugin: 'com.android.library'
 
 android {
-    compileSdkVersion rootProject.ext.compileSdkVersion
-    buildToolsVersion rootProject.ext.buildToolsVersion
+    compileSdkVersion 26
 
     defaultConfig {
         minSdkVersion 10
-        targetSdkVersion rootProject.ext.targetSdkVersion
+        targetSdkVersion 26
     }
     sourceSets {
         main {

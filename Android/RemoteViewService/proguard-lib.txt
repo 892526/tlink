@@ -1,7 +1,7 @@
-# Copyright (C) 2002-2018 RealVNC Ltd. All Rights Reserved.
+# Copyright (C) 2002-2018 VNC Automotive Ltd.  All Rights Reserved.
 #
 # Proguard configuration file defining proguard configuration
-# for the RealVNC Remote View Service.
+# for the VNC Automotive Remote View Service.
 
 -keepclassmembers public class com.realvnc.android.remote.view.ViewRemoteControl {
     public *** customStaticRequest(...);

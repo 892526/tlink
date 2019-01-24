@@ -1,7 +1,7 @@
-/* Copyright (C) 2002-2018 RealVNC Ltd. All Rights Reserved.
+/* Copyright (C) 2002-2018 VNC Automotive Ltd.  All Rights Reserved.
  *
- * This is a sample application intended to demonstrate part of the
- * VNC Mobile Solution SDK. It is not intended as a production-ready
+ * This is a sample application intended to demonstrate part of a
+ * VNC Automotive SDK. It is not intended as a production-ready
  * component. */
 
 package com.realvnc.androidsampleserver;
@@ -10,7 +10,7 @@ import com.realvnc.androidsampleserver.IVncServerListener;
 import com.realvnc.androidsampleserver.VncServerState;
 
 /**
- * Interface to the VNC server 'service'. This broadly corresponds to
+ * Interface to the VNC Automotive server 'service'. This broadly corresponds to
  * the 'libvncserver' library in other platforms.
  *
  * <p>Clients can call these interfaces by using code such as:
@@ -39,13 +39,13 @@ interface IVncServerInterface {
     void VNCServerConnect(String command, boolean autoReListen);
 	
     /** 
-     * Stop listening for incoming VNC connections, and/or disconnect any currently
+     * Stop listening for incoming VNC Automotive connections, and/or disconnect any currently
      * active connection.
      */
     void VNCServerReset();
 	
     /**
-     * Returns the current state of the VNC server.
+     * Returns the current state of the VNC Automotive server.
      */
     VncServerState VNCServerStateGetState();
 
@@ -82,7 +82,7 @@ interface IVncServerInterface {
     String VNCServerGetVersionString();
 
     /**
-     * Tell the VNC server Activity to display a message asking the
+     * Tell the VNC Automotive server Activity to display a message asking the
      * user to pull down the notification bar.
      *
      * Used by the HTTPTriggerService.
@@ -90,7 +90,7 @@ interface IVncServerInterface {
     void VNCServerRequestDialog();
 
     /**
-     * Tell the VNC server Activity to stop displaying a message asking the
+     * Tell the VNC Automotive server Activity to stop displaying a message asking the
      * user to pull down the notification bar.
      *
      * Used by the HTTPTriggerService.
@@ -111,7 +111,12 @@ interface IVncServerInterface {
     void VNCServerInstallationResult(int errorCode);
 
     /**
-     * Load the VNC server licenses.
+     * Load the VNC Automotive server licenses.
      */
     void VNCServerLoadLicenses();
+
+    /**
+     * Lock/Unlock the orientation to landscape.
+     */
+    void VNCServerSetLandscapeLock(boolean landscapeLock);
 }

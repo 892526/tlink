@@ -1,7 +1,7 @@
-/* Copyright (C) 2002-2018 RealVNC Ltd. All Rights Reserved.
+/* Copyright (C) 2002-2018 VNC Automotive Ltd.  All Rights Reserved.
  *
- * This is a sample application intended to demonstrate part of the
- * VNC Mobile Solution SDK. It is not intended as a production-ready
+ * This is a sample application intended to demonstrate part of a
+ * VNC Automotive SDK. It is not intended as a production-ready
  * component. */
 
 package com.realvnc.androidsampleserver.service;
@@ -28,6 +28,7 @@ import com.realvnc.androidsampleserver.IVncServerInterface;
 import com.realvnc.androidsampleserver.IVncServerListener;
 import com.realvnc.androidsampleserver.R;
 import com.realvnc.androidsampleserver.SampleIntents;
+import com.realvnc.androidsampleserver.NotificationHelper;
 import com.realvnc.androidsampleserver.VncConfigFile;
 import com.realvnc.androidsampleserver.activity.VNCMobileServer;
 import com.realvnc.vncserver.android.VncCommandString;
@@ -47,7 +48,7 @@ import java.util.logging.Logger;
 
 /** HTTP trigger service
  *
- * This service is responsible for connecting to VNC Mobile Bridge,
+ * This service is responsible for connecting to VNC Automotive Bridge,
  * retrieving a command string, prompting as needed, and passing it to
  * the server SDK to be actioned.
  *
@@ -71,6 +72,12 @@ public class HTTPTriggerService extends Service {
     private Intent mPostponedIntent = null;
 
     private NotificationManager mNotificationManager;
+
+    private static final int FOREGROUND_SERVICE_NOTIFICATION_ID =
+            NotificationHelper.UniqueIdGenerator.generate();
+
+    private static final int CONNECTION_NOTIFICATION_ID =
+            NotificationHelper.UniqueIdGenerator.generate();
 
     /** HTTP transfer
      *
@@ -330,26 +337,40 @@ public class HTTPTriggerService extends Service {
 
     /*@ Prompt for connection */
     private void showAcceptNotification() {
-        Context context = getApplicationContext();
-        Intent acceptIntent = new Intent(this, VNCMobileServer.class);
+        final Context context = getApplicationContext();
+        final Intent acceptIntent = new Intent(
+                this,
+                VNCMobileServer.class);
         acceptIntent.setAction(SampleIntents.HTTP_ACCEPT_DIALOG_INTENT);
         acceptIntent.setPackage(getPackageName());
         acceptIntent.addFlags(Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS);
 
-        Notification notification = new Notification.Builder(context)
-            .setContentTitle(getResources().getString(R.string.http_accept_notifier_title))
-            .setContentText(getResources().getString(R.string.http_accept_notifier_text))
-            .setContentIntent(PendingIntent.getActivity(this, 0, acceptIntent, PendingIntent.FLAG_CANCEL_CURRENT))
-            .setTicker(getResources().getString(R.string.http_accept_notifier_ticker))
-            .setSmallIcon(R.drawable.vncicon)
-            .setDefaults(Notification.DEFAULT_SOUND | Notification.DEFAULT_LIGHTS)
-            .setVibrate(mVibrationPattern)
-            .setOngoing(true)
-            .getNotification();
+        final Notification notification =
+                NotificationHelper.getNotificationBuilder(context)
+                        .setContentTitle(getResources().getString(
+                                R.string.http_accept_notifier_title))
+                        .setContentText(getResources().getString(
+                                R.string.http_accept_notifier_text))
+                        .setContentIntent(PendingIntent.getActivity(
+                                this,
+                                0,
+                                acceptIntent,
+                                PendingIntent.FLAG_CANCEL_CURRENT))
+                        .setTicker(getResources().getString(
+                                R.string.http_accept_notifier_ticker))
+                        .setSmallIcon(R.drawable.vncicon)
+                        .setDefaults(
+                                Notification.DEFAULT_SOUND
+                                        | Notification.DEFAULT_LIGHTS)
+                        .setVibrate(mVibrationPattern)
+                        .setOngoing(true)
+                        .getNotification();
 
         notification.flags |= Notification.FLAG_INSISTENT;
 
-        mNotificationManager.notify(1, notification);
+        mNotificationManager.notify(
+                HTTPTriggerService.CONNECTION_NOTIFICATION_ID,
+                notification);
 
         promptingUser = true;
         needReset = true;
@@ -439,25 +460,38 @@ public class HTTPTriggerService extends Service {
     }
 
     private void showDisconnectNotification() {
-        Context context = getApplicationContext();
-        Intent disconnectIntent = new Intent(this, VNCMobileServer.class);
-        disconnectIntent.setAction("com.realvnc.androidsampleserver.ACTION_HTTP_DISCONNECT");
+        final Context context = getApplicationContext();
+        final Intent disconnectIntent = new Intent(
+                this,
+                VNCMobileServer.class);
+        disconnectIntent.setAction(SampleIntents.HTTP_DISCONNECT_DIALOG_INTENT);
         disconnectIntent.setPackage(getPackageName());
 
-        Notification notification = new Notification.Builder(context)
-            .setContentTitle(getResources().getString(R.string.http_disconnect_notifier_title))
-            .setContentText(getResources().getString(R.string.http_disconnect_notifier_text))
-            .setContentIntent(PendingIntent.getActivity(this, 0, disconnectIntent, 0))
-            .setTicker(getResources().getString(R.string.http_disconnect_notifier_ticker))
-            .setSmallIcon(R.drawable.vncicon)
-            .setAutoCancel(true)
-            .getNotification();
+        final Notification notification =
+                NotificationHelper.getNotificationBuilder(context)
+                        .setContentTitle(getResources().getString(
+                                R.string.http_disconnect_notifier_title))
+                        .setContentText(getResources().getString(
+                                R.string.http_disconnect_notifier_text))
+                        .setContentIntent(PendingIntent.getActivity(
+                                this,
+                                0,
+                                disconnectIntent,
+                                0))
+                        .setTicker(getResources().getString(
+                                R.string.http_disconnect_notifier_ticker))
+                        .setSmallIcon(R.drawable.vncicon)
+                        .setAutoCancel(true)
+                        .getNotification();
 
-        mNotificationManager.notify(1, notification);
+        mNotificationManager.notify(
+                HTTPTriggerService.CONNECTION_NOTIFICATION_ID,
+                notification);
     }
 
     private void hideNotification() {
-        mNotificationManager.cancel(1);
+        mNotificationManager.cancel(
+                HTTPTriggerService.CONNECTION_NOTIFICATION_ID);
     }
 
     @Override
@@ -465,11 +499,21 @@ public class HTTPTriggerService extends Service {
 
         super.onCreate();
 
+        mNotificationManager =
+                NotificationHelper.getNotificationManager(
+                        getApplicationContext());
+
+        // Start the service in the foreground with a user-visible notification
+        NotificationHelper.ServiceUtils.startServiceInForeground(
+                this,
+                HTTPTriggerService.FOREGROUND_SERVICE_NOTIFICATION_ID,
+                getString(R.string.vnc_automotive_bridge),
+                getString(R.string.SS_02_217),
+                R.drawable.vncicon);
+
         VncConfigFile.checkVncConfig(getBaseContext());
 
-        mNotificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-
-        /* Bind to the VNC server */
+        /* Bind to the VNC Automotive server */
 
         mService = new ServerServiceConnection();
         Intent serviceIntent = new Intent(this, VncServerService.class);
@@ -494,14 +538,14 @@ public class HTTPTriggerService extends Service {
         LOG.setLevel(Level.INFO);
 
         if(mServiceInterface == null) {
-            // The VNC server hasn't started yet. Postpone the action
+            // The VNC Automotive server hasn't started yet. Postpone the action
             // until the service is bound.
             mPostponedIntent = intent;
         } else {
             handleIntent(intent);
         }
 
-        return 0;
+        return Service.START_STICKY_COMPATIBILITY;
     }
 
     private synchronized void handleIntent(Intent intent) {
@@ -582,23 +626,22 @@ public class HTTPTriggerService extends Service {
 
     private class TriggerListener extends IVncServerListener.Stub
     {
-        /* Callbacks from the VNC server - most of which we don't use */
+        /* Callbacks from the VNC Automotive server - most of which we don't use */
+        @Override
         public void listeningCb(String ipAddresses) {}
 
-        public String getId() {
-            if(mAcceptedTrigger != null) return mAcceptedTrigger.mCmdId;
-            else return "?";
-        }
-
+        @Override
         public void connectingCb() {
             LOG.info(getId() + ": connectingCb");
         }
 
+        @Override
         public void connectedCb(String ipAddress) {
             LOG.info(getId() + ": connectedCb");
         }
 
         /*@ Connection succeeds */
+        @Override
         public void runningCb() {
 
             LOG.info(getId() + ": runningCb");
@@ -611,6 +654,7 @@ public class HTTPTriggerService extends Service {
             }
         }
 
+        @Override
         public void disconnectedCb() {
             LOG.info("disconnectedCb");
 
@@ -639,6 +683,7 @@ public class HTTPTriggerService extends Service {
         }
 
         /*@ Connection fails */
+        @Override
         public void errorCb(int errorCode) {
             hideNotification();
 
@@ -661,13 +706,24 @@ public class HTTPTriggerService extends Service {
             }
         }
 
+        @Override
         public void keygenCb(byte[] keyPair) {}
 
+        @Override
         public void authCb(String user, String pass) {}
 
+        @Override
         public void loginCb(boolean userReq, boolean passReq) {}
 
+        @Override
         public void updateUiCb() {}
+
+        public String getId() {
+            if(mAcceptedTrigger != null) {
+                return mAcceptedTrigger.mCmdId;
+            }
+            return "?";
+        }
     }
 
     private TriggerListener mListener;

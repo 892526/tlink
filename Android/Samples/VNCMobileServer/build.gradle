@@ -1,8 +1,8 @@
-/* Copyright (C) 2018 RealVNC Ltd.  All Rights Reserved. */
+/* Copyright (C) 2018 VNC Automotive Ltd.  All Rights Reserved. */
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 
 buildscript {
-    ext.kotlinVersion = '1.2.41'
+    ext.kotlinVersion = '1.2.60'
 
     repositories {
         jcenter()

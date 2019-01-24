@@ -1,22 +1,22 @@
-/* Copyright (C) 2018 RealVNC Ltd.  All Rights Reserved. */
+/* Copyright (C) 2018 VNC Automotive Ltd.  All Rights Reserved. */
 buildscript {
     repositories {
         jcenter()
+        google()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:2.3.1'
+        classpath 'com.android.tools.build:gradle:3.0.1'
     }
 }
 
 apply plugin: 'com.android.library'
 
 android {
-    compileSdkVersion 23
-    buildToolsVersion '25.0.0'
+    compileSdkVersion 26
 
     defaultConfig {
         minSdkVersion 21
-        targetSdkVersion 23
+        targetSdkVersion 26
         versionCode 0
         versionName 'development'
     }

@@ -1,0 +1,43 @@
+[
+
+  {
+    "applicationId":"com.jvckenwood.kleasylink",
+    "packageName":"com.jvckenwood.kleasylink",
+    "level":2
+  },
+
+  {
+    "applicationId":"com.google.android.apps.maps",
+    "packageName":"com.google.android.apps.maps",
+    "level":2
+  },
+  {
+    "applicationId":"com.waze",
+    "packageName":"com.waze",
+    "level":2
+  },
+
+
+
+
+  {
+    "applicationId":"com.google.android.music",
+    "packageName":"com.google.android.music",
+    "level":1
+  },
+
+  {
+    "applicationId":"com.spotify.music",
+    "packageName":"com.spotify.music",
+    "level":1
+  },
+
+
+
+  {
+    "applicationId":"",
+    "packageName":"",
+    "level":0
+  }
+
+]
