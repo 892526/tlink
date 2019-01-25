@@ -860,10 +860,6 @@ public class VncServerService extends Service
     }
 
     private void doSetLandscapeLock(final boolean landscapeLock) {
-        if (Build.VERSION.SDK_INT == Build.VERSION_CODES.N_MR1) {
-            return;
-        }
-
         mHandler.post(new Runnable() {
             @Override
             @TargetApi(26)
