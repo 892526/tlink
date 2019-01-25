@@ -38,7 +38,7 @@ class TutorialFragment : Fragment() {
 
     override fun onResume() {
         super.onResume()
-        activity?.title = getString(R.string.tutorial_title)
+        activity?.title = getString(R.string.TID_5292)
     }
 
     /*------------------------------------------------------------------------------------------*/

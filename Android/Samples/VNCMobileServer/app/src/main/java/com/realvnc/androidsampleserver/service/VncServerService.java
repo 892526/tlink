@@ -6,7 +6,6 @@
 
 package com.realvnc.androidsampleserver.service;
 
-import android.Manifest.permission;
 import android.annotation.TargetApi;
 import android.app.Notification;
 import android.app.NotificationManager;
@@ -253,7 +252,7 @@ public class VncServerService extends Service
                 mAdvertiser.serverListening(ipAddresses);
             } catch (VNCNetworkAdvertiserException e) {
                 LOG.log(Level.SEVERE, "Failed to start network advertiser", e);
-                toast(getResources().getString(R.string.SS_03_261,
+                toast(getResources().getString(R.string.TID_5273,
                                                e.errorCode));
             }
         }
@@ -594,7 +593,7 @@ public class VncServerService extends Service
         } catch(NoSuchFieldException e2) {
             /* This happens if there was no string resource
              * corresponding to this error code */
-            s = getResources().getString(R.string.SS_03_259, errorCode);
+            s = getResources().getString(R.string.TID_5271, errorCode);
         } catch(Exception e2) {
             s = e2.getMessage();
         }
@@ -1285,16 +1284,16 @@ public class VncServerService extends Service
             case CONNECTING:
                 visible = mCurrentState.requestingDialog();
                 pester = visible;
-                builder.setContentTitle(res.getString(R.string.SS_02_214));
-                builder.setContentText(res.getString(R.string.SS_02_215));
-                builder.setTicker(res.getString(R.string.SS_02_213));
+                builder.setContentTitle(res.getString(R.string.TID_5245));
+                builder.setContentText(res.getString(R.string.TID_5246));
+                builder.setTicker(res.getString(R.string.TID_5243));
                 intentAction = SampleIntents.ACCEPT_PROMPT_DIALOG_INTENT;
                 break;
 
             case RUNNING:
-                builder.setContentTitle(res.getString(R.string.SS_02_211));
-                builder.setContentText(res.getString(R.string.SS_02_212));
-                builder.setTicker(res.getString(R.string.SS_02_210,
+                builder.setContentTitle(res.getString(R.string.TID_5241));
+                builder.setContentText(res.getString(R.string.TID_5242));
+                builder.setTicker(res.getString(R.string.TID_5239,
                         mCurrentState.getConnectedAddress()));
                 builder.setOngoing(true);
                 visible = true;
@@ -1302,18 +1301,18 @@ public class VncServerService extends Service
                 break;
 
             case AUTHENTICATING:
-                builder.setContentTitle(res.getString(R.string.SS_02_214));
-                builder.setContentText(res.getString(R.string.SS_02_215));
-                builder.setTicker(res.getString(R.string.SS_02_213));
+                builder.setContentTitle(res.getString(R.string.TID_5245));
+                builder.setContentText(res.getString(R.string.TID_5246));
+                builder.setTicker(res.getString(R.string.TID_5243));
                 visible = mCurrentState.requestingDialog();
                 pester = visible;
                 intentAction = SampleIntents.AUTH_ACCEPT_DIALOG_INTENT;
                 break;
 
             case REQUESTING_AUTH:
-                builder.setContentTitle(res.getString(R.string.SS_02_214));
+                builder.setContentTitle(res.getString(R.string.TID_5245));
                 builder.setContentText(res.getString(R.string.notifier_authreq_text));
-                builder.setTicker(res.getString(R.string.SS_02_213));
+                builder.setTicker(res.getString(R.string.TID_5243));
                 visible = mCurrentState.requestingDialog();
                 pester = visible;
                 intentAction = SampleIntents.REVAUTH_PROMPT_DIALOG_INTENT;
@@ -1410,8 +1409,8 @@ public class VncServerService extends Service
         NotificationHelper.ServiceUtils.startServiceInForeground(
                 this,
                 VncServerService.FOREGROUND_SERVICE_NOTIFICATION_ID,
-                getString(R.string.SS_02_216),
-                getString(R.string.SS_02_217),
+                getString(R.string.TID_5247),
+                getString(R.string.TID_5248),
                 R.mipmap.icon_notification);
 
         String filePath = getFileStreamPath(LOG_FILE).getAbsolutePath();
@@ -1497,7 +1496,7 @@ public class VncServerService extends Service
             } catch (VNCNetworkAdvertiserException e) {
                 mAdvertiser = null;
                 LOG.log(Level.SEVERE, "Failed to create network advertiser", e);
-                toast(getResources().getString(R.string.SS_03_260,
+                toast(getResources().getString(R.string.TID_5272,
                                                e.errorCode));
             }
 
@@ -2032,7 +2031,7 @@ public class VncServerService extends Service
     @Override
     public void advertiserStopped(int error) {
         if (error != VNCNetworkAdvertiserException.STOPPED) {
-            toast(getResources().getString(R.string.SS_03_262,
+            toast(getResources().getString(R.string.TID_5274,
                                            error));
         }
     }

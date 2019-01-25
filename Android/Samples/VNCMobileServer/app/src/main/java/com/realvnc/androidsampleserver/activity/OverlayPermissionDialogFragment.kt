@@ -21,10 +21,10 @@ class OverlayPermissionDialogFragment : DialogFragment() {
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         val builder = AlertDialog.Builder(activity as Context)
-                .setTitle(R.string.SS_04_204)
-                .setMessage(R.string.SS_04_205)
+                .setTitle(R.string.TID_5279)
+                .setMessage(R.string.TID_5280)
                 .setCancelable(false)
-                .setPositiveButton(R.string.SS_04_203) { _, _ ->
+                .setPositiveButton(R.string.TID_5278) { _, _ ->
                     if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
                         throw RuntimeException(
                                 "Overlay Permission Dialog displayed on an old system")

@@ -19,7 +19,7 @@
     android:layout_height="wrap_content"
     android:layout_marginTop="3dp"
     android:gravity="center_horizontal"
-    android:text="@string/SS_04_205"/>
+    android:text="@string/TID_5280"/>
 
   <LinearLayout
     android:orientation="horizontal"
@@ -31,7 +31,7 @@
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:layout_weight="1"
-      android:text="@string/SS_04_203"/>
+      android:text="@string/TID_5278"/>
 
     <!--
     <Button

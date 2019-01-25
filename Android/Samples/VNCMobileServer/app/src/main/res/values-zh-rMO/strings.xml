@@ -1,0 +1,340 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+<!-- Locale : Chinese_Cantonese -->
+
+<!-- TID_5114 -->
+<string name="TID_5114">正在與H/U連接...\n請等待。 </string>
+
+<!-- TID_5115 -->
+<string name="TID_5115">與H/U的連接已開始。</string>
+
+<!-- TID_5116 -->
+<string name="TID_5116">與H/U的連接已結束。</string>
+
+<!-- TID_5135 -->
+<string name="error_vnc_2">調用了無效的API。</string>
+
+<!-- TID_5136 -->
+<string name="error_vnc_1">存儲空間不足。</string>
+
+<!-- TID_5137 -->
+<string name="error_vnc_62">調用了無效的API。</string>
+
+<!-- TID_5138 -->
+<string name="error_vnc_3">設備權限不足。</string>
+
+<!-- TID_5139 -->
+<string name="error_vnc_20">一般網絡錯誤。</string>
+
+<!-- TID_5142 -->
+<string name="error_vnc_51">域名解析錯誤</string>
+
+<!-- TID_5143 -->
+<string name="error_vnc_24">IP地址和端口已使用。</string>
+
+<!-- TID_5144 -->
+<string name="error_vnc_25">有效TCP端口號的範圍是1到65535。</string>
+
+<!-- TID_5145 -->
+<string name="error_vnc_26">與服務器的連接已斷開。</string>
+
+<!-- TID_5146 -->
+<string name="error_vnc_27">發生一般網絡超時。</string>
+
+<!-- TID_5148 -->
+<string name="error_vnc_30">未經由USB連接任何設備或設備無法經由USB進行通信。</string>
+
+<!-- TID_5152 -->
+<string name="error_vnc_50">無法加載承載。</string>
+
+<!-- TID_5154 -->
+<string name="error_vnc_45">驗證憑據被拒絕。</string>
+
+<!-- TID_5155 -->
+<string name="error_vnc_31">與H/U許可證不相容。</string>
+
+<!-- TID_5156 -->
+<string name="error_vnc_100">與H/U的連接已結束。</string>
+
+<!-- TID_5157 -->
+<string name="error_vnc_44">無效的命令字符串。</string>
+
+<!-- TID_5159 -->
+<string name="error_vnc_46">RSA密鑰太大。</string>
+
+<!-- TID_5160 -->
+<string name="error_vnc_40">RFB協議或AES校驗和已損壞，或者沒有與H/U側匹配的驗證密鑰。</string>
+
+<!-- TID_5162 -->
+<string name="error_vnc_48">H/U指定了不支援的顏色深度。</string>
+
+<!-- TID_5163 -->
+<string name="error_vnc_101">未指定命令字符串或命令字符串損壞。</string>
+
+<!-- TID_5165 -->
+<string name="error_vnc_52">設備側的緩衝區空間不足。</string>
+
+<!-- TID_5166 -->
+<string name="error_vnc_53">由於提供的許可證無效，無法完成請求的操作。</string>
+
+<!-- TID_5167 -->
+<string name="error_vnc_54">請求的操作未被許可。</string>
+
+<!-- TID_5168 -->
+<string name="error_vnc_60">使用了無效參數。</string>
+
+<!-- TID_5169 -->
+<string name="error_vnc_63">RSA密鑰生成算法失敗。</string>
+
+<!-- TID_5170 -->
+<string name="error_vnc_64">無法啟動服務。</string>
+
+<!-- TID_5171 -->
+<string name="error_vnc_65">已註冊名稱相同的自訂擴展。</string>
+
+<!-- TID_5174 -->
+<string name="error_vnc_80">VNC數據中繼從服務器收到無效消息。</string>
+
+<!-- TID_5177 -->
+<string name="error_vnc_83">H/U未能及時連接到保留的VNC數據中繼通信信道的另一端。</string>
+
+<!-- TID_5178 -->
+<string name="error_vnc_22">設備用戶拒絕了授權遠程控制的提示。</string>
+
+<!-- TID_5183 -->
+<string name="error_vnc_107">應用程序環境不受支援。</string>
+
+<!-- TID_5184 -->
+<string name="error_vnc_120">此平台未實現螢幕截圖的功能。</string>
+
+<!-- TID_5187 -->
+<string name="error_vnc_21">接受連接。</string>
+
+<!-- TID_5225 -->
+<string name="TID_5225">T-Link</string>
+
+<!-- TID_5226 -->
+<string name="TID_5226">應用概述</string>
+
+<!-- TID_5227 -->
+<string name="TID_5227">應用程序的條款和條件</string>
+
+<!-- TID_5228 -->
+<string name="TID_5228">開源碼許可証</string>
+
+<!-- TID_5229 -->
+<string name="TID_5229">版本</string>
+
+<!-- TID_5234 -->
+<string name="TID_5234">啟動服務器。</string>
+
+<!-- TID_5235 -->
+<string name="TID_5235">開始收聽…</string>
+
+<!-- TID_5236 -->
+<string name="TID_5236">重置中…</string>
+
+<!-- TID_5237 -->
+<string name="TID_5237">接受連接…</string>
+
+<!-- TID_5238 -->
+<string name="TID_5238">收聽 %s 。</string>
+
+<!-- TID_5239 -->
+<string name="TID_5239">連接 %s 。</string>
+
+<!-- TID_5240 -->
+<string name="TID_5240">服務器狀態未知: %s</string>
+
+<!-- TID_5241 -->
+<string name="TID_5241">T-Link已連接。</string>
+
+<!-- TID_5242 -->
+<string name="TID_5242">顯示應用程序。</string>
+
+<!-- TID_5243 -->
+<string name="TID_5243">連接請求。</string>
+
+<!-- TID_5245 -->
+<string name="TID_5245">T-Link連接請求</string>
+
+<!-- TID_5246 -->
+<string name="TID_5246">選擇接受或拒絕。</string>
+
+<!-- TID_5247 -->
+<string name="TID_5247">T-Link服務器</string>
+
+<!-- TID_5248 -->
+<string name="TID_5248">服務正在運行…</string>
+
+<!-- TID_5250 -->
+<string name="error_vnc_23">未找到主機。</string>
+
+<!-- TID_5251 -->
+<string name="error_vnc_28">網絡正在使用中…</string>
+
+<!-- TID_5252 -->
+<string name="error_vnc_42">沒有觀看耆許可証。</string>
+
+<!-- TID_5253 -->
+<string name="error_vnc_41">登錄信息被拒絕。</string>
+
+<!-- TID_5254 -->
+<string name="error_vnc_43">連接已關閉。</string>
+
+<!-- TID_5255 -->
+<string name="error_vnc_47">加密失敗。</string>
+
+<!-- TID_5256 -->
+<string name="error_vnc_49">不良像素格式。</string>
+
+<!-- TID_5257 -->
+<string name="error_vnc_55">觀看者不支持關鍵功能。</string>
+
+<!-- TID_5258 -->
+<string name="error_vnc_61">VNC Automotive Server API 未初始化。</string>
+
+<!-- TID_5259 -->
+<string name="error_vnc_81">錯誤的數據中繼時段ID。</string>
+
+<!-- TID_5260 -->
+<string name="error_vnc_82">不良的數據中繼挑戰。</string>
+
+<!-- TID_5261 -->
+<string name="error_vnc_102">內部錯誤。</string>
+
+<!-- TID_5262 -->
+<string name="error_vnc_103">文件錯誤。</string>
+
+<!-- TID_5263 -->
+<string name="error_vnc_104">註冊表錯誤。</string>
+
+<!-- TID_5264 -->
+<string name="error_vnc_105">Ini文件錯誤。</string>
+
+<!-- TID_5265 -->
+<string name="error_vnc_106">指令被取代。</string>
+
+<!-- TID_5266 -->
+<string name="error_vnc_121">所需的遙控支持不存在，無法進行遙控操作。</string>
+
+<!-- TID_5267 -->
+<string name="error_vnc_122">找不到合適的遙控器服務，無法進行遙控。</string>
+
+<!-- TID_5268 -->
+<string name="error_vnc_123">遠程控制服務沒有所需的權限，無法進行遠程控制。</string>
+
+<!-- TID_5270 -->
+<string name="TID_5270">錯誤%d: </string>
+
+<!-- TID_5271 -->
+<string name="TID_5271">未翻譯的錯誤 %d</string>
+
+<!-- TID_5272 -->
+<string name="TID_5272">錯誤%d創建網絡廣告商。\n服務器廣告不可用。</string>
+
+<!-- TID_5273 -->
+<string name="TID_5273">錯誤%d啟動網絡廣告商。\n服務器廣告不可用。</string>
+
+<!-- TID_5274 -->
+<string name="TID_5274">網絡廣告客戶因錯誤%d而停止。\n服務器廣告不可用。</string>
+
+<!-- TID_5275 -->
+<string name="TID_5275">方向鎖已禁用。</string>
+
+<!-- TID_5276 -->
+<string name="TID_5276">容易取得的服務</string>
+
+<!-- TID_5277 -->
+<string name="TID_5277">T-Link應用程式需要輔助功能服務才能過濾駕駛安全應用程式。 您必須手動啟用此功能。</string>
+
+<!-- TID_5278 -->
+<string name="TID_5278">帶我去設置</string>
+
+<!-- TID_5279 -->
+<string name="TID_5279">覆蓋許可</string>
+
+<!-- TID_5280 -->
+<string name="TID_5280">T-Link應用程弍需要覆蓋批准才能鎖定方向。 您必須手動啟用此功能。</string>
+
+<!-- TID_5281 -->
+<string name="TID_5281">監控在T-Link連接期間使用的應用程式，\n以便在駕駛時過濾影響駕駛安全應用程序。</string>
+
+<!-- TID_5287 -->
+<string name="TID_5287">同意</string>
+
+<!-- TID_5292 -->
+<string name="TID_5292">教程</string>
+
+<!-- TID_5293 -->
+<string name="TID_5293">屏幕共享應用程式\n智能手機集成的新階段\n為屏幕音響而設計。</string>
+
+<!-- TID_5294 -->
+<string name="TID_5294">T-Link希望獲得以下許可：</string>
+
+<!-- TID_5295 -->
+<string name="TID_5295">監控你的行動\n當您在與應用互動\n接收通知</string>
+
+<!-- TID_5296 -->
+<string name="TID_5296">停止 T-Link?</string>
+
+<!-- TID_5297 -->
+<string name="TID_5297">點擊[確定]將停止T-Link。</string>
+
+<!-- TID_5298 -->
+<string name="TID_5298">T-Link已停止</string>
+
+<!-- TID_5299 -->
+<string name="TID_5299">再次打開應用程式。</string>
+
+<!-- TID_5300 -->
+<string name="TID_5300">如果你需要滴答聲，\n然後選擇 “Allow(允許)”</string>
+
+<!-- TID_5302 -->
+<string name="TID_5302">初始設定</string>
+
+<!-- TID_5303 -->
+<string name="TID_5303">開始屏幕共享</string>
+
+<!-- TID_5311 -->
+<string name="TID_5311">啟動藍牙\n搜索並選擇“Car Multimedia”</string>
+
+<!-- TID_5312 -->
+<string name="TID_5312">啟動藍牙並選擇“Car Multimedia”</string>
+
+<!-- TID_5313 -->
+<string name="TID_5313">選擇“Phone1(電話1)”或“Phone2(電話2)”\n選擇“Bluetooth Audio(藍牙音頻)”\n選擇“T-Link”\n按“Yes(是)”</string>
+
+<!-- TID_5364 -->
+<string name="TID_5364">T-Link將開始收錄屏幕上顯示的所有內容。</string>
+
+<!-- TID_5365 -->
+<string name="TID_5365">不要再顯示。</string>
+
+<!-- TID_5397 -->
+<string name="TID_5397">開啟“T-Link”應用程式</string>
+
+<!-- TID_5398 -->
+<string name="TID_5398">如果你需要滴答聲，\n然後選擇 “OK(確定)”</string>
+
+<!-- TID_5399 -->
+<string name="TID_5399">如果你需要滴答聲，\n然後選擇 “Start now(立即開始)”</string>
+
+<!-- TID_5400 -->
+<string name="TID_5400">選擇 \"Take me to settings(帶我去設置)\"</string>
+
+<!-- TID_5401 -->
+<string name="TID_5401">Turn \"Allowed(允許)\"</string>
+
+<!-- TID_5402 -->
+<string name="TID_5402">Turn \"On(开启)\"</string>
+
+<!-- TID_5403 -->
+<string name="TID_5403">開始屏幕共享</string>
+
+<!-- TID_5404 -->
+<string name="TID_5404">選擇“T-Link”\n通過USB線連接智能手機</string>
+
+
+</resources>

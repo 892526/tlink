@@ -10,6 +10,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.realvnc.androidsampleserver.R
+import com.realvnc.jvckenwood.util.LayoutUtility
 
 /**
  * A simple [Fragment] subclass.
@@ -51,6 +52,9 @@ class TutorialStartScreenSharingFragment : Fragment() {
 
         viewPager?.let { viewPager ->
             viewPager.adapter = ViewPagerAdapter(childFragmentManager)
+            if (LayoutUtility.isRTL()) {
+                viewPager.rotationY = 180f
+            }
         }
 
         val tabLayout = view.findViewById<TabLayout>(R.id.fragment_tutorial_launch_tab_layout)

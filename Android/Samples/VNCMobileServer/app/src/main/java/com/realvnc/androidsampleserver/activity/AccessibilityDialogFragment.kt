@@ -19,10 +19,10 @@ class AccessibilityDialogFragment : DialogFragment() {
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         val builder = AlertDialog.Builder(activity as Context)
-                .setTitle(R.string.SS_04_201)
-                .setMessage(R.string.SS_04_202)
+                .setTitle(R.string.TID_5276)
+                .setMessage(R.string.TID_5277)
                 .setCancelable(false)
-                .setPositiveButton(R.string.SS_04_203) { _, _ ->
+                .setPositiveButton(R.string.TID_5278) { _, _ ->
                     try {
                         activity?.startActivity(Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS))
                     } catch (e: ActivityNotFoundException) {

@@ -1,0 +1,340 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+<!-- Locale : Arabic_WorldArabic -->
+
+<!-- TID_5114 -->
+<string name="TID_5114">جارٍ الاتصال بـ H/U...\nيُرجى الانتظار.</string>
+
+<!-- TID_5115 -->
+<string name="TID_5115">بدأ الاتصال بـ H/U.</string>
+
+<!-- TID_5116 -->
+<string name="TID_5116">انتهى الاتصال بـ H/U.</string>
+
+<!-- TID_5135 -->
+<string name="error_vnc_2">تم استدعاء واجهة برمجة تطبيقات غير صالحة.</string>
+
+<!-- TID_5136 -->
+<string name="error_vnc_1">الذاكرة غير كافية</string>
+
+<!-- TID_5137 -->
+<string name="error_vnc_62">تم استدعاء واجهة برمجة تطبيقات غير صالحة.</string>
+
+<!-- TID_5138 -->
+<string name="error_vnc_3">أذونات الجهاز غير كافية</string>
+
+<!-- TID_5139 -->
+<string name="error_vnc_20">خطأ عام في الشبكة</string>
+
+<!-- TID_5142 -->
+<string name="error_vnc_51">خطأ في حل اسم النطاق</string>
+
+<!-- TID_5143 -->
+<string name="error_vnc_24">عنوان IP ورقم المنفذ مستخدمان بالفعل.</string>
+
+<!-- TID_5144 -->
+<string name="error_vnc_25">تقع أرقام منفذ TCP الصالحة في النطاق من 1 إلى 65535.</string>
+
+<!-- TID_5145 -->
+<string name="error_vnc_26">انقطع الاتصال بالخادم.</string>
+
+<!-- TID_5146 -->
+<string name="error_vnc_27">انتهت مُهلة الشبكة العامة.</string>
+
+<!-- TID_5148 -->
+<string name="error_vnc_30">لا يوجد أي اتصال عبر USB أو أن الجهاز غير قادر على الاتصال عبر USB.</string>
+
+<!-- TID_5152 -->
+<string name="error_vnc_50">تعذَّر تحميل الحامل.</string>
+
+<!-- TID_5154 -->
+<string name="error_vnc_45">تم رفض بيانات اعتماد التصديق.</string>
+
+<!-- TID_5155 -->
+<string name="error_vnc_31">غير متوافق مع ترخيص H/U.</string>
+
+<!-- TID_5156 -->
+<string name="error_vnc_100">انتهى الاتصال بـ H/U.</string>
+
+<!-- TID_5157 -->
+<string name="error_vnc_44">سلسلة أوامر غير صالحة</string>
+
+<!-- TID_5159 -->
+<string name="error_vnc_46">مفتاح RSA أكبر من اللازم.</string>
+
+<!-- TID_5160 -->
+<string name="error_vnc_40">بروتوكول RFB أو المجموع الاختباري لمقياس التشفير المتقدم  تالف، أو لا يوجد مفتاح مصادقة يتطابق مع جانب H/U.</string>
+
+<!-- TID_5162 -->
+<string name="error_vnc_48">تم تحديد عمق لون بكسل غير مدعوم بواسطة H/U.</string>
+
+<!-- TID_5163 -->
+<string name="error_vnc_101">سلسلة الأمر غير مُحدَّدة أو تالفة.</string>
+
+<!-- TID_5165 -->
+<string name="error_vnc_52">مساحة المخزن المؤقت في الجهاز غير كافية.</string>
+
+<!-- TID_5166 -->
+<string name="error_vnc_53">لا يمكن إكمال العملية المطلوبة لأن الترخيص المُقدَّم غير صالح.</string>
+
+<!-- TID_5167 -->
+<string name="error_vnc_54">العملية المطلوبة غير مَسموح بها.</string>
+
+<!-- TID_5168 -->
+<string name="error_vnc_60">تم استخدام مَعلَم غير صالح.</string>
+
+<!-- TID_5169 -->
+<string name="error_vnc_63">فشلت لوغاريتمية توليد مفتاح RSA.</string>
+
+<!-- TID_5170 -->
+<string name="error_vnc_64">لا يمكن بدء الخدمة.</string>
+
+<!-- TID_5171 -->
+<string name="error_vnc_65">تم بالفعل استخدام امتداد مُخصَّص بنفس الاسم.</string>
+
+<!-- TID_5174 -->
+<string name="error_vnc_80">استلم VNC Data Relay رسالة غير صالحة من الخادم.</string>
+
+<!-- TID_5177 -->
+<string name="error_vnc_83">‎لا يمكن لـ H/U الاتصال بالطرف الآخر من قناة اتصال VNC Data Relay المحتفظ بها في الوقت المحدَّد.</string>
+
+<!-- TID_5178 -->
+<string name="error_vnc_22">رفض مُستخدِم الجهاز الإذن الفوري لجهاز التحكم عن بُعد.</string>
+
+<!-- TID_5183 -->
+<string name="error_vnc_107">بيئة التطبيق غير مدعومة.</string>
+
+<!-- TID_5184 -->
+<string name="error_vnc_120">لم يتم تنفيذ التقاط الشاشة في هذه المنصة.</string>
+
+<!-- TID_5187 -->
+<string name="error_vnc_21">الاتصال غير ناجح.</string>
+
+<!-- TID_5225 -->
+<string name="TID_5225">T-Link</string>
+
+<!-- TID_5226 -->
+<string name="TID_5226">نظرة عامة على التطبيق</string>
+
+<!-- TID_5227 -->
+<string name="TID_5227">الشروط والأحكام الخاصة بالتطبيق</string>
+
+<!-- TID_5228 -->
+<string name="TID_5228">تراخيص المصادر المفتوحة</string>
+
+<!-- TID_5229 -->
+<string name="TID_5229">الإصدار</string>
+
+<!-- TID_5234 -->
+<string name="TID_5234">بدء الخادم</string>
+
+<!-- TID_5235 -->
+<string name="TID_5235">بدء الاستماع…</string>
+
+<!-- TID_5236 -->
+<string name="TID_5236">إعادة الضبط…</string>
+
+<!-- TID_5237 -->
+<string name="TID_5237">قبول الاتصال…</string>
+
+<!-- TID_5238 -->
+<string name="TID_5238">الاستماع على %s</string>
+
+<!-- TID_5239 -->
+<string name="TID_5239">تم الاتصال بـ %s</string>
+
+<!-- TID_5240 -->
+<string name="TID_5240">وضع الخادم غير معرف: %s</string>
+
+<!-- TID_5241 -->
+<string name="TID_5241">T-Link تم نوصيل</string>
+
+<!-- TID_5242 -->
+<string name="TID_5242">إظهار التطبيق.</string>
+
+<!-- TID_5243 -->
+<string name="TID_5243">طلب اتصال</string>
+
+<!-- TID_5245 -->
+<string name="TID_5245">طلب اتصال T-Link</string>
+
+<!-- TID_5246 -->
+<string name="TID_5246">حدد للقبول أو الرفض.</string>
+
+<!-- TID_5247 -->
+<string name="TID_5247">خادم T-Link</string>
+
+<!-- TID_5248 -->
+<string name="TID_5248">الخدمة قيد التشغيل…</string>
+
+<!-- TID_5250 -->
+<string name="error_vnc_23">لم يتم العثور على المضيف</string>
+
+<!-- TID_5251 -->
+<string name="error_vnc_28">الشبكة قيد الاستخدام…</string>
+
+<!-- TID_5252 -->
+<string name="error_vnc_42">غير مرخَّص للمشاهد</string>
+
+<!-- TID_5253 -->
+<string name="error_vnc_41">تم رفض تفاصيل تسجيل الدخول.</string>
+
+<!-- TID_5254 -->
+<string name="error_vnc_43">الاتصال مقفل</string>
+
+<!-- TID_5255 -->
+<string name="error_vnc_47">فشل التشفير</string>
+
+<!-- TID_5256 -->
+<string name="error_vnc_49">تنسيق بكسل غير صالح</string>
+
+<!-- TID_5257 -->
+<string name="error_vnc_55">العارض لا يدعم الإمكانية الحرجة</string>
+
+<!-- TID_5258 -->
+<string name="error_vnc_61">VNC Automotive Server API غير مهيأ </string>
+
+<!-- TID_5259 -->
+<string name="error_vnc_81">معرّف جلسة ترحيل البيانات غير الصحيحة</string>
+
+<!-- TID_5260 -->
+<string name="error_vnc_82">تحدي ترحيل البيانات غير الصالحة</string>
+
+<!-- TID_5261 -->
+<string name="error_vnc_102">خطأ داخلي</string>
+
+<!-- TID_5262 -->
+<string name="error_vnc_103">خطأ في الملف</string>
+
+<!-- TID_5263 -->
+<string name="error_vnc_104">خطأ في السجل</string>
+
+<!-- TID_5264 -->
+<string name="error_vnc_105">خطأ في ملف Ini</string>
+
+<!-- TID_5265 -->
+<string name="error_vnc_106">تم تبديل الأمر</string>
+
+<!-- TID_5266 -->
+<string name="error_vnc_121">الدعم المطلوب للتحكم عن بعد غير موجود، لن يكون التحكم عن بعد ممكنًا.</string>
+
+<!-- TID_5267 -->
+<string name="error_vnc_122">لم يتم العثور على الخدمة المناسبة للتحكم عن بعد، لن يكون التحكم عن بعد ممكنًا.</string>
+
+<!-- TID_5268 -->
+<string name="error_vnc_123">خدمة التحكم عن بعد لا تمتلك الأذونات المطلوبة، لن يكون التحكم عن بعد ممكنًا.</string>
+
+<!-- TID_5270 -->
+<string name="TID_5270">خطأ %d:</string>
+
+<!-- TID_5271 -->
+<string name="TID_5271">خطأ %d غير مترجم</string>
+
+<!-- TID_5272 -->
+<string name="TID_5272">خطأ  %d في إنشاء معلن الشبكة.\nالإعلان على الخادم غير متوفر.</string>
+
+<!-- TID_5273 -->
+<string name="TID_5273">خطأ %d في بدء تشغيل معلن الشبكة.\nالإعلان على الخادم غير متوفر.</string>
+
+<!-- TID_5274 -->
+<string name="TID_5274">توقف معلن الشبكة بسبب خطأ %d.\nالإعلان على الخادم غير متوفر.</string>
+
+<!-- TID_5275 -->
+<string name="TID_5275">تم تعطيل قفل التوجيه</string>
+
+<!-- TID_5276 -->
+<string name="TID_5276">خدمة إمكانية الوصول</string>
+
+<!-- TID_5277 -->
+<string name="TID_5277">يحتاج تطبيق T-Link إلى خدمة إمكانية الوصول حتى يتمكن من تصفية تطبيقات القيادة الآمنة. ويجب أن تمكّن هذه الميزة يدويًا.</string>
+
+<!-- TID_5278 -->
+<string name="TID_5278">الانتقال إلى الإعدادات</string>
+
+<!-- TID_5279 -->
+<string name="TID_5279">إذن التراكب</string>
+
+<!-- TID_5280 -->
+<string name="TID_5280">يحتاج تطبيق T-Link إلى إذن التراكب حتى يتمكن من قفل التوجيه. ويجب أن تمكّن هذه الميزة يدويًا.</string>
+
+<!-- TID_5281 -->
+<string name="TID_5281">يراقب التطبيق قيد الاستخدام أثناء اتصال T-Link لتصفية تطبيقات القيادة الآمنة في أثناء القيادة</string>
+
+<!-- TID_5287 -->
+<string name="TID_5287">موافقة</string>
+
+<!-- TID_5292 -->
+<string name="TID_5292">عرض توضيحي</string>
+
+<!-- TID_5293 -->
+<string name="TID_5293">تطبيق مشاركة الشاشة\nدرجة جديدة من تكامل الهواتف الذكية\nمصمم لصوت العرض.</string>
+
+<!-- TID_5294 -->
+<string name="TID_5294">يحتاج T-Link الإذن من أجل ما يلي:</string>
+
+<!-- TID_5295 -->
+<string name="TID_5295">مراقبة تصرفاتك\nاستلام الإشعارات عندما تتفاعل مع أحد التطبيقات.</string>
+
+<!-- TID_5296 -->
+<string name="TID_5296">هل تريد إيقاف T-Link؟</string>
+
+<!-- TID_5297 -->
+<string name="TID_5297">الضغط على \"حسنا\" سيوقف T-Link.</string>
+
+<!-- TID_5298 -->
+<string name="TID_5298">تم إيقاف T-Link</string>
+
+<!-- TID_5299 -->
+<string name="TID_5299">أعد فتح التطبيق</string>
+
+<!-- TID_5300 -->
+<string name="TID_5300">ضع علامة إذا لزم الأمر،\nثم حدد \"Allow(سماح)\"</string>
+
+<!-- TID_5302 -->
+<string name="TID_5302">الإعدادات الأولية</string>
+
+<!-- TID_5303 -->
+<string name="TID_5303">بدء تشغيل مشاركة الشاشة</string>
+
+<!-- TID_5311 -->
+<string name="TID_5311">نشّط Bluetooth\nوابحث وحدد \"Car Multimedia</string>
+
+<!-- TID_5312 -->
+<string name="TID_5312">نشّط Bluetooth وحدد \"Car Multimedia\"</string>
+
+<!-- TID_5313 -->
+<string name="TID_5313">حدد \"Phone1(هاتف 1)\" أو \"Phone2(هاتف 2)\"\nحدد \"Bluetooth Audio(صوتيات Bluetooth)\"\nحدد \"T-Link\"\nاضغط على \"Yes(نعم)\"</string>
+
+<!-- TID_5364 -->
+<string name="TID_5364">سيبدأ T-Link في التقاط كل ما يتم عرضه على الشاشة.</string>
+
+<!-- TID_5365 -->
+<string name="TID_5365">عدم الإظهار مرة أخرى</string>
+
+<!-- TID_5397 -->
+<string name="TID_5397">شغّل تطبيق \"T-Link\"</string>
+
+<!-- TID_5398 -->
+<string name="TID_5398">ضع علامة إذا لزم الأمر،\nثم حدد \"OK(حسنا)\"</string>
+
+<!-- TID_5399 -->
+<string name="TID_5399">ضع علامة إذا لزم الأمر،\nثم حدد \"Start now(البدء الآن)\"</string>
+
+<!-- TID_5400 -->
+<string name="TID_5400">حدد \"Take me to settings(الانتقال إلى الإعدادات)\"</string>
+
+<!-- TID_5401 -->
+<string name="TID_5401">قم بالتشغيل \"Allowed(المسموح به)\"</string>
+
+<!-- TID_5402 -->
+<string name="TID_5402">قم بالتشغيل \"On(مفعل)\"</string>
+
+<!-- TID_5403 -->
+<string name="TID_5403">بدء تشغيل مشاركة الشاشة</string>
+
+<!-- TID_5404 -->
+<string name="TID_5404">حدد \"T-Link\" ووصل هاتفك الذكي عبر كابل USB</string>
+
+
+</resources>

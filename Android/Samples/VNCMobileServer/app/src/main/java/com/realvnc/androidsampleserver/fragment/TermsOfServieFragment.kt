@@ -1,12 +1,8 @@
 package com.realvnc.androidsampleserver.fragment
 
-import android.app.AlarmManager
-import android.app.PendingIntent
-import android.content.Context
 import android.content.Intent
 import android.graphics.Bitmap
 import android.os.Bundle
-import android.support.constraint.ConstraintLayout
 import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -21,7 +17,6 @@ import com.realvnc.androidsampleserver.R
 import com.realvnc.androidsampleserver.VncServerApp
 import com.realvnc.androidsampleserver.activity.VNCMobileServerProxy
 import com.realvnc.jvckenwood.controls.WebViewCustom
-import kotlinx.android.synthetic.main.fragment_terms_of_service.*
 
 class TermsOfServieFragment : Fragment() {
 
@@ -67,7 +62,7 @@ class TermsOfServieFragment : Fragment() {
     /*------------------------------------------------------------------------------------------*/
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        activity!!.setTitle(R.string.SS_01_004)
+        activity!!.setTitle(R.string.TID_5227)
     }
 
     /*------------------------------------------------------------------------------------------*/

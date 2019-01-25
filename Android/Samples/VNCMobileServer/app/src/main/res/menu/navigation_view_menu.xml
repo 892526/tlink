@@ -8,23 +8,23 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/navigation_view_menu_about"
-            android:title="@string/SS_01_002"
+            android:title="@string/TID_5226"
             />
         <item
             android:id="@+id/navigation_view_menu_tos"
-            android:title="@string/SS_01_004"
+            android:title="@string/TID_5227"
             />
         <item
             android:id="@+id/navigation_view_menu_tutorial"
-            android:title="@string/tutorial_title"
+            android:title="@string/TID_5292"
             />
         <item
             android:id="@+id/navigation_view_menu_oss"
-            android:title="@string/SS_01_005"
+            android:title="@string/TID_5228"
             />
         <item
             android:id="@+id/navigation_view_menu_version"
-            android:title="@string/SS_01_006"
+            android:title="@string/TID_5229"
             />
     </group>
 

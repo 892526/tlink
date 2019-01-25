@@ -1,0 +1,340 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+<!-- Locale : French -->
+
+<!-- TID_5114 -->
+<string name="TID_5114">Connexion à H/U...\nVeuillez patienter.</string>
+
+<!-- TID_5115 -->
+<string name="TID_5115">La connexion avec H/U a commencé.</string>
+
+<!-- TID_5116 -->
+<string name="TID_5116">La connexion avec H/U est terminée.</string>
+
+<!-- TID_5135 -->
+<string name="error_vnc_2">Une API invalide est appelée.</string>
+
+<!-- TID_5136 -->
+<string name="error_vnc_1">Mémoire insuffisante.</string>
+
+<!-- TID_5137 -->
+<string name="error_vnc_62">Une API invalide est appelée.</string>
+
+<!-- TID_5138 -->
+<string name="error_vnc_3">Autorisations de périphérique insuffisantes.</string>
+
+<!-- TID_5139 -->
+<string name="error_vnc_20">Erreur réseau générale</string>
+
+<!-- TID_5142 -->
+<string name="error_vnc_51">Erreur de résolution du nom de domaine</string>
+
+<!-- TID_5143 -->
+<string name="error_vnc_24">L\'adresse IP et le numéro de port sont déjà utilisés. </string>
+
+<!-- TID_5144 -->
+<string name="error_vnc_25">Les numéros de port TCP valides sont compris dans une fourchette allant de 1 à 65535.</string>
+
+<!-- TID_5145 -->
+<string name="error_vnc_26">La connexion au serveur a été perdue.</string>
+
+<!-- TID_5146 -->
+<string name="error_vnc_27">Un délai d\'attente du réseau général s\'est produit.</string>
+
+<!-- TID_5148 -->
+<string name="error_vnc_30">Il n\'y a aucune connexion par USB ou bien le périphérique ne peut pas communiquer par USB.</string>
+
+<!-- TID_5152 -->
+<string name="error_vnc_50">Impossible de charger un support.</string>
+
+<!-- TID_5154 -->
+<string name="error_vnc_45">Les identifiants d\'authentification ont été rejetés.</string>
+
+<!-- TID_5155 -->
+<string name="error_vnc_31">Incompatible avec la licence H/U.</string>
+
+<!-- TID_5156 -->
+<string name="error_vnc_100">La connexion avec H/U est terminée.</string>
+
+<!-- TID_5157 -->
+<string name="error_vnc_44">Chaîne de commande non valide.</string>
+
+<!-- TID_5159 -->
+<string name="error_vnc_46">La cké RSA est trop longue.</string>
+
+<!-- TID_5160 -->
+<string name="error_vnc_40">Le protocole RFB ou la somme de contrôle AES est corrompu (e), ou il n\'y a pas de clé d\'authentification correspondante avec le côté H/U.</string>
+
+<!-- TID_5162 -->
+<string name="error_vnc_48">Une profondeur de couleur des pixels non prise en charge a été spécifiée par H/U.</string>
+
+<!-- TID_5163 -->
+<string name="error_vnc_101">La chaîne de commande n’est pas spécifiée ou est corrompue.</string>
+
+<!-- TID_5165 -->
+<string name="error_vnc_52">L\'espace tampon est insuffisant dans le périphérique.</string>
+
+<!-- TID_5166 -->
+<string name="error_vnc_53">L’opération demandée ne peut pas être effectuée parce que la licence fournie n’est pas valide.</string>
+
+<!-- TID_5167 -->
+<string name="error_vnc_54">L’opération demandée n’est pas autorisée.</string>
+
+<!-- TID_5168 -->
+<string name="error_vnc_60">Un paramètre non valide a été utilisé.</string>
+
+<!-- TID_5169 -->
+<string name="error_vnc_63">L\'algorithme de génération de clé RSA a échoué.</string>
+
+<!-- TID_5170 -->
+<string name="error_vnc_64">Le service ne peut pas être démarré.</string>
+
+<!-- TID_5171 -->
+<string name="error_vnc_65">Une extension personnalisée portant le même nom a déjà été enregistrée.</string>
+
+<!-- TID_5174 -->
+<string name="error_vnc_80">Le relais de données VNC a reçu un message non valide du serveur.</string>
+
+<!-- TID_5177 -->
+<string name="error_vnc_83">H/U ne peut pas se connecter à l’autre extrémité du canal de communication réservé du relais de données dans les temps.</string>
+
+<!-- TID_5178 -->
+<string name="error_vnc_22">L\'utilisateur du périphérique a rejeté l\'invite autorisant le contrôle à distance.</string>
+
+<!-- TID_5183 -->
+<string name="error_vnc_107">L’environnement d’application n’est pas pris en charge.</string>
+
+<!-- TID_5184 -->
+<string name="error_vnc_120">La capture d’écran n’est pas installée sur cette plateforme.</string>
+
+<!-- TID_5187 -->
+<string name="error_vnc_21">Echec de la connexion.</string>
+
+<!-- TID_5225 -->
+<string name="TID_5225">T-Link</string>
+
+<!-- TID_5226 -->
+<string name="TID_5226">Aperçu de l\'application</string>
+
+<!-- TID_5227 -->
+<string name="TID_5227">Conditions générales de l’application</string>
+
+<!-- TID_5228 -->
+<string name="TID_5228">Licences gratuites</string>
+
+<!-- TID_5229 -->
+<string name="TID_5229">Version</string>
+
+<!-- TID_5234 -->
+<string name="TID_5234">Démarrage du serveur</string>
+
+<!-- TID_5235 -->
+<string name="TID_5235">Commencer à écouter…</string>
+
+<!-- TID_5236 -->
+<string name="TID_5236">Réinitialisation…</string>
+
+<!-- TID_5237 -->
+<string name="TID_5237">Acceptation de la connexion…</string>
+
+<!-- TID_5238 -->
+<string name="TID_5238">Écoute de %s .</string>
+
+<!-- TID_5239 -->
+<string name="TID_5239">Connecté à %s .</string>
+
+<!-- TID_5240 -->
+<string name="TID_5240">Statut du serveur inconnu: %s</string>
+
+<!-- TID_5241 -->
+<string name="TID_5241">T-Link est connecté.</string>
+
+<!-- TID_5242 -->
+<string name="TID_5242">Montrer l\'application.</string>
+
+<!-- TID_5243 -->
+<string name="TID_5243">Demande de connexion.</string>
+
+<!-- TID_5245 -->
+<string name="TID_5245">Demande de connexion T-Link</string>
+
+<!-- TID_5246 -->
+<string name="TID_5246">Sélectionnez cette option pour accepter ou rejeter.</string>
+
+<!-- TID_5247 -->
+<string name="TID_5247">Serveur T-Link</string>
+
+<!-- TID_5248 -->
+<string name="TID_5248">Le service est en cours d\'exécution…</string>
+
+<!-- TID_5250 -->
+<string name="error_vnc_23">Hôte introuvable.</string>
+
+<!-- TID_5251 -->
+<string name="error_vnc_28">Réseau en cours d\'utilisation…</string>
+
+<!-- TID_5252 -->
+<string name="error_vnc_42">Non autorisé pour le spectateur.</string>
+
+<!-- TID_5253 -->
+<string name="error_vnc_41">Détails de connexion rejetés.</string>
+
+<!-- TID_5254 -->
+<string name="error_vnc_43">Connexion fermée.</string>
+
+<!-- TID_5255 -->
+<string name="error_vnc_47">Échec du cryptogramme.</string>
+
+<!-- TID_5256 -->
+<string name="error_vnc_49">Mauvais format de pixel.</string>
+
+<!-- TID_5257 -->
+<string name="error_vnc_55">La visionneuse ne supporte pas une capacité critique.</string>
+
+<!-- TID_5258 -->
+<string name="error_vnc_61">API serveur VNC Automotive non initialisé.</string>
+
+<!-- TID_5259 -->
+<string name="error_vnc_81">Données incorrectes de Session ID.</string>
+
+<!-- TID_5260 -->
+<string name="error_vnc_82">Transmission des données incorrecte.</string>
+
+<!-- TID_5261 -->
+<string name="error_vnc_102">Erreur interne.</string>
+
+<!-- TID_5262 -->
+<string name="error_vnc_103">Erreur de fichier.</string>
+
+<!-- TID_5263 -->
+<string name="error_vnc_104">Erreur de registre.</string>
+
+<!-- TID_5264 -->
+<string name="error_vnc_105">Erreur de fichier Ini.</string>
+
+<!-- TID_5265 -->
+<string name="error_vnc_106">Commande remplacée.</string>
+
+<!-- TID_5266 -->
+<string name="error_vnc_121">Le support de la commande a distance est manquant, la commande à distance est impossible.</string>
+
+<!-- TID_5267 -->
+<string name="error_vnc_122">Aucun service de commande à distance approprié n\'a été trouvé, la commande à distance ne sera pas possible.</string>
+
+<!-- TID_5268 -->
+<string name="error_vnc_123">Le service de contrôle à distance n\'a pas les permissions requises, le contrôle à distance ne sera pas possible.</string>
+
+<!-- TID_5270 -->
+<string name="TID_5270">Erreur %d : </string>
+
+<!-- TID_5271 -->
+<string name="TID_5271">Erreur non traduite %d</string>
+
+<!-- TID_5272 -->
+<string name="TID_5272">Erreur %d lors de la création d’une annonce sur le réseau.\nla publicité sur serveur n’est pas disponible.</string>
+
+<!-- TID_5273 -->
+<string name="TID_5273">Erreur %d lors du démarrage de l\'annonceur sur le réseau.\nla publicité sur le serveur n\'est pas disponible.</string>
+
+<!-- TID_5274 -->
+<string name="TID_5274">L\'annonceur réseau s\'est arrêté avec l\'erreur %d.\nLa publicité sur le serveur n\'est pas disponible.</string>
+
+<!-- TID_5275 -->
+<string name="TID_5275">Verrouillage de l\'orientation désactivé.</string>
+
+<!-- TID_5276 -->
+<string name="TID_5276">Service d\'accessibilité</string>
+
+<!-- TID_5277 -->
+<string name="TID_5277">L\'application T-Link a besoin d\'un service d\'accessibilité pour pouvoir filtrer les applications sûres pour le conducteur. Vous devez l\'activer manuellement.</string>
+
+<!-- TID_5278 -->
+<string name="TID_5278">Allez à Paramètres</string>
+
+<!-- TID_5279 -->
+<string name="TID_5279">Permission de superposition</string>
+
+<!-- TID_5280 -->
+<string name="TID_5280">L\'application T-Link a besoin de l\'autorisation de superposition pour pouvoir verrouiller l\'orientation. Vous devez l\'activer manuellement.</string>
+
+<!-- TID_5281 -->
+<string name="TID_5281">Surveille quelle application est utilisée pendant une connexion T-Link pour filtrer les applications sans risque pendant la conduite.</string>
+
+<!-- TID_5287 -->
+<string name="TID_5287">Accepter</string>
+
+<!-- TID_5292 -->
+<string name="TID_5292">Tutoriel</string>
+
+<!-- TID_5293 -->
+<string name="TID_5293">Application de partage d\'écran\nUn nouveau degré d\'intégration pour Smartphone\nConçu pour l\'affichage sur un autoradio</string>
+
+<!-- TID_5294 -->
+<string name="TID_5294">T-Link demande votre permission pour:</string>
+
+<!-- TID_5295 -->
+<string name="TID_5295">Surveiller vos actions\nRecevoir des notifications lorsque\nvous interagissez avec une application.</string>
+
+<!-- TID_5296 -->
+<string name="TID_5296">Arrêter T-Link ?</string>
+
+<!-- TID_5297 -->
+<string name="TID_5297">Tapez sur [OK] pour arrêter T-Link.</string>
+
+<!-- TID_5298 -->
+<string name="TID_5298">T-Link s\'est arrêté.</string>
+
+<!-- TID_5299 -->
+<string name="TID_5299">Ouvrez à nouveau l\'application</string>
+
+<!-- TID_5300 -->
+<string name="TID_5300">Si vous avez besoin de cocher,\nsélectionnez \"Allow(Autoriser)\"</string>
+
+<!-- TID_5302 -->
+<string name="TID_5302">Réglage initial</string>
+
+<!-- TID_5303 -->
+<string name="TID_5303">Démarrer le partage d\'écran</string>
+
+<!-- TID_5311 -->
+<string name="TID_5311">Activer Bluetooth\nrechercher et sélectionner \"Car Multimedia\"</string>
+
+<!-- TID_5312 -->
+<string name="TID_5312">Activez Bluetooth et sélectionnez \"Car Multimedia\".</string>
+
+<!-- TID_5313 -->
+<string name="TID_5313">Sélectionnez \"Phone1(Téléphone1)\" ou \"Phone2(Téléphone2)\"\nSélectionnez \"Bluetooth Audio\"\nSélectionnez \"T-Link\"\nAppuyez sur \"Yes(Oui)\"</string>
+
+<!-- TID_5364 -->
+<string name="TID_5364">T-Link commencera à capturer tout ce qui est affiché sur votre écran.</string>
+
+<!-- TID_5365 -->
+<string name="TID_5365">Ne plus montrer.</string>
+
+<!-- TID_5397 -->
+<string name="TID_5397">Lancer l\'application \"T-Link</string>
+
+<!-- TID_5398 -->
+<string name="TID_5398">Si vous avez besoin de cocher,\nsélectionnez \"OK\"</string>
+
+<!-- TID_5399 -->
+<string name="TID_5399">Si vous avez besoin de cocher,\nsélectionnez \"Start now(Commencer)\"</string>
+
+<!-- TID_5400 -->
+<string name="TID_5400">sélectionnez \"Take me to Settings(Allez à Paramètres)\"</string>
+
+<!-- TID_5401 -->
+<string name="TID_5401">Turn \"Allowed(Autorisé)\"</string>
+
+<!-- TID_5402 -->
+<string name="TID_5402">Turn \"On(Activé)\"</string>
+
+<!-- TID_5403 -->
+<string name="TID_5403">Démarrer le partage d\'écran</string>
+
+<!-- TID_5404 -->
+<string name="TID_5404">Sélectionnez \"T-Link\"\nconnectez votre smartphone via un câble USB</string>
+
+
+</resources>

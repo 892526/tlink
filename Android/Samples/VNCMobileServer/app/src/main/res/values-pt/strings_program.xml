@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Assets -->
+    <string name="application_overview">application_overview_[pt].html</string>
+    <string name="terms_of_service">[pt]terms_of_service.html</string>
+</resources>

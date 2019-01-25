@@ -25,7 +25,7 @@
             android:layout_height="wrap_content"
             android:visibility="invisible"
 
-            android:text="@string/common_agree"
+            android:text="@string/TID_5287"
             android:textAllCaps="false"
 
             app:layout_constraintBottom_toBottomOf="parent"

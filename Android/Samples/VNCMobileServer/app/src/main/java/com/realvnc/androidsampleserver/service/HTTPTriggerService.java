@@ -508,7 +508,7 @@ public class HTTPTriggerService extends Service {
                 this,
                 HTTPTriggerService.FOREGROUND_SERVICE_NOTIFICATION_ID,
                 getString(R.string.vnc_automotive_bridge),
-                getString(R.string.SS_02_217),
+                getString(R.string.TID_5248),
                 R.drawable.vncicon);
 
         VncConfigFile.checkVncConfig(getBaseContext());

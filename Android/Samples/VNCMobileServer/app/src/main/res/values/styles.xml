@@ -7,13 +7,27 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
-
+    
     <!-- Tutorial. -->
     <style name="SettingsTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+
+        <item name="actionBarStyle">@style/SettingsTheme.ActionBar</item>
+    </style>
+
+    <!-- ActionBar -->
+    <style name="SettingsTheme.ActionBar" parent="Widget.AppCompat.Light.ActionBar">
+        <item name="background">@color/colorPrimary</item>
+        <item name="android:titleTextStyle">@style/SettingsTheme.ActionBar.TitleTextStyle</item>
+        <item name="titleTextStyle">@style/SettingsTheme.ActionBar.TitleTextStyle</item>
+
+        <item name="contentInsetEnd">0dp</item>
+    </style>
+    <style name="SettingsTheme.ActionBar.TitleTextStyle" parent="TextAppearance.AppCompat.Widget.ActionBar.Title">
+        <item name="android:textSize">14sp</item>
     </style>
 
     <!-- -->
@@ -34,6 +48,9 @@
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light"/>
 
+    <style name="NavigationViewTextAppearance">
+        <item name="android:ellipsize">end</item>
+    </style>
 
     <!-- Tutorial -->
     <style name="TutorialTitleStyle" parent="TextAppearance.AppCompat.Large">

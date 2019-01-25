@@ -6,10 +6,12 @@ import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentPagerAdapter
 import android.support.v4.view.ViewPager
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.realvnc.androidsampleserver.R
+import com.realvnc.jvckenwood.util.LayoutUtility
 
 /**
  * A simple [Fragment] subclass.
@@ -51,6 +53,9 @@ class TutorialInitialSettingsFragment : Fragment() {
 
         viewPager?.let { viewPager ->
             viewPager.adapter = ViewPagerAdapter(childFragmentManager)
+            if (LayoutUtility.isRTL()) {
+                viewPager.rotationY = 180f
+            }
         }
 
         val tabLayout = view.findViewById<TabLayout>(R.id.fragment_tutorial_initial_settings_tab_layout)

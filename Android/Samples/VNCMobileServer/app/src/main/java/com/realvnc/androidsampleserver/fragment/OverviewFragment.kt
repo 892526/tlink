@@ -2,9 +2,7 @@ package com.realvnc.androidsampleserver.fragment
 
 import android.os.Bundle
 import android.support.v4.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import com.realvnc.androidsampleserver.R
 
 /**
@@ -31,7 +29,7 @@ class OverviewFragment : WebViewFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        activity!!.setTitle(R.string.SS_01_002)
+        activity!!.setTitle(R.string.TID_5226)
     }
 
     companion object {

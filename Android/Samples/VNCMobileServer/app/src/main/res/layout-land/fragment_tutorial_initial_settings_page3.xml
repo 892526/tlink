@@ -23,7 +23,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:layout_gravity="center_vertical"
-                android:text="@string/SS_81_3102"
+                android:text="@string/TID_5312"
                 />
             <TextView
                 android:id="@+id/fragment_tutorial_bluetooth_page2_text2"
@@ -32,7 +32,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:layout_gravity="center_vertical"
-                android:text="@string/SS_81_3103"
+                android:text="@string/TID_5313"
                 />
         </LinearLayout>
 

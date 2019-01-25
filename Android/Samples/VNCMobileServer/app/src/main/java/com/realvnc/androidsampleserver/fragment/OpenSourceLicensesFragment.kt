@@ -32,7 +32,7 @@ class OpenSourceLicensesFragment : WebViewFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        activity!!.setTitle(R.string.SS_01_005)
+        activity!!.setTitle(R.string.TID_5228)
     }
 
     companion object {

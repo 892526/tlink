@@ -40,7 +40,7 @@
         android:name=".VncServerApp"
         android:icon="@mipmap/ic_launcher"
         android:roundIcon="@mipmap/ic_launcher_round"
-        android:label="@string/SS_01_001"
+        android:label="@string/TID_5225"
         android:allowBackup="false"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
@@ -79,7 +79,7 @@
         </activity>
 
         <activity android:name=".activity.VncServerPreferenceActivity"
-                  android:label="@string/app_settings_name"
+                  android:label="VNC Automotive Server Settings"
                   android:exported="false">
         </activity>
 
@@ -109,7 +109,7 @@
         <activity
             android:name=".activity.VNCMobileServer"
             android:launchMode="singleTask"
-            android:label="@string/SS_01_001"
+            android:label="@string/TID_5225"
             android:exported="false"
             android:theme="@style/AppTheme.Translucent"
             >
@@ -173,7 +173,7 @@
                               android:required="false" />
 
         <service android:name="com.realvnc.vncserver.android.implementation.ContextInformationAccessibilityService"
-            android:label="@string/SS_01_001"
+            android:label="@string/TID_5225"
             android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE">
           <intent-filter>
             <action android:name="android.accessibilityservice.AccessibilityService" />

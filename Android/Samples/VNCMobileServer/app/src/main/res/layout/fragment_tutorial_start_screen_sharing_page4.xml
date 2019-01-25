@@ -11,7 +11,7 @@
         style="@style/TutorialDescriptionStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/SS_81_3203"
+        android:text="@string/TID_5399"
 
         app:layout_constraintTop_toTopOf="parent"
         />

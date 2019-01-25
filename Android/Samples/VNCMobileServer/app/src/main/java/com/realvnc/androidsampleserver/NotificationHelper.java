@@ -61,6 +61,7 @@ public abstract class NotificationHelper {
             final Notification notification = notiBuilder
                     .setContentTitle(notiTitle)
                     .setContentText(notiText)
+                    .setStyle(new Notification.BigTextStyle().bigText(notiText))
                     .setSmallIcon(notiIcon)
                     .getNotification();
 

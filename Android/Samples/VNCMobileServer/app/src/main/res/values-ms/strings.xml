@@ -1,0 +1,340 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+<!-- Locale : BahasaMalaysia -->
+
+<!-- TID_5114 -->
+<string name="TID_5114">Menyambung ke H/U...\nSila tunggu.</string>
+
+<!-- TID_5115 -->
+<string name="TID_5115">Sambungan dengan H/U telah bermula.</string>
+
+<!-- TID_5116 -->
+<string name="TID_5116">Sambungan dengan H/U telah tamat.</string>
+
+<!-- TID_5135 -->
+<string name="error_vnc_2">API tidak sah dipanggil.</string>
+
+<!-- TID_5136 -->
+<string name="error_vnc_1">Memori Tidak Mencukupi.</string>
+
+<!-- TID_5137 -->
+<string name="error_vnc_62">API tidak sah dipanggil.</string>
+
+<!-- TID_5138 -->
+<string name="error_vnc_3">Kebenaran Peranti Tidak Mencukupi.</string>
+
+<!-- TID_5139 -->
+<string name="error_vnc_20">Ralat Rangkaian Umum</string>
+
+<!-- TID_5142 -->
+<string name="error_vnc_51">Gagal Menyelesaikan Nama Domain</string>
+
+<!-- TID_5143 -->
+<string name="error_vnc_24">Alamat IP dan nombor port sudah digunakan.</string>
+
+<!-- TID_5144 -->
+<string name="error_vnc_25">Nombor port TCP sah dalam lingkungan 1 hingga 65535.</string>
+
+<!-- TID_5145 -->
+<string name="error_vnc_26">Sambungan ke pelayan terputus.</string>
+
+<!-- TID_5146 -->
+<string name="error_vnc_27">Berlakunya gangguan rangkaian umum.</string>
+
+<!-- TID_5148 -->
+<string name="error_vnc_30">Tiada apa-apa sambungan melalui USB atau peranti tidak dapat berkomunikasi dengan USB.</string>
+
+<!-- TID_5152 -->
+<string name="error_vnc_50">Pembawa tidak boleh dibuka.</string>
+
+<!-- TID_5154 -->
+<string name="error_vnc_45">Pengesahan kelayakan ditolak.</string>
+
+<!-- TID_5155 -->
+<string name="error_vnc_31">Tidak serasi dengan lesen H/U.</string>
+
+<!-- TID_5156 -->
+<string name="error_vnc_100">Sambungan dengan unit utama telah tamat.</string>
+
+<!-- TID_5157 -->
+<string name="error_vnc_44">Rentetan Perintah Tidak Sah.</string>
+
+<!-- TID_5159 -->
+<string name="error_vnc_46">Kekunci RSA terlalu besar.</string>
+
+<!-- TID_5160 -->
+<string name="error_vnc_40">Protokal RFB atau semak jumlah AES rosak, atau tiada kunci pengesahan sepadan dengan H/U.</string>
+
+<!-- TID_5162 -->
+<string name="error_vnc_48">Kedalaman warna piksel tidak disokong telah ditetapkan oleh H/U.</string>
+
+<!-- TID_5163 -->
+<string name="error_vnc_101">Rentetan perintah tidak ditetapkan atau rosak.</string>
+
+<!-- TID_5165 -->
+<string name="error_vnc_52">Ruang penimbal tidak cukup dalam peranti.</string>
+
+<!-- TID_5166 -->
+<string name="error_vnc_53">Operasi yang diminta tidak dapat diselesaikan kerana lesen yang diberikan tidak sah.</string>
+
+<!-- TID_5167 -->
+<string name="error_vnc_54">Operasi yang diminta tidak dibenarkan.</string>
+
+<!-- TID_5168 -->
+<string name="error_vnc_60">Parameter yang tidak sah digunakan. </string>
+
+<!-- TID_5169 -->
+<string name="error_vnc_63">Penjanaan algoritma kekunci RSA gagal.</string>
+
+<!-- TID_5170 -->
+<string name="error_vnc_64">Perkhidmatan tidak dapat dimulakan.</string>
+
+<!-- TID_5171 -->
+<string name="error_vnc_65">Sambungan khas dengan nama yang sama sudah didaftarkan.</string>
+
+<!-- TID_5174 -->
+<string name="error_vnc_80">VNC Data Relay menerima mesej yang tidak sah dari pelayan.</string>
+
+<!-- TID_5177 -->
+<string name="error_vnc_83">H/U tidak boleh bersambung dengan hujung lain saluran komunikasi VNC Data Relay terpelihara.</string>
+
+<!-- TID_5178 -->
+<string name="error_vnc_22">Pengguna peranti menolak prom memberi kebenaran kepada alat kawalan jauh.</string>
+
+<!-- TID_5183 -->
+<string name="error_vnc_107">Lingkungan aplikasi tidak disokong.</string>
+
+<!-- TID_5184 -->
+<string name="error_vnc_120">Tangkapan skrin tidak dilaksanakan dalam platform ini.</string>
+
+<!-- TID_5187 -->
+<string name="error_vnc_21">Sambungan gagal.</string>
+
+<!-- TID_5225 -->
+<string name="TID_5225">T-Link</string>
+
+<!-- TID_5226 -->
+<string name="TID_5226">Gambaran Keseluruhan Aplikasi </string>
+
+<!-- TID_5227 -->
+<string name="TID_5227">Terma dan Syarat untuk Aplikasi</string>
+
+<!-- TID_5228 -->
+<string name="TID_5228">Lesen Sumber Terbuka</string>
+
+<!-- TID_5229 -->
+<string name="TID_5229">Versi</string>
+
+<!-- TID_5234 -->
+<string name="TID_5234">Mulakan server.</string>
+
+<!-- TID_5235 -->
+<string name="TID_5235">Bermula mendengar…</string>
+
+<!-- TID_5236 -->
+<string name="TID_5236">Resetting…</string>
+
+<!-- TID_5237 -->
+<string name="TID_5237">Menerima sambungan…</string>
+
+<!-- TID_5238 -->
+<string name="TID_5238">Mendengar pada  %s .</string>
+
+<!-- TID_5239 -->
+<string name="TID_5239">Sambungan ke  %s .</string>
+
+<!-- TID_5240 -->
+<string name="TID_5240">Status server tidak diketahui: %s</string>
+
+<!-- TID_5241 -->
+<string name="TID_5241">T-Link disambungkan.</string>
+
+<!-- TID_5242 -->
+<string name="TID_5242">Tunjukkan aplikasi.</string>
+
+<!-- TID_5243 -->
+<string name="TID_5243">Permintaan sambungan.</string>
+
+<!-- TID_5245 -->
+<string name="TID_5245">Permintaan sambungan T-Link</string>
+
+<!-- TID_5246 -->
+<string name="TID_5246">Pilih untuk terima atau menolak.</string>
+
+<!-- TID_5247 -->
+<string name="TID_5247">Server T-Link</string>
+
+<!-- TID_5248 -->
+<string name="TID_5248">Perkhidmataan sedang dijalankan…</string>
+
+<!-- TID_5250 -->
+<string name="error_vnc_23">Host tidak dijumpai.</string>
+
+<!-- TID_5251 -->
+<string name="error_vnc_28">Rangkaian Digunakan…</string>
+
+<!-- TID_5252 -->
+<string name="error_vnc_42">Tidak dilesenkan untuk Viewer.</string>
+
+<!-- TID_5253 -->
+<string name="error_vnc_41">Butiran log masuk ditolak.</string>
+
+<!-- TID_5254 -->
+<string name="error_vnc_43">Sambungan ditutup.</string>
+
+<!-- TID_5255 -->
+<string name="error_vnc_47">Crypto gagal.</string>
+
+<!-- TID_5256 -->
+<string name="error_vnc_49">Format Pixel Buruk.</string>
+
+<!-- TID_5257 -->
+<string name="error_vnc_55">Viewer tidak menyokong keupayaan kritikal.</string>
+
+<!-- TID_5258 -->
+<string name="error_vnc_61">VNC Automotive Server API tidak diiktirafkan.</string>
+
+<!-- TID_5259 -->
+<string name="error_vnc_81">Sesi data Relay id buruk.</string>
+
+<!-- TID_5260 -->
+<string name="error_vnc_82">Data Relay Challenge Buruk.</string>
+
+<!-- TID_5261 -->
+<string name="error_vnc_102">Kesalahan internal.</string>
+
+<!-- TID_5262 -->
+<string name="error_vnc_103">Kesalahan fail.</string>
+
+<!-- TID_5263 -->
+<string name="error_vnc_104">Kesalahan pendaftran.</string>
+
+<!-- TID_5264 -->
+<string name="error_vnc_105">Kesalahan Ini Fail.</string>
+
+<!-- TID_5265 -->
+<string name="error_vnc_106">Perintah Superseded.</string>
+
+<!-- TID_5266 -->
+<string name="error_vnc_121">Sokongan kawalan jauh yang diperlukan tidak hadir, kawalan jauh tidak mungkin.</string>
+
+<!-- TID_5267 -->
+<string name="error_vnc_122">Tiada perkhidmatan kawalan jauh yang sesuai, kawalan jauh tidak mungkin.</string>
+
+<!-- TID_5268 -->
+<string name="error_vnc_123">Perkhidmatan kawalan jauh tidak mempunyai keizinan yang diperlukan, kawalan jauh tidak mungkin.</string>
+
+<!-- TID_5270 -->
+<string name="TID_5270">Kesalahan %d: </string>
+
+<!-- TID_5271 -->
+<string name="TID_5271">kesilapan menterjamah %d:</string>
+
+<!-- TID_5272 -->
+<string name="TID_5272">Gagal %d mewujudkan pengiklan rangkaian.\nPengiklanan pelayan tidak tersedia.</string>
+
+<!-- TID_5273 -->
+<string name="TID_5273">Gagal %d bermula pengiklan rangkaian.\nPengiklanan pelayan tidak tersedia.</string>
+
+<!-- TID_5274 -->
+<string name="TID_5274">Pengiklan rangkaian berhenti dengan kesilapan %d.\nPengiklanan server tidak tersedia.</string>
+
+<!-- TID_5275 -->
+<string name="TID_5275">Orientasi Kunci tidak dapat dijalankan.</string>
+
+<!-- TID_5276 -->
+<string name="TID_5276">Perkhidmatan Accessibility</string>
+
+<!-- TID_5277 -->
+<string name="TID_5277">Aplikasi T-Link memerlukan Perkhidmatan Accessibility untuk  menapis pandu-selamat apps. Anda mesti mengaktifkannya secara manual.</string>
+
+<!-- TID_5278 -->
+<string name="TID_5278">Bawa saya ke Penetapan</string>
+
+<!-- TID_5279 -->
+<string name="TID_5279">Kebenara Overlay</string>
+
+<!-- TID_5280 -->
+<string name="TID_5280">Aplikasi T-Link memerlukan Kebenaran Overlay untuk mengunci orientasi. Anda mesti mengaktifkannya secara manual.</string>
+
+<!-- TID_5281 -->
+<string name="TID_5281">Monitor aplikasinya yang digunakan semasa sambungan T-Link untuk menapis aplikasi selamat memandu semasa memandu.</string>
+
+<!-- TID_5287 -->
+<string name="TID_5287">Setuju</string>
+
+<!-- TID_5292 -->
+<string name="TID_5292">Tuitorial</string>
+
+<!-- TID_5293 -->
+<string name="TID_5293">Aplikasi Perkongsian Skrin\nTahap baru Integrasi Telefon Pintar Reka Bentuk untuk Audio Paparan.</string>
+
+<!-- TID_5294 -->
+<string name="TID_5294">T-Link mahu kebenaran untuk:</string>
+
+<!-- TID_5295 -->
+<string name="TID_5295">Memantau tindakan anda Menerima notifikasi bila Anda sedang berinteraksi dengan aplikasi\n</string>
+
+<!-- TID_5296 -->
+<string name="TID_5296">Berhenti T-Link?</string>
+
+<!-- TID_5297 -->
+<string name="TID_5297">Tekan [OK] akan berhenti T-Link.</string>
+
+<!-- TID_5298 -->
+<string name="TID_5298">T-Link telah berhenti.</string>
+
+<!-- TID_5299 -->
+<string name="TID_5299">Buka app sekali lagi</string>
+
+<!-- TID_5300 -->
+<string name="TID_5300">Jika anda memerlukan tanda kutip,\nkemudian pilih \"Allow(Benarkan)\"</string>
+
+<!-- TID_5302 -->
+<string name="TID_5302">Penetapan asal</string>
+
+<!-- TID_5303 -->
+<string name="TID_5303">Perkongsian Skrin Mula</string>
+
+<!-- TID_5311 -->
+<string name="TID_5311">Aktifkan Bluetooth\ncari and pilih \"Car Multimedia\"</string>
+
+<!-- TID_5312 -->
+<string name="TID_5312">Aktifkan Bluetooth dan pilih \"Car Multimedia\"</string>
+
+<!-- TID_5313 -->
+<string name="TID_5313">Pilih \"Phone1(Telefon1)\" atau \"Phone2(Telefon2)\"\nPilih \"Bluetooth Audio(Audio Bluetooth)\"\nPilih \"T-Link\"\nTekan \"Yes(Ya)\"</string>
+
+<!-- TID_5364 -->
+<string name="TID_5364">T-Link akan mula menangkap semua yang dipaparkan pada skrin anda.</string>
+
+<!-- TID_5365 -->
+<string name="TID_5365">Jangan tunjukkan lagi.</string>
+
+<!-- TID_5397 -->
+<string name="TID_5397">Lancarkan App \"T-Link\"</string>
+
+<!-- TID_5398 -->
+<string name="TID_5398">Jika anda memerlukan tanda kutip,\nkemudian pilih \"OK\" </string>
+
+<!-- TID_5399 -->
+<string name="TID_5399">Jika anda memerlukan tanda kutip,\nkemudian pilih \"Start now(Mulakan segerang)\"</string>
+
+<!-- TID_5400 -->
+<string name="TID_5400">pilih  \"Take me to settings(Bawa saya ke Penetapan)\"</string>
+
+<!-- TID_5401 -->
+<string name="TID_5401">Turn \"Allowed(Dibenarkan)\"</string>
+
+<!-- TID_5402 -->
+<string name="TID_5402">Turn \"On(Hidup)\" </string>
+
+<!-- TID_5403 -->
+<string name="TID_5403">Perkongsian Skrin Mula</string>
+
+<!-- TID_5404 -->
+<string name="TID_5404">Pilih \"T-Link\"                                                    sambungkan telefon pintar anda melalui kabel USB</string>
+
+
+</resources>

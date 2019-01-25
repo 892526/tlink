@@ -10,7 +10,7 @@
 -->
 
 <accessibility-service xmlns:android="http://schemas.android.com/apk/res/android"
-    android:description="@string/SS_05_201"
+    android:description="@string/TID_5281"
     android:accessibilityEventTypes="typeWindowStateChanged"
     android:accessibilityFeedbackType="feedbackGeneric"
     android:accessibilityFlags="flagDefault"

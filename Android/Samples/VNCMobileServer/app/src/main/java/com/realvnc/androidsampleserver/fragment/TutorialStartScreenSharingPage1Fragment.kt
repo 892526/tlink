@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.realvnc.androidsampleserver.R
+import com.realvnc.jvckenwood.util.LayoutUtility
 
 /**
  * A simple [Fragment] subclass.
@@ -26,6 +27,9 @@ class TutorialStartScreenSharingPage1Fragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.fragment_tutorial_start_screen_sharing_page1, container, false)
+        if (LayoutUtility.isRTL()) {
+            view.rotationY = 180f
+        }
         return view
     }
 

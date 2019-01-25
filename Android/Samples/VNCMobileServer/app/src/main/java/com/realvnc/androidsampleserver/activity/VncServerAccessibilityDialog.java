@@ -25,7 +25,7 @@ public class VncServerAccessibilityDialog extends VncServerDialog {
     VncServerAccessibilityDialog(VNCMobileServer ctx) {
         super(ctx, true);
 
-        setTitle(R.string.SS_04_201);
+        setTitle(R.string.TID_5276);
         setContentView(R.layout.accessibility_dialog);
 
         Button button;

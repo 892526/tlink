@@ -22,6 +22,7 @@ import android.support.v7.app.ActionBarDrawerToggle
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import android.view.MenuItem
+import android.view.View
 import android.widget.Toast
 import com.realvnc.androidsampleserver.*
 import com.realvnc.androidsampleserver.VncServerState.VncServerMainState
@@ -29,6 +30,7 @@ import com.realvnc.androidsampleserver.service.HTTPTriggerService
 import com.realvnc.androidsampleserver.service.VncServerService
 import com.realvnc.vncserver.core.VncServerCoreErrors
 import kotlinx.android.synthetic.main.app_bar_main.*
+import kotlinx.android.synthetic.main.content_main.*
 import kotlinx.android.synthetic.main.main.*
 import java.io.File
 import java.io.FileInputStream
@@ -83,6 +85,9 @@ class VNCMobileServer : AppCompatActivity(), NavigationView.OnNavigationItemSele
     private var mCallbackHandler: CallbackHandler? = CallbackHandler()
 
 
+    private val isEnableErrorMessageDebug = false
+
+
     fun dialogDismissed() {
         // Nothing to do
     }
@@ -98,7 +103,7 @@ class VNCMobileServer : AppCompatActivity(), NavigationView.OnNavigationItemSele
 
         // << Set the ActionBar >>
         setSupportActionBar(toolbar)
-        title = resources.getString(R.string.SS_01_001)
+        title = resources.getString(R.string.TID_5225)
         supportActionBar?.setDisplayShowTitleEnabled(false)
 
         // << Set the NavigationDrawer >>
@@ -111,7 +116,7 @@ class VNCMobileServer : AppCompatActivity(), NavigationView.OnNavigationItemSele
         val versionMenuItem = nav_view.menu?.findItem(R.id.navigation_view_menu_version)
         versionMenuItem?.let {
             val packageInfo   = packageManager.getPackageInfo(this.packageName, 0)
-            val versionString = getString(R.string.SS_01_006, packageInfo.versionName)
+            val versionString = "${getString(R.string.TID_5229)} : ${packageInfo.versionName}"
 
             it.title = if (BuildConfig.DEBUG) {
                 "$versionString@${Date(BuildConfig.TIMESTAMP)}"
@@ -138,6 +143,9 @@ class VNCMobileServer : AppCompatActivity(), NavigationView.OnNavigationItemSele
         serviceIntent.`package` = packageName
         bindService(serviceIntent, mServiceInterfaceConnection, Context.BIND_AUTO_CREATE)
 
+        if (BuildConfig.DEBUG && isEnableErrorMessageDebug) {
+            setErrorMessageDebugControls()
+        }
     }
 
     /*
@@ -218,7 +226,7 @@ class VNCMobileServer : AppCompatActivity(), NavigationView.OnNavigationItemSele
                 }
             } else {
                 Log.w(TAG,"Overlay Permission denied: orientation lock disabled")
-                Toast.makeText(this, resources.getString(R.string.SS_03_263), Toast.LENGTH_LONG).show()
+                Toast.makeText(this, resources.getString(R.string.TID_5275), Toast.LENGTH_LONG).show()
             }
         }
     }
@@ -566,14 +574,14 @@ class VNCMobileServer : AppCompatActivity(), NavigationView.OnNavigationItemSele
         } catch (e: NoSuchFieldException) {
             /* This happens if there was no string resource
              * corresponding to this error code */
-            statusText = resources.getString(R.string.SS_03_259)
+            statusText = resources.getString(R.string.TID_5271)
         } catch (e: IllegalAccessException) {
             Log.e(TAG, "Failed to get error string with exception: " + e)
-            statusText = resources.getString(R.string.SS_02_209,
+            statusText = resources.getString(R.string.TID_5240,
                     e.message)
         }
 
-        val header = resources.getString(R.string.SS_03_258, code)
+        val header = resources.getString(R.string.TID_5270, code)
         return header + statusText
     }
 
@@ -621,7 +629,7 @@ class VNCMobileServer : AppCompatActivity(), NavigationView.OnNavigationItemSele
         var statusText: String? = null
         var secondaryStatusText: String? = null
         if (mServiceInterface == null) {
-            statusText = resources.getString(R.string.SS_02_201)
+            statusText = resources.getString(R.string.TID_5234)
         } else {
             try {
                 mPreviousState = mState
@@ -648,22 +656,22 @@ class VNCMobileServer : AppCompatActivity(), NavigationView.OnNavigationItemSele
                         VncServerState.VncServerAPICalledState.KEYGEN -> statusText = resources.getString(R.string.status_keygen)
                         VncServerState.VncServerAPICalledState.ACCEPT_AUTH -> statusText = resources.getString(R.string.status_accept_auth)
                         VncServerState.VncServerAPICalledState.ACCEPT_CONN -> statusText = resources.getString(R.string.status_accept_conn)
-                        VncServerState.VncServerAPICalledState.CONNECT -> statusText = resources.getString(R.string.SS_02_202)
+                        VncServerState.VncServerAPICalledState.CONNECT -> statusText = resources.getString(R.string.TID_5114)
                         VncServerState.VncServerAPICalledState.DENY_AUTH -> statusText = resources.getString(R.string.status_deny_auth)
                         VncServerState.VncServerAPICalledState.DENY_CONN -> statusText = resources.getString(R.string.status_deny_conn)
-                        VncServerState.VncServerAPICalledState.LISTEN -> statusText = resources.getString(R.string.SS_02_203)
-                        VncServerState.VncServerAPICalledState.RESET -> statusText = resources.getString(R.string.SS_02_204)
+                        VncServerState.VncServerAPICalledState.LISTEN -> statusText = resources.getString(R.string.TID_5235)
+                        VncServerState.VncServerAPICalledState.RESET -> statusText = resources.getString(R.string.TID_5236)
                         VncServerState.VncServerAPICalledState.SUPPLY_AUTH -> statusText = resources.getString(R.string.status_supply_auth)
                     }
                 } else {
                     when (mState!!.state) {
-                        VncServerState.VncServerMainState.ACCEPTING -> statusText = resources.getString(R.string.SS_02_205)
+                        VncServerState.VncServerMainState.ACCEPTING -> statusText = resources.getString(R.string.TID_5237)
                         VncServerState.VncServerMainState.AUTHENTICATING -> statusText = resources.getString(R.string.status_authenticating)
                         VncServerState.VncServerMainState.REQUESTING_AUTH -> statusText = resources.getString(R.string.status_requesting_auth)
-                        VncServerState.VncServerMainState.CONNECTING -> statusText = resources.getString(R.string.SS_02_202)
+                        VncServerState.VncServerMainState.CONNECTING -> statusText = resources.getString(R.string.TID_5114)
                         VncServerState.VncServerMainState.DISCONNECTED -> statusText = resources.getString(R.string.SS_02_206)
-                        VncServerState.VncServerMainState.LISTENING -> statusText = resources.getString(R.string.SS_02_207, mState!!.listeningAddress)
-                        VncServerState.VncServerMainState.RUNNING -> statusText = resources.getString(R.string.SS_02_208, mState!!.connectedAddress)
+                        VncServerState.VncServerMainState.LISTENING -> statusText = resources.getString(R.string.TID_5238, mState!!.listeningAddress)
+                        VncServerState.VncServerMainState.RUNNING -> statusText = resources.getString(R.string.TID_5239, mState!!.connectedAddress)
                         VncServerState.VncServerMainState.ERROR -> {
                             if (mState?.errorCode == 0) {
                                 return
@@ -675,7 +683,7 @@ class VNCMobileServer : AppCompatActivity(), NavigationView.OnNavigationItemSele
                 }
             } catch (e: Exception) {
                 Log.e(TAG, "Failed to update status with exception: " + e)
-                statusText = resources.getString(R.string.SS_02_209,
+                statusText = resources.getString(R.string.TID_5240,
                         e.message)
             }
 
@@ -998,4 +1006,41 @@ class VNCMobileServer : AppCompatActivity(), NavigationView.OnNavigationItemSele
                 supportedAbisApi8
             }
     }
+
+
+
+    private fun setErrorMessageDebugControls() {
+        content_main_debug_layout.visibility = View.VISIBLE
+
+        content_main_debug_button_0.setOnClickListener { onTenKeyClickListener(0) }
+        content_main_debug_button_1.setOnClickListener { onTenKeyClickListener(1) }
+        content_main_debug_button_2.setOnClickListener { onTenKeyClickListener(2) }
+        content_main_debug_button_3.setOnClickListener { onTenKeyClickListener(3) }
+        content_main_debug_button_4.setOnClickListener { onTenKeyClickListener(4) }
+        content_main_debug_button_5.setOnClickListener { onTenKeyClickListener(5) }
+        content_main_debug_button_6.setOnClickListener { onTenKeyClickListener(6) }
+        content_main_debug_button_7.setOnClickListener { onTenKeyClickListener(7) }
+        content_main_debug_button_8.setOnClickListener { onTenKeyClickListener(8) }
+        content_main_debug_button_9.setOnClickListener { onTenKeyClickListener(9) }
+
+        content_main_debug_button_del.setOnClickListener {
+            val input = content_main_debug_text_view.text
+            if (!input.isNullOrBlank()) {
+                content_main_debug_text_view.text = input.dropLast(1)
+            }
+        }
+
+        content_main_debug_button_disp.setOnClickListener {
+            val input = content_main_debug_text_view.text.toString().toInt()
+            mServiceInterface?.VNCServerSetError(input)
+        }
+    }
+
+    private fun onTenKeyClickListener(num: Int) {
+        val input = content_main_debug_text_view.text
+        content_main_debug_text_view.text = "$input$num"
+    }
+
+
+
 }

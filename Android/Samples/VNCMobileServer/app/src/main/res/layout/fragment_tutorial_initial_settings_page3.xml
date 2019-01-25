@@ -16,7 +16,7 @@
             style="@style/TutorialDescriptionStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/SS_81_3102"
+            android:text="@string/TID_5312"
             />
 
         <ImageView
@@ -34,7 +34,7 @@
             style="@style/TutorialDescriptionStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/SS_81_3103"
+            android:text="@string/TID_5313"
             />
 
         <ImageView

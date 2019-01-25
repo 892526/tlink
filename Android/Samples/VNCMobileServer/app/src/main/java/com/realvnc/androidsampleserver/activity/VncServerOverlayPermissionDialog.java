@@ -73,7 +73,7 @@ public class VncServerOverlayPermissionDialog extends VncServerDialog {
         };
         */
 
-        setTitle(R.string.SS_04_204);
+        setTitle(R.string.TID_5279);
         setContentView(R.layout.overlay_permission_dialog);
 
         final Button acceptButton = (Button) findViewById(
