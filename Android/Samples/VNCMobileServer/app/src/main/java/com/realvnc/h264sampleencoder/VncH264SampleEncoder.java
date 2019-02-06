@@ -45,7 +45,7 @@ public class VncH264SampleEncoder extends VncH264Encoder {
     private final MediaCodec.BufferInfo mBufferInfo
             = new MediaCodec.BufferInfo();
 
-    private final ByteBuffer mEncodedDataBuffer;
+    private static final ByteBuffer mEncodedDataBuffer = ByteBuffer.allocateDirect(MAX_RECT_SIZE_BYTES);
 
     private H264MediaCodec mH264Codec;
     private ExpectedBufferType mExpectedBufferType;
@@ -55,7 +55,6 @@ public class VncH264SampleEncoder extends VncH264Encoder {
     private boolean mIsFirstFrameAfterEncoderStart;
 
     public VncH264SampleEncoder() {
-        mEncodedDataBuffer = ByteBuffer.allocateDirect(MAX_RECT_SIZE_BYTES);
     }
 
     @Override
