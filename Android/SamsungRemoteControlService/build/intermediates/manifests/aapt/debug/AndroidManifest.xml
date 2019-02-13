@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2002-2018 VNC Automotive Ltd.  All Rights Reserved. -->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.realvnc.android.remote.samsung"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="9"
+        android:targetSdkVersion="26" />
+    <!--
+        This RemoteControlService needs permissions as defined in the Samsung
+        KNOX Standard SDK Mobile Device Management Developer Guide.
+    -->
+    <uses-permission android:name="android.permission.sec.MDM_REMOTE_CONTROL" />
+    <uses-permission android:name="android.permission.sec.MDM_APP_MGMT" />
+
+</manifest>

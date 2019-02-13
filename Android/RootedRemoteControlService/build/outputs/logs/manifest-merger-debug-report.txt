@@ -1,0 +1,37 @@
+-- Merging decision tree log ---
+manifest
+ADDED from E:\Develop\KX\KL19TDEM\KL19AVX_app\work\tlink\Android\RootedRemoteControlService\AndroidManifest.xml:3:1-7:12
+INJECTED from E:\Develop\KX\KL19TDEM\KL19AVX_app\work\tlink\Android\RootedRemoteControlService\AndroidManifest.xml:3:1-7:12
+INJECTED from E:\Develop\KX\KL19TDEM\KL19AVX_app\work\tlink\Android\RootedRemoteControlService\AndroidManifest.xml:3:1-7:12
+INJECTED from E:\Develop\KX\KL19TDEM\KL19AVX_app\work\tlink\Android\RootedRemoteControlService\AndroidManifest.xml:3:1-7:12
+INJECTED from E:\Develop\KX\KL19TDEM\KL19AVX_app\work\tlink\Android\RootedRemoteControlService\AndroidManifest.xml:3:1-7:12
+INJECTED from E:\Develop\KX\KL19TDEM\KL19AVX_app\work\tlink\Android\RootedRemoteControlService\AndroidManifest.xml:3:1-7:12
+INJECTED from E:\Develop\KX\KL19TDEM\KL19AVX_app\work\tlink\Android\RootedRemoteControlService\AndroidManifest.xml:3:1-7:12
+	package
+		ADDED from E:\Develop\KX\KL19TDEM\KL19AVX_app\work\tlink\Android\RootedRemoteControlService\AndroidManifest.xml:4:7-50
+		INJECTED from E:\Develop\KX\KL19TDEM\KL19AVX_app\work\tlink\Android\RootedRemoteControlService\AndroidManifest.xml
+		INJECTED from E:\Develop\KX\KL19TDEM\KL19AVX_app\work\tlink\Android\RootedRemoteControlService\AndroidManifest.xml
+	android:versionName
+		ADDED from E:\Develop\KX\KL19TDEM\KL19AVX_app\work\tlink\Android\RootedRemoteControlService\AndroidManifest.xml:6:7-32
+		INJECTED from E:\Develop\KX\KL19TDEM\KL19AVX_app\work\tlink\Android\RootedRemoteControlService\AndroidManifest.xml
+		INJECTED from E:\Develop\KX\KL19TDEM\KL19AVX_app\work\tlink\Android\RootedRemoteControlService\AndroidManifest.xml
+	xmlns:android
+		ADDED from E:\Develop\KX\KL19TDEM\KL19AVX_app\work\tlink\Android\RootedRemoteControlService\AndroidManifest.xml:3:11-69
+	android:versionCode
+		ADDED from E:\Develop\KX\KL19TDEM\KL19AVX_app\work\tlink\Android\RootedRemoteControlService\AndroidManifest.xml:5:7-30
+		INJECTED from E:\Develop\KX\KL19TDEM\KL19AVX_app\work\tlink\Android\RootedRemoteControlService\AndroidManifest.xml
+		INJECTED from E:\Develop\KX\KL19TDEM\KL19AVX_app\work\tlink\Android\RootedRemoteControlService\AndroidManifest.xml
+uses-sdk
+INJECTED from E:\Develop\KX\KL19TDEM\KL19AVX_app\work\tlink\Android\RootedRemoteControlService\AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from E:\Develop\KX\KL19TDEM\KL19AVX_app\work\tlink\Android\RootedRemoteControlService\AndroidManifest.xml
+INJECTED from E:\Develop\KX\KL19TDEM\KL19AVX_app\work\tlink\Android\RootedRemoteControlService\AndroidManifest.xml
+INJECTED from E:\Develop\KX\KL19TDEM\KL19AVX_app\work\tlink\Android\RootedRemoteControlService\AndroidManifest.xml
+INJECTED from E:\Develop\KX\KL19TDEM\KL19AVX_app\work\tlink\Android\RootedRemoteControlService\AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from E:\Develop\KX\KL19TDEM\KL19AVX_app\work\tlink\Android\RootedRemoteControlService\AndroidManifest.xml
+		ADDED from E:\Develop\KX\KL19TDEM\KL19AVX_app\work\tlink\Android\RootedRemoteControlService\AndroidManifest.xml
+		INJECTED from E:\Develop\KX\KL19TDEM\KL19AVX_app\work\tlink\Android\RootedRemoteControlService\AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from E:\Develop\KX\KL19TDEM\KL19AVX_app\work\tlink\Android\RootedRemoteControlService\AndroidManifest.xml
+		ADDED from E:\Develop\KX\KL19TDEM\KL19AVX_app\work\tlink\Android\RootedRemoteControlService\AndroidManifest.xml
+		INJECTED from E:\Develop\KX\KL19TDEM\KL19AVX_app\work\tlink\Android\RootedRemoteControlService\AndroidManifest.xml

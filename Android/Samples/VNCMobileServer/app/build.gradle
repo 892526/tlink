@@ -46,6 +46,10 @@ android {
             }
         }
         debug {
+
+            // test
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-project.txt'
+
             if (keystoreProps != null) {
                 signingConfig signingConfigs.sample
             }

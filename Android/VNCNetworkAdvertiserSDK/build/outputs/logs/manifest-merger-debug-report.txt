@@ -1,0 +1,45 @@
+-- Merging decision tree log ---
+manifest
+ADDED from E:\Develop\KX\KL19TDEM\KL19AVX_app\work\tlink\Android\VNCNetworkAdvertiserSDK\AndroidManifest.xml:3:1-13:12
+INJECTED from E:\Develop\KX\KL19TDEM\KL19AVX_app\work\tlink\Android\VNCNetworkAdvertiserSDK\AndroidManifest.xml:3:1-13:12
+INJECTED from E:\Develop\KX\KL19TDEM\KL19AVX_app\work\tlink\Android\VNCNetworkAdvertiserSDK\AndroidManifest.xml:3:1-13:12
+INJECTED from E:\Develop\KX\KL19TDEM\KL19AVX_app\work\tlink\Android\VNCNetworkAdvertiserSDK\AndroidManifest.xml:3:1-13:12
+INJECTED from E:\Develop\KX\KL19TDEM\KL19AVX_app\work\tlink\Android\VNCNetworkAdvertiserSDK\AndroidManifest.xml:3:1-13:12
+INJECTED from E:\Develop\KX\KL19TDEM\KL19AVX_app\work\tlink\Android\VNCNetworkAdvertiserSDK\AndroidManifest.xml:3:1-13:12
+INJECTED from E:\Develop\KX\KL19TDEM\KL19AVX_app\work\tlink\Android\VNCNetworkAdvertiserSDK\AndroidManifest.xml:3:1-13:12
+	package
+		ADDED from E:\Develop\KX\KL19TDEM\KL19AVX_app\work\tlink\Android\VNCNetworkAdvertiserSDK\AndroidManifest.xml:4:7-49
+		INJECTED from E:\Develop\KX\KL19TDEM\KL19AVX_app\work\tlink\Android\VNCNetworkAdvertiserSDK\AndroidManifest.xml
+		INJECTED from E:\Develop\KX\KL19TDEM\KL19AVX_app\work\tlink\Android\VNCNetworkAdvertiserSDK\AndroidManifest.xml
+	android:versionName
+		ADDED from E:\Develop\KX\KL19TDEM\KL19AVX_app\work\tlink\Android\VNCNetworkAdvertiserSDK\AndroidManifest.xml:6:7-32
+		INJECTED from E:\Develop\KX\KL19TDEM\KL19AVX_app\work\tlink\Android\VNCNetworkAdvertiserSDK\AndroidManifest.xml
+		INJECTED from E:\Develop\KX\KL19TDEM\KL19AVX_app\work\tlink\Android\VNCNetworkAdvertiserSDK\AndroidManifest.xml
+	xmlns:android
+		ADDED from E:\Develop\KX\KL19TDEM\KL19AVX_app\work\tlink\Android\VNCNetworkAdvertiserSDK\AndroidManifest.xml:3:11-69
+	android:versionCode
+		ADDED from E:\Develop\KX\KL19TDEM\KL19AVX_app\work\tlink\Android\VNCNetworkAdvertiserSDK\AndroidManifest.xml:5:7-30
+		INJECTED from E:\Develop\KX\KL19TDEM\KL19AVX_app\work\tlink\Android\VNCNetworkAdvertiserSDK\AndroidManifest.xml
+		INJECTED from E:\Develop\KX\KL19TDEM\KL19AVX_app\work\tlink\Android\VNCNetworkAdvertiserSDK\AndroidManifest.xml
+uses-sdk
+ADDED from E:\Develop\KX\KL19TDEM\KL19AVX_app\work\tlink\Android\VNCNetworkAdvertiserSDK\AndroidManifest.xml:8:3-71
+INJECTED from E:\Develop\KX\KL19TDEM\KL19AVX_app\work\tlink\Android\VNCNetworkAdvertiserSDK\AndroidManifest.xml:8:3-71
+INJECTED from E:\Develop\KX\KL19TDEM\KL19AVX_app\work\tlink\Android\VNCNetworkAdvertiserSDK\AndroidManifest.xml:8:3-71
+INJECTED from E:\Develop\KX\KL19TDEM\KL19AVX_app\work\tlink\Android\VNCNetworkAdvertiserSDK\AndroidManifest.xml:8:3-71
+INJECTED from E:\Develop\KX\KL19TDEM\KL19AVX_app\work\tlink\Android\VNCNetworkAdvertiserSDK\AndroidManifest.xml:8:3-71
+	android:targetSdkVersion
+		ADDED from E:\Develop\KX\KL19TDEM\KL19AVX_app\work\tlink\Android\VNCNetworkAdvertiserSDK\AndroidManifest.xml:8:40-69
+		INJECTED from E:\Develop\KX\KL19TDEM\KL19AVX_app\work\tlink\Android\VNCNetworkAdvertiserSDK\AndroidManifest.xml
+		INJECTED from E:\Develop\KX\KL19TDEM\KL19AVX_app\work\tlink\Android\VNCNetworkAdvertiserSDK\AndroidManifest.xml
+	android:minSdkVersion
+		ADDED from E:\Develop\KX\KL19TDEM\KL19AVX_app\work\tlink\Android\VNCNetworkAdvertiserSDK\AndroidManifest.xml:8:13-39
+		INJECTED from E:\Develop\KX\KL19TDEM\KL19AVX_app\work\tlink\Android\VNCNetworkAdvertiserSDK\AndroidManifest.xml
+		INJECTED from E:\Develop\KX\KL19TDEM\KL19AVX_app\work\tlink\Android\VNCNetworkAdvertiserSDK\AndroidManifest.xml
+uses-permission#android.permission.INTERNET
+ADDED from E:\Develop\KX\KL19TDEM\KL19AVX_app\work\tlink\Android\VNCNetworkAdvertiserSDK\AndroidManifest.xml:10:3-65
+	android:name
+		ADDED from E:\Develop\KX\KL19TDEM\KL19AVX_app\work\tlink\Android\VNCNetworkAdvertiserSDK\AndroidManifest.xml:10:20-62
+uses-permission#android.permission.CHANGE_WIFI_MULTICAST_STATE
+ADDED from E:\Develop\KX\KL19TDEM\KL19AVX_app\work\tlink\Android\VNCNetworkAdvertiserSDK\AndroidManifest.xml:11:3-83
+	android:name
+		ADDED from E:\Develop\KX\KL19TDEM\KL19AVX_app\work\tlink\Android\VNCNetworkAdvertiserSDK\AndroidManifest.xml:11:20-81

@@ -1,0 +1,45 @@
+-- Merging decision tree log ---
+manifest
+ADDED from E:\Develop\KX\KL19TDEM\KL19AVX_app\work\tlink\Android\RemoteViewService\AndroidManifest.xml:3:1-17:12
+INJECTED from E:\Develop\KX\KL19TDEM\KL19AVX_app\work\tlink\Android\RemoteViewService\AndroidManifest.xml:3:1-17:12
+INJECTED from E:\Develop\KX\KL19TDEM\KL19AVX_app\work\tlink\Android\RemoteViewService\AndroidManifest.xml:3:1-17:12
+INJECTED from E:\Develop\KX\KL19TDEM\KL19AVX_app\work\tlink\Android\RemoteViewService\AndroidManifest.xml:3:1-17:12
+INJECTED from E:\Develop\KX\KL19TDEM\KL19AVX_app\work\tlink\Android\RemoteViewService\AndroidManifest.xml:3:1-17:12
+INJECTED from E:\Develop\KX\KL19TDEM\KL19AVX_app\work\tlink\Android\RemoteViewService\AndroidManifest.xml:3:1-17:12
+INJECTED from E:\Develop\KX\KL19TDEM\KL19AVX_app\work\tlink\Android\RemoteViewService\AndroidManifest.xml:3:1-17:12
+	package
+		ADDED from E:\Develop\KX\KL19TDEM\KL19AVX_app\work\tlink\Android\RemoteViewService\AndroidManifest.xml:4:7-48
+		INJECTED from E:\Develop\KX\KL19TDEM\KL19AVX_app\work\tlink\Android\RemoteViewService\AndroidManifest.xml
+		INJECTED from E:\Develop\KX\KL19TDEM\KL19AVX_app\work\tlink\Android\RemoteViewService\AndroidManifest.xml
+	android:versionName
+		ADDED from E:\Develop\KX\KL19TDEM\KL19AVX_app\work\tlink\Android\RemoteViewService\AndroidManifest.xml:6:7-32
+		INJECTED from E:\Develop\KX\KL19TDEM\KL19AVX_app\work\tlink\Android\RemoteViewService\AndroidManifest.xml
+		INJECTED from E:\Develop\KX\KL19TDEM\KL19AVX_app\work\tlink\Android\RemoteViewService\AndroidManifest.xml
+	xmlns:android
+		ADDED from E:\Develop\KX\KL19TDEM\KL19AVX_app\work\tlink\Android\RemoteViewService\AndroidManifest.xml:3:11-69
+	android:versionCode
+		ADDED from E:\Develop\KX\KL19TDEM\KL19AVX_app\work\tlink\Android\RemoteViewService\AndroidManifest.xml:5:7-30
+		INJECTED from E:\Develop\KX\KL19TDEM\KL19AVX_app\work\tlink\Android\RemoteViewService\AndroidManifest.xml
+		INJECTED from E:\Develop\KX\KL19TDEM\KL19AVX_app\work\tlink\Android\RemoteViewService\AndroidManifest.xml
+application
+ADDED from E:\Develop\KX\KL19TDEM\KL19AVX_app\work\tlink\Android\RemoteViewService\AndroidManifest.xml:8:5-15:19
+activity#com.realvnc.android.remote.view.implementation.MediaProjectionActivity
+ADDED from E:\Develop\KX\KL19TDEM\KL19AVX_app\work\tlink\Android\RemoteViewService\AndroidManifest.xml:11:9-14:20
+	android:exported
+		ADDED from E:\Develop\KX\KL19TDEM\KL19AVX_app\work\tlink\Android\RemoteViewService\AndroidManifest.xml:12:21-45
+	android:name
+		ADDED from E:\Develop\KX\KL19TDEM\KL19AVX_app\work\tlink\Android\RemoteViewService\AndroidManifest.xml:11:19-104
+uses-sdk
+INJECTED from E:\Develop\KX\KL19TDEM\KL19AVX_app\work\tlink\Android\RemoteViewService\AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from E:\Develop\KX\KL19TDEM\KL19AVX_app\work\tlink\Android\RemoteViewService\AndroidManifest.xml
+INJECTED from E:\Develop\KX\KL19TDEM\KL19AVX_app\work\tlink\Android\RemoteViewService\AndroidManifest.xml
+INJECTED from E:\Develop\KX\KL19TDEM\KL19AVX_app\work\tlink\Android\RemoteViewService\AndroidManifest.xml
+INJECTED from E:\Develop\KX\KL19TDEM\KL19AVX_app\work\tlink\Android\RemoteViewService\AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from E:\Develop\KX\KL19TDEM\KL19AVX_app\work\tlink\Android\RemoteViewService\AndroidManifest.xml
+		ADDED from E:\Develop\KX\KL19TDEM\KL19AVX_app\work\tlink\Android\RemoteViewService\AndroidManifest.xml
+		INJECTED from E:\Develop\KX\KL19TDEM\KL19AVX_app\work\tlink\Android\RemoteViewService\AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from E:\Develop\KX\KL19TDEM\KL19AVX_app\work\tlink\Android\RemoteViewService\AndroidManifest.xml
+		ADDED from E:\Develop\KX\KL19TDEM\KL19AVX_app\work\tlink\Android\RemoteViewService\AndroidManifest.xml
+		INJECTED from E:\Develop\KX\KL19TDEM\KL19AVX_app\work\tlink\Android\RemoteViewService\AndroidManifest.xml

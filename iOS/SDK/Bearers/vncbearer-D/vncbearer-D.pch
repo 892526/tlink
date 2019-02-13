@@ -1,0 +1,5 @@
+/* Copyright (C) 2013-2018 RealVNC Ltd.  All Rights Reserved.
+ */
+
+// Bearers must be built as static libraries for iOS.
+#define VNC_BEARER_STATIC

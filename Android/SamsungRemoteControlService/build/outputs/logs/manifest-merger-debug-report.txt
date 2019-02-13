@@ -1,0 +1,45 @@
+-- Merging decision tree log ---
+manifest
+ADDED from E:\Develop\KX\KL19TDEM\KL19AVX_app\work\tlink\Android\SamsungRemoteControlService\AndroidManifest.xml:3:1-14:12
+INJECTED from E:\Develop\KX\KL19TDEM\KL19AVX_app\work\tlink\Android\SamsungRemoteControlService\AndroidManifest.xml:3:1-14:12
+INJECTED from E:\Develop\KX\KL19TDEM\KL19AVX_app\work\tlink\Android\SamsungRemoteControlService\AndroidManifest.xml:3:1-14:12
+INJECTED from E:\Develop\KX\KL19TDEM\KL19AVX_app\work\tlink\Android\SamsungRemoteControlService\AndroidManifest.xml:3:1-14:12
+INJECTED from E:\Develop\KX\KL19TDEM\KL19AVX_app\work\tlink\Android\SamsungRemoteControlService\AndroidManifest.xml:3:1-14:12
+INJECTED from E:\Develop\KX\KL19TDEM\KL19AVX_app\work\tlink\Android\SamsungRemoteControlService\AndroidManifest.xml:3:1-14:12
+INJECTED from E:\Develop\KX\KL19TDEM\KL19AVX_app\work\tlink\Android\SamsungRemoteControlService\AndroidManifest.xml:3:1-14:12
+	package
+		ADDED from E:\Develop\KX\KL19TDEM\KL19AVX_app\work\tlink\Android\SamsungRemoteControlService\AndroidManifest.xml:4:11-55
+		INJECTED from E:\Develop\KX\KL19TDEM\KL19AVX_app\work\tlink\Android\SamsungRemoteControlService\AndroidManifest.xml
+		INJECTED from E:\Develop\KX\KL19TDEM\KL19AVX_app\work\tlink\Android\SamsungRemoteControlService\AndroidManifest.xml
+	android:versionName
+		ADDED from E:\Develop\KX\KL19TDEM\KL19AVX_app\work\tlink\Android\SamsungRemoteControlService\AndroidManifest.xml:6:11-36
+		INJECTED from E:\Develop\KX\KL19TDEM\KL19AVX_app\work\tlink\Android\SamsungRemoteControlService\AndroidManifest.xml
+		INJECTED from E:\Develop\KX\KL19TDEM\KL19AVX_app\work\tlink\Android\SamsungRemoteControlService\AndroidManifest.xml
+	xmlns:android
+		ADDED from E:\Develop\KX\KL19TDEM\KL19AVX_app\work\tlink\Android\SamsungRemoteControlService\AndroidManifest.xml:3:11-69
+	android:versionCode
+		ADDED from E:\Develop\KX\KL19TDEM\KL19AVX_app\work\tlink\Android\SamsungRemoteControlService\AndroidManifest.xml:5:11-34
+		INJECTED from E:\Develop\KX\KL19TDEM\KL19AVX_app\work\tlink\Android\SamsungRemoteControlService\AndroidManifest.xml
+		INJECTED from E:\Develop\KX\KL19TDEM\KL19AVX_app\work\tlink\Android\SamsungRemoteControlService\AndroidManifest.xml
+uses-sdk
+ADDED from E:\Develop\KX\KL19TDEM\KL19AVX_app\work\tlink\Android\SamsungRemoteControlService\AndroidManifest.xml:7:5-73
+INJECTED from E:\Develop\KX\KL19TDEM\KL19AVX_app\work\tlink\Android\SamsungRemoteControlService\AndroidManifest.xml:7:5-73
+INJECTED from E:\Develop\KX\KL19TDEM\KL19AVX_app\work\tlink\Android\SamsungRemoteControlService\AndroidManifest.xml:7:5-73
+INJECTED from E:\Develop\KX\KL19TDEM\KL19AVX_app\work\tlink\Android\SamsungRemoteControlService\AndroidManifest.xml:7:5-73
+INJECTED from E:\Develop\KX\KL19TDEM\KL19AVX_app\work\tlink\Android\SamsungRemoteControlService\AndroidManifest.xml:7:5-73
+	android:targetSdkVersion
+		ADDED from E:\Develop\KX\KL19TDEM\KL19AVX_app\work\tlink\Android\SamsungRemoteControlService\AndroidManifest.xml:7:42-71
+		INJECTED from E:\Develop\KX\KL19TDEM\KL19AVX_app\work\tlink\Android\SamsungRemoteControlService\AndroidManifest.xml
+		INJECTED from E:\Develop\KX\KL19TDEM\KL19AVX_app\work\tlink\Android\SamsungRemoteControlService\AndroidManifest.xml
+	android:minSdkVersion
+		ADDED from E:\Develop\KX\KL19TDEM\KL19AVX_app\work\tlink\Android\SamsungRemoteControlService\AndroidManifest.xml:7:15-41
+		INJECTED from E:\Develop\KX\KL19TDEM\KL19AVX_app\work\tlink\Android\SamsungRemoteControlService\AndroidManifest.xml
+		INJECTED from E:\Develop\KX\KL19TDEM\KL19AVX_app\work\tlink\Android\SamsungRemoteControlService\AndroidManifest.xml
+uses-permission#android.permission.sec.MDM_REMOTE_CONTROL
+ADDED from E:\Develop\KX\KL19TDEM\KL19AVX_app\work\tlink\Android\SamsungRemoteControlService\AndroidManifest.xml:12:5-81
+	android:name
+		ADDED from E:\Develop\KX\KL19TDEM\KL19AVX_app\work\tlink\Android\SamsungRemoteControlService\AndroidManifest.xml:12:22-78
+uses-permission#android.permission.sec.MDM_APP_MGMT
+ADDED from E:\Develop\KX\KL19TDEM\KL19AVX_app\work\tlink\Android\SamsungRemoteControlService\AndroidManifest.xml:13:5-75
+	android:name
+		ADDED from E:\Develop\KX\KL19TDEM\KL19AVX_app\work\tlink\Android\SamsungRemoteControlService\AndroidManifest.xml:13:22-72
