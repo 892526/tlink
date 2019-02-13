@@ -4,14 +4,14 @@
 /**
  * \file VNCServerLogLevel.h
  * 
- * \brief VNC Server Log Levels
+ * \brief VNC Automotive Server Log Levels
  *
- * Copyright RealVNC Ltd. 2013-2018. All rights reserved.
+ * Copyright (C) 2013-2018 VNC Automotive Ltd.  All Rights Reserved.
  */
 
 /**
  * \enum VNCServerLogLevel
- * \brief VNC Server Log Levels.
+ * \brief VNC Automotive Server Log Levels.
  * 
  * Currently the server SDK will only pass log levels
  * to VNCServerDelegate::onServerLog:withLevel: that

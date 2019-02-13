@@ -30,7 +30,7 @@
 
 /* This is a cut-down version of crypto.h from the axTLS distribution.
  *
- * Copyright (C) 2002-2018 RealVNC Ltd.  All Rights Reserved.
+ * Copyright (C) 2002-2018 VNC Automotive Ltd.  All Rights Reserved.
  */
 
 #ifndef SHA1_H

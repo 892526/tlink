@@ -4,19 +4,19 @@
 /**
  * \file VNCServerError.h
  * 
- * \brief VNC Server Error Codes
+ * \brief VNC Automotive Server Error Codes
  *
- * Copyright RealVNC Ltd. 2013-2018. All rights reserved.
+ * Copyright (C) 2013-2018 VNC Automotive Ltd.  All Rights Reserved.
  */
 
-// VNC Symbol Exporting.
+// VNC Automotive Symbol Exporting.
 #import <VNCExport.h>
 
 /**
  * \enum VNCServerError
  * \brief Error codes that may be notified via the server delegate.
  * 
- * Any error indicates that the VNC session has ended.
+ * Any error indicates that the VNC Automotive session has ended.
  */
 typedef enum
 {
@@ -141,15 +141,15 @@ typedef enum
 	 */
 	VNCServerErrorBearerLoadFailed = 34,
 
-	/* VNC Errors */
+	/* VNC Automotive Errors */
 
 	/**
-	 * Protocol incompatible with that of VNC Mobile Viewer.
+	 * Protocol incompatible with that of the Viewer.
 	 * <p>
-	 * This error can occur if VNC Mobile Server is attempting to
-	 * connect to VNC Viewer from a RealVNC edition other than VNC
-	 * Mobile Solution, to a VNC-compatible application from a third
-	 * party, or to something other than a VNC viewer (eg a HTTP
+	 * This error can occur if the Server is attempting to
+	 * connect to a non-VNC Automotive Viewer or to something
+	 * other than a VNC Automotive Viewer (e.g. a HTTP server).
+	 * party, or to something other than a VNC Automotive viewer (eg a HTTP
 	 * server).
 	 */
 	VNCServerErrorProtocolMismatch = 40,
@@ -160,12 +160,12 @@ typedef enum
 	VNCServerErrorLoginRejected = 41,
 
 	/**
-	 * License incompatible with that of VNC Mobile Viewer.
+	 * License incompatible with that of VNC Automotive Viewer.
 	 */
 	VNCServerErrorNotLicensedForViewer = 42,
 
 	/**
-	 * VNC Mobile Viewer terminated the remote control session.
+	 * VNC Automotive Viewer terminated the remote control session.
 	 */
 	VNCServerErrorConnectionClosed = 43,
 
@@ -177,8 +177,8 @@ typedef enum
 	/**
 	 * Invalid authentication type.
 	 * <p>
-	 * The connection is encrypted but VNC Mobile Server did not
-	 * provide RSA keys. Alternatively, VNC Mobile Viewer specified an
+	 * The connection is encrypted but VNC Automotive Server did not
+	 * provide RSA keys. Alternatively, VNC Automotive Viewer specified an
 	 * unsupported authentication type.
 	 */
 	VNCServerErrorUnsupportedAuth = 45,
@@ -189,18 +189,18 @@ typedef enum
 	VNCServerErrorKeyTooBig = 46,
 
 	/**
-	 * RFB protocol or AES checksum is corrupt, or VNC Mobile Viewer
+	 * RFB protocol or AES checksum is corrupt, or VNC Automotive Viewer
 	 * did not have a matching private key.
 	 */
 	VNCServerErrorBadCrypt = 47,
 
 	/**
-	 * VNC Mobile Viewer specified an unsupported encoding.
+	 * VNC Automotive Viewer specified an unsupported encoding.
 	 */
 	VNCServerErrorNoEncodings = 48,
 
 	/**
-	 * VNC Mobile Viewer specified an unsupported pixel color depth.
+	 * VNC Automotive Viewer specified an unsupported pixel color depth.
 	 */
 	VNCServerErrorBadPixelformat = 49,
 
@@ -210,8 +210,8 @@ typedef enum
 	VNCServerErrorBearerNotFound = 50,
 
 	/**
-	 * VNC Mobile Viewer signature specified in command string not the
-	 * same as that of the actual VNC Mobile Viewer that connects.
+	 * VNC Automotive Viewer signature specified in command string not the
+	 * same as that of the actual VNC Automotive Viewer that connects.
 	 */
 	VNCServerErrorSignatureRejected = 51,
 
@@ -250,7 +250,7 @@ typedef enum
 	VNCServerErrorKeyGeneration = 63,
 
 	/**
-	 * The underlying VNC Mobile Server service could not be started.
+	 * The underlying VNC Automotive Server service could not be started.
 	 */
 	VNCServerErrorUnableToStartService = 64,
 
@@ -273,25 +273,25 @@ typedef enum
 	/* Data Relay Errors */
 
 	/**
-	 * VNC Data Relay received an invalid message from the server.
+	 * VNC Automotive Data Relay received an invalid message from the server.
 	 */
 	VNCServerErrorDataRelayProtocolError = 80,
 
 	/**
-	 * Either the command string contained an invalid VNC Data Relay
+	 * Either the command string contained an invalid VNC Automotive Data Relay
 	 * session ID, or the communication channel to which it refers is
 	 * no longer reserved.
 	 */
 	VNCServerErrorUnknownDataRelaySessionId = 81,
 
 	/**
-	 * VNC Data Relay could not authenticate the server.
+	 * VNC Automotive Data Relay could not authenticate the server.
 	 */
 	VNCServerErrorBadChallenge = 82,
 
 	/**
-	 * VNC Mobile Viewer did not connect to the other end of the
-	 * reserved VNC Data Relay communication channel in time.
+	 * VNC Automotive Viewer did not connect to the other end of the
+	 * reserved VNC Automotive Data Relay communication channel in time.
 	 */
 	VNCServerErrorDataRelayChannelTimeout = 83,
 

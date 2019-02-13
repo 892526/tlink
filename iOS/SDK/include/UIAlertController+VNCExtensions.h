@@ -2,7 +2,7 @@
 //  UIAlertController+VNCExtensions.h
 //  iOS Server SDK
 //
-//  Copyright RealVNC Ltd. 2015-2018. All rights reserved.
+//  Copyright (C) 2015-2018 VNC Automotive Ltd.  All Rights Reserved.
 //
 
 #ifndef vncserversdkios_UIAlertController_VNCExtensions_h

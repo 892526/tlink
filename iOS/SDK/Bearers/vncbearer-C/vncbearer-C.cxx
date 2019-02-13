@@ -1,4 +1,4 @@
-/* Copyright (C) 2002-2018 RealVNC Ltd.  All Rights Reserved.
+/* Copyright (C) 2002-2018 VNC Automotive Ltd.  All Rights Reserved.
 */
 
 #include <VNCBearerTcpBase.h>
@@ -51,10 +51,10 @@ public:
     switch (property)
     {
       case VNCBearerPropertyFullName:
-        return sdkStrdup("VNC TCP Connect bearer");
+        return sdkStrdup("VNC Automotive TCP Connect bearer");
 
       case VNCBearerPropertyDescription:
-        return sdkStrdup("Makes outgoing TCP connections to a VNC Mobile Viewer or VNC Mobile Server");
+        return sdkStrdup("Makes outgoing TCP connections to a VNC Automotive Viewer or VNC Automotive Server");
 
       default:
         return VNCBearerImpl::getProperty(property);

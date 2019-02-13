@@ -1,4 +1,4 @@
-/* Copyright (C) 2002-2018 RealVNC Ltd.  All Rights Reserved.
+/* Copyright (C) 2002-2018 VNC Automotive Ltd.  All Rights Reserved.
 */
 
 #ifndef VNCBEARER_D_H

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.13"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>VNC&reg; Mobile Server SDK for iOS Embedded </title>
+<title>VNC Automotive Server SDK for iOS Embedded </title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -24,12 +24,12 @@
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
 <div id="titlearea">
-<table cellspacing="0" cellpadding="0" summary="">
+<table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">VNC<sup>&reg;</sup> Mobile Server SDK for iOS Embedded
-   &#160;<span id="projectnumber">4.1.3.8315</span>
+   <div id="projectname">VNC Automotive Server SDK for iOS Embedded
+   &#160;<span id="projectnumber">4.2.3.8911</span>
    </div>
   </td>
  </tr>
@@ -79,69 +79,39 @@ $(document).ready(function(){initNavTree('index.html','');});
 </iframe>
 </div>
 
-<br />
-<br />
-<div>
-  <table border="0" summary="VNC Automotive logo and version information">
-    <tbody>
-      <tr>
-        <td><img src="VNCAutomotiveLogo.svg" alt="VNC Automotive logo" width="400" /></td>
-      </tr>
-      <tr>
-        <td>&nbsp;</td>
-      </tr>
-      <tr>
-        <td>
-          <span style="font-size: 24px;"> VNC<sup>&reg;</sup> Mobile Server SDK for iOS Embedded</span>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <span style="font-size: 18px;">Version 4.1.3.8315</span>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <span style="font-size: 18px;"><a href="http://automotive.realvnc.com/">http://automotive.realvnc.com/</a></span>
-        </td>
-      </tr>
-      <tr>
-        <td>&nbsp;</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
 <div class="header">
+  <div class="headertitle">
+<div class="title">VNC Automotive Server SDK for iOS Embedded </div>  </div>
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><h1><a class="anchor" id="section_overview"></a>
 Overview</h1>
-<p>This is a RealVNC Server SDK for iOS, and can be embedded into a single iOS application, in order to allow remote control of that application only.</p>
-<p>This is a little different from the RealVNC server SDKs which we provide on other platforms, in the following respects:</p>
+<p>This is a VNC Automotive Server SDK for iOS, and can be embedded into a single iOS application, in order to allow remote control of that application only.</p>
+<p>This is a little different from the VNC Automotive Server SDKs which we provide on other platforms, in the following respects:</p>
 <ul>
 <li>It only provides control of a single individual application.</li>
 <li>This server SDK must be linked into that application at build-time.</li>
 </ul>
 <h1><a class="anchor" id="section_basic_usage"></a>
 Basic usage</h1>
-<p>This RealVNC server SDK is distributed as a statically linked library, along with corresponding header files and static libraries for the bearers. To include it within your application, you will need to:</p>
+<p>This VNC Automotive Server SDK is distributed as a statically linked library, along with corresponding header files and static libraries for the bearers. To include it within your application, you will need to:</p>
 <ul>
 <li>Add libvncserversdkios.a (and bearer libraries) to your XCode project.</li>
 <li>Set the project include path and linker paths to point to the correct location for the header files and library files, respectively. You can do this by choosing "Get Info" on the target.</li>
-<li>Add suitable code to your application to instantiate, use and destroy the RealVNC server object. The sample application is working code that shows how to make use of a <a class="el" href="interfaceVNCServer.html" title="VNC Server class. ">VNCServer</a> object.</li>
+<li>Add suitable code to your application to instantiate, use and destroy the VNC Automotive server object. The sample application is working code that shows how to make use of a <a class="el" href="interfaceVNCServer.html" title="VNC Automotive Server class. ">VNCServer</a> object.</li>
 </ul>
 <h1><a class="anchor" id="section_using_object"></a>
-Using the RealVNC server object</h1>
-<p>The RealVNC server is an Objective C object. You should instantiate, use, and deallocate this in the normal way for Objective C objects.</p>
+Using the VNC Automotive Server object</h1>
+<p>The VNC Automotive Server is an Objective C object. You should instantiate, use, and deallocate this in the normal way for Objective C objects.</p>
 <p>Here's a quick example:</p>
-<div class="fragment"><div class="line"><span class="comment">// Create the RealVNC Server; you need to implement the protocol</span></div><div class="line"><span class="comment">// &#39;VNCServerDelegate&#39;, and pass a pointer to an instance here.</span></div><div class="line"><a class="code" href="interfaceVNCServer.html">VNCServer</a>* vncServer = [[[<a class="code" href="interfaceVNCServer.html">VNCServer</a> alloc] initWithDelegate:yourDelegate] autorelease];</div><div class="line"></div><div class="line"><span class="comment">// Use the &#39;bearer wrapper&#39; to wrap a bearer implementing the</span></div><div class="line"><span class="comment">// C API so that it can be used by the iOS Server (which requires</span></div><div class="line"><span class="comment">// bearers to use its own Objective-C API).</span></div><div class="line">VNCBearerWrapper * listenBearer = [[[VNCBearerWrapper alloc] initWithBearerName:<span class="stringliteral">@&quot;L&quot;</span> withInitializer:VNCBearerInitialize_L] autorelease];</div><div class="line">[vncServer addBearer:listenBearer];</div><div class="line"></div><div class="line"><span class="comment">// Add your RealVNC license.</span></div><div class="line">[vncServer addLicense:yourLicense withSerial:nil];</div><div class="line"></div><div class="line"><span class="comment">// Start listening.</span></div><div class="line">[vncServer connectWithCommandString:<span class="stringliteral">@&quot;vnccmd:v=1;t=L;p=5900&quot;</span>];</div></div><!-- fragment --><p>In the meantime, RealVNC viewers would be able to connect to your application on port 5900 of the device.</p>
-<p>The server instance will retain the delegate you provide to it in <a class="el" href="interfaceVNCServer.html#a32163ed59f43b817a85eff0c7eea119c" title="Initialise a VNC Server instance. ">initWithDelegate: (VNCServer)</a>. You can also disconnect at any point (using <a class="el" href="interfaceVNCServer.html#ad20897c5c8bd47f5d4005989bead0e55" title="Reset the current connection, if any. ">reset (VNCServer)</a>), and reconnect with another command string:</p>
-<div class="fragment"><div class="line">[vncServer reset];</div><div class="line">[vncServer connectWithCommandString:<span class="stringliteral">@&quot;vnccmd:v=1;t=C;a=127.0.0.1;p=5500&quot;</span>];</div></div><!-- fragment --><p>Once you're finished with the server instance, call <a class="el" href="interfaceVNCServer.html#a893f1101c650c08c98612515c2b1a89c" title="Invalidate the VNC Server instance. ">invalidate (VNCServer)</a>:</p>
+<div class="fragment"><div class="line"><span class="comment">// Create the VNC Automotive Server; you need to implement the protocol</span></div><div class="line"><span class="comment">// &#39;VNCServerDelegate&#39;, and pass a pointer to an instance here.</span></div><div class="line"><a class="code" href="interfaceVNCServer.html">VNCServer</a>* vncServer = [[[<a class="code" href="interfaceVNCServer.html">VNCServer</a> alloc] initWithDelegate:yourDelegate] autorelease];</div><div class="line"></div><div class="line"><span class="comment">// Use the &#39;bearer wrapper&#39; to wrap a bearer implementing the</span></div><div class="line"><span class="comment">// C API so that it can be used by the iOS Server (which requires</span></div><div class="line"><span class="comment">// bearers to use its own Objective-C API).</span></div><div class="line">VNCBearerWrapper * listenBearer = [[[VNCBearerWrapper alloc] initWithBearerName:<span class="stringliteral">@&quot;L&quot;</span> withInitializer:VNCBearerInitialize_L] autorelease];</div><div class="line">[vncServer addBearer:listenBearer];</div><div class="line"></div><div class="line"><span class="comment">// Add your VNC Automotive license.</span></div><div class="line">[vncServer addLicense:yourLicense withSerial:nil];</div><div class="line"></div><div class="line"><span class="comment">// Start listening.</span></div><div class="line">[vncServer connectWithCommandString:<span class="stringliteral">@&quot;vnccmd:v=1;t=L;p=5900&quot;</span>];</div></div><!-- fragment --><p>In the meantime, VNC Automotive Viewers would be able to connect to your application on port 5900 of the device.</p>
+<p>The server instance will retain the delegate you provide to it in <a class="el" href="interfaceVNCServer.html#a32163ed59f43b817a85eff0c7eea119c" title="Initialise a VNC Automotive Server instance. ">initWithDelegate: (VNCServer)</a>. You can also disconnect at any point (using <a class="el" href="interfaceVNCServer.html#ad20897c5c8bd47f5d4005989bead0e55" title="Reset the current connection, if any. ">reset (VNCServer)</a>), and reconnect with another command string:</p>
+<div class="fragment"><div class="line">[vncServer reset];</div><div class="line">[vncServer connectWithCommandString:<span class="stringliteral">@&quot;vnccmd:v=1;t=C;a=127.0.0.1;p=5500&quot;</span>];</div></div><!-- fragment --><p>Once you're finished with the server instance, call <a class="el" href="interfaceVNCServer.html#a893f1101c650c08c98612515c2b1a89c" title="Invalidate the VNC Automotive Server instance. ">invalidate (VNCServer)</a>:</p>
 <div class="fragment"><div class="line">[vncServer invalidate];</div></div><!-- fragment --><p>This will then cause the server to cancel any internal threads and release its reference to the delegate you provided (so no delegate methods will be called after this point).</p>
 <h1><a class="anchor" id="thread_safety"></a>
 Thread safety</h1>
-<p>The RealVNC server SDK for iOS creates some number of internal threads as necessary to run the RealVNC server. You are responsible for calling the server SDK APIs only on the main thread, but note that all the APIs are asynchronous and will therefore not block. Similarly, the RealVNC server will call the delegate you provide on the main thread, and also expects that those methods will not block.</p>
-<p>Don't worry about waiting for operations to complete before releasing your reference to the RealVNC server; any scheduled operations cause the server to be retained until they are complete. It's important to call <a class="el" href="interfaceVNCServer.html#a893f1101c650c08c98612515c2b1a89c" title="Invalidate the VNC Server instance. ">invalidate (VNCServer)</a> to ensure that the server cancels any internal processing and makes no further calls to the delegate.</p>
+<p>The VNC Automotive Server SDK for iOS creates some number of internal threads as necessary to run the VNC Automotive Server. You are responsible for calling the server SDK APIs only on the main thread, but note that all the APIs are asynchronous and will therefore not block. Similarly, the VNC Automotive Server will call the delegate you provide on the main thread, and also expects that those methods will not block.</p>
+<p>Don't worry about waiting for operations to complete before releasing your reference to the VNC Automotive Server; any scheduled operations cause the server to be retained until they are complete. It's important to call <a class="el" href="interfaceVNCServer.html#a893f1101c650c08c98612515c2b1a89c" title="Invalidate the VNC Automotive Server instance. ">invalidate (VNCServer)</a> to ensure that the server cancels any internal processing and makes no further calls to the delegate.</p>
 <h1><a class="anchor" id="event_injection"></a>
 Event Injection</h1>
 <p>By default, the server uses its own public API event injection methods, and you should almost always stick to using these. If you wish to implement any event injection yourself, you can implement one of the delegate protocols and then set the corresponding property on the server object.</p>
@@ -156,22 +126,22 @@ OpenGL Capture</h1>
 <p>There's also a lot of room here for performance improvement in OpenGL capture, which is something we're actively working on.</p>
 <h1><a class="anchor" id="security"></a>
 Security</h1>
-<p>Like RealVNC's other server SDKs, this server SDK provides encryption and authentication.</p>
+<p>Like VNC Automotive's other server SDKs, this server SDK provides encryption and authentication.</p>
 <p>For encryption, use the provided key generation class to create a key, and then set this using the private key property on the server class. The useEncryption property must also be set to true; if it is set, but there is no private key, then the server will default to using no encryption.</p>
 <p>For authentication, create the key as above, and set the authentcationMode property to the desired mode. Authentication requests, or responses, can then be received by the server delegate.</p>
 <h1><a class="anchor" id="licenses"></a>
 Licenses</h1>
-<p>The server needs to be provided with at least one valid license for a RealVNC connection, and you are responsible for loading the license file and passing the text contents to the <a class="el" href="interfaceVNCServer.html#a4546e30cbb2bb3a4607be1e234d92581" title="Add a license. ">addLicense:withSerial: (VNCServer)</a> method.</p>
+<p>The server needs to be provided with at least one valid license for a VNC Automotive connection, and you are responsible for loading the license file and passing the text contents to the <a class="el" href="interfaceVNCServer.html#a4546e30cbb2bb3a4607be1e234d92581" title="Add a license. ">addLicense:withSerial: (VNCServer)</a> method.</p>
 <h1><a class="anchor" id="section_legal"></a>
 Legal information</h1>
-<p>Copyright &copy; 2002-2018 RealVNC Ltd. All Rights Reserved.</p>
-<p>RealVNC and VNC are trademarks of RealVNC Limited and are protected by trademark registrations and/or pending trademark applications in the European Union, United States of America and other jurisdictions. Other trademarks are the property of their respective owners. Protected by UK patents 2481870, 2491657; US patents 8760366, 9137657; EU patent 2652951. </p>
+<p>Copyright (C) 2002-2018 VNC Automotive Ltd. All Rights Reserved.</p>
+<p>VNC Automotive is a trademark of VNC Automotive Limited and is protected by trademark registrations and/or pending trademark applications in the European Union, United States of America and other jurisdictions. Other trademarks are the property of their respective owners. </p>
 </div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Wed Sep 5 2018 17:01:30 for VNC<sup>&reg;</sup> Mobile Server SDK for iOS Embedded by
+    <li class="footer">Generated on Sat Oct 6 2018 06:37:18 for VNC Automotive Server SDK for iOS Embedded by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.13 </li>
   </ul>

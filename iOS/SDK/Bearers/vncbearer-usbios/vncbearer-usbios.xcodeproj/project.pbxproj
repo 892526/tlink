@@ -240,7 +240,7 @@
 					../include,
 					../../SDK/include,
 				);
-				IPHONEOS_DEPLOYMENT_TARGET = 5.1.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "vncbearer-usbios";
 				SKIP_INSTALL = YES;
@@ -261,7 +261,7 @@
 					../include,
 					../../SDK/include,
 				);
-				IPHONEOS_DEPLOYMENT_TARGET = 5.1.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "vncbearer-usbios";
 				SKIP_INSTALL = YES;

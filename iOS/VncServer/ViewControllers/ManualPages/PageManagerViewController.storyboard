@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="XnZ-PI-mMQ">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Page Manager View Controller-->
+        <scene sceneID="cCU-ry-lQH">
+            <objects>
+                <viewController id="XnZ-PI-mMQ" customClass="PageManagerViewController" customModule="VncServer" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ZxE-UH-mKP">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gyT-va-eyr">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="610"/>
+                                <connections>
+                                    <segue destination="kGS-Qa-UO6" kind="embed" id="pdN-UP-53R"/>
+                                </connections>
+                            </containerView>
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="5" translatesAutoresizingMaskIntoConstraints="NO" id="GYX-JJ-7tz">
+                                <rect key="frame" x="152" y="618" width="71" height="37"/>
+                                <color key="pageIndicatorTintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="currentPageIndicatorTintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <action selector="pageControlValueChanged:" destination="XnZ-PI-mMQ" eventType="valueChanged" id="zKN-fy-hwl"/>
+                                </connections>
+                            </pageControl>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="gyT-va-eyr" firstAttribute="top" secondItem="ZxE-UH-mKP" secondAttribute="top" id="Bhm-MY-Onf"/>
+                            <constraint firstItem="gyT-va-eyr" firstAttribute="trailing" secondItem="V73-Yy-BI6" secondAttribute="trailing" id="DqT-3P-HFF"/>
+                            <constraint firstItem="V73-Yy-BI6" firstAttribute="bottom" secondItem="GYX-JJ-7tz" secondAttribute="bottom" constant="12" id="VDY-gg-y0e"/>
+                            <constraint firstItem="GYX-JJ-7tz" firstAttribute="centerX" secondItem="ZxE-UH-mKP" secondAttribute="centerX" id="cp5-FH-ajR"/>
+                            <constraint firstItem="gyT-va-eyr" firstAttribute="leading" secondItem="V73-Yy-BI6" secondAttribute="leading" id="fAb-Oz-eXM"/>
+                            <constraint firstItem="GYX-JJ-7tz" firstAttribute="top" secondItem="gyT-va-eyr" secondAttribute="bottom" constant="8" id="mfi-ke-bp0"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="V73-Yy-BI6"/>
+                    </view>
+                    <connections>
+                        <outlet property="pageController" destination="GYX-JJ-7tz" id="C4m-sX-d1K"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yKb-jb-OEo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="43.628185907046479" y="232.80000000000001"/>
+        </scene>
+        <!--Page View Controller-->
+        <scene sceneID="tkA-fn-rmb">
+            <objects>
+                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="kGS-Qa-UO6" customClass="PageViewController" customModule="VncServer" customModuleProvider="target" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yBf-VR-qzD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="831" y="234"/>
+        </scene>
+    </scenes>
+</document>

@@ -24,7 +24,7 @@ public class UnitTestFileCoordinator {
         
         for index in 0 ..< fileNameList.count {
             if let data = testDataTextList[index].data(using: .utf8) {
-                result = FileCoordinatorUtility.writeData(data: data, fileName: fileNameList[index], groupID: SharedSetting.suitName)
+                result = FileCoordinatorUtility.writeData(data: data, fileName: fileNameList[index], groupID: AppGroupsManager.groupID)
                 XCTAssertTrue(result, "DataFile write error")
             } else {
                 XCTFail("text converting error")
@@ -35,7 +35,7 @@ public class UnitTestFileCoordinator {
     public class func testRead() {
         for index in 0 ..< fileNameList.count {
             do {
-                if let readData = try FileCoordinatorUtility.readData(fileName: fileNameList[index], groupID: SharedSetting.suitName) {
+                if let readData = try FileCoordinatorUtility.readData(fileName: fileNameList[index], groupID: AppGroupsManager.groupID) {
                     AppLogger.debug("OK (Data = \(readData.count) bytes")
                     
                     if !readData.isEmpty {
@@ -60,7 +60,7 @@ public class UnitTestFileCoordinator {
     
     public class func testRemove() {
         for index in 0 ..< fileNameList.count {
-            let result = FileCoordinatorUtility.removeData(fileName: fileNameList[index], groupID: SharedSetting.suitName)
+            let result = FileCoordinatorUtility.removeData(fileName: fileNameList[index], groupID: AppGroupsManager.groupID)
             XCTAssertTrue(result, "DataFile remove error")
         }
     }

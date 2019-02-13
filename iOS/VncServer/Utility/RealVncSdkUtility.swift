@@ -14,9 +14,13 @@ public class RealVncSdkUtility {
     ///
     /// - Returns: ビルドバージョン文字列
     public class func buildVersion() -> String {
-        if let sdkVersion = VNCServer.buildVersion() {
-            return sdkVersion
-        }
-        return String.Empty
+        #if USE_IOS_SIMULATOR
+            return "---"
+        #else
+            if let sdkVersion = VNCServer.buildVersion() {
+                return sdkVersion
+            }
+            return String.Empty
+        #endif
     }
 }

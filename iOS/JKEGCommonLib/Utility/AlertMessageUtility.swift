@@ -47,7 +47,7 @@ public class AlertMessageUtility {
     ///   - completion: ボタン選択完了ハンドラ。選択したボタンを引数で渡す。
     public class func show(owner: UIViewController, title: String, message: String, type: AlertMessageUtilityType, completion: ((_ selectedButtonType: AlertMessageUtilityButtonType) -> Void)?) {
         // AlertController作成
-        let alertController: UIAlertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
+        let alertController: UIAlertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
         
         switch type {
         case .typeOk:
@@ -90,14 +90,14 @@ public class AlertMessageUtility {
     ///   - completion: ボタン選択完了ハンドラ。選択したボタンのインデックス番号（0開始）を返す。
     public class func show(owner: UIViewController, title: String, message: String, buttonTitles: [String], completion: ((_ selectedButtonIndex: UInt) -> Void)?) {
         // AlertController作成
-        let alertController: UIAlertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
+        let alertController: UIAlertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
         
         // ボタンインデックス番号（0開始）
         var index: UInt = 0
         
         for title in buttonTitles {
             // Action作成
-            let alertAction: JKAlertAction = JKAlertAction(title: title, style: UIAlertActionStyle.default) { action in
+            let alertAction: JKAlertAction = JKAlertAction(title: title, style: UIAlertAction.Style.default) { action in
                 let action: JKAlertAction = action as! JKAlertAction
                 
                 if let handler = completion {
@@ -119,9 +119,17 @@ public class AlertMessageUtility {
         owner.present(alertController, animated: true, completion: nil)
     }
     
+    /// 入力機能付きAlertViewを表示する。
+    ///
+    /// - Parameters:
+    ///   - owner: オーナービューコントローラー
+    ///   - title: タイトル
+    ///   - message: メッセージ
+    ///   - placeholders: プレイスホルダー
+    ///   - completion: ボタン選択完了ハンドラ。入力データを引数で返す。
     public class func showInputView(owner: UIViewController, title: String, message: String, placeholders: [String], completion: ((_ inputValues: [String]) -> Void)?) {
         // AlertController作成
-        let alertController: UIAlertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
+        let alertController: UIAlertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
         
         // Cancelボタン
         addActionButton(alertController: alertController, buttonTitle: JKEGCommonString.localizedString("JKEG_COMMON_BUTTON_TITLE_CANCEL"), buttonType: .typeCancel, completionHandler: nil)
@@ -173,7 +181,7 @@ public class AlertMessageUtility {
     ///   - completionHandler: ボタン押下イベント
     private class func addActionButton(alertController: UIAlertController, buttonTitle: String, buttonType: AlertMessageUtilityButtonType,
                                        completionHandler: ((_ selectedButtonIndex: AlertMessageUtilityButtonType) -> Void)?) {
-        alertController.addAction(UIAlertAction(title: buttonTitle, style: UIAlertActionStyle.default, handler: { _ in
+        alertController.addAction(UIAlertAction(title: buttonTitle, style: UIAlertAction.Style.default, handler: { _ in
             if let handler = completionHandler {
                 // OKボタンタップ通知
                 handler(buttonType)

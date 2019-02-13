@@ -6,6 +6,7 @@
 //  Copyright © 2018年 JVCKENWOOD Engineering Corporation. All rights reserved.
 //
 
+import JKEGCommonLib
 import UIKit
 
 class AppOverviewViewController: BaseWebViewController {
@@ -14,8 +15,12 @@ class AppOverviewViewController: BaseWebViewController {
         
         // Do any additional setup after loading the view.
         
+        // アプリケーション概要
+        // タイトルヘッダービュー
+        setupTitleView(Localize.localizedString("SS_01_003"))
+        
         // HTMLファイルロードする
-        let filePath = Bundle.main.path(forResource: "app_summery", ofType: "htm")
+        let filePath = Bundle.main.path(forResource: "application_overview", ofType: "html")
         let url: URL = URL(fileURLWithPath: filePath!)
         loadHtml(url: url)
     }

@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['vnc_26reg_3b_20mobile_20server_20sdk_20for_20ios_20embedded',['VNC&amp;reg; Mobile Server SDK for iOS Embedded',['../index.html',1,'']]],
+  ['vnc_20automotive_20server_20sdk_20for_20ios_20embedded',['VNC Automotive Server SDK for iOS Embedded',['../index.html',1,'']]],
   ['version',['version',['../protocolVNCBearer_01-p.html#a806fdedd0e4bb74dd72852de6e4b25e2',1,'VNCBearer -p']]],
   ['vnc_5fauthmode_5fnone',['VNC_AUTHMODE_NONE',['../VNCServer_8h.html#a432b9f98e37e02b5a99d8f28b782d324a1e3984cdae1c6551fab59bca81f89609',1,'VNCServer.h']]],
   ['vnc_5fauthmode_5fpass',['VNC_AUTHMODE_PASS',['../VNCServer_8h.html#a432b9f98e37e02b5a99d8f28b782d324a58c3aabd5c4ce1c72f0e5c7d0c5ab057',1,'VNCServer.h']]],

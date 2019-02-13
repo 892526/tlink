@@ -1,10 +1,10 @@
-/* Copyright (C) 2016-2018 RealVNC Ltd.  All Rights Reserved.
+/* Copyright (C) 2016-2018 VNC Automotive Ltd.  All Rights Reserved.
 */
 
 #ifndef VNCBEARERSDKSTRING_H_35318748190379279264132193373607729358
 #define VNCBEARERSDKSTRING_H_35318748190379279264132193373607729358
 
-#include <vnccommon/Optional.h>
+#include <vacommon/Optional.h>
 
 struct VNCBearerImpl;
 
@@ -15,10 +15,10 @@ public:
   VNCBearerSdkString(const VNCBearerImpl& bearer, char* str = NULL);
   ~VNCBearerSdkString();
 
-  vnccommon::Optional<std::string> get() const;
+  vacommon::Optional<std::string> get() const;
 
   // Utility method to transform this string to an unsigned long
-  vnccommon::Optional<unsigned long> toUnsignedLong() const;
+  vacommon::Optional<unsigned long> toUnsignedLong() const;
 
 private:
   // Copy operations are private to prevent copying

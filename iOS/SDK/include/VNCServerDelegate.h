@@ -4,9 +4,9 @@
 /**
  * \file VNCServerDelegate.h
  * 
- * \brief VNC Server Delegate
+ * \brief VNC Automotive Server Delegate
  *
- * Copyright RealVNC Ltd. 2013-2018. All rights reserved.
+ * Copyright (C) 2013-2018 VNC Automotive Ltd.  All Rights Reserved.
  */
 
 // Server error codes.
@@ -16,10 +16,10 @@
 #import <VNCServerLogLevel.h>
 
 /**
- * \brief VNC Server Delegate
+ * \brief VNC Automotive Server Delegate
  * 
  * Protocol to be implemented by classes which can
- * handle VNC Server events. This should be passed
+ * handle VNC Automotive Server events. This should be passed
  * to VNCServer::initWithDelegate: (which will retain
  * this instance, hence it must implement NSObject).
  */
@@ -147,14 +147,14 @@
 -(void) onRunning;
 
 /**
- * \brief Handle a VNC Server error.
+ * \brief Handle a VNC Automotive Server error.
  * 
  * When a connection terminates, the server SDK will call exactly
  * one of VNCServerDelegate::onDisconnected (to nofify a graceful
  * disconnection) and VNCServer::onServerError: (to notify a
  * non-graceful disconnection.)
  * 
- * \param error The VNC Server error.
+ * \param error The VNC Automotive Server error.
  * 
  * \see VNCServerError
  */
@@ -162,7 +162,7 @@
 -(void) onServerError:(VNCServerError)error;
 
 /**
- * \brief Handle a VNC Server log message.
+ * \brief Handle a VNC Automotive Server log message.
  * 
  * Note that the server SDK will not log other than through this
  * method, so it's important that implementations do not discard
@@ -173,7 +173,7 @@
  * 
  * \code
  * -(void) onServerLog:(NSString*)message withLevel:(VNCServerLogLevel)level {
- *     NSLog(@"RealVNC iOS Server Log (level %d): %@.", level, message);
+ *     NSLog(@"VNC Automotive iOS Server Log (level %d): %@.", level, message);
  * }
  * \endcode
  * 

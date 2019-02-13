@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.13"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>VNC&reg; Mobile Server SDK for iOS Embedded: VNCServerError.h File Reference</title>
+<title>VNC Automotive Server SDK for iOS Embedded: VNCServerError.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -28,8 +28,8 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">VNC&reg; Mobile Server SDK for iOS Embedded
-   &#160;<span id="projectnumber">4.1.3.8315</span>
+   <div id="projectname">VNC Automotive Server SDK for iOS Embedded
+   &#160;<span id="projectnumber">4.2.3.8911</span>
    </div>
   </td>
  </tr>
@@ -88,7 +88,7 @@ $(document).ready(function(){initNavTree('VNCServerError_8h.html','');});
 </div><!--header-->
 <div class="contents">
 
-<p>VNC Server Error Codes.  
+<p>VNC Automotive Server Error Codes.  
 <a href="#details">More...</a></p>
 
 <p><a href="VNCServerError_8h_source.html">Go to the source code of this file.</a></p>
@@ -170,8 +170,8 @@ Functions</h2></td></tr>
 <tr class="separator:af22fb7a3f3770a3469c96dd8a8246ea4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>VNC Server Error Codes. </p>
-<p>Copyright RealVNC Ltd. 2013-2018. All rights reserved. </p>
+<div class="textblock"><p>VNC Automotive Server Error Codes. </p>
+<p>Copyright (C) 2013-2018 VNC Automotive Ltd. All Rights Reserved. </p>
 
 <p class="definition">Definition in file <a class="el" href="VNCServerError_8h_source.html">VNCServerError.h</a>.</p>
 </div><h2 class="groupheader">Enumeration Type Documentation</h2>
@@ -188,7 +188,7 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Error codes that may be notified via the server delegate. </p>
-<p>Any error indicates that the VNC session has ended. </p>
+<p>Any error indicates that the VNC Automotive session has ended. </p>
 <table class="fieldtable">
 <tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a0f10ad97a7f1460a489114ca4d7fe610a7c8899b1e5501017222cbf6340cc2051"></a>VNCServerErrorNone&#160;</td><td class="fielddoc"><p>No error. </p>
 </td></tr>
@@ -233,31 +233,31 @@ Functions</h2></td></tr>
 </td></tr>
 <tr><td class="fieldname"><a id="a0f10ad97a7f1460a489114ca4d7fe610a68e1c052aa8e22f73c2c6da6b93e0252"></a>VNCServerErrorBearerLoadFailed&#160;</td><td class="fielddoc"><p>A bearer could not be loaded. </p>
 </td></tr>
-<tr><td class="fieldname"><a id="a0f10ad97a7f1460a489114ca4d7fe610a4ade99a88fc1a5b86dc899c8dc9bc1a1"></a>VNCServerErrorProtocolMismatch&#160;</td><td class="fielddoc"><p>Protocol incompatible with that of VNC Mobile Viewer. </p>
-<p>This error can occur if VNC Mobile Server is attempting to connect to VNC Viewer from a RealVNC edition other than VNC Mobile Solution, to a VNC-compatible application from a third party, or to something other than a VNC viewer (eg a HTTP server). </p>
+<tr><td class="fieldname"><a id="a0f10ad97a7f1460a489114ca4d7fe610a4ade99a88fc1a5b86dc899c8dc9bc1a1"></a>VNCServerErrorProtocolMismatch&#160;</td><td class="fielddoc"><p>Protocol incompatible with that of the Viewer. </p>
+<p>This error can occur if the Server is attempting to connect to a non-VNC Automotive Viewer or to something other than a VNC Automotive Viewer (e.g. a HTTP server). party, or to something other than a VNC Automotive viewer (eg a HTTP server). </p>
 </td></tr>
 <tr><td class="fieldname"><a id="a0f10ad97a7f1460a489114ca4d7fe610a6ec09a48610f8f5160d398090ac3819c"></a>VNCServerErrorLoginRejected&#160;</td><td class="fielddoc"><p>User rejected authentication credentials. </p>
 </td></tr>
-<tr><td class="fieldname"><a id="a0f10ad97a7f1460a489114ca4d7fe610afe64f53e886f2da498ef5511c04ef1b9"></a>VNCServerErrorNotLicensedForViewer&#160;</td><td class="fielddoc"><p>License incompatible with that of VNC Mobile Viewer. </p>
+<tr><td class="fieldname"><a id="a0f10ad97a7f1460a489114ca4d7fe610afe64f53e886f2da498ef5511c04ef1b9"></a>VNCServerErrorNotLicensedForViewer&#160;</td><td class="fielddoc"><p>License incompatible with that of VNC Automotive Viewer. </p>
 </td></tr>
-<tr><td class="fieldname"><a id="a0f10ad97a7f1460a489114ca4d7fe610a39c09b5e773360f2e79c00609c401b5f"></a>VNCServerErrorConnectionClosed&#160;</td><td class="fielddoc"><p>VNC Mobile Viewer terminated the remote control session. </p>
+<tr><td class="fieldname"><a id="a0f10ad97a7f1460a489114ca4d7fe610a39c09b5e773360f2e79c00609c401b5f"></a>VNCServerErrorConnectionClosed&#160;</td><td class="fielddoc"><p>VNC Automotive Viewer terminated the remote control session. </p>
 </td></tr>
 <tr><td class="fieldname"><a id="a0f10ad97a7f1460a489114ca4d7fe610a0c6677a4eaeadb2f3d74c7556fc31d49"></a>VNCServerErrorInvalidCommandString&#160;</td><td class="fielddoc"><p>Invalid command string. </p>
 </td></tr>
 <tr><td class="fieldname"><a id="a0f10ad97a7f1460a489114ca4d7fe610a488a56832f0902a7e289923de19e80af"></a>VNCServerErrorUnsupportedAuth&#160;</td><td class="fielddoc"><p>Invalid authentication type. </p>
-<p>The connection is encrypted but VNC Mobile Server did not provide RSA keys. Alternatively, VNC Mobile Viewer specified an unsupported authentication type. </p>
+<p>The connection is encrypted but VNC Automotive Server did not provide RSA keys. Alternatively, VNC Automotive Viewer specified an unsupported authentication type. </p>
 </td></tr>
 <tr><td class="fieldname"><a id="a0f10ad97a7f1460a489114ca4d7fe610a6da979daecbcbd87021d5f8c14af4902"></a>VNCServerErrorKeyTooBig&#160;</td><td class="fielddoc"><p>The RSA key is too large. </p>
 </td></tr>
-<tr><td class="fieldname"><a id="a0f10ad97a7f1460a489114ca4d7fe610a4f8b1af1cbfee1fcb860dbc58ce3bbb0"></a>VNCServerErrorBadCrypt&#160;</td><td class="fielddoc"><p>RFB protocol or AES checksum is corrupt, or VNC Mobile Viewer did not have a matching private key. </p>
+<tr><td class="fieldname"><a id="a0f10ad97a7f1460a489114ca4d7fe610a4f8b1af1cbfee1fcb860dbc58ce3bbb0"></a>VNCServerErrorBadCrypt&#160;</td><td class="fielddoc"><p>RFB protocol or AES checksum is corrupt, or VNC Automotive Viewer did not have a matching private key. </p>
 </td></tr>
-<tr><td class="fieldname"><a id="a0f10ad97a7f1460a489114ca4d7fe610a263be07c4f1345868a5de609382583d2"></a>VNCServerErrorNoEncodings&#160;</td><td class="fielddoc"><p>VNC Mobile Viewer specified an unsupported encoding. </p>
+<tr><td class="fieldname"><a id="a0f10ad97a7f1460a489114ca4d7fe610a263be07c4f1345868a5de609382583d2"></a>VNCServerErrorNoEncodings&#160;</td><td class="fielddoc"><p>VNC Automotive Viewer specified an unsupported encoding. </p>
 </td></tr>
-<tr><td class="fieldname"><a id="a0f10ad97a7f1460a489114ca4d7fe610ac7b3ae3e4975ba5e0e4e23e7c077ffd6"></a>VNCServerErrorBadPixelformat&#160;</td><td class="fielddoc"><p>VNC Mobile Viewer specified an unsupported pixel color depth. </p>
+<tr><td class="fieldname"><a id="a0f10ad97a7f1460a489114ca4d7fe610ac7b3ae3e4975ba5e0e4e23e7c077ffd6"></a>VNCServerErrorBadPixelformat&#160;</td><td class="fielddoc"><p>VNC Automotive Viewer specified an unsupported pixel color depth. </p>
 </td></tr>
 <tr><td class="fieldname"><a id="a0f10ad97a7f1460a489114ca4d7fe610a75473fd10ed3671bb4e3da31e5f530fd"></a>VNCServerErrorBearerNotFound&#160;</td><td class="fielddoc"><p>Transport mechanism specified in command string missing or corrupt. </p>
 </td></tr>
-<tr><td class="fieldname"><a id="a0f10ad97a7f1460a489114ca4d7fe610aadf0252180c50d8b28d6c7c3ee7353d5"></a>VNCServerErrorSignatureRejected&#160;</td><td class="fielddoc"><p>VNC Mobile Viewer signature specified in command string not the same as that of the actual VNC Mobile Viewer that connects. </p>
+<tr><td class="fieldname"><a id="a0f10ad97a7f1460a489114ca4d7fe610aadf0252180c50d8b28d6c7c3ee7353d5"></a>VNCServerErrorSignatureRejected&#160;</td><td class="fielddoc"><p>VNC Automotive Viewer signature specified in command string not the same as that of the actual VNC Automotive Viewer that connects. </p>
 </td></tr>
 <tr><td class="fieldname"><a id="a0f10ad97a7f1460a489114ca4d7fe610a2aa1e997d72c08aabf7af0eb1be0c9c5"></a>VNCServerErrorInsufficientBufferSpace&#160;</td><td class="fielddoc"><p>The requested operation could not be completed due to insufficient buffer space. </p>
 </td></tr>
@@ -270,7 +270,7 @@ Functions</h2></td></tr>
 </td></tr>
 <tr><td class="fieldname"><a id="a0f10ad97a7f1460a489114ca4d7fe610ace64f419a831a3f317fbb5071205106c"></a>VNCServerErrorKeyGeneration&#160;</td><td class="fielddoc"><p>The RSA key generation algorithm failed. </p>
 </td></tr>
-<tr><td class="fieldname"><a id="a0f10ad97a7f1460a489114ca4d7fe610ae54babb5d8b0b701b1448729e44bb109"></a>VNCServerErrorUnableToStartService&#160;</td><td class="fielddoc"><p>The underlying VNC Mobile Server service could not be started. </p>
+<tr><td class="fieldname"><a id="a0f10ad97a7f1460a489114ca4d7fe610ae54babb5d8b0b701b1448729e44bb109"></a>VNCServerErrorUnableToStartService&#160;</td><td class="fielddoc"><p>The underlying VNC Automotive Server service could not be started. </p>
 </td></tr>
 <tr><td class="fieldname"><a id="a0f10ad97a7f1460a489114ca4d7fe610a6b4fd390d6e4c303d28b284a9d5f9c5d"></a>VNCServerErrorAlreadyExists&#160;</td><td class="fielddoc"><p>A custom extension with the same name has already been registered. </p>
 </td></tr>
@@ -278,13 +278,13 @@ Functions</h2></td></tr>
 </td></tr>
 <tr><td class="fieldname"><a id="a0f10ad97a7f1460a489114ca4d7fe610a708bc20bd73f7dafc7a8733a6898e531"></a>VNCServerErrorReset&#160;</td><td class="fielddoc"><p>The server was reset by an external action </p>
 </td></tr>
-<tr><td class="fieldname"><a id="a0f10ad97a7f1460a489114ca4d7fe610a840b7e52a175dde68480bf3f9a61d972"></a>VNCServerErrorDataRelayProtocolError&#160;</td><td class="fielddoc"><p>VNC Data Relay received an invalid message from the server. </p>
+<tr><td class="fieldname"><a id="a0f10ad97a7f1460a489114ca4d7fe610a840b7e52a175dde68480bf3f9a61d972"></a>VNCServerErrorDataRelayProtocolError&#160;</td><td class="fielddoc"><p>VNC Automotive Data Relay received an invalid message from the server. </p>
 </td></tr>
-<tr><td class="fieldname"><a id="a0f10ad97a7f1460a489114ca4d7fe610aaf6438209203f521aa2d67b0164067e8"></a>VNCServerErrorUnknownDataRelaySessionId&#160;</td><td class="fielddoc"><p>Either the command string contained an invalid VNC Data Relay session ID, or the communication channel to which it refers is no longer reserved. </p>
+<tr><td class="fieldname"><a id="a0f10ad97a7f1460a489114ca4d7fe610aaf6438209203f521aa2d67b0164067e8"></a>VNCServerErrorUnknownDataRelaySessionId&#160;</td><td class="fielddoc"><p>Either the command string contained an invalid VNC Automotive Data Relay session ID, or the communication channel to which it refers is no longer reserved. </p>
 </td></tr>
-<tr><td class="fieldname"><a id="a0f10ad97a7f1460a489114ca4d7fe610a130082f4b473df60be3d8836d1a0084a"></a>VNCServerErrorBadChallenge&#160;</td><td class="fielddoc"><p>VNC Data Relay could not authenticate the server. </p>
+<tr><td class="fieldname"><a id="a0f10ad97a7f1460a489114ca4d7fe610a130082f4b473df60be3d8836d1a0084a"></a>VNCServerErrorBadChallenge&#160;</td><td class="fielddoc"><p>VNC Automotive Data Relay could not authenticate the server. </p>
 </td></tr>
-<tr><td class="fieldname"><a id="a0f10ad97a7f1460a489114ca4d7fe610a27eaba05cf24b10e42ee3ab077b49317"></a>VNCServerErrorDataRelayChannelTimeout&#160;</td><td class="fielddoc"><p>VNC Mobile Viewer did not connect to the other end of the reserved VNC Data Relay communication channel in time. </p>
+<tr><td class="fieldname"><a id="a0f10ad97a7f1460a489114ca4d7fe610a27eaba05cf24b10e42ee3ab077b49317"></a>VNCServerErrorDataRelayChannelTimeout&#160;</td><td class="fielddoc"><p>VNC Automotive Viewer did not connect to the other end of the reserved VNC Automotive Data Relay communication channel in time. </p>
 </td></tr>
 <tr><td class="fieldname"><a id="a0f10ad97a7f1460a489114ca4d7fe610af1861815313216a61746e11861ebe531"></a>VNCServerErrorUserRefusedConnection&#160;</td><td class="fielddoc"><p>Device user rejected prompt authorizing remote control. </p>
 </td></tr>
@@ -340,7 +340,7 @@ Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="VNCServerError_8h.html">VNCServerError.h</a></li>
-    <li class="footer">Generated on Wed Sep 5 2018 17:01:30 for VNC&reg; Mobile Server SDK for iOS Embedded by
+    <li class="footer">Generated on Sat Oct 6 2018 06:37:18 for VNC Automotive Server SDK for iOS Embedded by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.13 </li>
   </ul>

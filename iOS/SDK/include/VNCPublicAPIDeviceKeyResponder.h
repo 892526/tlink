@@ -1,4 +1,4 @@
-/* Copyright RealVNC Ltd. 2011-2018. All rights reserved. */
+/* Copyright (C) 2011-2018 VNC Automotive Ltd.  All Rights Reserved. */
 
 #ifndef IOSSERVERSDK_VNCPUBLICAPIDEVICEKEYRESPONDER_H
 #define IOSSERVERSDK_VNCPUBLICAPIDEVICEKEYRESPONDER_H
@@ -6,7 +6,7 @@
 /**
  * \file VNCPublicAPIDeviceKeyResponder.h
  * 
- * \brief VNC Public API Device Key Responder API
+ * \brief VNC Automotive Public API Device Key Responder API
  *
  * The protocol documented here makes it possible to implement
  * public API device key injection for custom controls.
@@ -24,19 +24,19 @@
  */
 
 /**
- * \brief A VNC Public API device key responder.
+ * \brief A VNC Automotive Public API device key responder.
  * 
- * Implement this for a responder to handle VNC device key events.
- * The RealVNC Public API device key injector will search for the
+ * Implement this for a responder to handle VNC Automotive device key events.
+ * The VNC Automotive Public API device key injector will search for the
  * first responder (see UIResponder), and call this method on that
  * responder.
  */
 @protocol VNCPublicAPIDeviceKeyResponder
 
 /**
- * \brief Handle a VNC device key.
+ * \brief Handle a VNC Automotive device key.
  *
- * VNC device keys can be either 'raw' or abstractions, the former
+ * VNC Automotive device keys can be either 'raw' or abstractions, the former
  * being device key codes that are specific to the device, while
  * the latter are values in the VNCDeviceKey enum that are applicable
  * to most devices.

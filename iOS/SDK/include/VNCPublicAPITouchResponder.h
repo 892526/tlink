@@ -1,4 +1,4 @@
-/* Copyright RealVNC Ltd. 2011-2018. All rights reserved. */
+/* Copyright (C) 2011-2018 VNC Automotive Ltd.  All Rights Reserved. */
 
 #ifndef IOSSERVERSDK_VNCPUBLICAPITOUCHRESPONDER_H
 #define IOSSERVERSDK_VNCPUBLICAPITOUCHRESPONDER_H
@@ -6,7 +6,7 @@
 /**
  * \file VNCPublicAPITouchResponder.h
  * 
- * \brief VNC Public API Touch Responder API
+ * \brief VNC Automotive Public API Touch Responder API
  *
  * The protocols documented here make it possible to
  * implement public API touch injection for custom controls.
@@ -22,22 +22,22 @@
  */
 
 /**
- * \brief A VNC Public API touch responder.
+ * \brief A VNC Automotive Public API touch responder.
  * 
- * Implement this to become a VNC touch handler and be able to receive
+ * Implement this to become a VNC Automotive touch handler and be able to receive
  * touch events. Note that this handler must be returned by an
  * instance of VNCPublicAPITouchResponderNode, that is reachable
  * (i.e. attached to a UIWindow), to be used by the touch injector.
  *
- * The RealVNC public API touch injector will search for the correct touch
+ * The VNC Automotive public API touch injector will search for the correct touch
  * handler using VNCPublicAPITouchResponderNode::findVNCTouchResponder, 
  * and then, if a responder is found, call:
  *
  * 1) VNCPublicAPITouchResponder::beginVNCTouchSequenceAtPoint: once to
- *    indicate the VNC touch sequence has started.
- * 2) VNCPublicAPITouchResponder::handleVNCTouchAtPoint: for each VNC touch.
+ *    indicate the VNC Automotive touch sequence has started.
+ * 2) VNCPublicAPITouchResponder::handleVNCTouchAtPoint: for each VNC Automotive touch.
  * 3) VNCPublicAPITouchResponder::endVNCTouchSequenceAtPoint: once to
- *    indicate the VNC touch sequence has ended.
+ *    indicate the VNC Automotive touch sequence has ended.
  */
 @protocol VNCPublicAPITouchResponder < NSObject >
 
@@ -62,10 +62,10 @@
 -(CGPoint) convertVNCTouchToLocalCoords:(CGPoint)point;
 
 /**
- * \brief Start a VNC touch sequence.
+ * \brief Start a VNC Automotive touch sequence.
  * 
- * This is called at the beginning of a VNC touch sequence. This
- * method should create any necessary state for the VNC touch sequence
+ * This is called at the beginning of a VNC Automotive touch sequence. This
+ * method should create any necessary state for the VNC Automotive touch sequence
  * and return it from this method.
  * 
  * \param point Location of the first touch in the sequence in the
@@ -83,11 +83,11 @@
 -(id) beginVNCTouchSequenceAtPoint:(CGPoint)point withTapCount:(NSUInteger)tapCount;
 
 /**
- * \brief End a VNC touch sequence.
+ * \brief End a VNC Automotive touch sequence.
  * 
- * This is called to indicate the end of a VNC touch sequence. This
+ * This is called to indicate the end of a VNC Automotive touch sequence. This
  * method should destroy the state created in VNCPublicAPITouchResponder::beginVNCTouchSequenceAtPoint:
- * for this VNC touch sequence.
+ * for this VNC Automotive touch sequence.
  * 
  * \param point Location of the last touch in the sequence in the
  *              'local' coordinate system (as determined by
@@ -99,7 +99,7 @@
 -(void) endVNCTouchSequenceAtPoint:(CGPoint)point withData:(id)data;
 
 /**
- * \brief Handle a VNC touch.
+ * \brief Handle a VNC Automotive touch.
  * 
  * This will be called for every touch in the sequence (including
  * first and last).
@@ -111,9 +111,9 @@
 -(void) handleVNCTouchAtPoint:(CGPoint)point withData:(id)data;
 
 /**
- * \brief Query whether a VNC touch sequence should be cancelled.
+ * \brief Query whether a VNC Automotive touch sequence should be cancelled.
  *
- * This method can be used to query whether a VNC touch sequence should be cancelled.
+ * This method can be used to query whether a VNC Automotive touch sequence should be cancelled.
  * For example, UIScrollView touch handling will call this method before cancelling touch
  * events to determine if it is appropriate to cancel the touch sequence.
  *
@@ -126,11 +126,11 @@
 -(BOOL) shouldCancelVNCTouchSequenceWithData:(id)data;
 
 /**
- * \brief Cancel a VNC touch sequence.
+ * \brief Cancel a VNC Automotive touch sequence.
  *
- * This is called to indicate a VNC touch sequence should be cancelled. This
+ * This is called to indicate a VNC Automotive touch sequence should be cancelled. This
  * method should destroy the state created in VNCPublicAPITouchResponder::beginVNCTouchSequenceAtPoint:
- * for this VNC touch sequence.
+ * for this VNC Automotive touch sequence.
  * 
  * By default (i.e. when unimplemented), this method calls VNCPublicAPITouchResponder::endVNCTouchSequenceAtPoint:.
  *
@@ -142,21 +142,21 @@
 @end
 
 /**
- * \brief A VNC Public API touch responder node.
+ * \brief A VNC Automotive Public API touch responder node.
  * 
- * Implement this to find and return a VNC touch responder - many UI
+ * Implement this to find and return a VNC Automotive touch responder - many UI
  * elements implement this and return themselves as the handler.
  */
 @protocol VNCPublicAPITouchResponderNode
 
 /**
- * \brief Find a VNC touch responder.
+ * \brief Find a VNC Automotive touch responder.
  * 
- * This is called by upper tree elements (or RealVNC Public API Touch
- * Injector directly), to find a VNC touch responder for a VNC touch
+ * This is called by upper tree elements (or VNC Automotive Public API Touch
+ * Injector directly), to find a VNC Automotive touch responder for a VNC Automotive touch
  * sequence.
  * 
- * If this method returns nil, the RealVNC touch injector will continue to
+ * If this method returns nil, the VNC Automotive touch injector will continue to
  * search for touch responders in views/windows behind this node; to prevent
  * this, return self in this method and provide empty implementations of
  * the methods of VNCPublicAPITouchResponder, such as:
@@ -175,7 +175,7 @@
  * }
  * \endcode
  * 
- * \param point Location of the first VNC touch in screen coordinates.
+ * \param point Location of the first VNC Automotive touch in screen coordinates.
  * \return A pointer to the responder, if one is found, or nil otherwise.
  */
 -(id<VNCPublicAPITouchResponder>) findVNCTouchResponder:(CGPoint)point;

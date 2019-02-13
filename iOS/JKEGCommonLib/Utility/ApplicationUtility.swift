@@ -10,6 +10,7 @@ import Foundation
 
 // MARK: - アプリケーションユーティリティ
 
+/// アプリケーションユーティリティクラス
 public class ApplicationUtility {
     /// バンドルIDを取得する（CFBundleIdentifier）。
     ///

@@ -1,4 +1,4 @@
-/* Copyright (C) 2002-2018 RealVNC Ltd.  All Rights Reserved.
+/* Copyright (C) 2002-2018 VNC Automotive Ltd.  All Rights Reserved.
 */
 
 #ifndef __VNCBEARER_H__
@@ -7,9 +7,9 @@
 /** \cond vncbearer_mainpage */
 
 /**
- * \mainpage VNC Pluggable Bearer API
+ * \mainpage VNC Automotive Pluggable Bearer API
  *
- * The VNC Pluggable Bearer API is defined in vncbearer.h.
+ * The VNC Automotive Pluggable Bearer API is defined in vncbearer.h.
  *
  * \see vncbearer.h
  */
@@ -19,8 +19,8 @@
 /**
  * \file vncbearer.h
  *
- * Pluggable bearers provide a means for applications to extend VNC SDKs with
- * support for new transport mechanisms.  This allows VNC Viewers and VNC
+ * Pluggable bearers provide a means for applications to extend VNC Automotive SDKs with
+ * support for new transport mechanisms.  This allows VNC Automotive Viewers and VNC Automotive
  * Servers to connect to each other using almost any transport, whether
  * standard or proprietary, wired or wireless.
  *
@@ -30,13 +30,13 @@
  * vncbearer.h defines the interface that a pluggable bearer must implement.
  * This interface is compatible with:
  *
- *  - VNC Viewer SDK for Win32
- *  - VNC Viewer SDK for Linux
+ *  - VNC Automotive Viewer SDK for Win32
+ *  - VNC Automotive Viewer SDK for Linux
  *
  * The bearer interface is the same for all of these SDKs.  Therefore,
- * throughout the documentation for the VNC Pluggable Bearer API, the term
+ * throughout the documentation for the VNC Automotive Pluggable Bearer API, the term
  * 'SDK' refers to whichever SDK has loaded the bearer, rather to any of the
- * VNC SDKs in particular.
+ * VNC Automotive SDKs in particular.
  *
  * To implement a pluggable bearer, you must create a DLL or shared object that
  * exports an entry point named VNCBearerInitialize.  The entry point must
@@ -51,13 +51,12 @@
  *
  * \section section_legal Legal information
  *
- * Copyright &copy; 2002-2018 RealVNC Ltd.  All Rights Reserved.
+ * Copyright (C) 2002-2018 VNC Automotive Ltd.  All Rights Reserved.
  *
- * RealVNC and VNC are trademarks of RealVNC Limited and are protected by
+ * VNC Automotive is a trademark of VNC Automotive Limited and is protected by
  * trademark registrations and/or pending trademark applications in the
  * European Union, United States of America and other jurisdictions.
  *
- * Protected by UK patents 2481870, 2491657; US patents 8760366, 9137657; EU patent 2652951.
  *
  * \see VNCBearerInitializeType, VNCBearerInterface, VNCBearerSupportingAPI
  */
@@ -152,7 +151,7 @@ typedef void *VNCBearerDynamicContext;
  *
  *  - 0 to (VNCBearerErrorVENDOR - 1) - these error codes are a mixture of
  *    common networking error codes (e.g.  VNCBearerErrorConnectionRefused) and
- *    other error conditions that are pre-defined by RealVNC-provided bearers.
+ *    other error conditions that are pre-defined by VNC Automotive-provided bearers.
  *    You are encouraged to reuse error codes in this range, rather than
  *    defining your own, as long as it makes sense to do so.
  *  - VNCBearerErrorVENDOR and above - this range of error codes is reserved
@@ -233,25 +232,25 @@ typedef enum
     VNCBearerErrorFailed = 11,
 
     /**
-     * The bearer received invalid protocol was received from the VNC Data
+     * The bearer received invalid protocol was received from the VNC Automotive Data
      * Relay.
      */
     VNCBearerErrorDataRelayProtocolError = 12,
 
     /**
-     * The VNC Data Relay reported that an invalid message was sent to it.
+     * The VNC Automotive Data Relay reported that an invalid message was sent to it.
      */
     VNCBearerErrorDataRelayInvalidMessage = 13,
 
     /**
-     * The VNC Data Relay reported that the session ID in the channel details
+     * The VNC Automotive Data Relay reported that the session ID in the channel details
      * string passed to VNCViewerProcessCommandString() is not valid
      * (probably because the channel lease has already expired).
      */
     VNCBearerErrorUnknownDataRelaySessionId = 14,
 
     /**
-     * The VNC Data Relay reported that an the bearer's response to its
+     * The VNC Automotive Data Relay reported that an the bearer's response to its
      * challenge was incorrect.
      */
     VNCBearerErrorDataRelayInvalidResponseToChallenge = 15,
@@ -263,7 +262,7 @@ typedef enum
     VNCBearerErrorDataRelayChannelTimeout = 16,
 
     /**
-     * The specified device is not connected via USB, or the VNC software on
+     * The specified device is not connected via USB, or the VNC Automotive software on
      * the device is not ready to begin a USB connection.
      */
     VNCBearerErrorUSBNotConnected = 17,
@@ -327,7 +326,7 @@ typedef enum
  *    implementations.  You are encouraged to reuse error codes in this range,
  *    rather than defining your own, as long as it makes sense to do so.
  *  - VNCBearerStatusRESERVED through to (VNCBearerStatusVENDOR - 1) - this
- *    range of status codes is reserved for RealVNC use.  It contains status
+ *    range of status codes is reserved for VNC Automotive use.  It contains status
  *    codes that are specific to particular bearer implementations.
  *  - VNCBearerStatusVENDOR and above - this range of status codes is reserved
  *    for the use of third parties developing bearers.  It is intended for
@@ -374,23 +373,23 @@ typedef enum
     VNCConnectionStatusConnected,
 
     /**
-     * Start of range of RealVNC-reserved bearer-specific connection status
+     * Start of range of VNC Automotive-reserved bearer-specific connection status
      * codes.
      */
     VNCConnectionStatusRESERVED = 0x1000,
 
     /**
-     * \brief Notified by the 'D' bearer when the TCP connection to the VNC
+     * \brief Notified by the 'D' bearer when the TCP connection to the VNC Automotive
      * Data Relay has been established, and the Data Relay handshake is in
      * progress.
      */
     VNCConnectionStatusNegotiatingWithDataRelay = VNCConnectionStatusRESERVED,
 
     /**
-     * \brief Notified by the 'D' bearer the TCP connection to the VNC Data
+     * \brief Notified by the 'D' bearer the TCP connection to the VNC Automotive Data
      * Relay has been established, and the Data Relay handshake is in progress.
      * \brief Notified when the viewer thread is about to start negotiating
-     * with a VNC Data Relay.
+     * with a VNC Automotive Data Relay.
      */
     VNCConnectionStatusWaitingForDataRelayPeer = VNCConnectionStatusRESERVED + 1,
 
@@ -406,7 +405,7 @@ typedef enum
      * has been created, and the Barry handshake with the device is in
      * progress.
      *
-     * \deprecated No longer used as of Mobile Solution 3.0 - BlackBerry
+     * \deprecated No longer used as of SDK Version 3.0 - BlackBerry
      * devices are no longer supported.
      */
     VNCConnectionStatusNegotiatingWithBarry = VNCConnectionStatusRESERVED + 3,

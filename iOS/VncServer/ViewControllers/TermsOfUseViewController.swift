@@ -6,6 +6,7 @@
 //  Copyright © 2018年 JVCKENWOOD Engineering Corporation. All rights reserved.
 //
 
+import JKEGCommonLib
 import UIKit
 
 class TermsOfUseViewController: BaseWebViewController {
@@ -14,8 +15,12 @@ class TermsOfUseViewController: BaseWebViewController {
         
         // Do any additional setup after loading the view.
         
+        // アプリケーション利用規約
+        // タイトルヘッダービュー
+        setupTitleView(Localize.localizedString("SS_01_004"))
+        
         // HTMLファイルロードする
-        let filePath = Bundle.main.path(forResource: "use_policy", ofType: "htm")
+        let filePath = Bundle.main.path(forResource: "terms_of_service", ofType: "html")
         let url: URL = URL(fileURLWithPath: filePath!)
         loadHtml(url: url)
     }

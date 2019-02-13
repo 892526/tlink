@@ -4,9 +4,9 @@
 /**
  * \file VNCExport.h
  * 
- * \brief VNC Symbol Exporting
+ * \brief VNC Automotive Symbol Exporting
  *
- * Copyright RealVNC Ltd. 2013-2018. All rights reserved.
+ * Copyright (C) 2013-2018 VNC Automotive Ltd.  All Rights Reserved.
  */
 
 #ifndef VNCEXPORT

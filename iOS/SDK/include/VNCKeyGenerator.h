@@ -4,12 +4,12 @@
 /**
  * \file VNCKeyGenerator.h
  * 
- * \brief VNC Private Key Generator
+ * \brief VNC Automotive Private Key Generator
  *
- * Copyright RealVNC Ltd. 2012-2018. All rights reserved.
+ * Copyright (C) 2012-2018 VNC Automotive Ltd.  All Rights Reserved.
  */
 
-// VNC Symbol Exporting.
+// VNC Automotive Symbol Exporting.
 #import <VNCExport.h>
 
 /// VNCKeyGenerator forward declaration.

@@ -2,7 +2,7 @@
 //  VNCUSBConnection.m
 //  iOS Server SDK
 //
-//  Copyright RealVNC Ltd. 2011-2018. All rights reserved.
+//  Copyright (C) 2011-2018 VNC Automotive Ltd.  All Rights Reserved.
 //
 
 #import <ExternalAccessory/ExternalAccessory.h>
@@ -141,9 +141,9 @@ static EAAccessory * getConnectedAccessory(NSString * protocol) {
 }
 
 -(void) resetCondition {
-	if (![m_session.inputStream hasBytesAvailable] && ![m_session.outputStream hasSpaceAvailable]) {
+	//if (![m_session.inputStream hasBytesAvailable] && ![m_session.outputStream hasSpaceAvailable]) {
 		[m_condition reset];
-	}
+	//}
 }
 
 -(NSUInteger) read:(uint8_t *)buffer maxLength:(NSUInteger)length {

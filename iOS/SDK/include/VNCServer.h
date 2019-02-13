@@ -4,9 +4,9 @@
 /**
  * \file VNCServer.h
  * 
- * \brief VNC Server
+ * \brief VNC Automotive Server
  *
- * Copyright RealVNC Ltd. 2011-2018. All rights reserved.
+ * Copyright (C) 2011-2018 VNC Automotive Ltd.  All Rights Reserved.
  */
 
 // Bearer API (C).
@@ -15,7 +15,7 @@
 // Command string.
 #import <VNCCommandString.h>
 
-// VNC Symbol Exporting.
+// VNC Automotive Symbol Exporting.
 #import <VNCExport.h>
 
 // Bearer API (Objective-C).
@@ -69,7 +69,7 @@ VNCEXPORT
 extern const uint32_t VNC_INVALID_XKEYSYM_UNICODE;
 
 /**
- * \brief VNC Server class.
+ * \brief VNC Automotive Server class.
  * 
  * Note that all APIs MUST be called on the main thread.
  */
@@ -119,7 +119,7 @@ VNCEXPORT
 @property (nonatomic, assign) BOOL useEncryption;
 
 /**
- * \brief VNC Server private key.
+ * \brief VNC Automotive Server private key.
  * 
  * Use the VNCKeyGenerator class to generate this. This is required
  * for both authentication and encryption.
@@ -155,13 +155,13 @@ VNCEXPORT
 @property (nonatomic, assign) BOOL clipboardEnabled;
 
 /**
- * \brief Initialise a VNC Server instance.
+ * \brief Initialise a VNC Automotive Server instance.
  *
  * \param delegate The server's delegate, which will be
  *                 retained by the server. Methods of
  *                 delegates are always called on the
  *                 main thread.
- * \return VNC Server.
+ * \return VNC Automotive Server.
  */
 -(id) initWithDelegate:(id<VNCServerDelegate>)delegate;
 
@@ -169,7 +169,7 @@ VNCEXPORT
 	 withRPCapture:(id<VNCRPCaptureDelegate>)rpCapture;
 
 /**
- * \brief Invalidate the VNC Server instance.
+ * \brief Invalidate the VNC Automotive Server instance.
  * 
  * This will cancel any active connections/threads of
  * the server. This MUST be called before the server is
@@ -189,7 +189,7 @@ VNCEXPORT
 /**
  * \brief Connect using a command string object.
  *
- * This will start a new VNC server connection using the bearer and
+ * This will start a new VNC Automotive server connection using the bearer and
  * parameters specified in the command string.
  *
  * \param commandString The command string object for the connection.
@@ -200,7 +200,7 @@ VNCEXPORT
 /**
  * \brief Connect using a command string.
  *
- * This will start a new VNC server connection using the bearer and
+ * This will start a new VNC Automotive server connection using the bearer and
  * parameters specified in the command string.
  * 
  * \param commandString The command string for the connection.
@@ -255,10 +255,10 @@ VNCEXPORT
 -(VNCServerError) provideLicenseFeature:(NSUInteger)featureId;
 
 /**
- * \brief Schedules a remote feature check to be made against VNC
+ * \brief Schedules a remote feature check to be made against VNC Automotive
  * viewers in all future sessions.
  * 
- * A VNC viewer must prove that it has the correct feature key for
+ * A VNC Automotive viewer must prove that it has the correct feature key for
  * at least one of the features specified here.
  * 
  * \param featureIds Features to be checked; viewer must have the feature key
@@ -277,7 +277,7 @@ VNCEXPORT
 
 /**
  * \brief Accept or reject authentication credentials (i.e. username
- * and/or password) that have been received from a VNC viewer.
+ * and/or password) that have been received from a VNC Automotive viewer.
  
  * The server must be in state VNCStateAuth (or this will return
  * VNCServerErrorState).
@@ -290,7 +290,7 @@ VNCEXPORT
 -(VNCServerError) acceptAuthentication:(BOOL)accept;
 
 /**
- * \brief Accept or reject an established connection from a VNC viewer.
+ * \brief Accept or reject an established connection from a VNC Automotive viewer.
  * 
  * The server must be in state VNCStateAccepting (or this will return
  * VNCServerErrorState).
@@ -303,7 +303,7 @@ VNCEXPORT
 -(VNCServerError) acceptConnection:(BOOL)accept;
 
 /**
- * \brief Accept or reject an RSA key from a VNC viewer.
+ * \brief Accept or reject an RSA key from a VNC Automotive viewer.
  
  * The server must be in state VNCStateAcceptRemoteKey (or this will
  * return VNCServerErrorState).
@@ -316,15 +316,15 @@ VNCEXPORT
 -(VNCServerError) acceptRemoteKey:(BOOL)accept;
 
 /**
- * \brief Provide username and/or password to VNC viewer during reverse
+ * \brief Provide username and/or password to VNC Automotive viewer during reverse
  * authentication.
  * 
  * The server must be in state VNCStateReverseAuth (or this will return
  * VNCServerErrorState).
  * 
- * \param username Username to be supplied to VNC viewer (pass nil
+ * \param username Username to be supplied to VNC Automotive viewer (pass nil
  *                 if the username wasn't requested).
- * \param password Password to be supplied to VNC viewer (pass nil
+ * \param password Password to be supplied to VNC Automotive viewer (pass nil
  *                 if the password wasn't requested).
  * \return VNCServerError indicating operation result.
  * 
@@ -335,7 +335,7 @@ VNCEXPORT
 /**
  * \brief Translate an X key symbol into a Unicode character.
  * 
- * This takes account of the type of the VNC Viewer to which the VNC
+ * This takes account of the type of the VNC Automotive Viewer to which the VNC Automotive
  * Server is connected (or uses a default conversion if not connected).
  * 
  * \param keysym An X11 key symbol.

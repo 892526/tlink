@@ -213,7 +213,7 @@
 				GCC_PREFIX_HEADER = "vncbearer-common.pch";
 				GCC_VERSION = "";
 				HEADER_SEARCH_PATHS = ../../SDK/include;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.1.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "vncbearer-common";
 				SKIP_INSTALL = YES;
@@ -229,7 +229,7 @@
 				GCC_PREFIX_HEADER = "vncbearer-common.pch";
 				GCC_VERSION = "";
 				HEADER_SEARCH_PATHS = ../../SDK/include;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.1.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "vncbearer-common";
 				SKIP_INSTALL = YES;

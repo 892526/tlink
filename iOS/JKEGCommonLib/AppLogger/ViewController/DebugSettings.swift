@@ -8,6 +8,7 @@
 
 import Foundation
 
+/// デバッグ用設定クラス
 public class DebugSettings {
     private static let settingFileName = "DebugSettings.plist"
     

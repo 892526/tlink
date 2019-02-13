@@ -1,9 +1,9 @@
 var NAVTREE =
 [
-  [ "VNC® Mobile Server SDK for iOS Embedded", "index.html", [
+  [ "VNC Automotive Server SDK for iOS Embedded", "index.html", [
     [ "Overview", "index.html#section_overview", null ],
     [ "Basic usage", "index.html#section_basic_usage", null ],
-    [ "Using the RealVNC server object", "index.html#section_using_object", null ],
+    [ "Using the VNC Automotive Server object", "index.html#section_using_object", null ],
     [ "Thread safety", "index.html#thread_safety", null ],
     [ "Event Injection", "index.html#event_injection", null ],
     [ "Screen Capture", "index.html#screen_capture", null ],

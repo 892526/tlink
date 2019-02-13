@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.13"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>VNC&reg; Mobile Server SDK for iOS Embedded: &lt;VNCPublicAPITouchResponderNode&gt; Protocol Reference</title>
+<title>VNC Automotive Server SDK for iOS Embedded: &lt;VNCPublicAPITouchResponderNode&gt; Protocol Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -28,8 +28,8 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">VNC&reg; Mobile Server SDK for iOS Embedded
-   &#160;<span id="projectnumber">4.1.3.8315</span>
+   <div id="projectname">VNC Automotive Server SDK for iOS Embedded
+   &#160;<span id="projectnumber">4.2.3.8911</span>
    </div>
   </td>
  </tr>
@@ -87,18 +87,18 @@ $(document).ready(function(){initNavTree('protocolVNCPublicAPITouchResponderNode
 </div><!--header-->
 <div class="contents">
 
-<p>A VNC Public API touch responder node.  
+<p>A VNC Automotive Public API touch responder node.  
  <a href="protocolVNCPublicAPITouchResponderNode-p.html#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Instance Methods</h2></td></tr>
 <tr class="memitem:a67a7c882de553589e013b15c97d7cf76"><td class="memItemLeft" align="right" valign="top">(id&lt; VNCPublicAPITouchResponder &gt;)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="protocolVNCPublicAPITouchResponderNode-p.html#a67a7c882de553589e013b15c97d7cf76">findVNCTouchResponder:</a></td></tr>
-<tr class="memdesc:a67a7c882de553589e013b15c97d7cf76"><td class="mdescLeft">&#160;</td><td class="mdescRight">Find a VNC touch responder.  <a href="#a67a7c882de553589e013b15c97d7cf76">More...</a><br /></td></tr>
+<tr class="memdesc:a67a7c882de553589e013b15c97d7cf76"><td class="mdescLeft">&#160;</td><td class="mdescRight">Find a VNC Automotive touch responder.  <a href="#a67a7c882de553589e013b15c97d7cf76">More...</a><br /></td></tr>
 <tr class="separator:a67a7c882de553589e013b15c97d7cf76"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>A VNC Public API touch responder node. </p>
-<p>Implement this to find and return a VNC touch responder - many UI elements implement this and return themselves as the handler. </p>
+<div class="textblock"><p>A VNC Automotive Public API touch responder node. </p>
+<p>Implement this to find and return a VNC Automotive touch responder - many UI elements implement this and return themselves as the handler. </p>
 
 <p class="definition">Definition at line <a class="el" href="VNCPublicAPITouchResponder_8h_source.html#l00150">150</a> of file <a class="el" href="VNCPublicAPITouchResponder_8h_source.html">VNCPublicAPITouchResponder.h</a>.</p>
 </div><h2 class="groupheader">Method Documentation</h2>
@@ -118,12 +118,12 @@ Instance Methods</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Find a VNC touch responder. </p>
-<p>This is called by upper tree elements (or RealVNC Public API Touch Injector directly), to find a VNC touch responder for a VNC touch sequence.</p>
-<p>If this method returns nil, the RealVNC touch injector will continue to search for touch responders in views/windows behind this node; to prevent this, return self in this method and provide empty implementations of the methods of VNCPublicAPITouchResponder, such as:</p>
+<p>Find a VNC Automotive touch responder. </p>
+<p>This is called by upper tree elements (or VNC Automotive Public API Touch Injector directly), to find a VNC Automotive touch responder for a VNC Automotive touch sequence.</p>
+<p>If this method returns nil, the VNC Automotive touch injector will continue to search for touch responders in views/windows behind this node; to prevent this, return self in this method and provide empty implementations of the methods of VNCPublicAPITouchResponder, such as:</p>
 <div class="fragment"><div class="line">-(id) beginVNCTouchSequenceAtPoint:(CGPoint)point withTapCount:(NSUInteger)tapCount {</div><div class="line">    <span class="keywordflow">return</span> nil;</div><div class="line">}</div><div class="line"></div><div class="line">-(void) endVNCTouchSequenceAtPoint:(CGPoint)point withData:(id)data { }</div><div class="line"></div><div class="line">-(void) handleVNCTouchAtPoint:(CGPoint)point withData:(id)data { }</div><div class="line"></div><div class="line">-(id&lt;VNCPublicAPITouchResponder&gt;) findVNCTouchResponder:(CGPoint)point {</div><div class="line">    <span class="keywordflow">return</span> <span class="keyword">self</span>;</div><div class="line">}</div></div><!-- fragment --><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">point</td><td>Location of the first VNC touch in screen coordinates. </td></tr>
+    <tr><td class="paramname">point</td><td>Location of the first VNC Automotive touch in screen coordinates. </td></tr>
   </table>
   </dd>
 </dl>
@@ -137,7 +137,7 @@ Instance Methods</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="protocolVNCPublicAPITouchResponderNode-p.html">VNCPublicAPITouchResponderNode</a></li>
-    <li class="footer">Generated on Wed Sep 5 2018 17:01:30 for VNC&reg; Mobile Server SDK for iOS Embedded by
+    <li class="footer">Generated on Sat Oct 6 2018 06:37:18 for VNC Automotive Server SDK for iOS Embedded by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.13 </li>
   </ul>

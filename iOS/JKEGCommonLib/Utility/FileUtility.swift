@@ -10,6 +10,7 @@ import Foundation
 
 // MARK: - ファイルユーティリティ
 
+/// ファイルユーティリティークラス
 public class FileUtility {
     /// ファイル削除する。
     ///

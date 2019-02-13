@@ -6,13 +6,17 @@
 //  Copyright © 2018年 JVCKENWOOD Engineering Corporation. All rights reserved.
 //
 
+import JKEGCommonLib
 import UIKit
-
 class OSSViewController: BaseWebViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
+        
+        // オープンソースライセンス
+        // タイトルヘッダービュー
+        setupTitleView(Localize.localizedString("SS_01_005"))
         
         // HTMLファイルロードする
         let filePath = Bundle.main.path(forResource: "open_source_license", ofType: "html")

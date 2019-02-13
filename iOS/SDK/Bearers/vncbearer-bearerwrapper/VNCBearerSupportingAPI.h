@@ -1,7 +1,7 @@
 //
 //  VNCBearerSupportingAPI.h
 //
-//  Copyright RealVNC Ltd. 2011-2018. All rights reserved.
+//  Copyright (C) 2011-2018 VNC Automotive Ltd.  All Rights Reserved.
 //
 
 void * VNCServerBearer_Alloc(size_t size);

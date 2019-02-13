@@ -6,7 +6,7 @@
 //  Copyright © 2018年 JVCKENWOOD Engineering Corporation. All rights reserved.
 //
 
-@testable import JKEGCommonLib
+// @testable import JKEGCommonLib
 import XCTest
 
 class JKEGCommonLibTests: XCTestCase {

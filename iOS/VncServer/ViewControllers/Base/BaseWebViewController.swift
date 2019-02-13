@@ -6,6 +6,7 @@
 //  Copyright © 2018年 JVCKENWOOD Engineering Corporation. All rights reserved.
 //
 
+import JKEGCommonLib
 import UIKit
 import WebKit
 
@@ -28,6 +29,22 @@ class BaseWebViewController: UIViewController, WKUIDelegate, WKNavigationDelegat
         webView.uiDelegate = self
         webView.navigationDelegate = self
         view = webView
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        // タイトルテキスト更新
+        updateTitleView()
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        AppLogger.debug()
+        
+        // 回転通知解除
+        removeNotification()
+        navigationItem.titleView = nil
     }
     
     override func didReceiveMemoryWarning() {
@@ -58,5 +75,97 @@ class BaseWebViewController: UIViewController, WKUIDelegate, WKNavigationDelegat
     /// - Parameter htmlString: HTML文字列
     func loadHtmlString(htmlString: String) {
         webView.loadHTMLString(htmlString, baseURL: nil)
+    }
+    
+    // MARK: - Rotation notification
+    
+    /// 回転通知登録
+    func addNotification() {
+        AppLogger.debug()
+        
+        // 回転通知
+        NotificationCenter.default.addObserver(self, selector: #selector(onOrientationDidChange(notification:)),
+                                               name: UIDevice.orientationDidChangeNotification, object: nil)
+    }
+    
+    /// 回転通知解除
+    func removeNotification() {
+        AppLogger.debug()
+        NotificationCenter.default.removeObserver(self, name: UIDevice.orientationDidChangeNotification, object: nil)
+    }
+    
+    /// 表示方向変更通知
+    ///
+    /// - Parameter notification: 通知情報
+    @objc func onOrientationDidChange(notification: NSNotification) {
+        AppLogger.debug()
+        
+        updateTitleView()
+    }
+    
+    /// タイトルビューを更新する
+    private func updateTitleView() {
+        // デバイスの向きに応じたタイトルエリアを変更する
+        if let titleViewControl = navigationItem.titleView {
+            // デバイスの向きを取得
+            let orientation: UIInterfaceOrientation = UIApplication.shared.statusBarOrientation
+            AppLogger.debug("orientation = \(orientation)")
+            
+            let titleView = titleViewControl as! UILabel
+            let frameValue = getTitleViewFrameSize()
+            AppLogger.debug("orientation = \(orientation.rawValue), frameValue = \(frameValue)")
+            
+            if orientation.isPortrait {
+                titleView.frame = frameValue
+                titleView.sizeToFit()
+            } else {
+                titleView.frame = frameValue
+                titleView.sizeToFit()
+            }
+        }
+    }
+    
+    /// タイトルサイズ取得する
+    ///
+    /// - Returns: タイトルエリアサイズ
+    private func getTitleViewFrameSize() -> CGRect {
+        var value = view.frame.width * 0.77
+        if value == 0.0 {
+            value = 200.0
+        }
+        AppLogger.debug("width = \(value)")
+        let orientation: UIInterfaceOrientation = UIApplication.shared.statusBarOrientation
+        if orientation.isPortrait {
+            return CGRect(x: 0, y: 0, width: value, height: 40.0)
+        } else {
+            return CGRect(x: 0, y: 0, width: value, height: 30.0)
+        }
+    }
+    
+    // MARK: - public methods
+    
+    /// タイトルビューをセットアップする
+    ///
+    /// - Parameter titleText: タイトル
+    public func setupTitleView(_ titleText: String) {
+        let viewRect = getTitleViewFrameSize()
+        // 文字列が長い場合に入りきるように動的にフォントサイズを変更するようにUILabelを作成して
+        // NavigationTileViewに設定する
+        let titleLabel = UILabel(frame: viewRect)
+        titleLabel.font = UIFont.boldSystemFont(ofSize: 16.0)
+        titleLabel.text = titleText
+        titleLabel.adjustsFontSizeToFitWidth = true
+        titleLabel.backgroundColor = UIColor.clear
+        titleLabel.textAlignment = .center
+        titleLabel.numberOfLines = 2
+        titleLabel.sizeToFit()
+        
+        navigationItem.titleView = titleLabel
+        
+        // 元のタイトルをクリア
+        title = nil
+        
+        /// 回転通知登録
+        addNotification()
     }
 }

@@ -14,7 +14,7 @@ public class LocalNotification {
     /// 通知は利用許可状態かチェックする。
     ///
     /// - Parameter completionHandler: 確認結果ハンドラ
-    public class func checkNotificationAuthorization(completionHandler: ((_ granted: Bool) -> Void)?) {
+    public class func checkNotificationAuthorization(completionHandler: ((_ granted: Bool, _ status: UNAuthorizationStatus) -> Void)?) {
         AppLogger.debug()
         
         // 通知の利用許可状態を取得する
@@ -31,10 +31,12 @@ public class LocalNotification {
                 AppLogger.debug("authorizationStatus = denied")
             case .notDetermined:
                 AppLogger.debug("authorizationSztatus = notDetermined")
+            case .provisional:
+                AppLogger.debug("authorizationSztatus = provisional")
             }
             // 結果を通知
             if let handler = completionHandler {
-                handler(result)
+                handler(result, settings.authorizationStatus)
             }
         }
     }
@@ -100,6 +102,23 @@ public class LocalNotification {
             // ローカル通知設定結果を呼び出し元に通知
             if let handler = completionHandler {
                 handler(error)
+            }
+        }
+    }
+    
+    /// パーミッション確認
+    public class func confirmLocalNotificationPermission() {
+        // ローカル通知の許可をユーザーに問い合わせる
+        LocalNotification.checkNotificationAuthorization { granted, status in
+            AppLogger.debug("checkNotificationAuthorization >> granted = " + String(granted) + "Status = " + String(status.rawValue))
+            if !granted {
+                LocalNotification.requestAuthorization(completionHandler: { granted, error in
+                    var errorMessage: String = String.Empty
+                    if let errorObj = error {
+                        errorMessage = errorObj.localizedDescription
+                    }
+                    AppLogger.debug("requestAuthorization >> granted = " + String(granted) + ", error = " + errorMessage)
+                })
             }
         }
     }

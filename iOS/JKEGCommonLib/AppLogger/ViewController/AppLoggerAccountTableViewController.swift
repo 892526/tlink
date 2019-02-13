@@ -23,7 +23,7 @@ public class AppLoggerAccountTableViewController: UITableViewController {
         title = "アカウント名選択"
         
         // 編集ボタン
-        let buttonEdit: UIBarButtonItem = UIBarButtonItem(title: "編集", style: UIBarButtonItemStyle.plain, target: self, action: #selector(tappedEditButton(sender:)))
+        let buttonEdit: UIBarButtonItem = UIBarButtonItem(title: "編集", style: UIBarButtonItem.Style.plain, target: self, action: #selector(tappedEditButton(sender:)))
         navigationItem.rightBarButtonItem = buttonEdit
         
         acountNames.append("acv")

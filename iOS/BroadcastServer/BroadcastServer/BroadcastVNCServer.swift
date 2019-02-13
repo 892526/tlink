@@ -21,10 +21,11 @@ class BroadcastVNCServer: NSObject, VNCServerDelegate, VNCRPCaptureDelegate {
         static let vncBearerNameLesten: String = "L"
         
         // VNCServer/Viewer間接続用コマンド名(USB接続用)。フォーマット中の【%@】部分にプロトコルストリングを設定
-        static let commandStringUSBFormat: String = "vnccmd:v=1;t=USB;m=C;p=%@"
+        static let commandStringUSBFormat: String = "vnccmd:v=1;t=USB;p=%@"
+        // static let commandStringUSBFormat: String = "vnccmd:v=1;t=USB;m=C;p=%@"
         
         // VNCServer/Viewer間接続用コマンド名(TCP接続用)
-        static let commandStringTCP: String = "vnccmd:v=1;t=C;a=192.168.43.7;p=5500"
+        static let commandStringTCP: String = "vnccmd:v=1;t=L;p=5900"
     }
     
     /// VNCサーバー（RealVNC Server SDKで定義しているクラス）
@@ -41,10 +42,18 @@ class BroadcastVNCServer: NSObject, VNCServerDelegate, VNCRPCaptureDelegate {
     private var timeOfNextFramebuffer: TimeInterval = 0
     private var timeOfNextScreenshot: TimeInterval = 0
     
+    // フレームレート(60fps)
+    private let frameRateDefault: TimeInterval = 1 / 60.0
+    private var frameRate: TimeInterval = 0
+    
     // 連携状態
     private var isConnected: Bool = false
     
+    /// 更新タイマー
     private var updateTimer: Timer?
+    
+    /// サーバー動作中
+    private var isStarted: Bool = false
     
     // ------------------------------------------------------------------------------------------
     
@@ -62,26 +71,28 @@ class BroadcastVNCServer: NSObject, VNCServerDelegate, VNCRPCaptureDelegate {
         super.init()
         AppLogger.debug()
         
-        // VNCサーバー作成
-        if let srvObj = VNCServer(delegate: self, withRPCapture: self) {
-            AppLogger.debug("VNCServer created.")
-            
-            // ライセンスファイルをロードし、VNCサーバに追加
-            if !addLicenseFile(srvObj) {
-                // ライセンスファイルエラー
-                AppLogger.debug("Failed to add license...")
-            }
-            
-            // ベアラー追加
-            addBearer(server: srvObj)
-            
-            // VNCサーバーのインスタンス保持
-            vncServer = srvObj
-            
-        } else {
-            // VNCServer生成失敗
-            AppLogger.debug("VNCServer create failed...")
-        }
+        /*
+         // VNCサーバー作成
+         if let srvObj = VNCServer(delegate: self, withRPCapture: self) {
+         AppLogger.debug("VNCServer created.")
+         
+         // ライセンスファイルをロードし、VNCサーバに追加
+         if !addLicenseFile(srvObj) {
+         // ライセンスファイルエラー
+         AppLogger.debug("Failed to add license...")
+         }
+         
+         // ベアラー追加
+         addBearer(server: srvObj)
+         
+         // VNCサーバーのインスタンス保持
+         vncServer = srvObj
+         
+         } else {
+         // VNCServer生成失敗
+         AppLogger.debug("VNCServer create failed...")
+         }
+         */
     }
     
     /// ライセンスファイルをロードし、VNCサーバーに設定する。
@@ -151,13 +162,13 @@ class BroadcastVNCServer: NSObject, VNCServerDelegate, VNCRPCaptureDelegate {
     private func captueBufferLock() {
         // サンプルバッファル用ロック取得
         readyForCaptureCondition.lock()
-        AppLogger.debug("Lock...")
+        // AppLogger.debug("Lock...")
     }
     
     /// キャプチャーサンプルバッファのロック解除
     private func captureBufferUnlock() {
         // サンプルバッファル用ロック解除
-        AppLogger.debug("Unlock...")
+        // AppLogger.debug("Unlock...")
         readyForCaptureCondition.unlock()
     }
     
@@ -303,23 +314,34 @@ class BroadcastVNCServer: NSObject, VNCServerDelegate, VNCRPCaptureDelegate {
     /// - Parameter error: エラー情報
     func onServerError(_ error: VNCServerError) {
         AppLogger.error("SERVER ERROR >> VNCServerError: " + VNCServerErrorString.toString(errorCode: error))
+        AppLogger.debug("Thread.current = \(Thread.current)")
         
         // 連携中のときは、ローカル通知で表示する
         if isConnected {
             // エラーコード取得
             let errorCode = error.rawValue
             
-            // メッセージ情報作成
-            let info = AppExtentionMessageInfo(date: Date(), type: .internalServerError, message: String.Empty, value: errorCode)
-            
-            // エラー情報セット
-            setErrorInfo(info)
-            
-            // エラーメッセージ
-            let subMessage = VNCServerErrorString.toString(errorCode: error)
-            
-            // ローカル通知
-            VNCServerLocalNotifiction.showLocalNotification(type: .error, subMessage: subMessage, code: errorCode)
+            // USB切断以外の場合は、エラーメッセージを表示する
+            if VNCServerErrorUSBNotConnected.rawValue != errorCode {
+                // メッセージ情報作成
+                let info = AppExtentionMessageInfo(date: Date(), type: .internalServerError, message: String.Empty, value: errorCode)
+                
+                #if ENABLE_ERROR_LOG
+                    // エラー情報セット
+                    setErrorInfo(info)
+                #endif // ENABLE_ERROR_LOG
+                
+                // エラーメッセージ
+                let subMessage = VNCServerErrorString.toString(errorCode: error)
+                
+                // ローカル通知
+                VNCServerLocalNotifiction.showLocalNotification(type: .error, subMessage: subMessage, code: errorCode)
+            } else {
+                // USB切断の場合は、接続終了メッセージ表示する
+                
+                // 連携終了をローカル通知で表示する
+                showDisconnectedNotification()
+            }
         }
     }
     
@@ -347,7 +369,7 @@ class BroadcastVNCServer: NSObject, VNCServerDelegate, VNCRPCaptureDelegate {
     ///
     /// - Returns: 画面が変更されたかどうか
     func hasScreenChanged() -> Bool {
-        AppLogger.debug()
+        // AppLogger.debug()
         
         // サンプルバッファル用ロック取得
         captueBufferLock()
@@ -363,7 +385,7 @@ class BroadcastVNCServer: NSObject, VNCServerDelegate, VNCRPCaptureDelegate {
     ///
     /// - Returns: 最新のキャプチャーデータ
     func captureScreen() -> Unmanaged<CMSampleBuffer>! {
-        AppLogger.debug()
+        // AppLogger.debug()
         
         // サンプルバッファル用ロック取得
         captueBufferLock()
@@ -372,9 +394,13 @@ class BroadcastVNCServer: NSObject, VNCServerDelegate, VNCRPCaptureDelegate {
     
     /// キャプチャー終了（ドキュメントに詳細なし）
     func captureFinished() {
-        AppLogger.debug()
+        // AppLogger.debug()
         // サンプルバッファル用ロック解除
         captureBufferUnlock()
+        
+        // フレームレートを設定
+        timeOfNextFramebuffer = Date.timeIntervalSinceReferenceDate
+        timeOfNextFramebuffer += frameRate
     }
     
     // ------------------------------------------------------------------------------------------
@@ -537,7 +563,7 @@ class BroadcastVNCServer: NSObject, VNCServerDelegate, VNCRPCaptureDelegate {
     
     /// 連携開始をローカル通知で表示する
     private func showConnectedNotification() {
-        AppLogger.debug()
+        AppLogger.debug("Thread.current = \(Thread.current)")
         
         if !isConnected {
             isConnected = true
@@ -548,8 +574,10 @@ class BroadcastVNCServer: NSObject, VNCServerDelegate, VNCRPCaptureDelegate {
             // ローカル通知発行（Connect）
             VNCServerLocalNotifiction.showLocalNotification(type: .connect)
             
-            // 更新タイマー開始
-            startUpdateTimer()
+            #if ENABLE_ERROR_LOG
+                // 更新タイマー開始
+                startUpdateTimer()
+            #endif // ENABLE_ERROR_LOG
         } else {
             AppLogger.debug("already connected...")
         }
@@ -557,10 +585,15 @@ class BroadcastVNCServer: NSObject, VNCServerDelegate, VNCRPCaptureDelegate {
     
     /// 連携終了をローカル通知で表示する
     private func showDisconnectedNotification() {
-        AppLogger.debug()
+        AppLogger.debug("Thread.current = \(Thread.current)")
         
         if isConnected {
             isConnected = false
+            
+            #if ENABLE_ERROR_LOG
+                // 更新タイマー停止
+                stopUpdateTimer()
+            #endif // ENABLE_ERROR_LOG
             
             // 未接続状態セット
             BroadcastVNCServer.setConnectionState(false)
@@ -568,8 +601,6 @@ class BroadcastVNCServer: NSObject, VNCServerDelegate, VNCRPCaptureDelegate {
             // ローカル通知発行（Disconnect）
             VNCServerLocalNotifiction.showLocalNotification(type: .disconnect)
             
-            // 更新タイマー停止
-            stopUpdateTimer()
         } else {
             AppLogger.debug("already disconnected...")
         }
@@ -598,23 +629,59 @@ class BroadcastVNCServer: NSObject, VNCServerDelegate, VNCRPCaptureDelegate {
         latestSampleBuffer = Unmanaged<CMSampleBuffer>.passRetained(buffer)
     }
     
-    /// 更新タイマー開始
-    private func startUpdateTimer() {
-        if updateTimer == nil {
-            updateTimer = Timer.scheduledTimer(withTimeInterval: 0.75, repeats: true, block: { _ in
-                
-                // 接続状態セット
-                BroadcastVNCServer.setConnectionState(self.isConnected)
-            })
+    #if ENABLE_ERROR_LOG
+        /// 更新タイマー開始
+        private func startUpdateTimer() {
+            AppLogger.debug()
+            if updateTimer == nil {
+                AppLogger.debug("START")
+                updateTimer = Timer.scheduledTimer(withTimeInterval: 1.5, repeats: true, block: { _ in
+                    // AppLogger.debug("startUpdateTimer::Thread.current = \(Thread.current)")
+                    
+                    // 接続状態セット
+                    BroadcastVNCServer.setConnectionState(self.isConnected)
+                    
+                })
+            }
         }
-    }
+        
+        /// 更新タイマー停止
+        private func stopUpdateTimer() {
+            AppLogger.debug()
+            if let timer = updateTimer {
+                timer.invalidate()
+                updateTimer = nil
+                AppLogger.debug("STOP")
+            }
+        }
+    #endif // ENABLE_ERROR_LOG
     
-    /// 更新タイマー停止
-    private func stopUpdateTimer() {
-        if let timer = updateTimer {
-            timer.invalidate()
-            updateTimer = nil
-        }
+    /// フレームレートアップ
+    private func setupFrameRate() {
+        #if ENABLE_LOG
+            // デバッグ用にフレームレート変更できるようにする！
+            
+            // フレームレート設定値取得
+            let index = AppGroupsManager.loadFrameRateIndex()
+            if index == 1 {
+                // 30 fps
+                frameRate = 1 / 30.0
+            } else if index == 2 {
+                // 15 fps
+                frameRate = 1 / 15.0
+            } else if index == 3 {
+                // 5 fps
+                frameRate = 1 / 5.0
+            } else {
+                // 60 fps
+                frameRate = frameRateDefault
+            }
+        #else
+            // 本番は、60fps固定
+            // 60 fps
+            frameRate = frameRateDefault
+            
+        #endif // ENABLE_LOG
     }
     
     // ------------------------------------------------------------------------------------------
@@ -622,13 +689,51 @@ class BroadcastVNCServer: NSObject, VNCServerDelegate, VNCRPCaptureDelegate {
     // MARK: - Public methods
     
     // ------------------------------------------------------------------------------------------
+    
+    /// インスタンス生成する
+    public func setup() {
+        AppLogger.debug()
+    }
+    
     /// ブロードキャストサーバー開始する
     public func startServer() {
         AppLogger.debug("---START---")
+        if isStarted {
+            AppLogger.debug("Already started!!!")
+            return
+        }
+        
+        // サーバー動作中状態に繊維
+        isStarted = true
+        
+        // VNCサーバー作成
+        if let srvObj = VNCServer(delegate: self, withRPCapture: self) {
+            AppLogger.debug("VNCServer created.")
+            
+            // ライセンスファイルをロードし、VNCサーバに追加
+            if !addLicenseFile(srvObj) {
+                // ライセンスファイルエラー
+                AppLogger.debug("Failed to add license...")
+            }
+            
+            // ベアラー追加
+            addBearer(server: srvObj)
+            
+            // VNCサーバーのインスタンス保持
+            vncServer = srvObj
+            
+        } else {
+            // VNCServer生成失敗
+            AppLogger.debug("VNCServer create failed...")
+        }
         
         // Info.plistのプロトコルストリング取得
         currentProtocolString = getProtocolString()
         AppLogger.debug("ProtocolString = \(String(describing: currentProtocolString))")
+        
+        // フレームレート設定
+        setupFrameRate()
+        AppLogger.debug("FrameRate = \(frameRate)")
         
         // 現在時刻保持
         timeOfNextFramebuffer = Date.timeIntervalSinceReferenceDate
@@ -652,6 +757,14 @@ class BroadcastVNCServer: NSObject, VNCServerDelegate, VNCRPCaptureDelegate {
             AppLogger.error("VNCServer == nil !!!")
         }
         
+        if !isStarted {
+            AppLogger.error("Server not active !!!")
+            return
+        }
+        
+        // サーバー停止中状態に繊維
+        isStarted = false
+        
         // アクセサリ切断通知の受信を解除する。
         removeExternalAccessoryNotification()
         
@@ -668,13 +781,18 @@ class BroadcastVNCServer: NSObject, VNCServerDelegate, VNCRPCaptureDelegate {
     ///
     /// - Parameter buffer: キャプチャーデータ
     public func processVideoFrame(buffer: CMSampleBuffer) {
-        AppLogger.debug()
+        // AppLogger.debug()
         
         // サンプルバッファル用ロック取得
         captueBufferLock()
         defer {
             // このメソッドを抜けるときに、アンロックする
             captureBufferUnlock()
+        }
+        
+        if isStarted == false {
+            // サーバー起動していないときは、何もしない
+            return
         }
         
         // 既にあればリリースする

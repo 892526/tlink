@@ -1,4 +1,4 @@
-/* Copyright RealVNC Ltd. 2011-2018. All rights reserved. */
+/* Copyright (C) 2011-2018 VNC Automotive Ltd.  All Rights Reserved. */
 
 #ifndef IOSSERVERSDK_VNCDEVICEKEY_H
 #define IOSSERVERSDK_VNCDEVICEKEY_H
@@ -6,7 +6,7 @@
 /**
  * \file VNCDeviceKey.h
  * 
- * \brief VNC Device Keys
+ * \brief VNC Automotive Device Keys
  */
 
 /**

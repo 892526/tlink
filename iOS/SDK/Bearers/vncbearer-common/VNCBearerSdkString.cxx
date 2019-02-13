@@ -1,10 +1,10 @@
-/* Copyright (C) 2016-2018 RealVNC Ltd.  All Rights Reserved.
+/* Copyright (C) 2016-2018 VNC Automotive Ltd.  All Rights Reserved.
 */
 
 #include "VNCBearerSdkString.h"
 #include "VNCBearerImpl.h"
 
-#include <vnccommon/StringUtils.h>
+#include <vacommon/StringUtils.h>
 
 VNCBearerSdkString::VNCBearerSdkString(const VNCBearerImpl& bearer,
                                        char* const str)
@@ -22,20 +22,20 @@ VNCBearerSdkString::~VNCBearerSdkString()
   }
 }
 
-vnccommon::Optional<std::string> VNCBearerSdkString::get() const
+vacommon::Optional<std::string> VNCBearerSdkString::get() const
 {
   if (mStr)
   {
-    return vnccommon::Optional<std::string>(mStr);
+    return vacommon::Optional<std::string>(mStr);
   }
-  return vnccommon::Optional<std::string>();
+  return vacommon::Optional<std::string>();
 }
 
-vnccommon::Optional<unsigned long> VNCBearerSdkString::toUnsignedLong() const
+vacommon::Optional<unsigned long> VNCBearerSdkString::toUnsignedLong() const
 {
   if (mStr)
   {
-    return vnccommon::StringUtils::toUnsignedLong(mStr, 10);
+    return vacommon::StringUtils::toUnsignedLong(mStr, 10);
   }
-  return vnccommon::Optional<unsigned long>();
+  return vacommon::Optional<unsigned long>();
 }

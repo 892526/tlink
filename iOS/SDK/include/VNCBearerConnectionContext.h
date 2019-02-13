@@ -4,9 +4,9 @@
 /**
  * \file VNCBearerConnectionContext.h
  * 
- * \brief VNC Bearer Connection Context API.
+ * \brief VNC Automotive Bearer Connection Context API.
  *
- * Copyright RealVNC Ltd. 2013-2018. All rights reserved.
+ * Copyright (C) 2013-2018 VNC Automotive Ltd.  All Rights Reserved.
  */
 
 // Bearer API (C).

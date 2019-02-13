@@ -60,17 +60,20 @@
       buildConfiguration = "Release(LOG)"
       selectedDebuggerIdentifier = ""
       selectedLauncherIdentifier = "Xcode.IDEFoundation.Launcher.PosixSpawn"
+      enableASanStackUseAfterReturn = "YES"
+      disableMainThreadChecker = "YES"
       launchStyle = "0"
       useCustomWorkingDirectory = "NO"
       ignoresPersistentStateOnLaunch = "NO"
       debugDocumentVersioning = "YES"
+      stopOnEveryMainThreadCheckerIssue = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES"
       launchAutomaticallySubstyle = "2">
       <RemoteRunnable
          runnableDebuggingMode = "0"
          BundleIdentifier = "com.apple.Music"
-         RemotePath = "/var/containers/Bundle/Application/F88B4B99-B1CD-4B36-8DB5-AD872DC8E7BA/Music.app">
+         RemotePath = "/var/containers/Bundle/Application/653922E0-94F4-4A3B-83B5-C54A527054FA/Music.app">
       </RemoteRunnable>
       <MacroExpansion>
          <BuildableReference
@@ -110,7 +113,7 @@
       buildConfiguration = "Release(LOG)">
    </AnalyzeAction>
    <ArchiveAction
-      buildConfiguration = "Release(LOG)"
+      buildConfiguration = "Release"
       revealArchiveInOrganizer = "YES">
    </ArchiveAction>
 </Scheme>

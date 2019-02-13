@@ -13,7 +13,7 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
         #if ENABLE_LOG
@@ -28,19 +28,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             AppGroupsManager.reset()
         }
         
-        // ローカル通知の許可をユーザーに問い合わせる
-        LocalNotification.checkNotificationAuthorization { granted in
-            AppLogger.debug("checkNotificationAuthorization >> granted = " + String(granted))
-            if !granted {
-                LocalNotification.requestAuthorization(completionHandler: { granted, error in
-                    var errorMessage: String = String.Empty
-                    if let errorObj = error {
-                        errorMessage = errorObj.localizedDescription
-                    }
-                    AppLogger.debug("requestAuthorization >> granted = " + String(granted) + ", error = " + errorMessage)
-                })
-            }
-        }
         return true
     }
     

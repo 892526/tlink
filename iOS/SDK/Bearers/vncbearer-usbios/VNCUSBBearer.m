@@ -2,7 +2,7 @@
 //  VNCUSBBearer.m
 //  iOS Server SDK
 //
-//  Copyright RealVNC Ltd. 2011-2018. All rights reserved.
+//  Copyright (C) 2011-2018 VNC Automotive Ltd.  All Rights Reserved.
 //
 
 #import "VNCUSBBearer.h"

@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="y5R-W4-qQb">
+    <device id="retina4_0" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="OA4-4v-HlE">
+            <objects>
+                <navigationController id="y5R-W4-qQb" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="iUd-X9-aIh">
+                        <rect key="frame" x="0.0" y="20" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="4Cz-2v-foe" kind="relationship" relationship="rootViewController" id="V0w-ej-uJQ"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pJT-Y7-nmD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1086" y="89"/>
+        </scene>
+        <!--画面共有方法-->
+        <scene sceneID="6FQ-Jt-7KT">
+            <objects>
+                <viewController id="4Cz-2v-foe" customClass="ManualPageTopViewController" customModule="VncServer" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Ae5-DW-d9b">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="pID-jG-X4t">
+                                <rect key="frame" x="20" y="94" width="280" height="424"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Did-Ui-OAQ" customClass="PanelButton" customModule="VncServer" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="280" height="91"/>
+                                        <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="Igk-Al-et5"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <inset key="titleEdgeInsets" minX="5" minY="0.0" maxX="5" maxY="0.0"/>
+                                        <state key="normal" title="画面共有するための初期設定方法"/>
+                                        <connections>
+                                            <action selector="showInitialSettingView:" destination="4Cz-2v-foe" eventType="touchUpInside" id="9Ct-P8-GNf"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a7G-2n-Hd2" customClass="PanelButton" customModule="VncServer" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="111" width="280" height="91"/>
+                                        <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="u6b-W0-oq2"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <inset key="titleEdgeInsets" minX="5" minY="0.0" maxX="5" maxY="0.0"/>
+                                        <state key="normal" title="画面共有を開始する方法"/>
+                                        <connections>
+                                            <action selector="showStartView:" destination="4Cz-2v-foe" eventType="touchUpInside" id="H0F-RD-2NP"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dh1-Ct-r1d" customClass="PanelButton" customModule="VncServer" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="222" width="280" height="91"/>
+                                        <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="DNq-SP-aOB"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <inset key="titleEdgeInsets" minX="5" minY="0.0" maxX="5" maxY="0.0"/>
+                                        <state key="normal" title="画面共有を停止する方法(1)"/>
+                                        <connections>
+                                            <action selector="showStopView:" destination="4Cz-2v-foe" eventType="touchUpInside" id="o7O-oC-vUx"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BZV-jw-MaI" customClass="PanelButton" customModule="VncServer" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="333" width="280" height="91"/>
+                                        <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="yOh-HP-947"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <inset key="titleEdgeInsets" minX="5" minY="0.0" maxX="5" maxY="0.0"/>
+                                        <state key="normal" title="画面共有を停止する方法(2)"/>
+                                        <connections>
+                                            <action selector="showStopView2:" destination="4Cz-2v-foe" eventType="touchUpInside" id="q6l-hc-9hE"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="O5y-2c-dWz" firstAttribute="trailing" secondItem="pID-jG-X4t" secondAttribute="trailing" constant="20" id="5qQ-9k-bA5"/>
+                            <constraint firstItem="O5y-2c-dWz" firstAttribute="bottom" secondItem="pID-jG-X4t" secondAttribute="bottom" constant="50" id="Avp-pR-CN7"/>
+                            <constraint firstItem="pID-jG-X4t" firstAttribute="top" secondItem="O5y-2c-dWz" secondAttribute="top" constant="30" id="Iwt-As-iAT"/>
+                            <constraint firstItem="pID-jG-X4t" firstAttribute="leading" secondItem="O5y-2c-dWz" secondAttribute="leading" constant="20" id="uVu-AX-BJz"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="O5y-2c-dWz"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="画面共有方法" id="YX7-4y-227">
+                        <barButtonItem key="rightBarButtonItem" systemItem="stop" id="OK6-eN-ge3">
+                            <connections>
+                                <segue destination="bHj-ea-agB" kind="unwind" unwindAction="unwindToTopViewControllerWithSegue:" id="7Io-xz-Wk2"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="buttonInitiOperation" destination="Did-Ui-OAQ" id="ysY-i1-VQ7"/>
+                        <outlet property="buttonStartOperation" destination="a7G-2n-Hd2" id="Io3-vB-Hly"/>
+                        <outlet property="buttonStopOperation01" destination="dh1-Ct-r1d" id="dB8-JI-tUW"/>
+                        <outlet property="buttonStopOperation02" destination="BZV-jw-MaI" id="or1-PF-poa"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ihW-Sn-jza" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="bHj-ea-agB" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="-218" y="89"/>
+        </scene>
+    </scenes>
+</document>

@@ -10,7 +10,7 @@ import Foundation
 
 /// VNC Server用ローカル通知用拡張クラス
 public class VNCServerLocalNotifiction {
-    // ローカル通知ID
+    /// ローカル通知ID
     public static let requestIdentifier = "JK_VNC_SERVER_LOCAL_NOTIFICATION"
     
     /// ローカル通知種別列挙子
@@ -32,30 +32,37 @@ public class VNCServerLocalNotifiction {
     ///   - type: 通知種別
     ///   - subMessage: 通知サブメッセージ
     public class func showLocalNotification(type: VncServerNotificationType, subMessage: String = String.Empty, code: UInt32 = 0) {
-        var displayMessage = String.Empty
-        
-        // 規定メッセージセット
-        switch type {
-        case .connect:
-            displayMessage = Localize.localizedString("SS_NTF-001")
-        case .disconnect:
-            displayMessage = Localize.localizedString("SS_NTF-002")
-        case .error:
-            displayMessage = Localize.localizedString("SS_NTF-003")
-        default:
-            displayMessage = "???"
+        // 許可されているか確認
+        LocalNotification.checkNotificationAuthorization { granted, status in
+            AppLogger.debug("granted = \(granted), status = \(status.rawValue)")
+            // 許可されれいるとき
+            if granted {
+                var displayMessage = String.Empty
+                
+                // 規定メッセージセット
+                switch type {
+                case .connect:
+                    displayMessage = Localize.localizedString("SS_02_001")
+                case .disconnect:
+                    displayMessage = Localize.localizedString("SS_02_002")
+                case .error:
+                    displayMessage = Localize.localizedString("SS_02_003")
+                default:
+                    displayMessage = "???"
+                }
+                
+                // サブメッセージがあれば連結
+                if !subMessage.isEmpty {
+                    displayMessage += "\n" + subMessage
+                }
+                
+                // ユーザ情報作成
+                let userInfo = VNCServerLocalNotificationUtility.encodeUserInfo(type: type, title: String.Empty, message: displayMessage, code: code)
+                
+                // ローカル通知発行
+                LocalNotification.show(requestIdentifier: VNCServerLocalNotifiction.requestIdentifier, timeInterval: 0.25,
+                                       title: String.Empty, body: displayMessage, userInfo: userInfo, completionHandler: nil)
+            }
         }
-        
-        // サブメッセージがあれば連結
-        if !subMessage.isEmpty {
-            displayMessage += "\n" + subMessage
-        }
-        
-        // ユーザ情報作成
-        let userInfo = VNCServerLocalNotificationUtility.encodeUserInfo(type: type, title: String.Empty, message: displayMessage, code: code)
-        
-        // ローカル通知発行
-        LocalNotification.show(requestIdentifier: VNCServerLocalNotifiction.requestIdentifier, timeInterval: 0.25,
-                               title: String.Empty, body: displayMessage, userInfo: userInfo, completionHandler: nil)
     }
 }

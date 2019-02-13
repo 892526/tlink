@@ -1,4 +1,4 @@
-/* Copyright (C) 2016-2018 RealVNC Ltd.  All Rights Reserved.
+/* Copyright (C) 2016-2018 VNC Automotive Ltd.  All Rights Reserved.
 */
 
 #include "VNCBearerException.h"

@@ -1,7 +1,7 @@
 //
 //  VNCConnectionWrapper.h
 //
-//  Copyright RealVNC Ltd. 2011-2018. All rights reserved.
+//  Copyright (C) 2011-2018 VNC Automotive Ltd.  All Rights Reserved.
 //
 
 #import <VNCBearerConnectionContext.h>

@@ -4,16 +4,16 @@
 /**
  * \file VNCCommandString.h
  * 
- * \brief VNC Command String
+ * \brief VNC Automotive Command String
  *
- * Copyright RealVNC Ltd. 2014-2018. All rights reserved.
+ * Copyright (C) 2014-2018 VNC Automotive Ltd.  All Rights Reserved.
  */
 
-// VNC Symbol Exporting.
+// VNC Automotive Symbol Exporting.
 #import <VNCExport.h>
 
 /**
- * \brief VNC Command String class.
+ * \brief VNC Automotive Command String class.
  * 
  * Parses a command string and provides access to its parameters.
  */
@@ -21,21 +21,21 @@ VNCEXPORT
 @interface VNCCommandString : NSObject < NSCopying >
 
 /**
- * \brief Create a VNC Command String instance by
+ * \brief Create a VNC Automotive Command String instance by
  *        parsing a text form command.
  *
- * \param text A VNC Command String in text form.
- * \return VNC Command String. Returns nil if command
+ * \param text A VNC Automotive Command String in text form.
+ * \return VNC Automotive Command String. Returns nil if command
  *         string is invalid.
  */
 +(VNCCommandString*) commandStringWithText:(NSString*)text;
 
 /**
- * \brief Initialise a VNC Command String instance by
+ * \brief Initialise a VNC Automotive Command String instance by
  *        parsing a text form command.
  *
- * \param text A VNC Command String in text form.
- * \return VNC Command String. Returns nil if command
+ * \param text A VNC Automotive Command String in text form.
+ * \return VNC Automotive Command String. Returns nil if command
  *         string is invalid.
  */
 -(id) initWithText:(NSString*)text;

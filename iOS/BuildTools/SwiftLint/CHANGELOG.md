@@ -1,3 +1,251 @@
+## 0.27.0: Heavy Duty
+
+#### Breaking
+
+* None.
+
+#### Enhancements
+
+* Append `modifier_order` description with failure reason.  
+  [Daniel Metzing](https://github.com/dirtydanee)
+  [#2269](https://github.com/realm/SwiftLint/pull/2269)
+
+* Decrease default severity of `superfluous_disable_command` to `warning`.  
+  [Frederick Pietschmann](https://github.com/fredpi)
+  [#2250](https://github.com/realm/SwiftLint/issues/2250)
+
+* Don't touch files when running `autocorrect --format` if the contents haven't
+  changed.  
+  [Marcelo Fabri](https://github.com/marcelofabri)
+  [#2249](https://github.com/realm/SwiftLint/issues/2249)
+  
+* Add `only_enforce_after_first_closure_on_first_line` configuration
+  to `multiline_arguments`  
+  [Mike Ciesielka](https://github.com/maciesielka)
+  [#1896](https://github.com/realm/SwiftLint/issues/1896)
+
+* Add `anyobject_protocol` opt-in rule which suggests using `AnyObject` over
+  `class` for class-only protocols.  
+  [Ornithologist Coder](https://github.com/ornithocoder)
+  [#2283](https://github.com/realm/SwiftLint/issues/2283)
+  
+* Add options `prefix_pattern` and `suffix_pattern` to rule `file_name`.  
+  [Cihat Gündüz](https://github.com/Dschee)
+  [#2309](https://github.com/realm/SwiftLint/issues/2309)
+
+* Add new bool config option `if_only` to rule `conditional_returns_on_newline`
+  to specify that the rule should only be applied to `if` statements.  
+  [Cihat Gündüz](https://github.com/Dschee)
+  [#2307](https://github.com/realm/SwiftLint/issues/2307)
+
+* Add support for globs in `excluded` file paths.  
+  [Keith Smiley](https://github.com/keith)
+  [#2316](https://github.com/realm/SwiftLint/pull/2316)
+
+* Add `private_only` configuration to `prefixed_toplevel_constant` rule.  
+  [Keith Smiley](https://github.com/keith)
+  [#2315](https://github.com/realm/SwiftLint/pull/2315)
+  
+* Make rule `explicit_type_interface` compatible with rule
+  `redundant_type_annotation` via new option `allow_redundancy`.  
+  [Cihat Gündüz](https://github.com/Dschee)
+  [#2312](https://github.com/realm/SwiftLint/issues/2312)
+
+* Add `missing_docs` rule to warn against undocumented declarations.  
+  [Nef10](https://github.com/Nef10)
+  [Andrés Cecilia Luque](https://github.com/acecilia)
+  [#1652](https://github.com/realm/SwiftLint/issues/1652)
+
+#### Bug Fixes
+
+* Fix an issue with `control_statement` where commas in clauses prevented the
+  rule from applying.  
+  [Allen Wu](https://github.com/allewun)
+
+* Fix `explicit_enum_raw_value`, `generic_type_name`, `implicit_return`,
+  `required_enum_case`, `quick_discouraged_call`, `array_init`,
+  `closure_parameter_position` and `unused_closure_parameter` rules
+  when linting with Swift 4.2.  
+  [Marcelo Fabri](https://github.com/marcelofabri)
+
+* Fix `identifier_name` rule false positives with `enum` when linting
+  using Swift 4.2.  
+  [Marcelo Fabri](https://github.com/marcelofabri)
+  [Jacob Greenfield](https://github.com/Coder-256)
+  [#2231](https://github.com/realm/SwiftLint/issues/2231)
+
+* Fix a crash when running with Swift 4.2.  
+  [Norio Nomura](https://github.com/norio-nomura)
+  [SR-7954](https://bugs.swift.org/browse/SR-7954)
+
+* Fix false positive on `attributes` rule when linting a line that is below
+  a line with a declaration that has attributes.  
+  [Marcelo Fabri](https://github.com/marcelofabri)
+  [#2297](https://github.com/realm/SwiftLint/issues/2297)
+
+* `redundant_optional_initialization` rule now lints local variables.  
+  [Marcelo Fabri](https://github.com/marcelofabri)
+  [#2233](https://github.com/realm/SwiftLint/issues/2233)
+
+* Fix autocorrection for `redundant_type_annotation` rule.  
+  [Marcelo Fabri](https://github.com/marcelofabri)
+  [#2314](https://github.com/realm/SwiftLint/issues/2314)
+
+## 0.26.0: Maytagged Pointers
+
+#### Breaking
+
+* SwiftLint now requires Swift 4.0 or higher to build.  
+  [JP Simard](https://github.com/jpsim)
+
+* The `fallthrough` rule is now opt-in.  
+  [Marcelo Fabri](https://github.com/marcelofabri)
+  [#1892](https://github.com/realm/SwiftLint/issues/1892)
+
+#### Enhancements
+
+* Add optional filename verification to the `file_header` rule.
+  All occurrences in the pattern of the `SWIFTLINT_CURRENT_FILENAME`
+  placeholder are replaced by the name of the validated file.  
+  [Anders Hasselqvist](https://github.com/nevil)
+  [#1079](https://github.com/realm/SwiftLint/issues/1079)
+
+* Updates the `untyped_error_in_catch` rule to support autocorrection.  
+  [Daniel Metzing](https://github.com/dirtydanee)
+
+* Add `no_fallthrough_only` rule to check that `case` statements do not
+  contain only a `fallthrough`.  
+  [Austin Belknap](https://github.com/dabelknap)
+
+* Add `indented_cases` support to `switch_case_alignment` rule.  
+  [Shai Mishali](https://github.com/freak4pc)
+  [#2119](https://github.com/realm/SwiftLint/issues/2119)
+
+* Add opt-in `modifier_order` to enforce the order of declaration modifiers.
+  Requires Swift 4.1 or later.  
+  [Jose Cheyo Jimenez](https://github.com/masters3d)
+  [Daniel Metzing](https://github.com/dirtydanee)
+  [#1472](https://github.com/realm/SwiftLint/issues/1472)
+  [#1585](https://github.com/realm/SwiftLint/issues/1585)
+
+* Validate implicit `subscript` getter in `implicit_getter` rule when using
+  Swift 4.1 or later.  
+  [Marcelo Fabri](https://github.com/marcelofabri)
+  [#898](https://github.com/realm/SwiftLint/issues/898)
+
+* Add `unavailable_function` opt-in rule to validate that functions that are
+  currently unimplemented (using a placeholder `fatalError`) are marked with
+  `@available(*, unavailable)`.  
+  [Marcelo Fabri](https://github.com/marcelofabri)
+  [#2127](https://github.com/realm/SwiftLint/issues/2127)
+
+* Updates the `closure_end_indentation` rule to support autocorrection.  
+  [Eric Horacek](https://github.com/erichoracek)
+
+* Updates the `literal_expression_end_indentation` rule to support
+  autocorrection.  
+  [Eric Horacek](https://github.com/erichoracek)
+
+* Add a new `multiline_function_chains` rule to validate that chained function
+  calls start either on the same line or one per line.  
+  [Eric Horacek](https://github.com/erichoracek)
+  [#2214](https://github.com/realm/SwiftLint/issues/2214)
+
+* Improves the `mark` rule's autocorrection.  
+  [Eric Horacek](https://github.com/erichoracek)
+
+* Add `redundant_set_access_control` rule to warn against using redundant
+  setter ACLs on variable declarations.  
+  [Marcelo Fabri](https://github.com/marcelofabri)
+  [#1869](https://github.com/realm/SwiftLint/issues/1869)
+
+* Add a new `ignores_interpolated_strings` config parameter to the `line_length`
+  rule to ignore lines that include interpolated strings from this rule.  
+  [Michael Gray](https://github.com/mishagray)
+  [#2100](https://github.com/realm/SwiftLint/pull/2100)
+
+* Add a new `ignores_default_parameters` config parameter to the
+  `function_parameter_count` rule to ignore default parameter when calculating
+  parameter count. True by default.  
+  [Varun P M](https://github.com/varunpm1)
+  [#2171](https://github.com/realm/SwiftLint/issues/2171)
+
+* Add `empty_xctest_method` opt-in rule which warns against empty
+  XCTest methods.  
+  [Ornithologist Coder](https://github.com/ornithocoder)
+  [#2190](https://github.com/realm/SwiftLint/pull/2190)
+
+* Add `function_default_parameter_at_end` opt-in rule to validate that
+  parameters with defaults are located toward the end of the parameter list in a
+  function declaration.  
+  [Marcelo Fabri](https://github.com/marcelofabri)
+  [#2176](https://github.com/realm/SwiftLint/issues/2176)
+
+* Add `file_name` opt-in rule validating that file names contain the name of a
+  type or extension declared in the file (if any).  
+  [JP Simard](https://github.com/jpsim)
+  [#1420](https://github.com/realm/SwiftLint/issues/1420)
+  
+* Add `redundant_type_annotation` opt-in rule which warns against
+  unnecessary type annotations for variables.  
+  [Šimon Javora](https://github.com/sjavora)
+  [#2239](https://github.com/realm/SwiftLint/pull/2239)
+
+* Add `convenience_type` opt-in rule to validate that types hosting only static
+  members should be enums to avoid instantiation.  
+  [Marcelo Fabri](https://github.com/marcelofabri)
+  [#1871](https://github.com/realm/SwiftLint/issues/1871)  
+
+* Support for passing multiple path arguments.  
+  [Ben Asher](https://github.com/benasher44)
+  [#810](https://github.com/realm/SwiftLint/issues/810)
+
+#### Bug Fixes
+
+* Update `LowerACLThanParent` rule to not lint extensions.  
+  [Keith Smiley](https://github.com/keith)
+  [#2164](https://github.com/realm/SwiftLint/pull/2164)
+
+* Fix operator usage spacing nested generics false positive.  
+  [Eric Horacek](https://github.com/erichoracek)
+  [#1341](https://github.com/realm/SwiftLint/issues/1341)
+  [#1897](https://github.com/realm/SwiftLint/issues/1897)
+
+* Fix autocorrection for several rules
+  (`empty_parentheses_with_trailing_closure`, `explicit_init`,
+  `joined_default_parameter`, `redundant_optional_initialization` and
+  `unused_closure_parameter `) when used with preprocessor macros.  
+  [John Szumski](https://github.com/jszumski)
+  [Marcelo Fabri](https://github.com/marcelofabri)
+
+* Fix `unneeded_parentheses_in_closure_argument` false negatives when multiple
+  violations are nested.  
+  [Marcelo Fabri](https://github.com/marcelofabri)
+  [#2188](https://github.com/realm/SwiftLint/issues/2188)
+
+* Fix false negatives in `implicit_return` rule when using closures as
+  function arguments.  
+  [Marcelo Fabri](https://github.com/marcelofabri)
+  [#2187](https://github.com/realm/SwiftLint/issues/2187)
+
+* Fix false positives in `attributes` rule when `@testable` is used.  
+  [Marcelo Fabri](https://github.com/marcelofabri)
+  [#2211](https://github.com/realm/SwiftLint/issues/2211)
+
+* Fix false positives in `prohibited_super_call` rule.  
+  [Marcelo Fabri](https://github.com/marcelofabri)
+  [#2212](https://github.com/realm/SwiftLint/issues/2212)
+
+* Fix a false positive in `unused_closure_parameter` rule when a parameter
+  is used in a string interpolation.  
+  [Marcelo Fabri](https://github.com/marcelofabri)
+  [#2062](https://github.com/realm/SwiftLint/issues/2062)
+
+* Fixes a case where the `closure_end_indentation` rule wouldn't lint the end
+  indentation of non-trailing closure parameters.  
+  [Eric Horacek](https://github.com/erichoracek)
+  [#2121](https://github.com/realm/SwiftLint/issues/2121)
+
 ## 0.25.1: Lid Locked
 
 This is the last release to support building with Swift 3.2 and Swift 3.3.

@@ -112,9 +112,9 @@ public class AppLoggerViewController: UIViewController, WKUIDelegate, WKNavigati
     /// - Parameter sender: 送信元
     @IBAction func tappedLogClear(_: Any) {
         // ActionSheet作成
-        let alertController = UIAlertController(title: "ログクリア", message: "ログをどのようにしますか？", preferredStyle: UIAlertControllerStyle.actionSheet)
+        let alertController = UIAlertController(title: "ログクリア", message: "ログをどのようにしますか？", preferredStyle: UIAlertController.Style.actionSheet)
         
-        alertController.addAction(UIAlertAction(title: "現在のログをクリアする", style: UIAlertActionStyle.destructive, handler: { _ in
+        alertController.addAction(UIAlertAction(title: "現在のログをクリアする", style: UIAlertAction.Style.destructive, handler: { _ in
             
             if self.logDataType == .appLogger {
                 // ログをクリアする
@@ -128,7 +128,7 @@ public class AppLoggerViewController: UIViewController, WKUIDelegate, WKNavigati
             // 表示更新
             self.updateDisplay()
         }))
-        alertController.addAction(UIAlertAction(title: "保存ログをすべて削除する", style: UIAlertActionStyle.default, handler: { _ in
+        alertController.addAction(UIAlertAction(title: "保存ログをすべて削除する", style: UIAlertAction.Style.default, handler: { _ in
             
             // 保存しているすべてのログを削除する
             self.logger?.clearSaveLogFiles()
@@ -144,7 +144,7 @@ public class AppLoggerViewController: UIViewController, WKUIDelegate, WKNavigati
                 }
             })
         }))
-        alertController.addAction(UIAlertAction(title: "キャンセル", style: UIAlertActionStyle.cancel, handler: nil))
+        alertController.addAction(UIAlertAction(title: "キャンセル", style: UIAlertAction.Style.cancel, handler: nil))
         
         // ActionSheet表示
         present(alertController, animated: true, completion: nil)

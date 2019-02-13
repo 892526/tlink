@@ -99,7 +99,7 @@ public class AESUtility {
         }
         
         // パディングデータ除去
-        let noPaddingDecryptData = decryptData.subdata(in: Range(0 ..< numBytesEncrypted))
+        let noPaddingDecryptData = decryptData.subdata(in: 0 ..< numBytesEncrypted)
         
         return noPaddingDecryptData
     }

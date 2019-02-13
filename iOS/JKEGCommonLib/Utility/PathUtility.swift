@@ -10,6 +10,7 @@ import Foundation
 
 // MARK: - パスユーティリティ
 
+/// パスユーティリティクラス
 public class PathUtility {
     /// ファイルが存在するかチェックする。
     ///

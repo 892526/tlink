@@ -7,13 +7,37 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		060736E421902A3D000CDE19 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 060736E621902A3D000CDE19 /* Localizable.strings */; };
+		060736F4219032C0000CDE19 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 060736E621902A3D000CDE19 /* Localizable.strings */; };
 		06097313212A555000A0BF72 /* JKEGCommonLib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0660D23721191C7100C1E2F2 /* JKEGCommonLib.framework */; };
 		06097314212A565D00A0BF72 /* AESUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0660D4572119B12B00C1E2F2 /* AESUtility.swift */; };
 		06097316212A576800A0BF72 /* VncLicenseEncryptionConst.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0660D4532119B12400C1E2F2 /* VncLicenseEncryptionConst.swift */; };
+		060D707B216DB903002C3C9B /* Start04.png in Resources */ = {isa = PBXBuildFile; fileRef = 060D7077216DB8FF002C3C9B /* Start04.png */; };
+		060D707C216DB903002C3C9B /* Start03.png in Resources */ = {isa = PBXBuildFile; fileRef = 060D7078216DB900002C3C9B /* Start03.png */; };
+		060D707D216DB903002C3C9B /* Start02.png in Resources */ = {isa = PBXBuildFile; fileRef = 060D7079216DB903002C3C9B /* Start02.png */; };
+		060D708B216DB998002C3C9B /* Setting03.png in Resources */ = {isa = PBXBuildFile; fileRef = 060D7086216DB954002C3C9B /* Setting03.png */; };
+		060D708C216DB998002C3C9B /* Setting01.png in Resources */ = {isa = PBXBuildFile; fileRef = 060D7087216DB962002C3C9B /* Setting01.png */; };
+		060D708E216DB998002C3C9B /* Setting02.png in Resources */ = {isa = PBXBuildFile; fileRef = 060D7089216DB989002C3C9B /* Setting02.png */; };
+		060D708F216DB998002C3C9B /* Setting04.png in Resources */ = {isa = PBXBuildFile; fileRef = 060D708A216DB997002C3C9B /* Setting04.png */; };
+		060D7091216DBB40002C3C9B /* Setting05.png in Resources */ = {isa = PBXBuildFile; fileRef = 060D7090216DBB40002C3C9B /* Setting05.png */; };
+		060D7098216DC13E002C3C9B /* Stop1_02.png in Resources */ = {isa = PBXBuildFile; fileRef = 060D7096216DC13D002C3C9B /* Stop1_02.png */; };
+		060D709F216DC5E4002C3C9B /* Stop1_01.png in Resources */ = {isa = PBXBuildFile; fileRef = 060D709E216DC5E4002C3C9B /* Stop1_01.png */; };
+		060D70A2216DC7FE002C3C9B /* Stop2_01.png in Resources */ = {isa = PBXBuildFile; fileRef = 060D70A0216DC7FD002C3C9B /* Stop2_01.png */; };
+		060D70A3216DC7FE002C3C9B /* Stop2_02.png in Resources */ = {isa = PBXBuildFile; fileRef = 060D70A1216DC7FE002C3C9B /* Stop2_02.png */; };
+		060D70A5216DC976002C3C9B /* Start01.png in Resources */ = {isa = PBXBuildFile; fileRef = 060D70A4216DC976002C3C9B /* Start01.png */; };
 		06160C19211D32A500025357 /* BroadcastVNCServerSettingExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06160C18211D32A500025357 /* BroadcastVNCServerSettingExtention.swift */; };
 		06160C25211D6EFD00025357 /* RealVNCServer.vnclicense in Resources */ = {isa = PBXBuildFile; fileRef = 0660D2A02119376300C1E2F2 /* RealVNCServer.vnclicense */; };
 		06160C26211D6EFE00025357 /* RealVNCServer.vnclicense in Resources */ = {isa = PBXBuildFile; fileRef = 0660D2A02119376300C1E2F2 /* RealVNCServer.vnclicense */; };
 		061A281A212F862000F02E65 /* ScreenCaptureObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 061A2819212F862000F02E65 /* ScreenCaptureObserver.swift */; };
+		06213A392164844B00D6D5A0 /* ManualPageTopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06213A372164844A00D6D5A0 /* ManualPageTopViewController.swift */; };
+		06213A3A2164844B00D6D5A0 /* ManualPageTopViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 06213A382164844B00D6D5A0 /* ManualPageTopViewController.storyboard */; };
+		06213A3D2164914400D6D5A0 /* PanelButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06213A3C2164914400D6D5A0 /* PanelButton.swift */; };
+		06213A402164AAE800D6D5A0 /* PageManagerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06213A3E2164AAE600D6D5A0 /* PageManagerViewController.swift */; };
+		06213A412164AAE800D6D5A0 /* PageManagerViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 06213A3F2164AAE800D6D5A0 /* PageManagerViewController.storyboard */; };
+		06213A432164AB3500D6D5A0 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06213A422164AB3500D6D5A0 /* PageViewController.swift */; };
+		06213A462164AB5E00D6D5A0 /* PageContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06213A442164AB5C00D6D5A0 /* PageContentViewController.swift */; };
+		06213A472164AB5E00D6D5A0 /* PageContentViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 06213A452164AB5E00D6D5A0 /* PageContentViewController.storyboard */; };
+		06213A822164C76C00D6D5A0 /* AutoLayoutUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06213A812164C76C00D6D5A0 /* AutoLayoutUtility.swift */; };
 		06320FE4212E4C1F00CD38DE /* VNCServerLocalNotificationUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06320FE3212E4C1F00CD38DE /* VNCServerLocalNotificationUtility.swift */; };
 		06320FE5212E4CEB00CD38DE /* VNCServerLocalNotifiction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 069E9858211BD0F800C9F3F6 /* VNCServerLocalNotifiction.swift */; };
 		06320FE7212E574B00CD38DE /* VNCServerLocalNotificationUserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06320FE6212E574B00CD38DE /* VNCServerLocalNotificationUserInfo.swift */; };
@@ -25,6 +49,7 @@
 		063ED7BA212CF0B100B2A864 /* VideoToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 063ED7B9212CF0B100B2A864 /* VideoToolbox.framework */; };
 		063ED7BD212D072E00B2A864 /* VNCServerErrorString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 063ED7BC212D072E00B2A864 /* VNCServerErrorString.swift */; };
 		063ED7C1212D5F3D00B2A864 /* DataExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 063ED7C0212D5F3D00B2A864 /* DataExtention.swift */; };
+		064B4F7221474B19005C75F2 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 064B4F7121474B19005C75F2 /* libc++.tbd */; };
 		06510FB7212BDBC400EF5109 /* JKEGCommonLibInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06510FB6212BDBC400EF5109 /* JKEGCommonLibInfo.swift */; };
 		0660D24021191C7100C1E2F2 /* JKEGCommonLib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0660D23721191C7100C1E2F2 /* JKEGCommonLib.framework */; };
 		0660D24721191C7100C1E2F2 /* JKEGCommonLibTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0660D24621191C7100C1E2F2 /* JKEGCommonLibTests.swift */; };
@@ -76,20 +101,17 @@
 		0660D45A2119B17B00C1E2F2 /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0660D31021194A6100C1E2F2 /* GLKit.framework */; };
 		0660D45B2119B17B00C1E2F2 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0660D31221194A6800C1E2F2 /* OpenGLES.framework */; };
 		0660D45C2119B18100C1E2F2 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0660D31421194A7100C1E2F2 /* MapKit.framework */; };
-		0660D45D2119B18800C1E2F2 /* libstdc++.6.0.9.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 0660D3732119A67400C1E2F2 /* libstdc++.6.0.9.tbd */; };
 		0660D45F2119B1AB00C1E2F2 /* BroadcastVNCServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0660D45E2119B1AB00C1E2F2 /* BroadcastVNCServer.swift */; };
 		0660D4792119B87900C1E2F2 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0660D30E21194A5A00C1E2F2 /* Accelerate.framework */; };
 		0660D47A2119B87F00C1E2F2 /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0660D31021194A6100C1E2F2 /* GLKit.framework */; };
 		0660D47B2119B87F00C1E2F2 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0660D31221194A6800C1E2F2 /* OpenGLES.framework */; };
 		0660D47C2119B88400C1E2F2 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0660D31421194A7100C1E2F2 /* MapKit.framework */; };
-		0660D47D2119B8B100C1E2F2 /* libstdc++.6.0.9.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 0660D3732119A67400C1E2F2 /* libstdc++.6.0.9.tbd */; };
 		0660D47E2119B9CC00C1E2F2 /* JKEGCommonLib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0660D23721191C7100C1E2F2 /* JKEGCommonLib.framework */; };
 		0660D4802119BDD100C1E2F2 /* ExternalAccessory.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0660D47F2119BDD100C1E2F2 /* ExternalAccessory.framework */; };
 		0660D4872119C1CF00C1E2F2 /* LicenseLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0660D4522119B12400C1E2F2 /* LicenseLoader.swift */; };
 		0660D4882119C2A600C1E2F2 /* LicenseLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0660D4522119B12400C1E2F2 /* LicenseLoader.swift */; };
 		0660D4892119C2AA00C1E2F2 /* VncLicenseEncryptionConst.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0660D4532119B12400C1E2F2 /* VncLicenseEncryptionConst.swift */; };
 		0660D48A2119C2AC00C1E2F2 /* AESUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0660D4572119B12B00C1E2F2 /* AESUtility.swift */; };
-		0678DF45212E7B3F00A0CC9E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0678DF44212E7B3F00A0CC9E /* Localizable.strings */; };
 		0678DF47212E7BCB00A0CC9E /* Localize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0678DF46212E7BCB00A0CC9E /* Localize.swift */; };
 		0678DF6C212EC74600A0CC9E /* libvncserversdkios.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0660D41F2119AFD800C1E2F2 /* libvncserversdkios.a */; };
 		0678DF6D212EC77E00A0CC9E /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 063ED7B7212CF0AA00B2A864 /* AVFoundation.framework */; };
@@ -107,25 +129,25 @@
 		069C510C2118544B0087CF1B /* BaseWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 069C51062118544B0087CF1B /* BaseWebViewController.swift */; };
 		069C510D2118544B0087CF1B /* AboutAppTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 069C51072118544B0087CF1B /* AboutAppTableViewController.swift */; };
 		069C511B2118553E0087CF1B /* MessageLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 069C51132118553E0087CF1B /* MessageLabel.swift */; };
-		069C511C2118553E0087CF1B /* AccessoryConnectedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 069C51142118553E0087CF1B /* AccessoryConnectedView.swift */; };
-		069C511D2118553E0087CF1B /* PleaseConnectView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 069C51152118553E0087CF1B /* PleaseConnectView.xib */; };
-		069C511E2118553E0087CF1B /* PleaseConnectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 069C51162118553E0087CF1B /* PleaseConnectView.swift */; };
-		069C511F2118553E0087CF1B /* LoadingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 069C51172118553E0087CF1B /* LoadingView.xib */; };
-		069C51202118553E0087CF1B /* AccessoryConnectedView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 069C51182118553E0087CF1B /* AccessoryConnectedView.xib */; };
-		069C51212118553E0087CF1B /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 069C51192118553E0087CF1B /* LoadingView.swift */; };
 		069C512F2118588D0087CF1B /* open_source_license.html in Resources */ = {isa = PBXBuildFile; fileRef = 069C512B2118588D0087CF1B /* open_source_license.html */; };
-		069C51302118588D0087CF1B /* app_summery.htm in Resources */ = {isa = PBXBuildFile; fileRef = 069C512C2118588D0087CF1B /* app_summery.htm */; };
-		069C51322118588D0087CF1B /* use_policy.htm in Resources */ = {isa = PBXBuildFile; fileRef = 069C512E2118588D0087CF1B /* use_policy.htm */; };
 		069E985E211BD94E00C9F3F6 /* AppExtentionMessageInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 069E985D211BD94E00C9F3F6 /* AppExtentionMessageInfo.swift */; };
 		069E98A3211C145F00C9F3F6 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 069E98A2211C145F00C9F3F6 /* BaseViewController.swift */; };
+		06B7C46F2192C1A00075F9D5 /* TransparentButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B7C46E2192C1A00075F9D5 /* TransparentButton.swift */; };
 		06DC6207212A9823004B140C /* UnitTestFileCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06DC6206212A9823004B140C /* UnitTestFileCoordinator.swift */; };
 		06DFF9F22137F0C1009AA24A /* AppGroupsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06DFF9F12137F0C1009AA24A /* AppGroupsManager.swift */; };
 		06DFF9F52137FE5D009AA24A /* ProtocolStringTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06DFF9F42137FE5D009AA24A /* ProtocolStringTableViewController.swift */; };
 		06DFF9F72137FEA2009AA24A /* ProtocolStringTableViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 06DFF9F62137FEA2009AA24A /* ProtocolStringTableViewController.storyboard */; };
-		06F7B60E212A61CE006C4AB1 /* jvck-development-server-exp20190426-2b3f12e8-e71e-4c6e-be16-f26ba0f34b65.vnclicense in Resources */ = {isa = PBXBuildFile; fileRef = 0660D32A21195DCB00C1E2F2 /* jvck-development-server-exp20190426-2b3f12e8-e71e-4c6e-be16-f26ba0f34b65.vnclicense */; };
+		06E087502191552300B3352B /* UserAgreement.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 06E0874E2191552300B3352B /* UserAgreement.storyboard */; };
+		06E087512191552300B3352B /* UserAgreementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06E0874F2191552300B3352B /* UserAgreementViewController.swift */; };
+		06EA6AD121893AB4002CBA31 /* FrameRateTableView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 06EA6AD021893AB4002CBA31 /* FrameRateTableView.storyboard */; };
+		06EA6AD321893B7D002CBA31 /* FrameRateTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06EA6AD221893B7D002CBA31 /* FrameRateTableViewController.swift */; };
+		06EFDE2A2192E34100E13F65 /* terms_of_service.html in Resources */ = {isa = PBXBuildFile; fileRef = 06EFDE292192E34100E13F65 /* terms_of_service.html */; };
+		06F0AC442192895F001DBE1B /* application_overview.html in Resources */ = {isa = PBXBuildFile; fileRef = 06F0AC432192895E001DBE1B /* application_overview.html */; };
 		06F7B613212A820F006C4AB1 /* FileCoordinatorUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06F7B612212A820F006C4AB1 /* FileCoordinatorUtility.swift */; };
 		06F8F9DA212ED3DE006CA51C /* RealVncSdkUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06F8F9D9212ED3DE006CA51C /* RealVncSdkUtility.swift */; };
 		06F950AB212C1330001E5572 /* DebugSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06F950AA212C1330001E5572 /* DebugSettings.swift */; };
+		06FCDC4521745C3900E2CF6A /* LoadingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 069C51172118553E0087CF1B /* LoadingView.xib */; };
+		06FCDC4621745C3900E2CF6A /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 069C51192118553E0087CF1B /* LoadingView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -192,10 +214,43 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		060736E521902A3D000CDE19 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		060736E721902A42000CDE19 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
+		060736F7219045CF000CDE19 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
+		060736F9219047E5000CDE19 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
+		060736FB21904AC8000CDE19 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Localizable.strings; sourceTree = "<group>"; };
+		060736FD21904C09000CDE19 /* yue */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = yue; path = yue.lproj/Localizable.strings; sourceTree = "<group>"; };
+		060736FE21904CEA000CDE19 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		060736FF21904D7A000CDE19 /* ms */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ms; path = ms.lproj/Localizable.strings; sourceTree = "<group>"; };
+		0607370021905076000CDE19 /* id */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = id; path = id.lproj/Localizable.strings; sourceTree = "<group>"; };
+		06073701219051B8000CDE19 /* pt-PT */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-PT"; path = "pt-PT.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		0607370221905274000CDE19 /* th */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = th; path = th.lproj/Localizable.strings; sourceTree = "<group>"; };
+		060D7077216DB8FF002C3C9B /* Start04.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Start04.png; sourceTree = "<group>"; };
+		060D7078216DB900002C3C9B /* Start03.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Start03.png; sourceTree = "<group>"; };
+		060D7079216DB903002C3C9B /* Start02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Start02.png; sourceTree = "<group>"; };
+		060D7086216DB954002C3C9B /* Setting03.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Setting03.png; sourceTree = "<group>"; };
+		060D7087216DB962002C3C9B /* Setting01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Setting01.png; sourceTree = "<group>"; };
+		060D7089216DB989002C3C9B /* Setting02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Setting02.png; sourceTree = "<group>"; };
+		060D708A216DB997002C3C9B /* Setting04.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Setting04.png; sourceTree = "<group>"; };
+		060D7090216DBB40002C3C9B /* Setting05.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Setting05.png; sourceTree = "<group>"; };
+		060D7096216DC13D002C3C9B /* Stop1_02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Stop1_02.png; sourceTree = "<group>"; };
+		060D709E216DC5E4002C3C9B /* Stop1_01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Stop1_01.png; sourceTree = "<group>"; };
+		060D70A0216DC7FD002C3C9B /* Stop2_01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Stop2_01.png; sourceTree = "<group>"; };
+		060D70A1216DC7FE002C3C9B /* Stop2_02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Stop2_02.png; sourceTree = "<group>"; };
+		060D70A4216DC976002C3C9B /* Start01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Start01.png; sourceTree = "<group>"; };
 		06160C18211D32A500025357 /* BroadcastVNCServerSettingExtention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BroadcastVNCServerSettingExtention.swift; sourceTree = "<group>"; };
 		06160C1D211D4CB800025357 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		06160C24211D546B00025357 /* VncServer.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = VncServer.entitlements; sourceTree = "<group>"; };
 		061A2819212F862000F02E65 /* ScreenCaptureObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenCaptureObserver.swift; sourceTree = "<group>"; };
+		06213A372164844A00D6D5A0 /* ManualPageTopViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManualPageTopViewController.swift; sourceTree = "<group>"; };
+		06213A382164844B00D6D5A0 /* ManualPageTopViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ManualPageTopViewController.storyboard; sourceTree = "<group>"; };
+		06213A3C2164914400D6D5A0 /* PanelButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PanelButton.swift; sourceTree = "<group>"; };
+		06213A3E2164AAE600D6D5A0 /* PageManagerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageManagerViewController.swift; sourceTree = "<group>"; };
+		06213A3F2164AAE800D6D5A0 /* PageManagerViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PageManagerViewController.storyboard; sourceTree = "<group>"; };
+		06213A422164AB3500D6D5A0 /* PageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
+		06213A442164AB5C00D6D5A0 /* PageContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageContentViewController.swift; sourceTree = "<group>"; };
+		06213A452164AB5E00D6D5A0 /* PageContentViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PageContentViewController.storyboard; sourceTree = "<group>"; };
+		06213A812164C76C00D6D5A0 /* AutoLayoutUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoLayoutUtility.swift; sourceTree = "<group>"; };
 		06320FE3212E4C1F00CD38DE /* VNCServerLocalNotificationUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VNCServerLocalNotificationUtility.swift; sourceTree = "<group>"; };
 		06320FE6212E574B00CD38DE /* VNCServerLocalNotificationUserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VNCServerLocalNotificationUserInfo.swift; sourceTree = "<group>"; };
 		06345669212BE3DB002D4F1A /* AppExtentionLoggerUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppExtentionLoggerUtility.swift; sourceTree = "<group>"; };
@@ -205,6 +260,7 @@
 		063ED7B9212CF0B100B2A864 /* VideoToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VideoToolbox.framework; path = System/Library/Frameworks/VideoToolbox.framework; sourceTree = SDKROOT; };
 		063ED7BC212D072E00B2A864 /* VNCServerErrorString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VNCServerErrorString.swift; sourceTree = "<group>"; };
 		063ED7C0212D5F3D00B2A864 /* DataExtention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataExtention.swift; sourceTree = "<group>"; };
+		064B4F7121474B19005C75F2 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 		06510FB6212BDBC400EF5109 /* JKEGCommonLibInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JKEGCommonLibInfo.swift; sourceTree = "<group>"; };
 		0660D23721191C7100C1E2F2 /* JKEGCommonLib.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = JKEGCommonLib.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0660D23921191C7100C1E2F2 /* JKEGCommonLib.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JKEGCommonLib.h; sourceTree = "<group>"; };
@@ -260,14 +316,11 @@
 		0660D4572119B12B00C1E2F2 /* AESUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AESUtility.swift; sourceTree = "<group>"; };
 		0660D45E2119B1AB00C1E2F2 /* BroadcastVNCServer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BroadcastVNCServer.swift; sourceTree = "<group>"; };
 		0660D47F2119BDD100C1E2F2 /* ExternalAccessory.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ExternalAccessory.framework; path = System/Library/Frameworks/ExternalAccessory.framework; sourceTree = SDKROOT; };
-		0678DF44212E7B3F00A0CC9E /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		0678DF46212E7BCB00A0CC9E /* Localize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localize.swift; sourceTree = "<group>"; };
 		069C50C72118535D0087CF1B /* VncServer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VncServer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		069C50CA2118535D0087CF1B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		069C50CC2118535D0087CF1B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		069C50CF2118535D0087CF1B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		069C50D12118535D0087CF1B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		069C50D42118535D0087CF1B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		069C50DB2118535E0087CF1B /* VncServerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VncServerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		069C50DF2118535E0087CF1B /* VncServerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VncServerTests.swift; sourceTree = "<group>"; };
 		069C50E12118535E0087CF1B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -288,18 +341,25 @@
 		069C51192118553E0087CF1B /* LoadingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		069C5127211858430087CF1B /* LocalNotification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalNotification.swift; sourceTree = "<group>"; };
 		069C512B2118588D0087CF1B /* open_source_license.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = open_source_license.html; sourceTree = "<group>"; };
-		069C512C2118588D0087CF1B /* app_summery.htm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = app_summery.htm; sourceTree = "<group>"; };
-		069C512E2118588D0087CF1B /* use_policy.htm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = use_policy.htm; sourceTree = "<group>"; };
 		069C513821185BC60087CF1B /* ReplayKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReplayKit.framework; path = System/Library/Frameworks/ReplayKit.framework; sourceTree = SDKROOT; };
 		069C514421185BC60087CF1B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		069E9858211BD0F800C9F3F6 /* VNCServerLocalNotifiction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VNCServerLocalNotifiction.swift; sourceTree = "<group>"; };
 		069E985D211BD94E00C9F3F6 /* AppExtentionMessageInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppExtentionMessageInfo.swift; sourceTree = "<group>"; };
 		069E98A1211C0CE700C9F3F6 /* BroadcastServer.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BroadcastServer.entitlements; sourceTree = "<group>"; };
 		069E98A2211C145F00C9F3F6 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		06B7C46E2192C1A00075F9D5 /* TransparentButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransparentButton.swift; sourceTree = "<group>"; };
 		06DC6206212A9823004B140C /* UnitTestFileCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitTestFileCoordinator.swift; sourceTree = "<group>"; };
 		06DFF9F12137F0C1009AA24A /* AppGroupsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppGroupsManager.swift; sourceTree = "<group>"; };
 		06DFF9F42137FE5D009AA24A /* ProtocolStringTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtocolStringTableViewController.swift; sourceTree = "<group>"; };
 		06DFF9F62137FEA2009AA24A /* ProtocolStringTableViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ProtocolStringTableViewController.storyboard; sourceTree = "<group>"; };
+		06E0874E2191552300B3352B /* UserAgreement.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = UserAgreement.storyboard; sourceTree = "<group>"; };
+		06E0874F2191552300B3352B /* UserAgreementViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserAgreementViewController.swift; sourceTree = "<group>"; };
+		06EA6AD021893AB4002CBA31 /* FrameRateTableView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FrameRateTableView.storyboard; sourceTree = "<group>"; };
+		06EA6AD221893B7D002CBA31 /* FrameRateTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrameRateTableViewController.swift; sourceTree = "<group>"; };
+		06EB0D1421901F30008F8E62 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		06EB0D1521901F34008F8E62 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		06EFDE292192E34100E13F65 /* terms_of_service.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = terms_of_service.html; sourceTree = "<group>"; };
+		06F0AC432192895E001DBE1B /* application_overview.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = application_overview.html; sourceTree = "<group>"; };
 		06F7B612212A820F006C4AB1 /* FileCoordinatorUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileCoordinatorUtility.swift; sourceTree = "<group>"; };
 		06F8F9D9212ED3DE006CA51C /* RealVncSdkUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealVncSdkUtility.swift; sourceTree = "<group>"; };
 		06F950AA212C1330001E5572 /* DebugSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugSettings.swift; sourceTree = "<group>"; };
@@ -325,10 +385,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				064B4F7221474B19005C75F2 /* libc++.tbd in Frameworks */,
 				063ED7BA212CF0B100B2A864 /* VideoToolbox.framework in Frameworks */,
 				063ED7B8212CF0AA00B2A864 /* AVFoundation.framework in Frameworks */,
 				0660D47E2119B9CC00C1E2F2 /* JKEGCommonLib.framework in Frameworks */,
-				0660D45D2119B18800C1E2F2 /* libstdc++.6.0.9.tbd in Frameworks */,
 				0660D45C2119B18100C1E2F2 /* MapKit.framework in Frameworks */,
 				0660D45A2119B17B00C1E2F2 /* GLKit.framework in Frameworks */,
 				0660D45B2119B17B00C1E2F2 /* OpenGLES.framework in Frameworks */,
@@ -352,7 +412,6 @@
 				0678DF6E212EC78600A0CC9E /* VideoToolbox.framework in Frameworks */,
 				0678DF6D212EC77E00A0CC9E /* AVFoundation.framework in Frameworks */,
 				0660D4802119BDD100C1E2F2 /* ExternalAccessory.framework in Frameworks */,
-				0660D47D2119B8B100C1E2F2 /* libstdc++.6.0.9.tbd in Frameworks */,
 				0660D47C2119B88400C1E2F2 /* MapKit.framework in Frameworks */,
 				0660D47A2119B87F00C1E2F2 /* GLKit.framework in Frameworks */,
 				0660D47B2119B87F00C1E2F2 /* OpenGLES.framework in Frameworks */,
@@ -377,6 +436,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		060736E821902AEE000CDE19 /* Localize */ = {
+			isa = PBXGroup;
+			children = (
+				060736E621902A3D000CDE19 /* Localizable.strings */,
+			);
+			path = Localize;
+			sourceTree = "<group>";
+		};
 		0609731F212A5BCA00A0BF72 /* UnitTestApp */ = {
 			isa = PBXGroup;
 			children = (
@@ -392,10 +459,62 @@
 			path = Functions;
 			sourceTree = "<group>";
 		};
+		06213A362164831200D6D5A0 /* ManualPages */ = {
+			isa = PBXGroup;
+			children = (
+				06213A802164C75200D6D5A0 /* Utility */,
+				06213A652164B0E100D6D5A0 /* Images */,
+				06213A3B2164912000D6D5A0 /* Control */,
+				06213A382164844B00D6D5A0 /* ManualPageTopViewController.storyboard */,
+				06213A372164844A00D6D5A0 /* ManualPageTopViewController.swift */,
+				06213A3F2164AAE800D6D5A0 /* PageManagerViewController.storyboard */,
+				06213A3E2164AAE600D6D5A0 /* PageManagerViewController.swift */,
+				06213A422164AB3500D6D5A0 /* PageViewController.swift */,
+				06213A452164AB5E00D6D5A0 /* PageContentViewController.storyboard */,
+				06213A442164AB5C00D6D5A0 /* PageContentViewController.swift */,
+			);
+			path = ManualPages;
+			sourceTree = "<group>";
+		};
+		06213A3B2164912000D6D5A0 /* Control */ = {
+			isa = PBXGroup;
+			children = (
+				06213A3C2164914400D6D5A0 /* PanelButton.swift */,
+			);
+			path = Control;
+			sourceTree = "<group>";
+		};
+		06213A652164B0E100D6D5A0 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				060D7087216DB962002C3C9B /* Setting01.png */,
+				060D7089216DB989002C3C9B /* Setting02.png */,
+				060D7086216DB954002C3C9B /* Setting03.png */,
+				060D708A216DB997002C3C9B /* Setting04.png */,
+				060D7090216DBB40002C3C9B /* Setting05.png */,
+				060D70A4216DC976002C3C9B /* Start01.png */,
+				060D7079216DB903002C3C9B /* Start02.png */,
+				060D7078216DB900002C3C9B /* Start03.png */,
+				060D7077216DB8FF002C3C9B /* Start04.png */,
+				060D709E216DC5E4002C3C9B /* Stop1_01.png */,
+				060D7096216DC13D002C3C9B /* Stop1_02.png */,
+				060D70A0216DC7FD002C3C9B /* Stop2_01.png */,
+				060D70A1216DC7FE002C3C9B /* Stop2_02.png */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
+		06213A802164C75200D6D5A0 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				06213A812164C76C00D6D5A0 /* AutoLayoutUtility.swift */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
 		063ED7B2212CEBB500B2A864 /* Localize */ = {
 			isa = PBXGroup;
 			children = (
-				0678DF44212E7B3F00A0CC9E /* Localizable.strings */,
 				0678DF46212E7BCB00A0CC9E /* Localize.swift */,
 				063ED7B3212CEBB500B2A864 /* JKEGCommon.strings */,
 				063ED7B4212CEBB500B2A864 /* JKEGCommonString.swift */,
@@ -610,6 +729,7 @@
 		069C50C92118535D0087CF1B /* VncServer */ = {
 			isa = PBXGroup;
 			children = (
+				060736E821902AEE000CDE19 /* Localize */,
 				06160C24211D546B00025357 /* VncServer.entitlements */,
 				069C51002118544B0087CF1B /* ViewControllers */,
 				069C51122118553E0087CF1B /* Views */,
@@ -653,6 +773,7 @@
 		069C50FE2118538E0087CF1B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				064B4F7121474B19005C75F2 /* libc++.tbd */,
 				063ED7B9212CF0B100B2A864 /* VideoToolbox.framework */,
 				063ED7B7212CF0AA00B2A864 /* AVFoundation.framework */,
 				0660D47F2119BDD100C1E2F2 /* ExternalAccessory.framework */,
@@ -670,6 +791,8 @@
 		069C51002118544B0087CF1B /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				06E0874D219154EF00B3352B /* UserAgreement */,
+				06213A362164831200D6D5A0 /* ManualPages */,
 				06DFF9F32137FE3D009AA24A /* Debug */,
 				069C51042118544B0087CF1B /* Base */,
 				069C51012118544B0087CF1B /* OSSViewController.swift */,
@@ -686,6 +809,7 @@
 				069C51052118544B0087CF1B /* BaseSafariViewController.swift */,
 				069C51062118544B0087CF1B /* BaseWebViewController.swift */,
 				069E98A2211C145F00C9F3F6 /* BaseViewController.swift */,
+				06B7C46E2192C1A00075F9D5 /* TransparentButton.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -719,8 +843,8 @@
 			isa = PBXGroup;
 			children = (
 				069C512B2118588D0087CF1B /* open_source_license.html */,
-				069C512C2118588D0087CF1B /* app_summery.htm */,
-				069C512E2118588D0087CF1B /* use_policy.htm */,
+				06F0AC432192895E001DBE1B /* application_overview.html */,
+				06EFDE292192E34100E13F65 /* terms_of_service.html */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -749,8 +873,19 @@
 			children = (
 				06DFF9F42137FE5D009AA24A /* ProtocolStringTableViewController.swift */,
 				06DFF9F62137FEA2009AA24A /* ProtocolStringTableViewController.storyboard */,
+				06EA6AD021893AB4002CBA31 /* FrameRateTableView.storyboard */,
+				06EA6AD221893B7D002CBA31 /* FrameRateTableViewController.swift */,
 			);
 			path = Debug;
+			sourceTree = "<group>";
+		};
+		06E0874D219154EF00B3352B /* UserAgreement */ = {
+			isa = PBXGroup;
+			children = (
+				06E0874E2191552300B3352B /* UserAgreement.storyboard */,
+				06E0874F2191552300B3352B /* UserAgreementViewController.swift */,
+			);
+			path = UserAgreement;
 			sourceTree = "<group>";
 		};
 		06F8F9D6212ED377006CA51C /* Utility */ = {
@@ -885,15 +1020,16 @@
 				TargetAttributes = {
 					0660D23621191C7100C1E2F2 = {
 						CreatedOnToolsVersion = 9.4.1;
-						LastSwiftMigration = 0940;
+						LastSwiftMigration = 1000;
 					};
 					0660D23E21191C7100C1E2F2 = {
 						CreatedOnToolsVersion = 9.4.1;
+						LastSwiftMigration = 1000;
 						TestTargetID = 069C50C62118535D0087CF1B;
 					};
 					0660D4382119B0B400C1E2F2 = {
 						CreatedOnToolsVersion = 9.4.1;
-						LastSwiftMigration = 0940;
+						LastSwiftMigration = 1000;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
 								enabled = 1;
@@ -902,6 +1038,7 @@
 					};
 					069C50C62118535D0087CF1B = {
 						CreatedOnToolsVersion = 9.4.1;
+						LastSwiftMigration = 1000;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
 								enabled = 1;
@@ -910,6 +1047,7 @@
 					};
 					069C50DA2118535E0087CF1B = {
 						CreatedOnToolsVersion = 9.4.1;
+						LastSwiftMigration = 1000;
 						TestTargetID = 069C50C62118535D0087CF1B;
 					};
 				};
@@ -921,6 +1059,16 @@
 			knownRegions = (
 				en,
 				Base,
+				ja,
+				fr,
+				es,
+				ar,
+				yue,
+				"zh-Hans",
+				ms,
+				id,
+				"pt-PT",
+				th,
 			);
 			mainGroup = 069C50BE2118535D0087CF1B;
 			productRefGroup = 069C50C82118535D0087CF1B /* Products */;
@@ -942,7 +1090,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				0660D26221191CE800C1E2F2 /* AppLogger.storyboard in Resources */,
-				0678DF45212E7B3F00A0CC9E /* Localizable.strings in Resources */,
 				063ED7B5212CEBB500B2A864 /* JKEGCommon.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -959,6 +1106,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				06160C26211D6EFE00025357 /* RealVNCServer.vnclicense in Resources */,
+				060736F4219032C0000CDE19 /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -966,18 +1114,34 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				06F7B60E212A61CE006C4AB1 /* jvck-development-server-exp20190426-2b3f12e8-e71e-4c6e-be16-f26ba0f34b65.vnclicense in Resources */,
-				069C51302118588D0087CF1B /* app_summery.htm in Resources */,
+				060D7098216DC13E002C3C9B /* Stop1_02.png in Resources */,
+				060D70A2216DC7FE002C3C9B /* Stop2_01.png in Resources */,
+				060D70A3216DC7FE002C3C9B /* Stop2_02.png in Resources */,
+				060736E421902A3D000CDE19 /* Localizable.strings in Resources */,
+				06FCDC4521745C3900E2CF6A /* LoadingView.xib in Resources */,
+				060D70A5216DC976002C3C9B /* Start01.png in Resources */,
 				069C512F2118588D0087CF1B /* open_source_license.html in Resources */,
+				060D709F216DC5E4002C3C9B /* Stop1_01.png in Resources */,
 				06DFF9F72137FEA2009AA24A /* ProtocolStringTableViewController.storyboard in Resources */,
+				060D708F216DB998002C3C9B /* Setting04.png in Resources */,
+				06213A412164AAE800D6D5A0 /* PageManagerViewController.storyboard in Resources */,
+				060D708E216DB998002C3C9B /* Setting02.png in Resources */,
 				069C50D52118535D0087CF1B /* LaunchScreen.storyboard in Resources */,
+				06E087502191552300B3352B /* UserAgreement.storyboard in Resources */,
+				060D707C216DB903002C3C9B /* Start03.png in Resources */,
 				06160C25211D6EFD00025357 /* RealVNCServer.vnclicense in Resources */,
-				069C511D2118553E0087CF1B /* PleaseConnectView.xib in Resources */,
-				069C51322118588D0087CF1B /* use_policy.htm in Resources */,
+				06213A472164AB5E00D6D5A0 /* PageContentViewController.storyboard in Resources */,
 				069C50D22118535D0087CF1B /* Assets.xcassets in Resources */,
 				069C50D02118535D0087CF1B /* Main.storyboard in Resources */,
-				069C511F2118553E0087CF1B /* LoadingView.xib in Resources */,
-				069C51202118553E0087CF1B /* AccessoryConnectedView.xib in Resources */,
+				060D7091216DBB40002C3C9B /* Setting05.png in Resources */,
+				06EA6AD121893AB4002CBA31 /* FrameRateTableView.storyboard in Resources */,
+				06EFDE2A2192E34100E13F65 /* terms_of_service.html in Resources */,
+				060D708B216DB998002C3C9B /* Setting03.png in Resources */,
+				06213A3A2164844B00D6D5A0 /* ManualPageTopViewController.storyboard in Resources */,
+				06F0AC442192895F001DBE1B /* application_overview.html in Resources */,
+				060D707B216DB903002C3C9B /* Start04.png in Resources */,
+				060D708C216DB998002C3C9B /* Setting01.png in Resources */,
+				060D707D216DB903002C3C9B /* Start02.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1010,7 +1174,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PROJECT_DIR}/BuildTools/SwiftFormat/CommandLineTool/swiftformat\" . --exclude Carthage,Pods --trimwhitespace nonblank-lines --stripunusedargs closure-only --disable strongOutlets,trailingCommas";
+			shellScript = "#\"${PROJECT_DIR}/BuildTools/SwiftFormat/CommandLineTool/swiftformat\" . --exclude Carthage,Pods --trimwhitespace nonblank-lines --stripunusedargs closure-only --disable strongOutlets,trailingCommas\n";
 		};
 		0660D35D211976F300C1E2F2 /* Swift Lint */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1024,7 +1188,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if which \"${PROJECT_DIR}/BuildTools/SwiftLint/swiftlint\" >/dev/null; then\nswiftlint\nelse\necho \"SwiftLint does not exist, download from https://github.com/realm/SwiftLint\"\nfi\n";
+			shellScript = "#if which \"${PROJECT_DIR}/BuildTools/SwiftLint/swiftlint\" >/dev/null; then\n#swiftlint\n#else\n#echo \"SwiftLint does not exist, download from https://github.com/realm/SwiftLint\"\n#fi\n";
 		};
 		0660D4632119B59C00C1E2F2 /* Swift Format */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1066,7 +1230,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# plutilでdictの中の値を更新する方法が不明だったので、remove and insertで対応しました。\n#plutil=\"/usr/bin/plutil\"\n#infoPlistFileDestination=\"${TEMP_DIR}/Preprocessed-Info.plist\"\n\n# リリース向け以外は、iTunesファイル共有をONにする！！！\n#if [ ${CONFIGURATION} != \"Release\" ]; then\n#$plutil -replace 'UIFileSharingEnabled' -xml '<true/>' $infoPlistFileDestination\n#fi";
+			shellScript = "# plutilでdictの中の値を更新する方法が不明だったので、remove and insertで対応しました。\n#plutil=\"/usr/bin/plutil\"\n#infoPlistFileDestination=\"${TEMP_DIR}/Preprocessed-Info.plist\"\n\n# リリース向け以外は、iTunesファイル共有をON(true/YES)にする！！！\n#if [ ${CONFIGURATION} != \"Release\" ]; then\n#$plutil -replace 'UIFileSharingEnabled' -xml '<true/>' $infoPlistFileDestination\n#fi\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -1130,14 +1294,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				069C511E2118553E0087CF1B /* PleaseConnectView.swift in Sources */,
 				069C51082118544B0087CF1B /* OSSViewController.swift in Sources */,
 				069C511B2118553E0087CF1B /* MessageLabel.swift in Sources */,
 				069C51092118544B0087CF1B /* TermsOfUseViewController.swift in Sources */,
+				06213A462164AB5E00D6D5A0 /* PageContentViewController.swift in Sources */,
+				06B7C46F2192C1A00075F9D5 /* TransparentButton.swift in Sources */,
+				06213A3D2164914400D6D5A0 /* PanelButton.swift in Sources */,
 				069C50CD2118535D0087CF1B /* ViewController.swift in Sources */,
-				069C51212118553E0087CF1B /* LoadingView.swift in Sources */,
+				06213A822164C76C00D6D5A0 /* AutoLayoutUtility.swift in Sources */,
+				06EA6AD321893B7D002CBA31 /* FrameRateTableViewController.swift in Sources */,
+				06213A432164AB3500D6D5A0 /* PageViewController.swift in Sources */,
 				069C510C2118544B0087CF1B /* BaseWebViewController.swift in Sources */,
-				069C511C2118553E0087CF1B /* AccessoryConnectedView.swift in Sources */,
+				06213A392164844B00D6D5A0 /* ManualPageTopViewController.swift in Sources */,
 				061A281A212F862000F02E65 /* ScreenCaptureObserver.swift in Sources */,
 				0660D48A2119C2AC00C1E2F2 /* AESUtility.swift in Sources */,
 				069C50CB2118535D0087CF1B /* AppDelegate.swift in Sources */,
@@ -1147,8 +1315,11 @@
 				069E98A3211C145F00C9F3F6 /* BaseViewController.swift in Sources */,
 				06DFF9F52137FE5D009AA24A /* ProtocolStringTableViewController.swift in Sources */,
 				06F8F9DA212ED3DE006CA51C /* RealVncSdkUtility.swift in Sources */,
+				06E087512191552300B3352B /* UserAgreementViewController.swift in Sources */,
 				069C510A2118544B0087CF1B /* AppOverviewViewController.swift in Sources */,
 				069C510B2118544B0087CF1B /* BaseSafariViewController.swift in Sources */,
+				06213A402164AAE800D6D5A0 /* PageManagerViewController.swift in Sources */,
+				06FCDC4621745C3900E2CF6A /* LoadingView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1197,10 +1368,28 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		060736E621902A3D000CDE19 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				060736E521902A3D000CDE19 /* en */,
+				060736E721902A42000CDE19 /* ja */,
+				060736F7219045CF000CDE19 /* fr */,
+				060736F9219047E5000CDE19 /* es */,
+				060736FB21904AC8000CDE19 /* ar */,
+				060736FD21904C09000CDE19 /* yue */,
+				060736FE21904CEA000CDE19 /* zh-Hans */,
+				060736FF21904D7A000CDE19 /* ms */,
+				0607370021905076000CDE19 /* id */,
+				06073701219051B8000CDE19 /* pt-PT */,
+				0607370221905274000CDE19 /* th */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		069C50CE2118535D0087CF1B /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				069C50CF2118535D0087CF1B /* Base */,
+				06EB0D1421901F30008F8E62 /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -1208,7 +1397,7 @@
 		069C50D32118535D0087CF1B /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				069C50D42118535D0087CF1B /* Base */,
+				06EB0D1521901F34008F8E62 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -1220,6 +1409,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -1278,8 +1468,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = NO;
 				CODE_SIGN_ENTITLEMENTS = VncServer/VncServer.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = CNSGP427AZ;
 				ENABLE_BITCODE = NO;
 				GCC_PREFIX_HEADER = "";
@@ -1301,10 +1490,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.jvckenwood-eng.product.kleasylink";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "37a37ce8-06be-4cbf-8670-f4aba6bb4766";
-				PROVISIONING_PROFILE_SPECIFIER = "Easy Link for KL";
 				SWIFT_OBJC_BRIDGING_HEADER = "VncServer/VncServer-Bridging-Header.h";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = "Release(LOG)";
@@ -1314,8 +1501,7 @@
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = BroadcastServer/BroadcastServer.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = CNSGP427AZ;
 				ENABLE_BITCODE = NO;
 				HEADER_SEARCH_PATHS = (
@@ -1336,11 +1522,9 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.jvckenwood-eng.product.kleasylink.broadcastserver";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "0e3557c7-b9d5-4144-b10c-f84835199ca3";
-				PROVISIONING_PROFILE_SPECIFIER = "Easy Link Broadcast Server for KL";
 				SKIP_INSTALL = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "BroadcastServer/BroadcastServer-Bridging-Header.h";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = "Release(LOG)";
@@ -1369,7 +1553,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.jvckenwood-eng.product.JKEGCommonLib";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -1398,7 +1582,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.jvckenwood-eng.product.vncserver.VncServerTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "VncServer/VncServer-Bridging-Header.h";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/VncServer.app/VncServer";
 			};
@@ -1419,7 +1603,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.jvckenwood-eng.product.vncserver.JKEGCommonLibTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/VncServer.app/VncServer";
 			};
@@ -1450,7 +1634,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -1481,7 +1665,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.jvckenwood-eng.product.JKEGCommonLib";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -1503,7 +1687,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.jvckenwood-eng.product.vncserver.JKEGCommonLibTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/VncServer.app/VncServer";
 			};
@@ -1524,7 +1708,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.jvckenwood-eng.product.vncserver.JKEGCommonLibTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/VncServer.app/VncServer";
 			};
@@ -1535,8 +1719,7 @@
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = BroadcastServer/BroadcastServer.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = CNSGP427AZ;
 				ENABLE_BITCODE = NO;
 				HEADER_SEARCH_PATHS = (
@@ -1557,12 +1740,10 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.jvckenwood-eng.product.kleasylink.broadcastserver";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "0e3557c7-b9d5-4144-b10c-f84835199ca3";
-				PROVISIONING_PROFILE_SPECIFIER = "Easy Link Broadcast Server for KL";
 				SKIP_INSTALL = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "BroadcastServer/BroadcastServer-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -1572,8 +1753,7 @@
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = BroadcastServer/BroadcastServer.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = CNSGP427AZ;
 				ENABLE_BITCODE = NO;
 				HEADER_SEARCH_PATHS = (
@@ -1594,11 +1774,9 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.jvckenwood-eng.product.kleasylink.broadcastserver";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "0e3557c7-b9d5-4144-b10c-f84835199ca3";
-				PROVISIONING_PROFILE_SPECIFIER = "Easy Link Broadcast Server for KL";
 				SKIP_INSTALL = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "BroadcastServer/BroadcastServer-Bridging-Header.h";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -1607,6 +1785,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -1667,6 +1846,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -1724,8 +1904,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = NO;
 				CODE_SIGN_ENTITLEMENTS = VncServer/VncServer.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = CNSGP427AZ;
 				ENABLE_BITCODE = NO;
 				GCC_PREFIX_HEADER = "";
@@ -1747,10 +1926,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.jvckenwood-eng.product.kleasylink";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "37a37ce8-06be-4cbf-8670-f4aba6bb4766";
-				PROVISIONING_PROFILE_SPECIFIER = "Easy Link for KL";
 				SWIFT_OBJC_BRIDGING_HEADER = "VncServer/VncServer-Bridging-Header.h";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -1762,8 +1939,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = NO;
 				CODE_SIGN_ENTITLEMENTS = VncServer/VncServer.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = CNSGP427AZ;
 				ENABLE_BITCODE = NO;
 				GCC_PREFIX_HEADER = "";
@@ -1785,10 +1961,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.jvckenwood-eng.product.kleasylink";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "37a37ce8-06be-4cbf-8670-f4aba6bb4766";
-				PROVISIONING_PROFILE_SPECIFIER = "Easy Link for KL";
 				SWIFT_OBJC_BRIDGING_HEADER = "VncServer/VncServer-Bridging-Header.h";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
@@ -1815,7 +1989,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.jvckenwood-eng.product.vncserver.VncServerTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "VncServer/VncServer-Bridging-Header.h";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/VncServer.app/VncServer";
 			};
@@ -1843,7 +2017,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.jvckenwood-eng.product.vncserver.VncServerTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "VncServer/VncServer-Bridging-Header.h";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/VncServer.app/VncServer";
 			};

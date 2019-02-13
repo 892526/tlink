@@ -10,8 +10,15 @@ import Foundation
 
 /// ファイル共有アクセスクラス
 public class AppGroupsManager: NSObject {
-    /// ファイル共有アクセス名
+    #warning("TODO: AppStore用は、本番用App GroupIDを設定してください!")
+    
+    /// ファイル共有アクセス名(App Groupd ID)
+    
+    /// 開発用App Group ID
     public static let groupID = "group.com.jvckenwood-eng.product.kleasylink"
+    
+    /// 本番用App Grroup ID
+    // public static let groupID = "group.com.jvckenwood.ce.kleasylink"
     
     /// 初期化済みかどうか
     static let intializeState = "SHARED_USER_DEFAULTS_KEY_INITIALIZED"
@@ -26,6 +33,12 @@ public class AppGroupsManager: NSObject {
     /// プロトコルストリングインデックス
     static let protocolStringIndex = "SHARED_USER_DEFAULTS_KEY_PROTOCOLSTRING_INDEX"
     
+    /// フレームレートインデックス
+    static let frameRateIndex = "SHARED_USER_DEFAULTS_KEY_FRAMERATE_INDEX"
+    
+    /// 利用規約許諾状態
+    static let userAgreementState = "SHARED_USER_DEFAULTS_KEY_USER_AGREEMENT_STATE"
+    
     /// 同期する
     public class func synchronize() {
         if let userDefaults = UserDefaults(suiteName: groupID) {
@@ -38,7 +51,9 @@ public class AppGroupsManager: NSObject {
         AppGroupsManager.saveConnectionState(false)
         AppGroupsManager.saveConnectionUpdateTime(nil)
         AppGroupsManager.saveErrorInfo(nil)
+        
         AppGroupsManager.saveProtocolStringIndex(index: 0) // 本番用優先
+        AppGroupsManager.saveFrameRateIndex(index: 0) // 60 fps
     }
     
     /// 初期化済みかどうか設定する。
@@ -149,6 +164,44 @@ public class AppGroupsManager: NSObject {
     public class func saveProtocolStringIndex(index: Int) {
         if let userDefaults = UserDefaults(suiteName: groupID) {
             userDefaults.set(index, forKey: protocolStringIndex)
+        }
+    }
+    
+    /// フレームレート設定のインデックス番号を取得する。
+    ///
+    /// - Returns: インデックス番号
+    public class func loadFrameRateIndex() -> Int {
+        if let userDefaults = UserDefaults(suiteName: groupID) {
+            return userDefaults.integer(forKey: frameRateIndex)
+        }
+        return 0
+    }
+    
+    /// フレームレート設定のインデックス番号を保存する。
+    ///
+    /// - Parameter index: インデックス番号
+    public class func saveFrameRateIndex(index: Int) {
+        if let userDefaults = UserDefaults(suiteName: groupID) {
+            userDefaults.set(index, forKey: frameRateIndex)
+        }
+    }
+    
+    /// 利用規約の許諾状態を取得する。
+    ///
+    /// - Returns: 許諾状態（true: 許諾、false: 未許諾）
+    public class func loadUserAgreementState() -> Bool {
+        if let userDefaults = UserDefaults(suiteName: groupID) {
+            return userDefaults.bool(forKey: userAgreementState)
+        }
+        return false
+    }
+    
+    /// 利用規約の許諾状態を保存する。
+    ///
+    /// - Parameter state: 許諾状態（true: 許諾、false: 未許諾）
+    public class func saveUserAgreementState(state: Bool) {
+        if let userDefaults = UserDefaults(suiteName: groupID) {
+            userDefaults.set(state, forKey: userAgreementState)
         }
     }
 }

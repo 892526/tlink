@@ -8,16 +8,13 @@
 
 import Foundation
 
+/// ローカライズ文字列取得クラス
 public class Localize {
     /// 指定したキーのローカライズ文字列を取得する。
     ///
     /// - Parameter name: 文字列キー
     /// - Returns: ローカライズ文字列
     public class func localizedString(_ name: String) -> String {
-        if let bundle = Bundle(identifier: JKEGCommonLibInfo.bundleId) {
-            // "Localizable.string"ファイルを参照する
-            return NSLocalizedString(name, tableName: "Localizable", bundle: bundle, value: name, comment: name)
-        }
-        return name
+        return NSLocalizedString(name, comment: name)
     }
 }

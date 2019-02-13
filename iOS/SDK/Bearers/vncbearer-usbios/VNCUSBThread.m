@@ -2,7 +2,7 @@
 //  VNCUSBThread.m
 //  iOS Server SDK
 //
-//  Copyright RealVNC Ltd. 2014-2018. All rights reserved.
+//  Copyright (C) 2014-2018 VNC Automotive Ltd.  All Rights Reserved.
 //
 
 #import "VNCUSBCondition.h"

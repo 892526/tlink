@@ -4,12 +4,12 @@
 /**
  * \file VNCServerState.h
  * 
- * \brief VNC Server States
+ * \brief VNC Automotive Server States
  *
- * Copyright RealVNC Ltd. 2013-2018. All rights reserved.
+ * Copyright (C) 2013-2018 VNC Automotive Ltd.  All Rights Reserved.
  */
 
-// VNC Symbol Exporting.
+// VNC Automotive Symbol Exporting.
 #import <VNCExport.h>
 
 /**

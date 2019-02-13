@@ -1,8 +1,10 @@
-Release Notes - VNC(R) Mobile Server SDK for iOS Embedded 4.1
+Release Notes - VNC Automotive Server SDK for iOS Embedded 4.2
 =============================================================
 
 Issues fixed in this release:
 -----------------------------
+
+MOB-16819: Potential disconnection when using ZLRE encoding.
 
 
 Features not supported in this release:
@@ -31,12 +33,12 @@ MOB-16065: Multiple pointer or touch drag events that occur within
 MOB-16915: The SDK only captures the contents of the iOS application's key
            window when sending pixel data to the viewer. Applications which use
            multiple UIWindow instances may find that part of their user
-           interface is not visible over a VNC connection.
+           interface is not visible over a VNC Automotive connection.
 
 MOB-16920: The SDK only supports remote pointer/touch input for views inside
            the iOS application's key window. Applications which use multiple
            UIWindow instances may find that part of their user interface cannot
-           be controlled over a VNC connection.
+           be controlled over a VNC Automotive connection.
 
 
 Unsupported UI Elements:
@@ -55,11 +57,10 @@ or have events injected into them:
 Trademark Information
 =====================
 
-RealVNC and VNC are trademarks of RealVNC Limited and are protected by
+VNC Automotive is a trademark of VNC Automotive Limited and is protected by
 trademark registrations and/or pending trademark applications in the
 European Union, United States of America and other jurisdictions.
 Other trademarks are the property of their respective owners.
-Protected by UK patents 2481870, 2491657; US patents 8760366, 9137657; EU patent 2652951.
 
-Copyright (c) 2013-2018 RealVNC Ltd.  All rights reserved.
+Copyright (C) 2013-2018 VNC Automotive Ltd.  All Rights Reserved.
 

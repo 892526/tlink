@@ -14,10 +14,15 @@ import UserNotifications
 class ViewController: BaseViewController, UNUserNotificationCenterDelegate {
     var isConnected: Bool = false
     
-    var pleaseConnectView: PleaseConnectView?
-    var accessoryConnectedView: AccessoryConnectedView?
-    
     @IBOutlet weak var messageLabel: MessageLabel!
+    @IBOutlet weak var imageViewWallpaper: UIImageView!
+    
+    @IBOutlet weak var imageViewAppIcon: UIImageView!
+    @IBOutlet weak var imageVIewAppName: UIImageView!
+    @IBOutlet weak var imageViewAvxIcon: UIImageView!
+    
+    @IBOutlet weak var buttonShareScreen: UIButton!
+    @IBOutlet weak var buttonAboutApp: UIButton!
     
     // 最新のエラーメッセージ
     private var latestDisplayMessage: String = String.Empty
@@ -50,16 +55,6 @@ class ViewController: BaseViewController, UNUserNotificationCenterDelegate {
          view.addGestureRecognizer(doubleTap)
          */
         
-        // 表示メッセージ取得
-        latestDisplayMessage = getMessageString()
-        
-        // アクセサリ接続中表示View追加
-        addAccessoryConnectedView()
-        
-        messageLabel.text = latestDisplayMessage
-        messageLabel.alpha = 1
-        messageLabel.isHidden = false
-        
         // 各種Notification登録
         addNotifications()
         
@@ -71,96 +66,41 @@ class ViewController: BaseViewController, UNUserNotificationCenterDelegate {
         let sdkVersion = RealVncSdkUtility.buildVersion()
         AppLogger.debug("RealVNC Server SDK Version = " + sdkVersion)
         
-        /*
-         if FileCoordinatorUtility.removeData(fileName: fileName, groupID: SharedSetting.suitName) {
-         AppLogger.debug("OK")
-         } else {
-         AppLogger.debug("NG")
-         }
-         
-         if let data = testDataText.data(using: .utf8) {
-         if FileCoordinatorUtility.writeData(data: data, fileName: fileName, groupID: SharedSetting.suitName) {
-         AppLogger.debug("OK")
-         } else {
-         AppLogger.debug("NG")
-         }
-         }
-         
-         do {
-         if let readData = try FileCoordinatorUtility.readData(fileName: fileName, groupID: SharedSetting.suitName) {
-         AppLogger.debug("OK (Data = \(readData.count) bytes")
-         } else {
-         AppLogger.debug("NG")
-         }
-         } catch FileCoordinatorUtility.ReadAPIError.fileNotFound {
-         AppLogger.debug("fileNotFound")
-         } catch FileCoordinatorUtility.ReadAPIError.otherError {
-         AppLogger.debug("otherError")
-         } catch let error {
-         AppLogger.debug("\(error.localizedDescription)")
-         }
-         */
-        
-        /*
-         if FileCoordinatorUtility.readData(fileName: fileName, groupID: SharedSetting.suitName) != nil {
-         AppLogger.debug("Read OK")
-         } else {
-         AppLogger.debug("Read Error(no file)")
-         }
-         
-         if let data = testDataText.data(using: .utf8) {
-         FileCoordinatorUtility.writeData(data: data, fileName: fileName, groupID: SharedSetting.suitName)
-         
-         FileCoordinatorUtility.readData(fileName: fileName, groupID: SharedSetting.suitName)
-         }
-         */
-        
         // ローカル通知受信開始
         addLocalNotificationReceiver()
         
-        // スクリーンキャプチャー監視開始
-        screenCaptureObserver.start { isCaptured in
-            AppLogger.debug("screenCaptureObserver.isCaptured = \(isCaptured)")
-            
-            // 表示更新
-            self.updateDisplayStatus()
-        }
-        
         // アクセサリ通信通知受信開始
         updateProtocolString()
-        addExternalAccessoryNotification()
         
-        addStartupView()
+        // 本アプリケーションについて
+        buttonAboutApp.setTitle(Localize.localizedString("SS_01_002"), for: .normal)
+        // 画面共有方法
+        buttonShareScreen.setTitle(Localize.localizedString("SS_01_011"), for: .normal)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         AppLogger.debug()
         
-        startAnimation()
-        
-        // 表示更新
-        updateDisplayStatus()
-        
-        // 表示更新タイマー開始
-        startUpdateTimer()
+        // 利用規約の表示が必要かどうか取得する
+        let state = needShowUserAgreement()
+        if state {
+            // 利用規約表示する
+            showUserAgreement()
+        } else {
+            // ローカル通知許諾確認ダイアログ表示
+            confirmLocalNotificationPermission()
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         AppLogger.debug()
-        
-        startupViewAnimationStart()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         AppLogger.debug()
-        
-        stopAnimation()
-        
-        // 表示更新タイマー停止
-        stopUpdateTimer()
     }
     
     override func didReceiveMemoryWarning() {
@@ -174,62 +114,54 @@ class ViewController: BaseViewController, UNUserNotificationCenterDelegate {
     @IBAction func unwindToTopViewController(segue: UIStoryboardSegue) {
         AppLogger.debug()
         
-        updateProtocolString()
-    }
-    
-    // MARK: - EnterBackground/WillForeground notification
-    
-    /// フォアグラウンド状態遷移通知
-    ///
-    /// - Parameter notification: 通知情報
-    @objc func viewWillEnterForeground(_ notification: Notification?) {
-        AppLogger.debug()
-        
-        if isViewLoaded && (view.window != nil) {
-            AppLogger.debug()
+        if segue.source.isKind(of: UserAgreementViewController.self) {
+            AppLogger.debug("From User Agreement")
+            // 利用規約同意画面からの戻りのとき
             
-            // アニメーション開始
-            startAnimation()
-            
-            // 表示更新
-            updateDisplayStatus()
-            
-            // 表示更新タイマー開始
-            startUpdateTimer()
+            // 同意済みの場合は、設定を同意済みにする
+            let userAgreementViewController = segue.source as! UserAgreementViewController
+            if userAgreementViewController.agreed {
+                // 同意済みにする
+                AppGroupsManager.saveUserAgreementState(state: true)
+                
+                // ローカル通知許諾確認
+                confirmLocalNotificationPermission()
+            }
+        } else {
+            updateProtocolString()
         }
     }
     
-    /// バックグラウンド状態通知
-    ///
-    /// - Parameter notification: 通知情報
-    @objc func viewDidEnterBackground(_ notification: Notification?) {
-        AppLogger.debug()
-        
-        if isViewLoaded && (view.window != nil) {
-            AppLogger.debug()
-            
-            // アニメーション停止
-            stopAnimation()
-            
-            // 表示更新タイマー停止
-            stopUpdateTimer()
-        }
-    }
+    // MARK: - Rotation notification
     
-    /// アクティブ状態通知
+    /// 表示方向変更通知
     ///
     /// - Parameter notification: 通知情報
-    @objc func applicationDidBecomeActive(_ notification: Notification?) {
-        AppLogger.debug()
+    @objc func onOrientationDidChange(notification: NSNotification) {
+        // デバイスの向きを取得
+        let orientation: UIInterfaceOrientation = UIApplication.shared.statusBarOrientation
+        AppLogger.debug("orientation = \(orientation)")
         
-        if isViewLoaded && (view.window != nil) {
-            AppLogger.debug()
+        if (orientation == UIInterfaceOrientation.landscapeLeft) || (orientation == UIInterfaceOrientation.landscapeRight) {
+            // ランドスケープ用画像設定
+            imageViewWallpaper.image = UIImage(named: "Wallpaper_Landscape")
             
-            // アニメーション開始
-            startAnimation()
+            // アプリアイコン
+            imageViewAppIcon.image = UIImage(named: "TLinkAppIcon_Landscape")
+            // アプリ名ロゴ
+            imageVIewAppName.image = UIImage(named: "AppNameLogo_Landscape")
+            // AVXアイコン
+            imageViewAvxIcon.image = UIImage(named: "AvxIcon_Landscape")
+        } else {
+            // ポートレート用画像設定
+            imageViewWallpaper.image = UIImage(named: "Wallpaper")
             
-            // 表示更新
-            updateDisplayStatus()
+            // アプリアイコン
+            imageViewAppIcon.image = UIImage(named: "TLinkAppIcon")
+            // アプリ名ロゴ
+            imageVIewAppName.image = UIImage(named: "AppNameLogo")
+            // AVXアイコン
+            imageViewAvxIcon.image = UIImage(named: "AvxIcon")
         }
     }
     
@@ -260,9 +192,6 @@ class ViewController: BaseViewController, UNUserNotificationCenterDelegate {
         
         // アラートメッセージのみ表示
         completionHandler([.alert])
-        
-        // ステータス表示更新
-        updateDisplayStatus()
     }
     
     // MARK: - External Accessory
@@ -303,367 +232,13 @@ class ViewController: BaseViewController, UNUserNotificationCenterDelegate {
         AppLogger.debug("ProtocolString = \(String(describing: currentProtocolString))")
     }
     
-    /// アクセサリ接続中かどうか取得する
-    // - Returns: true: 接続中状態、false: 未接続状態
-    var isAccessoryConnected: Bool {
-        var result = false
-        
-        if !currentProtocolString.isEmpty {
-            // 接続アクセサリ一覧取得
-            let accessories = EAAccessoryManager.shared().connectedAccessories
-            
-            // 接続アクセサリ一覧から、対象のプロトコルストリングがあるか確認
-            for info in accessories {
-                if info.protocolStrings.contains(currentProtocolString) {
-                    // 対象のプロトコルストリングがある
-                    result = true
-                    break
-                }
-            }
-        }
-        
-        return result
-    }
-    
-    /// アクセサリ接続通知の受信を登録する。
-    func addExternalAccessoryNotification() {
-        AppLogger.debug()
-        
-        // アクセサリ接続/切断通知用Notification登録
-        NotificationCenter.default.addObserver(self, selector: #selector(handleAccessoryAttach(_:)), name: NSNotification.Name.EAAccessoryDidConnect, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(handleAccessoryDetach(_:)), name: NSNotification.Name.EAAccessoryDidDisconnect, object: nil)
-        
-        // アクセサリ接続/切断通知の受信を開始する
-        EAAccessoryManager.shared().registerForLocalNotifications()
-        
-        if isAccessoryConnected {
-            // 既に対象のデバイスが接続中であれば、接続通知発行する
-            NotificationCenter.default.post(name: Notification.Name.EAAccessoryDidConnect, object: nil)
-        }
-    }
-    
-    /// アクセサリ切断通知の受信を解除する。
-    func removeExternalAccessoryNotification() {
-        AppLogger.debug()
-        
-        // アクセサリ接続/切断通知の受信解除する
-        EAAccessoryManager.shared().unregisterForLocalNotifications()
-        
-        // アクセサリ接続/切断通知をNotification解除
-        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.EAAccessoryDidConnect, object: nil)
-        NotificationCenter.default.removeObserver(self, name: Notification.Name.EAAccessoryDidDisconnect, object: nil)
-    }
-    
-    /// アクセサリ接続通知ハンドラ（EAAccessoryDidConnect）
-    ///
-    /// - Parameter notification: 通知情報
-    @objc private func handleAccessoryAttach(_ notification: Notification) {
-        #if ENABLE_LOG
-            if let accessory = notification.object as? EAAccessory {
-                let accessoryInfoMessage = accessoryInfoString(accessory)
-                AppLogger.debug("VNCAppMain: Accessory connected. >> \n\(accessoryInfoMessage)")
-            } else {
-                AppLogger.debug("VNCAppMain: Accessory connected.")
-            }
-        #endif // ENABLE_LOG
-        
-        if isAccessoryConnected {
-            AppLogger.debug("VNCAppMain: Accessory connected.(\(currentProtocolString))")
-        }
-    }
-    
-    /// アクセサリ切断通知ハンドラ（EAAccessoryDidDisconnect）
-    ///
-    /// - Parameter notification: 通知情報
-    @objc private func handleAccessoryDetach(_ notification: Notification) {
-        #if ENABLE_LOG
-            if let accessory = notification.object as? EAAccessory {
-                let accessoryInfoMessage = accessoryInfoString(accessory)
-                AppLogger.debug("VNCAppMain: Accessory disconnected. >> \n\(accessoryInfoMessage)")
-            } else {
-                AppLogger.debug("VNCAppMain: Accessory disconnected.")
-            }
-        #endif // ENABLE_LOG
-        
-        if !isAccessoryConnected {
-            AppLogger.debug("VNCAppMain: Accessory disconnected.(\(currentProtocolString))")
-        }
-    }
-    
-    /// アクセサリ情報文字列を作成する(デバッグ用)。
-    ///
-    /// - Parameter accessory: アクセサリ情報
-    /// - Returns: アクセサリ情報文字列
-    private func accessoryInfoString(_ accessory: EAAccessory) -> String {
-        var message = String()
-        
-        message.append("--- Accessory Information ---\n")
-        message.append("manufacturer     : \(accessory.manufacturer)\n")
-        message.append("modelNumber      : \(accessory.modelNumber)\n")
-        message.append("serialNumber     : \(accessory.serialNumber)\n")
-        message.append("hardwareRevision : \(accessory.hardwareRevision)\n")
-        message.append("firmwareRevision : \(accessory.firmwareRevision)\n")
-        message.append("protocolStrings  : \(accessory.protocolStrings)\n")
-        message.append("connectionID     : \(accessory.connectionID)\n")
-        message.append("-----------------------------\n")
-        
-        return message
-    }
-    
-    // MARK: - Upate Timer
-    
-    /// 表示更新タイマー開始
-    private func startUpdateTimer() {
-        AppLogger.debug()
-        
-        if displayUpdateTimer == nil {
-            displayUpdateTimer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { _ in
-                // ステータス表示更新
-                self.updateDisplayStatus()
-            }
-        }
-    }
-    
-    /// 表示更新タイマー停止
-    private func stopUpdateTimer() {
-        AppLogger.debug()
-        
-        if let obj = displayUpdateTimer {
-            obj.invalidate()
-            displayUpdateTimer = nil
-        }
-    }
-    
     // MARK: - Private methods
-    
-    /// PleaseConnectViewを追加する
-    private func addPleaseConnectView() {
-        // PleaseConnectビュー作成
-        let contentView = PleaseConnectView.loadInstance()
-        
-        // メインViewrに追加
-        view.addSubview(contentView)
-        
-        // コードで制約を設定するので、オフにしてAutolayoutで管理するようにする
-        contentView.translatesAutoresizingMaskIntoConstraints = false
-        
-        // 画面中央に表示するように成約を設定
-        view.addConstraints([
-            // 水平方向
-            NSLayoutConstraint(item: contentView, attribute: NSLayoutAttribute.centerX, relatedBy: NSLayoutRelation.equal,
-                               toItem: self.view, attribute: NSLayoutAttribute.centerX, multiplier: 1.0, constant: 0),
-            // 垂直方向
-            NSLayoutConstraint(item: contentView, attribute: NSLayoutAttribute.centerY, relatedBy: NSLayoutRelation.equal,
-                               toItem: self.view, attribute: NSLayoutAttribute.centerY, multiplier: 1.0, constant: 0)
-        ])
-        
-        // インスタンス保持
-        pleaseConnectView = contentView
-    }
-    
-    /// アクセサリ接続中Viewを追加する
-    private func addAccessoryConnectedView() {
-        // 接続中表示View生成
-        let contentView = AccessoryConnectedView.loadInstance()
-        
-        // メインViewrに追加
-        view.addSubview(contentView)
-        
-        // コードで制約を設定するので、オフにしてAutolayoutで管理するようにする
-        contentView.translatesAutoresizingMaskIntoConstraints = false
-        
-        // 画面中央に表示するように成約を設定
-        view.addConstraints([
-            // 水平方向
-            NSLayoutConstraint(item: contentView, attribute: NSLayoutAttribute.centerX, relatedBy: NSLayoutRelation.equal,
-                               toItem: self.view, attribute: NSLayoutAttribute.centerX, multiplier: 1.0, constant: 0),
-            // 垂直方向
-            NSLayoutConstraint(item: contentView, attribute: NSLayoutAttribute.centerY, relatedBy: NSLayoutRelation.equal,
-                               toItem: self.view, attribute: NSLayoutAttribute.centerY, multiplier: 1.0, constant: 0)
-        ])
-        
-        // デフォルトは、アクセサリ接続中表示なし（非表示）
-        contentView.alpha = 0
-        
-        // インスタンス保持
-        accessoryConnectedView = contentView
-    }
     
     /// 各種Notification登録
     private func addNotifications() {
-        let notificationCenter = NotificationCenter.default
-        
-        // バックグラウンド/フォアグラウンド遷移通知を受信するように設定
-        notificationCenter.addObserver(self, selector: #selector(ViewController.viewWillEnterForeground(_:)),
-                                       name: NSNotification.Name.UIApplicationWillEnterForeground, object: nil)
-        notificationCenter.addObserver(self, selector: #selector(ViewController.viewDidEnterBackground(_:)),
-                                       name: NSNotification.Name.UIApplicationDidEnterBackground, object: nil)
-        
-        // アクティブ通知を受信するとうに設定
-        notificationCenter.addObserver(self, selector: #selector(applicationDidBecomeActive(_:)),
-                                       name: NSNotification.Name.UIApplicationDidBecomeActive, object: nil)
-    }
-    
-    func startUpdateDisplayStatus() {
-        AppLogger.debug("AppGroupsManager.loadConnectionState() = " + String(AppGroupsManager.loadConnectionState()))
-        
-        isConnected = AppGroupsManager.loadConnectionState()
-        if isConnected {
-            // ### 接続中 ###
-            // 　接続中アニメーション表示
-            showConnectedView()
-        } else {
-            // ### 未接続中 ###
-            
-            // エラーメッセージ取得
-            let errorMessage = getErrorMessage()
-            
-            if !errorMessage.isEmpty {
-                // エラーメッセージ表示
-                showMessage(errorMessage)
-            } else {
-                // EA連携中でないない場合、メッセージ表示
-                showMessage(getMessageString())
-            }
-        }
-    }
-    
-    /// ステータス表示を更新する
-    func updateDisplayStatus() {
-        AppLogger.debug("AppGroupsManager.loadConnectionState() = " + String(AppGroupsManager.loadConnectionState()))
-        
-        // エラーメッセージ取得
-        let errorMessage = getErrorMessage()
-        
-        // 連携ステータス取得
-        let connectionState = AppGroupsManager.loadConnectionState()
-        // 更新日取得
-        if let connectionUpdateTime = AppGroupsManager.loadConnectionUpdateTime() {
-            if connectionUpdateTime != lastConnectionUpdateTime {
-                updateCheckCount = 0
-                
-                // 前回から更新されている
-                lastConnectionUpdateTime = connectionUpdateTime
-                
-                // EA連携状態変化
-                if connectionState != isConnected {
-                    // 連携状態取得
-                    isConnected = connectionState
-                    
-                    if isConnected {
-                        // EA連携中状態
-                        
-                        // 　接続中アニメーション表示
-                        showConnectedView()
-                    } else {
-                        // 未接続状態
-                        
-                        if !errorMessage.isEmpty {
-                            // エラーメッセージ表示
-                            showMessage(errorMessage)
-                        } else {
-                            // 通常メッセージ表示
-                            showMessage(getMessageString())
-                        }
-                    }
-                } else if !isConnected {
-                    // EA未連携状態
-                    
-                    if !errorMessage.isEmpty {
-                        // エラーメッセージ表示
-                        showMessage(errorMessage)
-                    } else {
-                        // EA連携中でないない場合、メッセージ表示
-                        showMessage(getMessageString())
-                    }
-                }
-                // 抜ける
-                return
-            } else {
-                // アクセサリ接続中
-                if isAccessoryConnected {
-                    // 3回チェックする
-                    if updateCheckCount < updateCheckCountMax {
-                        updateCheckCount += 1
-                        return
-                    } else {
-                        updateCheckCount = 0
-                    }
-                } else {
-                    // アクセサリ接続していないバイアは
-                }
-            }
-        }
-        
-        // 更新されていない
-        if connectionState {
-            // EA未連携状態にする
-            updateCheckCount = 0
-            isConnected = false
-            lastConnectionUpdateTime = nil
-            AppGroupsManager.saveConnectionState(false)
-            AppGroupsManager.saveConnectionUpdateTime(nil)
-            AppGroupsManager.synchronize()
-            
-            if !errorMessage.isEmpty {
-                // エラーメッセージ表示
-                showMessage(errorMessage)
-            } else {
-                // EA連携中でないない場合、メッセージ表示
-                showMessage(getMessageString())
-            }
-        } else {
-            if !errorMessage.isEmpty {
-                // エラーメッセージ表示
-                showMessage(errorMessage)
-            } else {
-                // EA連携中でないない場合、メッセージ表示
-                showMessage(getMessageString())
-            }
-        }
-    }
-    
-    func startAnimation() {
-        AppLogger.debug()
-        
-        accessoryConnectedView?.startAnimation()
-        
-        /*
-         if String.isNirOrEmpty(messageLabel.text) {
-         accessoryConnectedView?.startAnimation()
-         } else {
-         stopAnimation()
-         }
-         */
-    }
-    
-    func stopAnimation() {
-        AppLogger.debug()
-        accessoryConnectedView?.stopAnimation()
-    }
-    
-    func showMessage(_ message: String) {
-        messageLabel.text = message
-        
-        if messageLabel.isHidden {
-            UIView.animate(withDuration: 0.5, animations: {
-                self.accessoryConnectedView?.alpha = 0
-                self.messageLabel.alpha = 1
-            }) { _ in
-                self.messageLabel.isHidden = false
-            }
-        }
-    }
-    
-    func showConnectedView() {
-        accessoryConnectedView?.startAnimation()
-        
-        UIView.animate(withDuration: 0.5, animations: {
-            self.accessoryConnectedView?.alpha = 1
-            self.messageLabel.alpha = 0
-        }) { _ in
-            self.messageLabel.isHidden = true
-        }
+        // 回転通知
+        NotificationCenter.default.addObserver(self, selector: #selector(onOrientationDidChange(notification:)),
+                                               name: UIDevice.orientationDidChangeNotification, object: nil)
     }
     
     /// エラーメッセージを取得する。
@@ -686,23 +261,23 @@ class ViewController: BaseViewController, UNUserNotificationCenterDelegate {
                 message = String.Empty
             case .unknownError:
                 // 不明なエラー
-                message = Localize.localizedString("SS_ERR-001")
+                message = Localize.localizedString("SS_02_003")
             // message = NSLocalizedString("SS_ERR-001", comment: "SS_ERR-001")
             case .licenseError:
                 // ライセンス認証に失敗
-                message = Localize.localizedString("SS_ERR-002")
+                message = Localize.localizedString("SS_02_003")
             // message = NSLocalizedString("SS_ERR-002", comment: "SS_ERR-002")
             case .userAuthError:
                 // ユーザー認証失敗
-                message = Localize.localizedString("SS_ERR-003")
+                message = Localize.localizedString("SS_02_003")
             // message = NSLocalizedString("SS_ERR-003", comment: "SS_ERR-003")
             case .remoteFeatureFailed:
                 // リモートフィーチャー不一致
-                message = Localize.localizedString("SS_ERR-004")
+                message = Localize.localizedString("SS_02_003")
             // message = NSLocalizedString("SS_ERR-004", comment: "SS_ERR-004")
             case .internalServerError:
                 // サーバー内部エラー
-                message = Localize.localizedString("SS_ERR-005")
+                message = Localize.localizedString("SS_02_003")
                 // message = NSLocalizedString("SS_ERR-005", comment: "SS_ERR-005")
                 
                 if info.additionalMessage.isEmpty {
@@ -711,95 +286,64 @@ class ViewController: BaseViewController, UNUserNotificationCenterDelegate {
                     message += "\n[Code:\(info.additionalIntValue)])"
                 }
             }
-            
-            if !message.isEmpty {
-                // メッセージ保持
-                setErrorMessage(message)
-            } else {
-                // 既存のエラーメッセージがあれば取得する
-                message = getCurrentErrorMessage()
-            }
         }
         return message
     }
     
-    /// 表示メッセージを取得する
+    // MARK: - User Agreement
+    
+    /// 利用規約の許諾ほ状態を確認し、利用規約の表示が必要か確認する。
     ///
-    /// - Returns: 表示メッセージ
-    func getMessageString() -> String {
-        var message = String.Empty
+    /// - Returns: true: 利用規約の表示必要、false: 利用規約の表示不要
+    func needShowUserAgreement() -> Bool {
+        // 許諾状態を取得する
+        let state = AppGroupsManager.loadUserAgreementState()
+        AppLogger.debug("value = \(state)")
+        return !state
+    }
+    
+    /// 利用規約を表示します。
+    func showUserAgreement() {
+        AppLogger.debug()
         
-        // 画面キャプチャー中状態のとき
-        if screenCaptureObserver.isCaptured {
-            // EA連携中のとき
-            if AppGroupsManager.loadConnectionState() {
-                message = String.Empty
-            } else {
-                // 本体とスマートフォンをUSBケーブルで接続してください。
-                message = Localize.localizedString("SS_MES-003")
-            }
-        } else {
-            // 画面収録機能で[ブロードキャストを開始]し、本体とスマートフォンをUSBケーブルで接続してください。
-            message = Localize.localizedString("SS_MES-001")
-        }
-        return message
+        // ストーリーボードからインタンス作成
+        let storyboard = UIStoryboard(name: "UserAgreement", bundle: nil)
+        let navController = storyboard.instantiateInitialViewController() as! UINavigationController
+        navController.modalTransitionStyle = .coverVertical
+        
+        // RootViewController取得
+        let viewController = navController.visibleViewController as! UserAgreementViewController
+        
+        // 利用規約ファイルパス生成
+        let filePath = Bundle.main.path(forResource: "terms_of_service", ofType: "html")
+        let url: URL = URL(fileURLWithPath: filePath!)
+        
+        // 利用規約ビューコントローラーセットアップ("アプリケーション利用規約", "同意する")
+        viewController.setup(title: Localize.localizedString("SS_01_004"), url: url, agreeButtonTitle: Localize.localizedString("SS_01_010"))
+        
+        // モーダル表示
+        present(navController, animated: true, completion: nil)
     }
     
-    private var currentErrorMessage: String?
-    private var errorInfoExpireDate: Date?
+    // MARK: - Local Notification Permission
     
-    private func setErrorMessage(_ message: String) {
-        // メッセージ保持
-        currentErrorMessage = message
-        // 有効期限セット
-        errorInfoExpireDate = Date(timeIntervalSinceNow: 5.0)
-    }
-    
-    private func getCurrentErrorMessage() -> String {
-        if let expDate = errorInfoExpireDate {
-            if expDate < Date() {
-                // 有効期限切れなので、破棄
-                currentErrorMessage = nil
-                errorInfoExpireDate = nil
-            } else if let msg = currentErrorMessage {
-                // 有効期限内なので、メッセージ使用
-                return msg
-            }
-        }
-        return String.Empty
-    }
-    
-    // MARK: - Startup Effect
-    
-    func addStartupView() {
-        startupBaseView = UIView(frame: view.bounds)
-        if let baseView = startupBaseView {
-            baseView.backgroundColor = UIColor.white
-            startupLogoImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 160, height: 152))
-            if let imageView = startupLogoImageView {
-                imageView.contentMode = .center
-                imageView.image = UIImage(named: "StartupLogo")
-                baseView.addSubview(imageView)
-                imageView.center = view.center
-                view.addSubview(baseView)
-            }
+    /// ローカル通知許諾を確認する
+    ///
+    /// - Parameter delayTime: 遅延実行時間
+    func confirmLocalNotificationPermission(_ delayTime: TimeInterval) {
+        AppLogger.debug()
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + delayTime) {
+            // ローカル通知の許可をユーザーに問い合わせる
+            LocalNotification.confirmLocalNotificationPermission()
         }
     }
     
-    func startupViewAnimationStart() {
-        if (startupLogoImageView != nil) && (startupBaseView != nil) {
-            UIView.animate(withDuration: 0.2,
-                           delay: 1.3,
-                           options: UIViewAnimationOptions.curveEaseOut,
-                           animations: { () in
-                               self.startupLogoImageView?.transform = CGAffineTransform(scaleX: 2, y: 2)
-                               self.startupLogoImageView?.alpha = 0
-                           }, completion: { _ in
-                               self.startupLogoImageView?.removeFromSuperview()
-                               self.startupBaseView?.removeFromSuperview()
-                               self.startupLogoImageView = nil
-                               self.startupBaseView = nil
-            })
-        }
+    /// ローカル通知許諾を確認する
+    func confirmLocalNotificationPermission() {
+        AppLogger.debug()
+        
+        // 0.5秒後に表示
+        confirmLocalNotificationPermission(0.5)
     }
 }

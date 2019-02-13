@@ -8,8 +8,9 @@
 
 import Foundation
 
+/// JKEGCommonLib情報取得クラス
 public class JKEGCommonLibInfo {
-    // JKEGCommonLibのバンドルID
+    /// JKEGCommonLibのバンドルID
     public static let bundleId = "com.jvckenwood-eng.product.JKEGCommonLib"
     
     /// JKEGCommonLibバンドルのバージョンを取得する

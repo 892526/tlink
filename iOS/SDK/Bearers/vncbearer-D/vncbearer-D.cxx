@@ -1,4 +1,4 @@
-/* Copyright (C) 2002-2018 RealVNC Ltd.  All Rights Reserved.
+/* Copyright (C) 2002-2018 VNC Automotive Ltd.  All Rights Reserved.
 */
 
 #include <VNCBearerTcpBase.h>
@@ -37,10 +37,10 @@ public:
     switch (property)
     {
       case VNCBearerPropertyFullName:
-        return sdkStrdup("VNC Data Relay bearer");
+        return sdkStrdup("VNC Automotive Data Relay bearer");
 
       case VNCBearerPropertyDescription:
-        return sdkStrdup("Makes outgoing TCP connections to a VNC Data Relay");
+        return sdkStrdup("Makes outgoing TCP connections to a VNC Automotive Data Relay");
 
       default:
         return VNCBearerImpl::getProperty(property);

@@ -1,7 +1,7 @@
 //
 //  VNCBearerSupportingAPI.m
 //
-//  Copyright RealVNC Ltd. 2011-2018. All rights reserved.
+//  Copyright (C) 2011-2018 VNC Automotive Ltd.  All Rights Reserved.
 //
 
 #import "NSData+Base64.h"
@@ -26,7 +26,7 @@ static void VNCCALL VNCServerBearerAPI_Free(VNCBearerContext context, void * ptr
 }
 
 static void VNCCALL VNCServerBearerAPI_Log(VNCBearerContext bearerContext, const char * text){
-	NSLog(@"VNC Server Bearer Log: %s", text);
+	NSLog(@"VNC Automotive Server Bearer Log: %s", text);
 }
 
 static char* VNCServerBearer_AllocCString(NSString* string) {

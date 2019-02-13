@@ -1,0 +1,894 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		066772D0215DD1D60000B6B8 /* JKEGCommonLib.h in Headers */ = {isa = PBXBuildFile; fileRef = 066772CE215DD1D60000B6B8 /* JKEGCommonLib.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		066772D3215DD1D60000B6B8 /* JKEGCommonLib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 066772CC215DD1D60000B6B8 /* JKEGCommonLib.framework */; };
+		066772D4215DD1D60000B6B8 /* JKEGCommonLib.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 066772CC215DD1D60000B6B8 /* JKEGCommonLib.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		066772F6215DFBE10000B6B8 /* DataExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 066772F3215DFBE10000B6B8 /* DataExtention.swift */; };
+		066772F7215DFBE10000B6B8 /* DateExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 066772F4215DFBE10000B6B8 /* DateExtention.swift */; };
+		066772F8215DFBE10000B6B8 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 066772F5215DFBE10000B6B8 /* StringExtension.swift */; };
+		066772FD215DFBE90000B6B8 /* JKEGCommon.strings in Resources */ = {isa = PBXBuildFile; fileRef = 066772F9215DFBE90000B6B8 /* JKEGCommon.strings */; };
+		066772FF215DFBE90000B6B8 /* Localize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 066772FB215DFBE90000B6B8 /* Localize.swift */; };
+		06677300215DFBE90000B6B8 /* JKEGCommonString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 066772FC215DFBE90000B6B8 /* JKEGCommonString.swift */; };
+		06677305215DFBF00000B6B8 /* VNCServerLocalNotificationUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06677301215DFBF00000B6B8 /* VNCServerLocalNotificationUtility.swift */; };
+		06677306215DFBF00000B6B8 /* LocalNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06677302215DFBF00000B6B8 /* LocalNotification.swift */; };
+		06677307215DFBF00000B6B8 /* VNCServerLocalNotificationUserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06677303215DFBF00000B6B8 /* VNCServerLocalNotificationUserInfo.swift */; };
+		06677308215DFBF00000B6B8 /* VNCServerLocalNotifiction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06677304215DFBF00000B6B8 /* VNCServerLocalNotifiction.swift */; };
+		0667730B215DFBF70000B6B8 /* AppExtentionMessageInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06677309215DFBF70000B6B8 /* AppExtentionMessageInfo.swift */; };
+		0667730C215DFBF70000B6B8 /* AppGroupsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0667730A215DFBF70000B6B8 /* AppGroupsManager.swift */; };
+		06677312215DFBFF0000B6B8 /* FileCoordinatorUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0667730D215DFBFF0000B6B8 /* FileCoordinatorUtility.swift */; };
+		06677313215DFBFF0000B6B8 /* ApplicationUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0667730E215DFBFF0000B6B8 /* ApplicationUtility.swift */; };
+		06677314215DFBFF0000B6B8 /* AlertMessageUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0667730F215DFBFF0000B6B8 /* AlertMessageUtility.swift */; };
+		06677315215DFBFF0000B6B8 /* FileUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06677310215DFBFF0000B6B8 /* FileUtility.swift */; };
+		06677316215DFBFF0000B6B8 /* PathUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06677311215DFBFF0000B6B8 /* PathUtility.swift */; };
+		0667731C215DFC2A0000B6B8 /* AppLoggerViewer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06677319215DFC2A0000B6B8 /* AppLoggerViewer.swift */; };
+		0667731D215DFC2A0000B6B8 /* AppExtentionLoggerUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0667731A215DFC2A0000B6B8 /* AppExtentionLoggerUtility.swift */; };
+		0667731E215DFC2A0000B6B8 /* AppLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0667731B215DFC2A0000B6B8 /* AppLogger.swift */; };
+		06677326215DFC330000B6B8 /* AppLogger.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0667731F215DFC320000B6B8 /* AppLogger.storyboard */; };
+		06677327215DFC330000B6B8 /* AppLoggerSettingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06677320215DFC320000B6B8 /* AppLoggerSettingTableViewController.swift */; };
+		06677328215DFC330000B6B8 /* AppLoggerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06677321215DFC320000B6B8 /* AppLoggerViewController.swift */; };
+		06677329215DFC330000B6B8 /* DebugSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06677322215DFC320000B6B8 /* DebugSettings.swift */; };
+		0667732A215DFC330000B6B8 /* AppLoggerAccountTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06677323215DFC320000B6B8 /* AppLoggerAccountTableViewController.swift */; };
+		0667732B215DFC330000B6B8 /* AppLoggerSettingInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06677324215DFC330000B6B8 /* AppLoggerSettingInfo.swift */; };
+		0667732C215DFC330000B6B8 /* AppLoggerNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06677325215DFC330000B6B8 /* AppLoggerNavigationController.swift */; };
+		0667732E215DFC480000B6B8 /* LogFileWriter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0667732D215DFC480000B6B8 /* LogFileWriter.swift */; };
+		06677330215DFC5D0000B6B8 /* JKEGCommonLibInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0667732F215DFC5C0000B6B8 /* JKEGCommonLibInfo.swift */; };
+		06677336215DFD420000B6B8 /* TermsOfUseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06677332215DFD420000B6B8 /* TermsOfUseViewController.swift */; };
+		06677337215DFD420000B6B8 /* AboutAppTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06677333215DFD420000B6B8 /* AboutAppTableViewController.swift */; };
+		06677338215DFD420000B6B8 /* AppOverviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06677334215DFD420000B6B8 /* AppOverviewViewController.swift */; };
+		06677339215DFD420000B6B8 /* OSSViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06677335215DFD420000B6B8 /* OSSViewController.swift */; };
+		0667733D215DFD4A0000B6B8 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0667733A215DFD4A0000B6B8 /* BaseViewController.swift */; };
+		0667733E215DFD4A0000B6B8 /* BaseWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0667733B215DFD4A0000B6B8 /* BaseWebViewController.swift */; };
+		0667733F215DFD4A0000B6B8 /* BaseSafariViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0667733C215DFD4A0000B6B8 /* BaseSafariViewController.swift */; };
+		06677342215DFD510000B6B8 /* ProtocolStringTableViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 06677340215DFD510000B6B8 /* ProtocolStringTableViewController.storyboard */; };
+		06677343215DFD510000B6B8 /* ProtocolStringTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06677341215DFD510000B6B8 /* ProtocolStringTableViewController.swift */; };
+		0667734C215DFD940000B6B8 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06677345215DFD940000B6B8 /* LoadingView.swift */; };
+		0667734D215DFD940000B6B8 /* MessageLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06677346215DFD940000B6B8 /* MessageLabel.swift */; };
+		0667734E215DFD940000B6B8 /* PleaseConnectView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 06677347215DFD940000B6B8 /* PleaseConnectView.xib */; };
+		0667734F215DFD940000B6B8 /* PleaseConnectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06677348215DFD940000B6B8 /* PleaseConnectView.swift */; };
+		06677350215DFD940000B6B8 /* LoadingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 06677349215DFD940000B6B8 /* LoadingView.xib */; };
+		06677351215DFD940000B6B8 /* AccessoryConnectedView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0667734A215DFD940000B6B8 /* AccessoryConnectedView.xib */; };
+		06677352215DFD940000B6B8 /* AccessoryConnectedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0667734B215DFD940000B6B8 /* AccessoryConnectedView.swift */; };
+		06677355215DFDAD0000B6B8 /* ScreenCaptureObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06677354215DFDAD0000B6B8 /* ScreenCaptureObserver.swift */; };
+		06677358215DFDC90000B6B8 /* RealVncSdkUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06677357215DFDC90000B6B8 /* RealVncSdkUtility.swift */; };
+		0667735D215DFDE00000B6B8 /* use_policy.htm in Resources */ = {isa = PBXBuildFile; fileRef = 0667735A215DFDE00000B6B8 /* use_policy.htm */; };
+		0667735E215DFDE00000B6B8 /* app_summery.htm in Resources */ = {isa = PBXBuildFile; fileRef = 0667735B215DFDE00000B6B8 /* app_summery.htm */; };
+		0667735F215DFDE00000B6B8 /* open_source_license.html in Resources */ = {isa = PBXBuildFile; fileRef = 0667735C215DFDE00000B6B8 /* open_source_license.html */; };
+		0687F54D218FE1F6001080BE /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0687F54B218FE1F6001080BE /* Localizable.strings */; };
+		0687F550218FE230001080BE /* FrameRateTableView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0687F54E218FE230001080BE /* FrameRateTableView.storyboard */; };
+		0687F551218FE230001080BE /* FrameRateTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0687F54F218FE230001080BE /* FrameRateTableViewController.swift */; };
+		06E8DACA2165AD7200249C98 /* ManualPageTopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06E8DAC32165AD7200249C98 /* ManualPageTopViewController.swift */; };
+		06E8DACB2165AD7200249C98 /* ManualPageTopViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 06E8DAC42165AD7200249C98 /* ManualPageTopViewController.storyboard */; };
+		06E8DACC2165AD7200249C98 /* PageManagerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06E8DAC52165AD7200249C98 /* PageManagerViewController.swift */; };
+		06E8DACD2165AD7200249C98 /* PageContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06E8DAC62165AD7200249C98 /* PageContentViewController.swift */; };
+		06E8DACE2165AD7200249C98 /* PageManagerViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 06E8DAC72165AD7200249C98 /* PageManagerViewController.storyboard */; };
+		06E8DACF2165AD7200249C98 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06E8DAC82165AD7200249C98 /* PageViewController.swift */; };
+		06E8DAD02165AD7200249C98 /* PageContentViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 06E8DAC92165AD7200249C98 /* PageContentViewController.storyboard */; };
+		06E8DAD22165AD8500249C98 /* PanelButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06E8DAD12165AD8500249C98 /* PanelButton.swift */; };
+		06E8DAD42165AD9100249C98 /* AutoLayoutUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06E8DAD32165AD9100249C98 /* AutoLayoutUtility.swift */; };
+		06EB0D042190041C008F8E62 /* Setting02.png in Resources */ = {isa = PBXBuildFile; fileRef = 06EB0CF72190041C008F8E62 /* Setting02.png */; };
+		06EB0D052190041C008F8E62 /* Stop1_02.png in Resources */ = {isa = PBXBuildFile; fileRef = 06EB0CF82190041C008F8E62 /* Stop1_02.png */; };
+		06EB0D062190041C008F8E62 /* Stop2_02.png in Resources */ = {isa = PBXBuildFile; fileRef = 06EB0CF92190041C008F8E62 /* Stop2_02.png */; };
+		06EB0D072190041C008F8E62 /* Stop1_01.png in Resources */ = {isa = PBXBuildFile; fileRef = 06EB0CFA2190041C008F8E62 /* Stop1_01.png */; };
+		06EB0D082190041C008F8E62 /* Setting01.png in Resources */ = {isa = PBXBuildFile; fileRef = 06EB0CFB2190041C008F8E62 /* Setting01.png */; };
+		06EB0D092190041C008F8E62 /* Start04.png in Resources */ = {isa = PBXBuildFile; fileRef = 06EB0CFC2190041C008F8E62 /* Start04.png */; };
+		06EB0D0A2190041C008F8E62 /* Stop2_01.png in Resources */ = {isa = PBXBuildFile; fileRef = 06EB0CFD2190041C008F8E62 /* Stop2_01.png */; };
+		06EB0D0B2190041C008F8E62 /* Start02.png in Resources */ = {isa = PBXBuildFile; fileRef = 06EB0CFE2190041C008F8E62 /* Start02.png */; };
+		06EB0D0C2190041C008F8E62 /* Start01.png in Resources */ = {isa = PBXBuildFile; fileRef = 06EB0CFF2190041C008F8E62 /* Start01.png */; };
+		06EB0D0D2190041C008F8E62 /* Setting03.png in Resources */ = {isa = PBXBuildFile; fileRef = 06EB0D002190041C008F8E62 /* Setting03.png */; };
+		06EB0D0E2190041C008F8E62 /* Setting04.png in Resources */ = {isa = PBXBuildFile; fileRef = 06EB0D012190041C008F8E62 /* Setting04.png */; };
+		06EB0D0F2190041C008F8E62 /* Start03.png in Resources */ = {isa = PBXBuildFile; fileRef = 06EB0D022190041C008F8E62 /* Start03.png */; };
+		06EB0D102190041C008F8E62 /* Setting05.png in Resources */ = {isa = PBXBuildFile; fileRef = 06EB0D032190041C008F8E62 /* Setting05.png */; };
+		06EC468A215DC8B80067808A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06EC4688215DC8B80067808A /* AppDelegate.swift */; };
+		06EC468B215DC8B80067808A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06EC4689215DC8B80067808A /* ViewController.swift */; };
+		06EC4693215DC9000067808A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 06EC4692215DC9000067808A /* Assets.xcassets */; };
+		06F91E2E215E21E0000E2255 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 06F91E2A215E21E0000E2255 /* Main.storyboard */; };
+		06F91E2F215E21E0000E2255 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 06F91E2C215E21E0000E2255 /* LaunchScreen.storyboard */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		066772D1215DD1D60000B6B8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 06EC466A215DC8990067808A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 066772CB215DD1D60000B6B8;
+			remoteInfo = JKEGCommonLib;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		06EC46A7215DC9B00067808A /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				066772D4215DD1D60000B6B8 /* JKEGCommonLib.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		066772CC215DD1D60000B6B8 /* JKEGCommonLib.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = JKEGCommonLib.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		066772CE215DD1D60000B6B8 /* JKEGCommonLib.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JKEGCommonLib.h; sourceTree = "<group>"; };
+		066772CF215DD1D60000B6B8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		066772F3215DFBE10000B6B8 /* DataExtention.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DataExtention.swift; path = ../../../JKEGCommonLib/Extention/DataExtention.swift; sourceTree = "<group>"; };
+		066772F4215DFBE10000B6B8 /* DateExtention.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DateExtention.swift; path = ../../../JKEGCommonLib/Extention/DateExtention.swift; sourceTree = "<group>"; };
+		066772F5215DFBE10000B6B8 /* StringExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StringExtension.swift; path = ../../../JKEGCommonLib/Extention/StringExtension.swift; sourceTree = "<group>"; };
+		066772F9215DFBE90000B6B8 /* JKEGCommon.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = JKEGCommon.strings; path = ../../../JKEGCommonLib/Localize/JKEGCommon.strings; sourceTree = "<group>"; };
+		066772FB215DFBE90000B6B8 /* Localize.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Localize.swift; path = ../../../JKEGCommonLib/Localize/Localize.swift; sourceTree = "<group>"; };
+		066772FC215DFBE90000B6B8 /* JKEGCommonString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JKEGCommonString.swift; path = ../../../JKEGCommonLib/Localize/JKEGCommonString.swift; sourceTree = "<group>"; };
+		06677301215DFBF00000B6B8 /* VNCServerLocalNotificationUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = VNCServerLocalNotificationUtility.swift; path = ../../../JKEGCommonLib/Notifications/VNCServerLocalNotificationUtility.swift; sourceTree = "<group>"; };
+		06677302215DFBF00000B6B8 /* LocalNotification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocalNotification.swift; path = ../../../JKEGCommonLib/Notifications/LocalNotification.swift; sourceTree = "<group>"; };
+		06677303215DFBF00000B6B8 /* VNCServerLocalNotificationUserInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = VNCServerLocalNotificationUserInfo.swift; path = ../../../JKEGCommonLib/Notifications/VNCServerLocalNotificationUserInfo.swift; sourceTree = "<group>"; };
+		06677304215DFBF00000B6B8 /* VNCServerLocalNotifiction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = VNCServerLocalNotifiction.swift; path = ../../../JKEGCommonLib/Notifications/VNCServerLocalNotifiction.swift; sourceTree = "<group>"; };
+		06677309215DFBF70000B6B8 /* AppExtentionMessageInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppExtentionMessageInfo.swift; path = ../../../JKEGCommonLib/SharedSetting/AppExtentionMessageInfo.swift; sourceTree = "<group>"; };
+		0667730A215DFBF70000B6B8 /* AppGroupsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppGroupsManager.swift; path = ../../../JKEGCommonLib/SharedSetting/AppGroupsManager.swift; sourceTree = "<group>"; };
+		0667730D215DFBFF0000B6B8 /* FileCoordinatorUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FileCoordinatorUtility.swift; path = ../../../JKEGCommonLib/Utility/FileCoordinatorUtility.swift; sourceTree = "<group>"; };
+		0667730E215DFBFF0000B6B8 /* ApplicationUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ApplicationUtility.swift; path = ../../../JKEGCommonLib/Utility/ApplicationUtility.swift; sourceTree = "<group>"; };
+		0667730F215DFBFF0000B6B8 /* AlertMessageUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AlertMessageUtility.swift; path = ../../../JKEGCommonLib/Utility/AlertMessageUtility.swift; sourceTree = "<group>"; };
+		06677310215DFBFF0000B6B8 /* FileUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FileUtility.swift; path = ../../../JKEGCommonLib/Utility/FileUtility.swift; sourceTree = "<group>"; };
+		06677311215DFBFF0000B6B8 /* PathUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PathUtility.swift; path = ../../../JKEGCommonLib/Utility/PathUtility.swift; sourceTree = "<group>"; };
+		06677319215DFC2A0000B6B8 /* AppLoggerViewer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppLoggerViewer.swift; path = ../../../JKEGCommonLib/AppLogger/AppLoggerViewer.swift; sourceTree = "<group>"; };
+		0667731A215DFC2A0000B6B8 /* AppExtentionLoggerUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppExtentionLoggerUtility.swift; path = ../../../JKEGCommonLib/AppLogger/AppExtentionLoggerUtility.swift; sourceTree = "<group>"; };
+		0667731B215DFC2A0000B6B8 /* AppLogger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppLogger.swift; path = ../../../JKEGCommonLib/AppLogger/AppLogger.swift; sourceTree = "<group>"; };
+		0667731F215DFC320000B6B8 /* AppLogger.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = AppLogger.storyboard; path = ../../../JKEGCommonLib/AppLogger/ViewController/AppLogger.storyboard; sourceTree = "<group>"; };
+		06677320215DFC320000B6B8 /* AppLoggerSettingTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppLoggerSettingTableViewController.swift; path = ../../../JKEGCommonLib/AppLogger/ViewController/AppLoggerSettingTableViewController.swift; sourceTree = "<group>"; };
+		06677321215DFC320000B6B8 /* AppLoggerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppLoggerViewController.swift; path = ../../../JKEGCommonLib/AppLogger/ViewController/AppLoggerViewController.swift; sourceTree = "<group>"; };
+		06677322215DFC320000B6B8 /* DebugSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DebugSettings.swift; path = ../../../JKEGCommonLib/AppLogger/ViewController/DebugSettings.swift; sourceTree = "<group>"; };
+		06677323215DFC320000B6B8 /* AppLoggerAccountTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppLoggerAccountTableViewController.swift; path = ../../../JKEGCommonLib/AppLogger/ViewController/AppLoggerAccountTableViewController.swift; sourceTree = "<group>"; };
+		06677324215DFC330000B6B8 /* AppLoggerSettingInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppLoggerSettingInfo.swift; path = ../../../JKEGCommonLib/AppLogger/ViewController/AppLoggerSettingInfo.swift; sourceTree = "<group>"; };
+		06677325215DFC330000B6B8 /* AppLoggerNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppLoggerNavigationController.swift; path = ../../../JKEGCommonLib/AppLogger/ViewController/AppLoggerNavigationController.swift; sourceTree = "<group>"; };
+		0667732D215DFC480000B6B8 /* LogFileWriter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LogFileWriter.swift; path = ../../../JKEGCommonLib/AppLogger/FileWriter/LogFileWriter.swift; sourceTree = "<group>"; };
+		0667732F215DFC5C0000B6B8 /* JKEGCommonLibInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JKEGCommonLibInfo.swift; path = ../../../JKEGCommonLib/JKEGCommonLibInfo.swift; sourceTree = "<group>"; };
+		06677332215DFD420000B6B8 /* TermsOfUseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TermsOfUseViewController.swift; path = ../../../VncServer/ViewControllers/TermsOfUseViewController.swift; sourceTree = "<group>"; };
+		06677333215DFD420000B6B8 /* AboutAppTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AboutAppTableViewController.swift; path = ../../../VncServer/ViewControllers/AboutAppTableViewController.swift; sourceTree = "<group>"; };
+		06677334215DFD420000B6B8 /* AppOverviewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppOverviewViewController.swift; path = ../../../VncServer/ViewControllers/AppOverviewViewController.swift; sourceTree = "<group>"; };
+		06677335215DFD420000B6B8 /* OSSViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OSSViewController.swift; path = ../../../VncServer/ViewControllers/OSSViewController.swift; sourceTree = "<group>"; };
+		0667733A215DFD4A0000B6B8 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseViewController.swift; path = ../../../VncServer/ViewControllers/Base/BaseViewController.swift; sourceTree = "<group>"; };
+		0667733B215DFD4A0000B6B8 /* BaseWebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseWebViewController.swift; path = ../../../VncServer/ViewControllers/Base/BaseWebViewController.swift; sourceTree = "<group>"; };
+		0667733C215DFD4A0000B6B8 /* BaseSafariViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseSafariViewController.swift; path = ../../../VncServer/ViewControllers/Base/BaseSafariViewController.swift; sourceTree = "<group>"; };
+		06677340215DFD510000B6B8 /* ProtocolStringTableViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = ProtocolStringTableViewController.storyboard; path = ../../../VncServer/ViewControllers/Debug/ProtocolStringTableViewController.storyboard; sourceTree = "<group>"; };
+		06677341215DFD510000B6B8 /* ProtocolStringTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProtocolStringTableViewController.swift; path = ../../../VncServer/ViewControllers/Debug/ProtocolStringTableViewController.swift; sourceTree = "<group>"; };
+		06677345215DFD940000B6B8 /* LoadingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoadingView.swift; path = ../../../VncServer/Views/LoadingView.swift; sourceTree = "<group>"; };
+		06677346215DFD940000B6B8 /* MessageLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MessageLabel.swift; path = ../../../VncServer/Views/MessageLabel.swift; sourceTree = "<group>"; };
+		06677347215DFD940000B6B8 /* PleaseConnectView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PleaseConnectView.xib; path = ../../../VncServer/Views/PleaseConnectView.xib; sourceTree = "<group>"; };
+		06677348215DFD940000B6B8 /* PleaseConnectView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PleaseConnectView.swift; path = ../../../VncServer/Views/PleaseConnectView.swift; sourceTree = "<group>"; };
+		06677349215DFD940000B6B8 /* LoadingView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LoadingView.xib; path = ../../../VncServer/Views/LoadingView.xib; sourceTree = "<group>"; };
+		0667734A215DFD940000B6B8 /* AccessoryConnectedView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AccessoryConnectedView.xib; path = ../../../VncServer/Views/AccessoryConnectedView.xib; sourceTree = "<group>"; };
+		0667734B215DFD940000B6B8 /* AccessoryConnectedView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AccessoryConnectedView.swift; path = ../../../VncServer/Views/AccessoryConnectedView.swift; sourceTree = "<group>"; };
+		06677354215DFDAD0000B6B8 /* ScreenCaptureObserver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ScreenCaptureObserver.swift; path = ../../../VncServer/Functions/ScreenCaptureObserver.swift; sourceTree = "<group>"; };
+		06677357215DFDC90000B6B8 /* RealVncSdkUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RealVncSdkUtility.swift; path = ../../../VncServer/Utility/RealVncSdkUtility.swift; sourceTree = "<group>"; };
+		0667735A215DFDE00000B6B8 /* use_policy.htm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = use_policy.htm; path = ../../../VncServer/Resources/use_policy.htm; sourceTree = "<group>"; };
+		0667735B215DFDE00000B6B8 /* app_summery.htm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = app_summery.htm; path = ../../../VncServer/Resources/app_summery.htm; sourceTree = "<group>"; };
+		0667735C215DFDE00000B6B8 /* open_source_license.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = open_source_license.html; path = ../../../VncServer/Resources/open_source_license.html; sourceTree = "<group>"; };
+		0687F54C218FE1F6001080BE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = ../../../JKEGCommonLib/Localize/en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		0687F54E218FE230001080BE /* FrameRateTableView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = FrameRateTableView.storyboard; path = ../../../VncServer/ViewControllers/Debug/FrameRateTableView.storyboard; sourceTree = "<group>"; };
+		0687F54F218FE230001080BE /* FrameRateTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FrameRateTableViewController.swift; path = ../../../VncServer/ViewControllers/Debug/FrameRateTableViewController.swift; sourceTree = "<group>"; };
+		06E8DAC32165AD7200249C98 /* ManualPageTopViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ManualPageTopViewController.swift; path = ../../../VncServer/ViewControllers/ManualPages/ManualPageTopViewController.swift; sourceTree = "<group>"; };
+		06E8DAC42165AD7200249C98 /* ManualPageTopViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = ManualPageTopViewController.storyboard; path = ../../../VncServer/ViewControllers/ManualPages/ManualPageTopViewController.storyboard; sourceTree = "<group>"; };
+		06E8DAC52165AD7200249C98 /* PageManagerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PageManagerViewController.swift; path = ../../../VncServer/ViewControllers/ManualPages/PageManagerViewController.swift; sourceTree = "<group>"; };
+		06E8DAC62165AD7200249C98 /* PageContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PageContentViewController.swift; path = ../../../VncServer/ViewControllers/ManualPages/PageContentViewController.swift; sourceTree = "<group>"; };
+		06E8DAC72165AD7200249C98 /* PageManagerViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = PageManagerViewController.storyboard; path = ../../../VncServer/ViewControllers/ManualPages/PageManagerViewController.storyboard; sourceTree = "<group>"; };
+		06E8DAC82165AD7200249C98 /* PageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PageViewController.swift; path = ../../../VncServer/ViewControllers/ManualPages/PageViewController.swift; sourceTree = "<group>"; };
+		06E8DAC92165AD7200249C98 /* PageContentViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = PageContentViewController.storyboard; path = ../../../VncServer/ViewControllers/ManualPages/PageContentViewController.storyboard; sourceTree = "<group>"; };
+		06E8DAD12165AD8500249C98 /* PanelButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PanelButton.swift; path = ../../../VncServer/ViewControllers/ManualPages/Control/PanelButton.swift; sourceTree = "<group>"; };
+		06E8DAD32165AD9100249C98 /* AutoLayoutUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AutoLayoutUtility.swift; path = ../../../VncServer/ViewControllers/ManualPages/Utility/AutoLayoutUtility.swift; sourceTree = "<group>"; };
+		06EB0CF72190041C008F8E62 /* Setting02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Setting02.png; path = ../../../../VncServer/ViewControllers/ManualPages/Images/Setting02.png; sourceTree = "<group>"; };
+		06EB0CF82190041C008F8E62 /* Stop1_02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Stop1_02.png; path = ../../../../VncServer/ViewControllers/ManualPages/Images/Stop1_02.png; sourceTree = "<group>"; };
+		06EB0CF92190041C008F8E62 /* Stop2_02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Stop2_02.png; path = ../../../../VncServer/ViewControllers/ManualPages/Images/Stop2_02.png; sourceTree = "<group>"; };
+		06EB0CFA2190041C008F8E62 /* Stop1_01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Stop1_01.png; path = ../../../../VncServer/ViewControllers/ManualPages/Images/Stop1_01.png; sourceTree = "<group>"; };
+		06EB0CFB2190041C008F8E62 /* Setting01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Setting01.png; path = ../../../../VncServer/ViewControllers/ManualPages/Images/Setting01.png; sourceTree = "<group>"; };
+		06EB0CFC2190041C008F8E62 /* Start04.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Start04.png; path = ../../../../VncServer/ViewControllers/ManualPages/Images/Start04.png; sourceTree = "<group>"; };
+		06EB0CFD2190041C008F8E62 /* Stop2_01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Stop2_01.png; path = ../../../../VncServer/ViewControllers/ManualPages/Images/Stop2_01.png; sourceTree = "<group>"; };
+		06EB0CFE2190041C008F8E62 /* Start02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Start02.png; path = ../../../../VncServer/ViewControllers/ManualPages/Images/Start02.png; sourceTree = "<group>"; };
+		06EB0CFF2190041C008F8E62 /* Start01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Start01.png; path = ../../../../VncServer/ViewControllers/ManualPages/Images/Start01.png; sourceTree = "<group>"; };
+		06EB0D002190041C008F8E62 /* Setting03.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Setting03.png; path = ../../../../VncServer/ViewControllers/ManualPages/Images/Setting03.png; sourceTree = "<group>"; };
+		06EB0D012190041C008F8E62 /* Setting04.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Setting04.png; path = ../../../../VncServer/ViewControllers/ManualPages/Images/Setting04.png; sourceTree = "<group>"; };
+		06EB0D022190041C008F8E62 /* Start03.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Start03.png; path = ../../../../VncServer/ViewControllers/ManualPages/Images/Start03.png; sourceTree = "<group>"; };
+		06EB0D032190041C008F8E62 /* Setting05.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Setting05.png; path = ../../../../VncServer/ViewControllers/ManualPages/Images/Setting05.png; sourceTree = "<group>"; };
+		06EC4672215DC8990067808A /* VncServer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VncServer.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		06EC4681215DC89A0067808A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		06EC4687215DC8B70067808A /* VncServerSimulator-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "VncServerSimulator-Bridging-Header.h"; sourceTree = "<group>"; };
+		06EC4688215DC8B80067808A /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = ../../VncServer/AppDelegate.swift; sourceTree = "<group>"; };
+		06EC4689215DC8B80067808A /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = ../../VncServer/ViewController.swift; sourceTree = "<group>"; };
+		06EC4692215DC9000067808A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ../../VncServer/Assets.xcassets; sourceTree = "<group>"; };
+		06F91E2B215E21E0000E2255 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = ../../VncServer/Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		06F91E2D215E21E0000E2255 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = ../../VncServer/Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		066772C9215DD1D60000B6B8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		06EC466F215DC8990067808A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				066772D3215DD1D60000B6B8 /* JKEGCommonLib.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		066772CD215DD1D60000B6B8 /* JKEGCommonLib */ = {
+			isa = PBXGroup;
+			children = (
+				066772CE215DD1D60000B6B8 /* JKEGCommonLib.h */,
+				066772CF215DD1D60000B6B8 /* Info.plist */,
+			);
+			path = JKEGCommonLib;
+			sourceTree = "<group>";
+		};
+		066772D8215DF8700000B6B8 /* JKEGCommon */ = {
+			isa = PBXGroup;
+			children = (
+				0667732F215DFC5C0000B6B8 /* JKEGCommonLibInfo.swift */,
+				0667731F215DFC320000B6B8 /* AppLogger.storyboard */,
+				06677323215DFC320000B6B8 /* AppLoggerAccountTableViewController.swift */,
+				06677325215DFC330000B6B8 /* AppLoggerNavigationController.swift */,
+				06677324215DFC330000B6B8 /* AppLoggerSettingInfo.swift */,
+				06677320215DFC320000B6B8 /* AppLoggerSettingTableViewController.swift */,
+				06677321215DFC320000B6B8 /* AppLoggerViewController.swift */,
+				06677322215DFC320000B6B8 /* DebugSettings.swift */,
+				0667731A215DFC2A0000B6B8 /* AppExtentionLoggerUtility.swift */,
+				0667731B215DFC2A0000B6B8 /* AppLogger.swift */,
+				06677319215DFC2A0000B6B8 /* AppLoggerViewer.swift */,
+				0667732D215DFC480000B6B8 /* LogFileWriter.swift */,
+				066772F3215DFBE10000B6B8 /* DataExtention.swift */,
+				066772F4215DFBE10000B6B8 /* DateExtention.swift */,
+				066772F5215DFBE10000B6B8 /* StringExtension.swift */,
+				066772F9215DFBE90000B6B8 /* JKEGCommon.strings */,
+				066772FC215DFBE90000B6B8 /* JKEGCommonString.swift */,
+				0687F54B218FE1F6001080BE /* Localizable.strings */,
+				066772FB215DFBE90000B6B8 /* Localize.swift */,
+				06677302215DFBF00000B6B8 /* LocalNotification.swift */,
+				06677303215DFBF00000B6B8 /* VNCServerLocalNotificationUserInfo.swift */,
+				06677301215DFBF00000B6B8 /* VNCServerLocalNotificationUtility.swift */,
+				06677304215DFBF00000B6B8 /* VNCServerLocalNotifiction.swift */,
+				06677309215DFBF70000B6B8 /* AppExtentionMessageInfo.swift */,
+				0667730A215DFBF70000B6B8 /* AppGroupsManager.swift */,
+				0667730F215DFBFF0000B6B8 /* AlertMessageUtility.swift */,
+				0667730E215DFBFF0000B6B8 /* ApplicationUtility.swift */,
+				0667730D215DFBFF0000B6B8 /* FileCoordinatorUtility.swift */,
+				06677310215DFBFF0000B6B8 /* FileUtility.swift */,
+				06677311215DFBFF0000B6B8 /* PathUtility.swift */,
+			);
+			path = JKEGCommon;
+			sourceTree = "<group>";
+		};
+		06677331215DFD320000B6B8 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				06EB0CF621900407008F8E62 /* Images */,
+				06677333215DFD420000B6B8 /* AboutAppTableViewController.swift */,
+				06677334215DFD420000B6B8 /* AppOverviewViewController.swift */,
+				06677335215DFD420000B6B8 /* OSSViewController.swift */,
+				06677332215DFD420000B6B8 /* TermsOfUseViewController.swift */,
+				0667733C215DFD4A0000B6B8 /* BaseSafariViewController.swift */,
+				0667733A215DFD4A0000B6B8 /* BaseViewController.swift */,
+				0667733B215DFD4A0000B6B8 /* BaseWebViewController.swift */,
+				06677340215DFD510000B6B8 /* ProtocolStringTableViewController.storyboard */,
+				06677341215DFD510000B6B8 /* ProtocolStringTableViewController.swift */,
+				06E8DAC42165AD7200249C98 /* ManualPageTopViewController.storyboard */,
+				06E8DAC32165AD7200249C98 /* ManualPageTopViewController.swift */,
+				06E8DAC92165AD7200249C98 /* PageContentViewController.storyboard */,
+				06E8DAC62165AD7200249C98 /* PageContentViewController.swift */,
+				06E8DAC72165AD7200249C98 /* PageManagerViewController.storyboard */,
+				06E8DAC52165AD7200249C98 /* PageManagerViewController.swift */,
+				06E8DAC82165AD7200249C98 /* PageViewController.swift */,
+				06E8DAD12165AD8500249C98 /* PanelButton.swift */,
+				06E8DAD32165AD9100249C98 /* AutoLayoutUtility.swift */,
+				0687F54E218FE230001080BE /* FrameRateTableView.storyboard */,
+				0687F54F218FE230001080BE /* FrameRateTableViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		06677344215DFD8B0000B6B8 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				0667734B215DFD940000B6B8 /* AccessoryConnectedView.swift */,
+				0667734A215DFD940000B6B8 /* AccessoryConnectedView.xib */,
+				06677345215DFD940000B6B8 /* LoadingView.swift */,
+				06677349215DFD940000B6B8 /* LoadingView.xib */,
+				06677346215DFD940000B6B8 /* MessageLabel.swift */,
+				06677348215DFD940000B6B8 /* PleaseConnectView.swift */,
+				06677347215DFD940000B6B8 /* PleaseConnectView.xib */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		06677353215DFDA00000B6B8 /* Functions */ = {
+			isa = PBXGroup;
+			children = (
+				06677354215DFDAD0000B6B8 /* ScreenCaptureObserver.swift */,
+			);
+			path = Functions;
+			sourceTree = "<group>";
+		};
+		06677356215DFDBD0000B6B8 /* AppUtility */ = {
+			isa = PBXGroup;
+			children = (
+				06677357215DFDC90000B6B8 /* RealVncSdkUtility.swift */,
+			);
+			path = AppUtility;
+			sourceTree = "<group>";
+		};
+		06677359215DFDD70000B6B8 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				0667735B215DFDE00000B6B8 /* app_summery.htm */,
+				0667735C215DFDE00000B6B8 /* open_source_license.html */,
+				0667735A215DFDE00000B6B8 /* use_policy.htm */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		06EB0CF621900407008F8E62 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				06EB0CFB2190041C008F8E62 /* Setting01.png */,
+				06EB0CF72190041C008F8E62 /* Setting02.png */,
+				06EB0D002190041C008F8E62 /* Setting03.png */,
+				06EB0D012190041C008F8E62 /* Setting04.png */,
+				06EB0D032190041C008F8E62 /* Setting05.png */,
+				06EB0CFF2190041C008F8E62 /* Start01.png */,
+				06EB0CFE2190041C008F8E62 /* Start02.png */,
+				06EB0D022190041C008F8E62 /* Start03.png */,
+				06EB0CFC2190041C008F8E62 /* Start04.png */,
+				06EB0CFA2190041C008F8E62 /* Stop1_01.png */,
+				06EB0CF82190041C008F8E62 /* Stop1_02.png */,
+				06EB0CFD2190041C008F8E62 /* Stop2_01.png */,
+				06EB0CF92190041C008F8E62 /* Stop2_02.png */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
+		06EC4669215DC8990067808A = {
+			isa = PBXGroup;
+			children = (
+				06EC4674215DC8990067808A /* VncServerSimulator */,
+				066772CD215DD1D60000B6B8 /* JKEGCommonLib */,
+				06EC4673215DC8990067808A /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		06EC4673215DC8990067808A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				06EC4672215DC8990067808A /* VncServer.app */,
+				066772CC215DD1D60000B6B8 /* JKEGCommonLib.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		06EC4674215DC8990067808A /* VncServerSimulator */ = {
+			isa = PBXGroup;
+			children = (
+				06677359215DFDD70000B6B8 /* Resources */,
+				06677356215DFDBD0000B6B8 /* AppUtility */,
+				06677353215DFDA00000B6B8 /* Functions */,
+				06677344215DFD8B0000B6B8 /* Views */,
+				06677331215DFD320000B6B8 /* ViewControllers */,
+				066772D8215DF8700000B6B8 /* JKEGCommon */,
+				06EC4688215DC8B80067808A /* AppDelegate.swift */,
+				06EC4689215DC8B80067808A /* ViewController.swift */,
+				06F91E2C215E21E0000E2255 /* LaunchScreen.storyboard */,
+				06F91E2A215E21E0000E2255 /* Main.storyboard */,
+				06EC4692215DC9000067808A /* Assets.xcassets */,
+				06EC4681215DC89A0067808A /* Info.plist */,
+				06EC4687215DC8B70067808A /* VncServerSimulator-Bridging-Header.h */,
+			);
+			path = VncServerSimulator;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		066772C7215DD1D60000B6B8 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				066772D0215DD1D60000B6B8 /* JKEGCommonLib.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		066772CB215DD1D60000B6B8 /* JKEGCommonLib */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 066772D7215DD1D60000B6B8 /* Build configuration list for PBXNativeTarget "JKEGCommonLib" */;
+			buildPhases = (
+				066772C7215DD1D60000B6B8 /* Headers */,
+				066772C8215DD1D60000B6B8 /* Sources */,
+				066772C9215DD1D60000B6B8 /* Frameworks */,
+				066772CA215DD1D60000B6B8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = JKEGCommonLib;
+			productName = JKEGCommonLib;
+			productReference = 066772CC215DD1D60000B6B8 /* JKEGCommonLib.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		06EC4671215DC8990067808A /* VncServer */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 06EC4684215DC89A0067808A /* Build configuration list for PBXNativeTarget "VncServer" */;
+			buildPhases = (
+				06EC466E215DC8990067808A /* Sources */,
+				06EC466F215DC8990067808A /* Frameworks */,
+				06EC4670215DC8990067808A /* Resources */,
+				06EC46A7215DC9B00067808A /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				066772D2215DD1D60000B6B8 /* PBXTargetDependency */,
+			);
+			name = VncServer;
+			productName = VncServerSimulator;
+			productReference = 06EC4672215DC8990067808A /* VncServer.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		06EC466A215DC8990067808A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1000;
+				LastUpgradeCheck = 1000;
+				ORGANIZATIONNAME = "JVCKENWOOD Engineering Corporation";
+				TargetAttributes = {
+					066772CB215DD1D60000B6B8 = {
+						CreatedOnToolsVersion = 10.0;
+					};
+					06EC4671215DC8990067808A = {
+						CreatedOnToolsVersion = 10.0;
+						LastSwiftMigration = 1000;
+					};
+				};
+			};
+			buildConfigurationList = 06EC466D215DC8990067808A /* Build configuration list for PBXProject "VncServer" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 06EC4669215DC8990067808A;
+			productRefGroup = 06EC4673215DC8990067808A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				06EC4671215DC8990067808A /* VncServer */,
+				066772CB215DD1D60000B6B8 /* JKEGCommonLib */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		066772CA215DD1D60000B6B8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		06EC4670215DC8990067808A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				06E8DACE2165AD7200249C98 /* PageManagerViewController.storyboard in Resources */,
+				06677326215DFC330000B6B8 /* AppLogger.storyboard in Resources */,
+				06EB0D0D2190041C008F8E62 /* Setting03.png in Resources */,
+				06EB0D052190041C008F8E62 /* Stop1_02.png in Resources */,
+				06E8DAD02165AD7200249C98 /* PageContentViewController.storyboard in Resources */,
+				06EB0D102190041C008F8E62 /* Setting05.png in Resources */,
+				06EB0D062190041C008F8E62 /* Stop2_02.png in Resources */,
+				06EB0D0E2190041C008F8E62 /* Setting04.png in Resources */,
+				0667735D215DFDE00000B6B8 /* use_policy.htm in Resources */,
+				06EB0D0B2190041C008F8E62 /* Start02.png in Resources */,
+				0667734E215DFD940000B6B8 /* PleaseConnectView.xib in Resources */,
+				06EB0D082190041C008F8E62 /* Setting01.png in Resources */,
+				06F91E2E215E21E0000E2255 /* Main.storyboard in Resources */,
+				0687F550218FE230001080BE /* FrameRateTableView.storyboard in Resources */,
+				06677342215DFD510000B6B8 /* ProtocolStringTableViewController.storyboard in Resources */,
+				06EB0D042190041C008F8E62 /* Setting02.png in Resources */,
+				06EC4693215DC9000067808A /* Assets.xcassets in Resources */,
+				06EB0D0F2190041C008F8E62 /* Start03.png in Resources */,
+				06677351215DFD940000B6B8 /* AccessoryConnectedView.xib in Resources */,
+				06EB0D072190041C008F8E62 /* Stop1_01.png in Resources */,
+				06EB0D0A2190041C008F8E62 /* Stop2_01.png in Resources */,
+				06EB0D0C2190041C008F8E62 /* Start01.png in Resources */,
+				06F91E2F215E21E0000E2255 /* LaunchScreen.storyboard in Resources */,
+				06EB0D092190041C008F8E62 /* Start04.png in Resources */,
+				0667735E215DFDE00000B6B8 /* app_summery.htm in Resources */,
+				06E8DACB2165AD7200249C98 /* ManualPageTopViewController.storyboard in Resources */,
+				0687F54D218FE1F6001080BE /* Localizable.strings in Resources */,
+				0667735F215DFDE00000B6B8 /* open_source_license.html in Resources */,
+				06677350215DFD940000B6B8 /* LoadingView.xib in Resources */,
+				066772FD215DFBE90000B6B8 /* JKEGCommon.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		066772C8215DD1D60000B6B8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		06EC466E215DC8990067808A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0667731C215DFC2A0000B6B8 /* AppLoggerViewer.swift in Sources */,
+				0667734F215DFD940000B6B8 /* PleaseConnectView.swift in Sources */,
+				06677355215DFDAD0000B6B8 /* ScreenCaptureObserver.swift in Sources */,
+				0667731D215DFC2A0000B6B8 /* AppExtentionLoggerUtility.swift in Sources */,
+				06677330215DFC5D0000B6B8 /* JKEGCommonLibInfo.swift in Sources */,
+				06E8DACD2165AD7200249C98 /* PageContentViewController.swift in Sources */,
+				0667730B215DFBF70000B6B8 /* AppExtentionMessageInfo.swift in Sources */,
+				06677300215DFBE90000B6B8 /* JKEGCommonString.swift in Sources */,
+				06677327215DFC330000B6B8 /* AppLoggerSettingTableViewController.swift in Sources */,
+				0667732E215DFC480000B6B8 /* LogFileWriter.swift in Sources */,
+				0667733D215DFD4A0000B6B8 /* BaseViewController.swift in Sources */,
+				0667732A215DFC330000B6B8 /* AppLoggerAccountTableViewController.swift in Sources */,
+				06E8DACC2165AD7200249C98 /* PageManagerViewController.swift in Sources */,
+				06E8DACA2165AD7200249C98 /* ManualPageTopViewController.swift in Sources */,
+				06677358215DFDC90000B6B8 /* RealVncSdkUtility.swift in Sources */,
+				06677313215DFBFF0000B6B8 /* ApplicationUtility.swift in Sources */,
+				0667733E215DFD4A0000B6B8 /* BaseWebViewController.swift in Sources */,
+				066772FF215DFBE90000B6B8 /* Localize.swift in Sources */,
+				06EC468B215DC8B80067808A /* ViewController.swift in Sources */,
+				06677314215DFBFF0000B6B8 /* AlertMessageUtility.swift in Sources */,
+				06677343215DFD510000B6B8 /* ProtocolStringTableViewController.swift in Sources */,
+				066772F6215DFBE10000B6B8 /* DataExtention.swift in Sources */,
+				06677316215DFBFF0000B6B8 /* PathUtility.swift in Sources */,
+				0667734C215DFD940000B6B8 /* LoadingView.swift in Sources */,
+				06677307215DFBF00000B6B8 /* VNCServerLocalNotificationUserInfo.swift in Sources */,
+				0687F551218FE230001080BE /* FrameRateTableViewController.swift in Sources */,
+				0667734D215DFD940000B6B8 /* MessageLabel.swift in Sources */,
+				06677337215DFD420000B6B8 /* AboutAppTableViewController.swift in Sources */,
+				06677336215DFD420000B6B8 /* TermsOfUseViewController.swift in Sources */,
+				06677338215DFD420000B6B8 /* AppOverviewViewController.swift in Sources */,
+				066772F8215DFBE10000B6B8 /* StringExtension.swift in Sources */,
+				06677352215DFD940000B6B8 /* AccessoryConnectedView.swift in Sources */,
+				06677328215DFC330000B6B8 /* AppLoggerViewController.swift in Sources */,
+				06677329215DFC330000B6B8 /* DebugSettings.swift in Sources */,
+				0667731E215DFC2A0000B6B8 /* AppLogger.swift in Sources */,
+				0667732C215DFC330000B6B8 /* AppLoggerNavigationController.swift in Sources */,
+				06677306215DFBF00000B6B8 /* LocalNotification.swift in Sources */,
+				06677339215DFD420000B6B8 /* OSSViewController.swift in Sources */,
+				0667732B215DFC330000B6B8 /* AppLoggerSettingInfo.swift in Sources */,
+				066772F7215DFBE10000B6B8 /* DateExtention.swift in Sources */,
+				06E8DACF2165AD7200249C98 /* PageViewController.swift in Sources */,
+				06E8DAD22165AD8500249C98 /* PanelButton.swift in Sources */,
+				0667733F215DFD4A0000B6B8 /* BaseSafariViewController.swift in Sources */,
+				06677308215DFBF00000B6B8 /* VNCServerLocalNotifiction.swift in Sources */,
+				0667730C215DFBF70000B6B8 /* AppGroupsManager.swift in Sources */,
+				06E8DAD42165AD9100249C98 /* AutoLayoutUtility.swift in Sources */,
+				06677315215DFBFF0000B6B8 /* FileUtility.swift in Sources */,
+				06677312215DFBFF0000B6B8 /* FileCoordinatorUtility.swift in Sources */,
+				06677305215DFBF00000B6B8 /* VNCServerLocalNotificationUtility.swift in Sources */,
+				06EC468A215DC8B80067808A /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		066772D2215DD1D60000B6B8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 066772CB215DD1D60000B6B8 /* JKEGCommonLib */;
+			targetProxy = 066772D1215DD1D60000B6B8 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		0687F54B218FE1F6001080BE /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0687F54C218FE1F6001080BE /* en */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		06F91E2A215E21E0000E2255 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				06F91E2B215E21E0000E2255 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		06F91E2C215E21E0000E2255 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				06F91E2D215E21E0000E2255 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		066772D5215DD1D60000B6B8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = CNSGP427AZ;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = JKEGCommonLib/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.jvckenwood-eng.product.JKEGCommonLib";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		066772D6215DD1D60000B6B8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = CNSGP427AZ;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = JKEGCommonLib/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.jvckenwood-eng.product.JKEGCommonLib";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		06EC4682215DC89A0067808A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+					"USE_IOS_SIMULATOR=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG USE_IOS_SIMULATOR";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		06EC4683215DC89A0067808A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = "USE_IOS_SIMULATOR=1";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = USE_IOS_SIMULATOR;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		06EC4685215DC89A0067808A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = CNSGP427AZ;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"USE_IOS_SIMULATOR=1",
+					"DEBUG=1",
+				);
+				INFOPLIST_FILE = VncServerSimulator/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.jvckenwood-eng.product.VncServerSimulator";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "VncServerSimulator/VncServerSimulator-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		06EC4686215DC89A0067808A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = CNSGP427AZ;
+				GCC_PREPROCESSOR_DEFINITIONS = "USE_IOS_SIMULATOR=1";
+				INFOPLIST_FILE = VncServerSimulator/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.jvckenwood-eng.product.VncServerSimulator";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "VncServerSimulator/VncServerSimulator-Bridging-Header.h";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		066772D7215DD1D60000B6B8 /* Build configuration list for PBXNativeTarget "JKEGCommonLib" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				066772D5215DD1D60000B6B8 /* Debug */,
+				066772D6215DD1D60000B6B8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		06EC466D215DC8990067808A /* Build configuration list for PBXProject "VncServer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				06EC4682215DC89A0067808A /* Debug */,
+				06EC4683215DC89A0067808A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		06EC4684215DC89A0067808A /* Build configuration list for PBXNativeTarget "VncServer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				06EC4685215DC89A0067808A /* Debug */,
+				06EC4686215DC89A0067808A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 06EC466A215DC8990067808A /* Project object */;
+}

@@ -12,8 +12,6 @@ import UIKit
 class AccessoryConnectedView: UIView {
     @IBOutlet weak var animationAreaView: UIImageView!
     
-    @IBOutlet weak var highlightedView: UIImageView!
-    
     // アニメーション中かどうか
     private var isAnimating: Bool = false
     
@@ -60,37 +58,39 @@ class AccessoryConnectedView: UIView {
     /// アニメーション開始する。
     func startAnimation() {
         AppLogger.debug()
-        
-        if !isAnimating {
-            isAnimating = true
-            
-            /*
-             UIView.animateKeyframes(withDuration: 2.0, delay: 0, options: [.repeat, .autoreverse], animations: {
-             // 0.0秒かけてαを0に これを入れないとアニメーションが止まってしまう
-             UIView.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: 0.0, animations: {
-             self.highlightedView.alpha = 0
-             })
-             
-             UIView.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: 0.5, animations: {
-             self.highlightedView.alpha = 1
-             })
-             }, completion: nil)
-             */
-            
-            UIView.animate(withDuration: 2.0, delay: 0, options: [.repeat, .autoreverse], animations: {
-                self.highlightedView.alpha = 0
-            }, completion: nil)
-        }
+        /*
+         if !isAnimating {
+         isAnimating = true
+         
+         /*
+          UIView.animateKeyframes(withDuration: 2.0, delay: 0, options: [.repeat, .autoreverse], animations: {
+          // 0.0秒かけてαを0に これを入れないとアニメーションが止まってしまう
+          UIView.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: 0.0, animations: {
+          self.highlightedView.alpha = 0
+          })
+          
+          UIView.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: 0.5, animations: {
+          self.highlightedView.alpha = 1
+          })
+          }, completion: nil)
+          */
+         
+         UIView.animate(withDuration: 2.0, delay: 0, options: [.repeat, .autoreverse], animations: {
+         self.highlightedView.alpha = 0
+         }, completion: nil)
+         }
+         */
     }
     
     /// アニメーション停止する
     func stopAnimation() {
         AppLogger.debug()
-        
-        if isAnimating {
-            highlightedView.layer.removeAllAnimations()
-            highlightedView.alpha = 1
-            isAnimating = false
-        }
+        /*
+         if isAnimating {
+         highlightedView.layer.removeAllAnimations()
+         highlightedView.alpha = 1
+         isAnimating = false
+         }
+         */
     }
 }

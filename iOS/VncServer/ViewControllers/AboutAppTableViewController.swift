@@ -10,11 +10,18 @@ import JKEGCommonLib
 import SafariServices
 import UIKit
 
+/// 「本アプリケーションについて」表示用テーブルビュークラス
 class AboutAppTableViewController: UITableViewController {
+    // セルテキスト
+    @IBOutlet weak var lableAppOverview: UILabel!
+    @IBOutlet weak var labelTermsOfUse: UILabel!
+    @IBOutlet weak var labelOpenSourceLicenses: UILabel!
+    @IBOutlet weak var labelVersion: UILabel!
+    
     /// セクション番号定義
     ///
     /// - general: 一般
-    /// - version: バージョン
+    /// - versi on: バージョン
     /// - debugFunction: デバッグ機能
     enum AboutAppTableViewSectionIndex: Int {
         case general = 0
@@ -27,12 +34,10 @@ class AboutAppTableViewController: UITableViewController {
     /// - Overview: アプリケーション概要
     /// - TermsOfUse: 利用規約
     /// - OSS: オープンソースライセンス
-    /// - DebugFunction: デバッグ機能
     enum AboutAppTableViewGeneralRowIndex: Int {
         case overview = 0
-        case faq = 1
-        case termsOfUse = 2
-        case openSourceLicense = 3
+        case termsOfUse = 1
+        case openSourceLicense = 2
     }
     
     /// デバッグ機能行番号定義
@@ -42,13 +47,15 @@ class AboutAppTableViewController: UITableViewController {
     enum DebugFunctionRowIndex: Int {
         case sdkVersion = 0
         case protocolString = 1
-        case appLog = 2
-        case appExtentionLog = 3
+        case frameRate = 2
+        case appLog = 3
+        case appExtentionLog = 4
     }
     
     @IBOutlet weak var labelVersionValue: UILabel!
     @IBOutlet weak var labelSdkVersionValue: UILabel!
     @IBOutlet weak var labelProtocolString: UILabel!
+    @IBOutlet weak var labelFrameRateValue: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,7 +67,18 @@ class AboutAppTableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
         
         // 戻るボタンのテキスト表示なし
-        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: UIBarButtonItemStyle.plain, target: nil, action: nil)
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: UIBarButtonItem.Style.plain, target: nil, action: nil)
+        
+        // "本アプリケーションについて"
+        title = Localize.localizedString("SS_01_002")
+        // アプリケーション概要
+        lableAppOverview.text = Localize.localizedString("SS_01_003")
+        // アプリケーション利用規約
+        labelTermsOfUse.text = Localize.localizedString("SS_01_004")
+        // オープンソースライセンス
+        labelOpenSourceLicenses.text = Localize.localizedString("SS_01_005")
+        // バージョン
+        labelVersion.text = Localize.localizedString("SS_01_006")
         
         // アプリバージョン取得
         var version: String = ApplicationUtility.version()
@@ -80,6 +98,8 @@ class AboutAppTableViewController: UITableViewController {
             // 使用プロトコルストリング表示
             updateProtocolString()
             
+            // フレームレート表示
+            updateFrameRate()
         #endif // ENABLE_LOG
     }
     
@@ -96,22 +116,10 @@ class AboutAppTableViewController: UITableViewController {
     ///   - tableView: テーブルビューのインスタンス
     ///   - indexPath: 選択行情報
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        switch indexPath.section {
-        // 一般設定
-        case AboutAppTableViewSectionIndex.general.rawValue:
-            switch indexPath.row {
-            // FAQサイト表示
-            case AboutAppTableViewGeneralRowIndex.faq.rawValue:
-                showFaqWebPage()
-                
-            default:
-                print("undefine row index (General) ... >> rowIndex = " + String(indexPath.row))
-            }
-        // デバッグ設定
-        case AboutAppTableViewSectionIndex.debugFunction.rawValue:
+        #if ENABLE_LOG
             
-            #if ENABLE_LOG
-                
+            // デバッグ設定
+            if indexPath.section == AboutAppTableViewSectionIndex.debugFunction.rawValue {
                 switch indexPath.row {
                 // アプリログ
                 case DebugFunctionRowIndex.appLog.rawValue:
@@ -126,13 +134,9 @@ class AboutAppTableViewController: UITableViewController {
                 default:
                     print("undefine row index (Debug Function) ... >> rowIndex = " + String(indexPath.row))
                 }
-                
-            #endif // ENABLE_LOG
+            }
             
-        // その他
-        default:
-            print("no section index ...")
-        }
+        #endif // ENABLE_LOG
         
         tableView.deselectRow(at: indexPath, animated: true)
     }
@@ -163,13 +167,13 @@ class AboutAppTableViewController: UITableViewController {
         switch section {
         // 一般設定セクション
         case AboutAppTableViewSectionIndex.general.rawValue:
-            return 4
+            return 3
         // バージョンセクション
         case AboutAppTableViewSectionIndex.version.rawValue:
             return 1
         // デバッグ設定セクション
         case AboutAppTableViewSectionIndex.debugFunction.rawValue:
-            return 4
+            return 5
         // その他
         default:
             return 0
@@ -230,18 +234,32 @@ class AboutAppTableViewController: UITableViewController {
             // Pass the selected object to the new view controller.
             
             if segue.destination.isKind(of: ProtocolStringTableViewController.self) {
+                // プロトコルストリング設定
                 if let destViewController = segue.destination as? ProtocolStringTableViewController {
                     destViewController.selectedIndex = AppGroupsManager.loadProtocolStringIndex()
+                }
+            } else if segue.destination.isKind(of: FrameRateTableViewController.self) {
+                // フレームレート設定
+                if let destViewController = segue.destination as? FrameRateTableViewController {
+                    destViewController.selectedIndex = AppGroupsManager.loadFrameRateIndex()
                 }
             }
         }
         
         @IBAction func unwindAboutAppTopViewController(for unwindSegue: UIStoryboardSegue, towardsViewController subsequentVC: UIViewController) {
+            // プロトコルストリング変更
             if unwindSegue.source.isKind(of: ProtocolStringTableViewController.self) {
                 if let destViewController = unwindSegue.source as? ProtocolStringTableViewController {
                     print("\(destViewController.selectedIndex)")
                     AppGroupsManager.saveProtocolStringIndex(index: destViewController.selectedIndex)
                     updateProtocolString()
+                }
+            } else if unwindSegue.source.isKind(of: FrameRateTableViewController.self) {
+                // フレームレート設定変更
+                if let destViewController = unwindSegue.source as? FrameRateTableViewController {
+                    print("\(destViewController.selectedIndex)")
+                    AppGroupsManager.saveFrameRateIndex(index: destViewController.selectedIndex)
+                    updateFrameRate()
                 }
             }
         }
@@ -265,23 +283,25 @@ class AboutAppTableViewController: UITableViewController {
         }
     }
     
-    /// FAQのWebサイトを表示する
-    private func showFaqWebPage() {
-        let urlString = "http://www.kenwood.com/jp/products/car_audio/app/kenwood_music_info/faq.html"
-        
-        // SafariViewControllerで開く場合！！！
-        
-        let titleBarText = "よくあるご質問(FAQ)"
-        // SafariViewControllerで表示する
-        showSafariViewController(urlString: urlString, titleBarText: titleBarText)
-        
-        /*
-         // Safari Browserで開く場合 !!!
-         if let url = URL(string: urlString) {
-         UIApplication.shared.open(url, options: [:], completionHandler: nil)
-         }
-         */
-    }
+    #if _NOT_USED_FAQ_ // FAQ削除（2018/10/15）
+        /// FAQのWebサイトを表示する
+        private func showFaqWebPage() {
+            let urlString = "http://www.kenwood.com/jp/products/car_audio/app/kenwood_music_info/faq.html"
+            
+            // SafariViewControllerで開く場合！！！
+            
+            let titleBarText = "よくあるご質問(FAQ)"
+            // SafariViewControllerで表示する
+            showSafariViewController(urlString: urlString, titleBarText: titleBarText)
+            
+            /*
+             // Safari Browserで開く場合 !!!
+             if let url = URL(string: urlString) {
+             UIApplication.shared.open(url, options: [:], completionHandler: nil)
+             }
+             */
+        }
+    #endif // _NOT_USED_FAQ_
     
     // MARK: - Debug function
     
@@ -329,6 +349,16 @@ class AboutAppTableViewController: UITableViewController {
                 labelProtocolString.text = values[index]
             } else {
                 labelProtocolString.text = "???"
+            }
+        }
+        
+        func updateFrameRate() {
+            let values = FrameRateTableViewController.itemNames
+            let index = AppGroupsManager.loadFrameRateIndex()
+            if index < values.count {
+                labelFrameRateValue.text = values[index]
+            } else {
+                labelFrameRateValue.text = "???"
             }
         }
         

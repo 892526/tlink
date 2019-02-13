@@ -5,7 +5,9 @@
 #import <Foundation/Foundation.h>
 
 // for AES Encrypt/Decrypt
-#import <CommonCrypto/CommonCrypto.h>
+//#import <CommonCrypto/CommonCrypto.h>
+#import <CommonCrypto/CommonCryptor.h>
+//#include <CommonCrypto/CommonCrypto.h>
 
 // ---- VNC iOS Server SDK
 // VNC server.
