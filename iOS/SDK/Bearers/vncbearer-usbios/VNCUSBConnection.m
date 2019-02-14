@@ -71,6 +71,8 @@ static EAAccessory * getConnectedAccessory(NSString * protocol) {
 						withCondition:m_condition];
 			m_writeNotifyThread = [[VNCUSBThread alloc] initWithStream:m_session.outputStream
 						withCondition:m_condition];
+			// FIXME: Just making sure the streams are open before we changes status to connected
+			sleep(1);
 			[m_context connectionStatusChange:VNCConnectionStatusConnected];
 		}else{
 			m_error = VNCBearerErrorUSBNotConnected;

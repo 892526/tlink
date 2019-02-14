@@ -60,7 +60,7 @@ public class VNCServerLocalNotifiction {
                 let userInfo = VNCServerLocalNotificationUtility.encodeUserInfo(type: type, title: String.Empty, message: displayMessage, code: code)
                 
                 // ローカル通知発行
-                LocalNotification.show(requestIdentifier: VNCServerLocalNotifiction.requestIdentifier, timeInterval: 0.25,
+                LocalNotification.show(requestIdentifier: VNCServerLocalNotifiction.requestIdentifier, timeInterval: 0.01,
                                        title: String.Empty, body: displayMessage, userInfo: userInfo, completionHandler: nil)
             }
         }

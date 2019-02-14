@@ -23,6 +23,9 @@
 }
 
 -(void) dealloc {
+	while (![m_thread isFinished]) {
+		[NSThread sleepForTimeInterval:1];
+	}
 	[m_thread release];
 	[m_condition release];
 	[m_stream release];

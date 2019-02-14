@@ -321,12 +321,17 @@ class BroadcastVNCServer: NSObject, VNCServerDelegate, VNCRPCaptureDelegate {
             // エラーコード取得
             let errorCode = error.rawValue
             
-            // USB切断以外の場合は、エラーメッセージを表示する
+            // 「エラーなし」通知の場合は、無視する
+            if VNCServerErrorNone.rawValue == errorCode {
+                return
+            }
+            
+            // エラーなし、USB切断以外の場合は、エラーメッセージを表示する
             if VNCServerErrorUSBNotConnected.rawValue != errorCode {
-                // メッセージ情報作成
-                let info = AppExtentionMessageInfo(date: Date(), type: .internalServerError, message: String.Empty, value: errorCode)
-                
                 #if ENABLE_ERROR_LOG
+                    // メッセージ情報作成
+                    let info = AppExtentionMessageInfo(date: Date(), type: .internalServerError, message: String.Empty, value: errorCode)
+                    
                     // エラー情報セット
                     setErrorInfo(info)
                 #endif // ENABLE_ERROR_LOG
@@ -568,8 +573,10 @@ class BroadcastVNCServer: NSObject, VNCServerDelegate, VNCRPCaptureDelegate {
         if !isConnected {
             isConnected = true
             
-            // 接続状態セット
-            BroadcastVNCServer.setConnectionState(true)
+            #if ENABLE_ERROR_LOG
+                // 接続状態セット
+                BroadcastVNCServer.setConnectionState(true)
+            #endif // ENABLE_ERROR_LOG
             
             // ローカル通知発行（Connect）
             VNCServerLocalNotifiction.showLocalNotification(type: .connect)
@@ -593,10 +600,9 @@ class BroadcastVNCServer: NSObject, VNCServerDelegate, VNCRPCaptureDelegate {
             #if ENABLE_ERROR_LOG
                 // 更新タイマー停止
                 stopUpdateTimer()
+                // 未接続状態セット
+                BroadcastVNCServer.setConnectionState(false)
             #endif // ENABLE_ERROR_LOG
-            
-            // 未接続状態セット
-            BroadcastVNCServer.setConnectionState(false)
             
             // ローカル通知発行（Disconnect）
             VNCServerLocalNotifiction.showLocalNotification(type: .disconnect)
@@ -742,12 +748,27 @@ class BroadcastVNCServer: NSObject, VNCServerDelegate, VNCRPCaptureDelegate {
         // アクセサリ接続通知の受信を登録する。
         addExternalAccessoryNotification()
         
+        #if DEBUG_ERROR_MESSAGE
+            // デバッグ用タイマー開始
+            debugStartTimer()
+        #endif // DEBUG_ERROR_MESSAGE
+        
         AppLogger.debug("---END---")
     }
     
     /// ブロードキャストサーバー停止する
     public func stopServer() {
         AppLogger.debug("---START---")
+        
+        if !isStarted {
+            AppLogger.error("Server not active !!!")
+            return
+        }
+        // サーバー停止中状態に繊維
+        isStarted = false
+        
+        // 連携終了を通知する
+        showDisconnectedNotification()
         
         if let server = vncServer {
             // VNCサーバーリセット
@@ -757,22 +778,16 @@ class BroadcastVNCServer: NSObject, VNCServerDelegate, VNCRPCaptureDelegate {
             AppLogger.error("VNCServer == nil !!!")
         }
         
-        if !isStarted {
-            AppLogger.error("Server not active !!!")
-            return
-        }
-        
-        // サーバー停止中状態に繊維
-        isStarted = false
-        
         // アクセサリ切断通知の受信を解除する。
         removeExternalAccessoryNotification()
         
         // キャプチャーサンプルバッファリリース
         sampleBufferRelease()
         
-        // 連携終了を通知する
-        showDisconnectedNotification()
+        #if DEBUG_ERROR_MESSAGE
+            // デバッグ用タイマー停止
+            debugStopTimer()
+        #endif // DEBUG_ERROR_MESSAGE
         
         AppLogger.debug("---END---")
     }
@@ -809,4 +824,77 @@ class BroadcastVNCServer: NSObject, VNCServerDelegate, VNCRPCaptureDelegate {
         // メッセージ情報をセット
         AppGroupsManager.saveErrorInfo(errorInfo)
     }
+    
+    // -------------------------------------------------------------------------------------------------
+    
+    // MARK: - Debug methods
+    
+    #if DEBUG_ERROR_MESSAGE
+        
+        private var debugUpdateTimer: Timer?
+        private var debugErrorIndex: Int = -1
+        
+        private let debugErrorCodes: [VNCServerError] = [
+            VNCServerErrorNone, VNCServerErrorResources, VNCServerErrorState, VNCServerErrorPermissionDenied,
+            VNCServerErrorNetworkUnreachable, VNCServerErrorHostUnreachable, VNCServerErrorConnectionRefused,
+            VNCServerErrorDNSFailure, VNCServerErrorAddressInUse, VNCServerErrorBadPort, VNCServerErrorDisconnected,
+            VNCServerErrorConnectionTimedOut, VNCServerErrorBearerAuthenticationFailed,
+            VNCServerErrorUSBNotConnected, VNCServerErrorUnderlyingLibraryNotFound,
+            VNCServerErrorBearerConfigurationNotProvided, VNCServerErrorBearerConfigurationInvalid,
+            VNCServerErrorBearerLoadFailed, VNCServerErrorProtocolMismatch, VNCServerErrorLoginRejected,
+            VNCServerErrorNotLicensedForViewer, VNCServerErrorConnectionClosed, VNCServerErrorInvalidCommandString,
+            VNCServerErrorUnsupportedAuth, VNCServerErrorKeyTooBig, VNCServerErrorBadCrypt,
+            VNCServerErrorNoEncodings, VNCServerErrorBadPixelformat, VNCServerErrorBearerNotFound,
+            VNCServerErrorSignatureRejected, VNCServerErrorInsufficientBufferSpace, VNCServerErrorLicenseNotValid,
+            VNCServerErrorFeatureNotLicensed, VNCServerErrorInvalidParameter, VNCServerErrorKeyGeneration,
+            VNCServerErrorUnableToStartService, VNCServerErrorAlreadyExists, VNCServerErrorTooManyExtensions,
+            VNCServerErrorReset, VNCServerErrorDataRelayProtocolError, VNCServerErrorUnknownDataRelaySessionId,
+            VNCServerErrorBadChallenge, VNCServerErrorDataRelayChannelTimeout, VNCServerErrorUserRefusedConnection,
+            VNCServerErrorCommandFetchFailed, VNCServerErrorFailed, VNCServerErrorNotImplemented,
+            VNCServerErrorCommandSuperseded, VNCServerErrorEnvironment, VNCServerErrorCaptureFrameBufferNotImplemented
+        ]
+        
+        /// 通知機能でエラーメッセージ表示
+        ///
+        /// - Parameter errorCode: エラーコード
+        private func debugShowErrorMessage(_ errorCode: VNCServerError) {
+            AppLogger.debug("ErrorCode = \(errorCode)")
+            onServerError(errorCode)
+        }
+        
+        /// エラーメッセージ表示切り替え用タイマー開始
+        private func debugStartTimer() {
+            AppLogger.debug()
+            isConnected = true
+            if debugUpdateTimer == nil {
+                // 10秒毎に表示
+                debugUpdateTimer = Timer.scheduledTimer(withTimeInterval: 10, repeats: true, block: { _ in
+                    let errorCode = self.debugNextErrorCode()
+                    self.debugShowErrorMessage(errorCode)
+                })
+            }
+        }
+        
+        /// エラーメッセージ表示切り替え用タイマー停止
+        private func debugStopTimer() {
+            AppLogger.debug()
+            isConnected = false
+            if debugUpdateTimer != nil {
+                debugUpdateTimer?.invalidate()
+                debugUpdateTimer = nil
+            }
+        }
+        
+        /// 次に表示するエラーメッセージのエラーコードを取得する
+        ///
+        /// - Returns: エラーコード
+        private func debugNextErrorCode() -> VNCServerError {
+            isConnected = true
+            debugErrorIndex += 1
+            if debugErrorIndex >= debugErrorCodes.count {
+                debugErrorIndex = 0
+            }
+            return debugErrorCodes[debugErrorIndex]
+        }
+    #endif // DEBUG_ERROR_MESSAGE
 }

@@ -10,6 +10,7 @@ import Foundation
 
 /// ファイル共有アクセスクラス
 public class AppGroupsManager: NSObject {
+    #warning("TODO: AppStore用は、本番用バンドルID、プロトコルストリングをInfo.plistに設定してください!")
     #warning("TODO: AppStore用は、本番用App GroupIDを設定してください!")
     
     /// ファイル共有アクセス名(App Groupd ID)

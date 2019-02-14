@@ -105,7 +105,7 @@ class SampleHandler: RPBroadcastSampleHandler {
     
     override func broadcastFinished() {
         // User has requested to finish the broadcast.
-        AppLogger.debug()
+        AppLogger.debug("Thread.current = \(Thread.current)")
         
         // VNCサーバー停止
         /*
@@ -116,13 +116,18 @@ class SampleHandler: RPBroadcastSampleHandler {
         
         // デバッグログを共有ファイルに出力
         #if ENABLE_LOG
-            AppLogger.debug("exportDebugLog -- START ---")
-            exportDebugLog()
-            AppLogger.debug("exportDebugLog -- END ---")
+            // AppLogger.debug("exportDebugLog -- START ---")
+            // exportDebugLog()
+            // AppLogger.debug("exportDebugLog -- END ---")
         #endif
+        
+        // セマフォ作成
+        let semaphore = DispatchSemaphore(value: 0)
         
         DispatchQueue.main.async {
             AppLogger.debug("DispatchQueue.main.async -- START ---")
+            
+            // BroadcastVNCServer.shared.showDisconnectedNotification()
             
             // 監視タイマー停止
             self.stopUpdateTimer()
@@ -130,8 +135,25 @@ class SampleHandler: RPBroadcastSampleHandler {
             // VNCサーバー停止
             BroadcastVNCServer.shared.stopServer()
             
+            AppLogger.debug("Sleep in")
+            // 通知を出すので100ms Wait
+            Thread.sleep(forTimeInterval: 0.10)
+            AppLogger.debug("Sleep out")
+            
+            AppLogger.debug("semaphore.signal")
+            // 後始末が終了したのでシグナル
+            semaphore.signal()
+            
             AppLogger.debug("DispatchQueue.main.async -- END ---")
         }
+        
+        AppLogger.debug("semaphore.wait >> in")
+        // 後始末が終わるまで待ちます
+        // 500msのタイムアウト
+        let result = semaphore.wait(timeout: .now() + 0.5)
+        AppLogger.debug("semaphore.wait >> exit (Result = \(result))")
+        
+        AppLogger.debug("### END ###")
     }
     
     override func processSampleBuffer(_ sampleBuffer: CMSampleBuffer, with sampleBufferType: RPSampleBufferType) {

@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import JKEGCommonLib
 
 /// VNCServer SDK定義のエラーコードを表示文字列に変換するクラス(デバッグ用)
 public class VNCServerErrorString {
@@ -39,103 +40,156 @@ public class VNCServerErrorString {
         
         switch errorCode {
         case VNCServerErrorNone:
-            displayString = makeServerErrorString(errorCode: errorCode, name: "VNCServerErrorNone")
+            // Code:0
+            displayString = Localize.localizedString("SS_03_204")
         case VNCServerErrorResources:
-            displayString = makeServerErrorString(errorCode: errorCode, name: "VNCServerErrorResources")
+            // Code:1
+            displayString = Localize.localizedString("SS_03_205")
+        case VNCServerErrorState:
+            // Code:2 (Androidと異なります)
+            displayString = Localize.localizedString("SS_03_300")
         case VNCServerErrorPermissionDenied:
-            displayString = makeServerErrorString(errorCode: errorCode, name: "VNCServerErrorPermissionDenied")
+            // Code:3
+            displayString = Localize.localizedString("SS_03_207")
         case VNCServerErrorNetworkUnreachable:
-            displayString = makeServerErrorString(errorCode: errorCode, name: "VNCServerErrorNetworkUnreachable")
+            // Code:20
+            displayString = Localize.localizedString("SS_03_20")
         case VNCServerErrorHostUnreachable:
-            displayString = makeServerErrorString(errorCode: errorCode, name: "VNCServerErrorHostUnreachable")
+            // Code:21
+            displayString = Localize.localizedString("SS_03_21")
         case VNCServerErrorConnectionRefused:
-            displayString = makeServerErrorString(errorCode: errorCode, name: "VNCServerErrorConnectionRefused")
+            // Code:22
+            displayString = Localize.localizedString("SS_03_22")
         case VNCServerErrorDNSFailure:
-            displayString = makeServerErrorString(errorCode: errorCode, name: "VNCServerErrorDNSFailure")
+            // Code:23
+            displayString = Localize.localizedString("SS_03_23")
         case VNCServerErrorAddressInUse:
-            displayString = makeServerErrorString(errorCode: errorCode, name: "VNCServerErrorAddressInUse")
+            // Code:24
+            displayString = Localize.localizedString("SS_03_24")
         case VNCServerErrorBadPort:
-            displayString = makeServerErrorString(errorCode: errorCode, name: "VNCServerErrorBadPort")
+            // Code:25
+            displayString = Localize.localizedString("SS_03_25")
         case VNCServerErrorDisconnected:
-            displayString = makeServerErrorString(errorCode: errorCode, name: "VNCServerErrorDisconnected")
+            // Code:26
+            displayString = Localize.localizedString("SS_03_26")
         case VNCServerErrorConnectionTimedOut:
-            displayString = makeServerErrorString(errorCode: errorCode, name: "VNCServerErrorConnectionTimedOut")
+            // Code:27
+            displayString = Localize.localizedString("SS_03_27")
         case VNCServerErrorBearerAuthenticationFailed:
-            displayString = makeServerErrorString(errorCode: errorCode, name: "VNCServerErrorBearerAuthenticationFailed")
+            // Code:28 (Androidと異なります)
+            displayString = Localize.localizedString("SS_03_301")
         case VNCServerErrorUSBNotConnected:
-            displayString = makeServerErrorString(errorCode: errorCode, name: "VNCServerErrorUSBNotConnected")
+            // Code:30
+            displayString = Localize.localizedString("SS_03_217")
         case VNCServerErrorUnderlyingLibraryNotFound:
-            displayString = makeServerErrorString(errorCode: errorCode, name: "VNCServerErrorUnderlyingLibraryNotFound")
+            // Code:31
+            displayString = Localize.localizedString("SS_03_218")
         case VNCServerErrorBearerConfigurationNotProvided:
-            displayString = makeServerErrorString(errorCode: errorCode, name: "VNCServerErrorBearerConfigurationNotProvided")
+            // Code:32 (iOSのみ)
+            displayString = Localize.localizedString("SS_03_302")
         case VNCServerErrorBearerConfigurationInvalid:
-            displayString = makeServerErrorString(errorCode: errorCode, name: "VNCServerErrorBearerConfigurationInvalid")
+            // Code:33 (iOSのみ)
+            displayString = Localize.localizedString("SS_03_303")
         case VNCServerErrorBearerLoadFailed:
-            displayString = makeServerErrorString(errorCode: errorCode, name: "VNCServerErrorBearerLoadFailed")
+            // Code:34 (iOSのみ)
+            displayString = Localize.localizedString("SS_03_304")
         case VNCServerErrorProtocolMismatch:
-            displayString = makeServerErrorString(errorCode: errorCode, name: "VNCServerErrorProtocolMismatch")
+            // Code:40
+            displayString = Localize.localizedString("SS_03_219")
         case VNCServerErrorLoginRejected:
-            displayString = makeServerErrorString(errorCode: errorCode, name: "VNCServerErrorLoginRejected")
+            // Code:41
+            displayString = Localize.localizedString("SS_03_220")
         case VNCServerErrorNotLicensedForViewer:
-            displayString = makeServerErrorString(errorCode: errorCode, name: "VNCServerErrorNotLicensedForViewer")
+            // Code:42
+            displayString = Localize.localizedString("SS_03_221")
         case VNCServerErrorConnectionClosed:
-            displayString = makeServerErrorString(errorCode: errorCode, name: "VNCServerErrorConnectionClosed")
+            // Code:43
+            displayString = Localize.localizedString("SS_03_222")
+        case VNCServerErrorInvalidCommandString:
+            // Code:44
+            displayString = Localize.localizedString("SS_03_223")
         case VNCServerErrorUnsupportedAuth:
-            displayString = makeServerErrorString(errorCode: errorCode, name: "VNCServerErrorUnsupportedAuth")
+            // Code:45
+            displayString = Localize.localizedString("SS_03_224")
         case VNCServerErrorKeyTooBig:
-            displayString = makeServerErrorString(errorCode: errorCode, name: "VNCServerErrorKeyTooBig")
+            // Code:46
+            displayString = Localize.localizedString("SS_03_225")
         case VNCServerErrorBadCrypt:
-            displayString = makeServerErrorString(errorCode: errorCode, name: "VNCServerErrorBadCrypt")
+            // Code:47
+            displayString = Localize.localizedString("SS_03_226")
         case VNCServerErrorNoEncodings:
-            displayString = makeServerErrorString(errorCode: errorCode, name: "VNCServerErrorNoEncodings")
+            // Code:48
+            displayString = Localize.localizedString("SS_03_227")
         case VNCServerErrorBadPixelformat:
-            displayString = makeServerErrorString(errorCode: errorCode, name: "VNCServerErrorBadPixelformat")
+            // Code:49
+            displayString = Localize.localizedString("SS_03_228")
         case VNCServerErrorBearerNotFound:
-            displayString = makeServerErrorString(errorCode: errorCode, name: "VNCServerErrorBearerNotFound")
+            // Code:50
+            displayString = Localize.localizedString("SS_03_229")
         case VNCServerErrorSignatureRejected:
-            displayString = makeServerErrorString(errorCode: errorCode, name: "VNCServerErrorSignatureRejected")
+            // Code:51
+            displayString = Localize.localizedString("SS_03_230")
         case VNCServerErrorInsufficientBufferSpace:
-            displayString = makeServerErrorString(errorCode: errorCode, name: "VNCServerErrorInsufficientBufferSpace")
+            // Code:52
+            displayString = Localize.localizedString("SS_03_231")
         case VNCServerErrorLicenseNotValid:
-            displayString = makeServerErrorString(errorCode: errorCode, name: "VNCServerErrorLicenseNotValid")
+            // Code:53
+            displayString = Localize.localizedString("SS_03_232")
         case VNCServerErrorFeatureNotLicensed:
-            displayString = makeServerErrorString(errorCode: errorCode, name: "VNCServerErrorFeatureNotLicensed")
+            // Code:54
+            displayString = Localize.localizedString("SS_03_233")
         case VNCServerErrorInvalidParameter:
-            displayString = makeServerErrorString(errorCode: errorCode, name: "VNCServerErrorInvalidParameter")
+            // Code:60
+            displayString = Localize.localizedString("SS_03_235")
         case VNCServerErrorKeyGeneration:
-            displayString = makeServerErrorString(errorCode: errorCode, name: "VNCServerErrorKeyGeneration")
+            // Code:63
+            displayString = Localize.localizedString("SS_03_238")
         case VNCServerErrorUnableToStartService:
-            displayString = makeServerErrorString(errorCode: errorCode, name: "VNCServerErrorUnableToStartService")
+            // Code:64
+            displayString = Localize.localizedString("SS_03_239")
         case VNCServerErrorAlreadyExists:
-            displayString = makeServerErrorString(errorCode: errorCode, name: "VNCServerErrorAlreadyExists")
+            // Code:65
+            displayString = Localize.localizedString("SS_03_240")
         case VNCServerErrorTooManyExtensions:
-            displayString = makeServerErrorString(errorCode: errorCode, name: "VNCServerErrorTooManyExtensions")
+            // Code:66 (iOSのみ)
+            displayString = Localize.localizedString("SS_03_305")
         case VNCServerErrorReset:
-            displayString = makeServerErrorString(errorCode: errorCode, name: "VNCServerErrorReset")
+            // Code:67 (iOSのみ)
+            displayString = Localize.localizedString("SS_03_306")
         case VNCServerErrorDataRelayProtocolError:
-            displayString = makeServerErrorString(errorCode: errorCode, name: "VNCServerErrorDataRelayProtocolError")
+            // Code:80
+            displayString = Localize.localizedString("SS_03_241")
         case VNCServerErrorUnknownDataRelaySessionId:
-            displayString = makeServerErrorString(errorCode: errorCode, name: "VNCServerErrorUnknownDataRelaySessionId")
+            // Code:81
+            displayString = Localize.localizedString("SS_03_242")
         case VNCServerErrorBadChallenge:
-            displayString = makeServerErrorString(errorCode: errorCode, name: "VNCServerErrorBadChallenge")
+            // Code:82
+            displayString = Localize.localizedString("SS_03_243")
         case VNCServerErrorDataRelayChannelTimeout:
-            displayString = makeServerErrorString(errorCode: errorCode, name: "VNCServerErrorDataRelayChannelTimeout")
+            // Code:83
+            displayString = Localize.localizedString("SS_03_244")
         case VNCServerErrorUserRefusedConnection:
-            displayString = makeServerErrorString(errorCode: errorCode, name: "VNCServerErrorUserRefusedConnection")
+            // Code:100
+            displayString = Localize.localizedString("SS_03_245")
         case VNCServerErrorCommandFetchFailed:
-            displayString = makeServerErrorString(errorCode: errorCode, name: "VNCServerErrorCommandFetchFailed")
+            // Code:101
+            displayString = Localize.localizedString("SS_03_246")
         case VNCServerErrorFailed:
-            displayString = makeServerErrorString(errorCode: errorCode, name: "VNCServerErrorFailed")
+            // Code:102
+            displayString = Localize.localizedString("SS_03_247")
         case VNCServerErrorNotImplemented:
-            displayString = makeServerErrorString(errorCode: errorCode, name: "VNCServerErrorNotImplemented")
+            // Code:103
+            displayString = Localize.localizedString("SS_03_307")
         case VNCServerErrorCommandSuperseded:
-            displayString = makeServerErrorString(errorCode: errorCode, name: "VNCServerErrorCommandSuperseded")
+            // Code:106
+            displayString = Localize.localizedString("SS_03_251")
         case VNCServerErrorEnvironment:
-            displayString = makeServerErrorString(errorCode: errorCode, name: "VNCServerErrorEnvironment")
+            // Code:107
+            displayString = Localize.localizedString("SS_03_252")
         case VNCServerErrorCaptureFrameBufferNotImplemented:
             displayString = makeServerErrorString(errorCode: errorCode, name: "VNCServerErrorCaptureFrameBufferNotImplemented")
         default:
-            displayString = makeServerErrorString(errorCode: errorCode, name: "Unknown Error Code")
+            displayString = makeServerErrorString(errorCode: errorCode, name: "Error")
         }
         
         return displayString
