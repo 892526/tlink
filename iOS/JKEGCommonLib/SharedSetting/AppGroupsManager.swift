@@ -10,15 +10,15 @@ import Foundation
 
 /// ファイル共有アクセスクラス
 public class AppGroupsManager: NSObject {
-    #warning("TODO: AppStore用は、本番用App GroupIDを設定してください!")
+    //#warning("TODO: AppStore用は、本番用App GroupIDを設定してください!")
     
     /// ファイル共有アクセス名(App Groupd ID)
     
     /// 開発用App Group ID
-    public static let groupID = "group.com.jvckenwood-eng.product.kleasylink"
+    //public static let groupID = "group.com.jvckenwood-eng.product.kleasylink"
     
     /// 本番用App Grroup ID
-    // public static let groupID = "group.com.jvckenwood.ce.kleasylink"
+    public static let groupID = "group.com.jvckenwood.ce.kleasylink"
     
     /// 初期化済みかどうか
     static let intializeState = "SHARED_USER_DEFAULTS_KEY_INITIALIZED"

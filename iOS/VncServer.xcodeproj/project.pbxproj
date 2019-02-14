@@ -1202,7 +1202,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PROJECT_DIR}/BuildTools/SwiftFormat/CommandLineTool/swiftformat\" . --exclude Carthage,Pods --trimwhitespace nonblank-lines --stripunusedargs closure-only --disable strongOutlets,trailingCommas";
+			shellScript = "#\"${PROJECT_DIR}/BuildTools/SwiftFormat/CommandLineTool/swiftformat\" . --exclude Carthage,Pods --trimwhitespace nonblank-lines --stripunusedargs closure-only --disable strongOutlets,trailingCommas\n";
 		};
 		0660D4642119B5B800C1E2F2 /* Swift Lint */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1216,7 +1216,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if which \"${PROJECT_DIR}/BuildTools/SwiftLint/swiftlint\" >/dev/null; then\nswiftlint\nelse\necho \"SwiftLint does not exist, download from https://github.com/realm/SwiftLint\"\nfi";
+			shellScript = "#if which \"${PROJECT_DIR}/BuildTools/SwiftLint/swiftlint\" >/dev/null; then\n#swiftlint\n#else\n#echo \"SwiftLint does not exist, download from https://github.com/realm/SwiftLint\"\n#fi\n";
 		};
 		06B7A81C212BF3DE00C83F11 /* iTunes sharing Setting */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1469,7 +1469,7 @@
 				CLANG_WARN_DOCUMENTATION_COMMENTS = NO;
 				CODE_SIGN_ENTITLEMENTS = VncServer/VncServer.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = CNSGP427AZ;
+				DEVELOPMENT_TEAM = H4BX256Q5G;
 				ENABLE_BITCODE = NO;
 				GCC_PREFIX_HEADER = "";
 				HEADER_SEARCH_PATHS = (
@@ -1488,7 +1488,7 @@
 					"$(PROJECT_DIR)/SDK/libs",
 					"$(PROJECT_DIR)/SDK/Bearers/libs",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.jvckenwood-eng.product.kleasylink";
+				PRODUCT_BUNDLE_IDENTIFIER = com.jvckenwood.ce.kleasylink;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "VncServer/VncServer-Bridging-Header.h";
 				SWIFT_VERSION = 4.2;
@@ -1502,7 +1502,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = BroadcastServer/BroadcastServer.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = CNSGP427AZ;
+				DEVELOPMENT_TEAM = H4BX256Q5G;
 				ENABLE_BITCODE = NO;
 				HEADER_SEARCH_PATHS = (
 					"$(SRCROOT)/SDK/Bearers",
@@ -1520,7 +1520,7 @@
 					"$(PROJECT_DIR)/SDK/Bearers/libs",
 					"$(PROJECT_DIR)/SDK/libs",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.jvckenwood-eng.product.kleasylink.broadcastserver";
+				PRODUCT_BUNDLE_IDENTIFIER = com.jvckenwood.ce.kleasylink.broadcastserver;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "BroadcastServer/BroadcastServer-Bridging-Header.h";
@@ -1720,7 +1720,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = BroadcastServer/BroadcastServer.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = CNSGP427AZ;
+				DEVELOPMENT_TEAM = H4BX256Q5G;
 				ENABLE_BITCODE = NO;
 				HEADER_SEARCH_PATHS = (
 					"$(SRCROOT)/SDK/Bearers",
@@ -1738,7 +1738,7 @@
 					"$(PROJECT_DIR)/SDK/Bearers/libs",
 					"$(PROJECT_DIR)/SDK/libs",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.jvckenwood-eng.product.kleasylink.broadcastserver";
+				PRODUCT_BUNDLE_IDENTIFIER = com.jvckenwood.ce.kleasylink.broadcastserver;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "BroadcastServer/BroadcastServer-Bridging-Header.h";
@@ -1754,7 +1754,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = BroadcastServer/BroadcastServer.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = CNSGP427AZ;
+				DEVELOPMENT_TEAM = H4BX256Q5G;
 				ENABLE_BITCODE = NO;
 				HEADER_SEARCH_PATHS = (
 					"$(SRCROOT)/SDK/Bearers",
@@ -1772,7 +1772,7 @@
 					"$(PROJECT_DIR)/SDK/Bearers/libs",
 					"$(PROJECT_DIR)/SDK/libs",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.jvckenwood-eng.product.kleasylink.broadcastserver";
+				PRODUCT_BUNDLE_IDENTIFIER = com.jvckenwood.ce.kleasylink.broadcastserver;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "BroadcastServer/BroadcastServer-Bridging-Header.h";
@@ -1905,7 +1905,7 @@
 				CLANG_WARN_DOCUMENTATION_COMMENTS = NO;
 				CODE_SIGN_ENTITLEMENTS = VncServer/VncServer.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = CNSGP427AZ;
+				DEVELOPMENT_TEAM = H4BX256Q5G;
 				ENABLE_BITCODE = NO;
 				GCC_PREFIX_HEADER = "";
 				HEADER_SEARCH_PATHS = (
@@ -1924,7 +1924,7 @@
 					"$(PROJECT_DIR)/SDK/libs",
 					"$(PROJECT_DIR)/SDK/Bearers/libs",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.jvckenwood-eng.product.kleasylink";
+				PRODUCT_BUNDLE_IDENTIFIER = com.jvckenwood.ce.kleasylink;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "VncServer/VncServer-Bridging-Header.h";
 				SWIFT_VERSION = 4.2;
@@ -1940,7 +1940,7 @@
 				CLANG_WARN_DOCUMENTATION_COMMENTS = NO;
 				CODE_SIGN_ENTITLEMENTS = VncServer/VncServer.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = CNSGP427AZ;
+				DEVELOPMENT_TEAM = H4BX256Q5G;
 				ENABLE_BITCODE = NO;
 				GCC_PREFIX_HEADER = "";
 				HEADER_SEARCH_PATHS = (
@@ -1959,7 +1959,7 @@
 					"$(PROJECT_DIR)/SDK/libs",
 					"$(PROJECT_DIR)/SDK/Bearers/libs",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.jvckenwood-eng.product.kleasylink";
+				PRODUCT_BUNDLE_IDENTIFIER = com.jvckenwood.ce.kleasylink;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "VncServer/VncServer-Bridging-Header.h";
 				SWIFT_VERSION = 4.2;
