@@ -86,6 +86,9 @@ class ViewController: BaseViewController, UNUserNotificationCenterDelegate {
             // エラーメッセージデバッグ初期化
             initErrorMessageDebug()
             
+        #else
+            // デバッグコントローラー非表示
+            errorMessageControlView.isHidden = true
         #endif // ENABLE_LOG
     }
     
