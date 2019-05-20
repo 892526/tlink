@@ -38,7 +38,7 @@
       </BuildActionEntries>
    </BuildAction>
    <TestAction
-      buildConfiguration = "Release"
+      buildConfiguration = "Release(LOG)"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
@@ -72,8 +72,8 @@
       launchAutomaticallySubstyle = "2">
       <RemoteRunnable
          runnableDebuggingMode = "1"
-         BundleIdentifier = "com.apple.AppStore"
-         RemotePath = "/Applications/AppStore.app">
+         BundleIdentifier = "com.apple.Music"
+         RemotePath = "/var/containers/Bundle/Application/01E69DBF-3CDF-4F9F-B418-7B527EB91387/Music.app">
       </RemoteRunnable>
       <MacroExpansion>
          <BuildableReference

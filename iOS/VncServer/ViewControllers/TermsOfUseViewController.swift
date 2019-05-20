@@ -17,7 +17,7 @@ class TermsOfUseViewController: BaseWebViewController {
         
         // アプリケーション利用規約
         // タイトルヘッダービュー
-        setupTitleView(Localize.localizedString("SS_01_004"))
+        setupTitleView(Localize.localizedString("TID_5227"))
         
         // HTMLファイルロードする
         let filePath = Bundle.main.path(forResource: "terms_of_service", ofType: "html")

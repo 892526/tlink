@@ -17,7 +17,7 @@ class AppOverviewViewController: BaseWebViewController {
         
         // アプリケーション概要
         // タイトルヘッダービュー
-        setupTitleView(Localize.localizedString("SS_01_003"))
+        setupTitleView(Localize.localizedString("TID_5226"))
         
         // HTMLファイルロードする
         let filePath = Bundle.main.path(forResource: "application_overview", ofType: "html")

@@ -26,7 +26,7 @@
             </objects>
             <point key="canvasLocation" x="-1086" y="89"/>
         </scene>
-        <!--画面共有方法-->
+        <!--T-Link Tutorial-->
         <scene sceneID="6FQ-Jt-7KT">
             <objects>
                 <viewController id="4Cz-2v-foe" customClass="ManualPageTopViewController" customModule="VncServer" customModuleProvider="target" sceneMemberID="viewController">
@@ -45,7 +45,7 @@
                                         </constraints>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <inset key="titleEdgeInsets" minX="5" minY="0.0" maxX="5" maxY="0.0"/>
-                                        <state key="normal" title="画面共有するための初期設定方法"/>
+                                        <state key="normal" title="Initial Setting"/>
                                         <connections>
                                             <action selector="showInitialSettingView:" destination="4Cz-2v-foe" eventType="touchUpInside" id="9Ct-P8-GNf"/>
                                         </connections>
@@ -58,7 +58,7 @@
                                         </constraints>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <inset key="titleEdgeInsets" minX="5" minY="0.0" maxX="5" maxY="0.0"/>
-                                        <state key="normal" title="画面共有を開始する方法"/>
+                                        <state key="normal" title="Start Screen Sharing"/>
                                         <connections>
                                             <action selector="showStartView:" destination="4Cz-2v-foe" eventType="touchUpInside" id="H0F-RD-2NP"/>
                                         </connections>
@@ -71,7 +71,7 @@
                                         </constraints>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <inset key="titleEdgeInsets" minX="5" minY="0.0" maxX="5" maxY="0.0"/>
-                                        <state key="normal" title="画面共有を停止する方法(1)"/>
+                                        <state key="normal" title="Stop Screen Sharing - 1"/>
                                         <connections>
                                             <action selector="showStopView:" destination="4Cz-2v-foe" eventType="touchUpInside" id="o7O-oC-vUx"/>
                                         </connections>
@@ -84,7 +84,7 @@
                                         </constraints>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <inset key="titleEdgeInsets" minX="5" minY="0.0" maxX="5" maxY="0.0"/>
-                                        <state key="normal" title="画面共有を停止する方法(2)"/>
+                                        <state key="normal" title="Stop Screen Sharing - 2"/>
                                         <connections>
                                             <action selector="showStopView2:" destination="4Cz-2v-foe" eventType="touchUpInside" id="q6l-hc-9hE"/>
                                         </connections>
@@ -101,7 +101,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="O5y-2c-dWz"/>
                     </view>
-                    <navigationItem key="navigationItem" title="画面共有方法" id="YX7-4y-227">
+                    <navigationItem key="navigationItem" title="T-Link Tutorial" id="YX7-4y-227">
                         <barButtonItem key="rightBarButtonItem" systemItem="stop" id="OK6-eN-ge3">
                             <connections>
                                 <segue destination="bHj-ea-agB" kind="unwind" unwindAction="unwindToTopViewControllerWithSegue:" id="7Io-xz-Wk2"/>

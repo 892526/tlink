@@ -23,7 +23,7 @@ class FrameRateTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
         
-        title = "フレームレート"
+        title = "Frame Rate"
     }
     
     // MARK: - Table view data source
@@ -39,7 +39,7 @@ class FrameRateTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "ミラーリング映像のフレームレートを選択してください。"
+        return "Please select the frame rate of the mirroring imgae."
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

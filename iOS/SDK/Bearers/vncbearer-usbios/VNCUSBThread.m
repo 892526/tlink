@@ -34,7 +34,6 @@
 
 -(void) cancel {
 	[m_thread cancel];
-	[m_stream close];
 }
 
 -(void) threadLoop:(id)object {

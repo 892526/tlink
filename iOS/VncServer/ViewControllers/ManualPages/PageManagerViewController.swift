@@ -14,9 +14,7 @@ class PageManagerViewController: UIViewController {
     
     private var pageViewController: PageViewController?
     
-    public var pageTitles: [String]?
-    public var pageDescriptions: [String]?
-    public var pageImageNames: [String]?
+    public var pageInfos: [ManualPageInfo]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,14 +58,17 @@ class PageManagerViewController: UIViewController {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
         
+        // ページ表示されるとき
         if segue.destination.isKind(of: PageViewController.self) {
             let viewController = segue.destination as! PageViewController
             pageViewController = viewController
             
-            pageController.numberOfPages = (pageTitles?.count)!
+            // ページ数セット
+            pageController.numberOfPages = (pageInfos?.count)!
             
-            viewController.setup(titles: pageTitles!, descriptions: pageDescriptions!, imageNames: pageImageNames!, indexChanged: { index in
+            viewController.setup(manualPageInfos: pageInfos!, indexChanged: { index in
                 print("SelectedIndex = \(index)")
+                // 表示中のページ番号変更
                 self.pageController.currentPage = index
             })
         }

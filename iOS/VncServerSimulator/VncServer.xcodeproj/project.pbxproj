@@ -57,12 +57,31 @@
 		06677352215DFD940000B6B8 /* AccessoryConnectedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0667734B215DFD940000B6B8 /* AccessoryConnectedView.swift */; };
 		06677355215DFDAD0000B6B8 /* ScreenCaptureObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06677354215DFDAD0000B6B8 /* ScreenCaptureObserver.swift */; };
 		06677358215DFDC90000B6B8 /* RealVncSdkUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06677357215DFDC90000B6B8 /* RealVncSdkUtility.swift */; };
-		0667735D215DFDE00000B6B8 /* use_policy.htm in Resources */ = {isa = PBXBuildFile; fileRef = 0667735A215DFDE00000B6B8 /* use_policy.htm */; };
-		0667735E215DFDE00000B6B8 /* app_summery.htm in Resources */ = {isa = PBXBuildFile; fileRef = 0667735B215DFDE00000B6B8 /* app_summery.htm */; };
 		0667735F215DFDE00000B6B8 /* open_source_license.html in Resources */ = {isa = PBXBuildFile; fileRef = 0667735C215DFDE00000B6B8 /* open_source_license.html */; };
-		0687F54D218FE1F6001080BE /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0687F54B218FE1F6001080BE /* Localizable.strings */; };
 		0687F550218FE230001080BE /* FrameRateTableView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0687F54E218FE230001080BE /* FrameRateTableView.storyboard */; };
 		0687F551218FE230001080BE /* FrameRateTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0687F54F218FE230001080BE /* FrameRateTableViewController.swift */; };
+		0691F5D321B5344E00977383 /* application_overview.html in Resources */ = {isa = PBXBuildFile; fileRef = 0691F5CF21B5344E00977383 /* application_overview.html */; };
+		0691F5D421B5344E00977383 /* terms_of_service.html in Resources */ = {isa = PBXBuildFile; fileRef = 0691F5D121B5344E00977383 /* terms_of_service.html */; };
+		0691F5E321B5346F00977383 /* iOS_Tutorial_StopScreenSharing2_01.png in Resources */ = {isa = PBXBuildFile; fileRef = 0691F5D621B5346F00977383 /* iOS_Tutorial_StopScreenSharing2_01.png */; };
+		0691F5E421B5346F00977383 /* iOS_Tutorial_InitialSetting_01.png in Resources */ = {isa = PBXBuildFile; fileRef = 0691F5D721B5346F00977383 /* iOS_Tutorial_InitialSetting_01.png */; };
+		0691F5E521B5346F00977383 /* iOS_Tutorial_InitialSetting_04.png in Resources */ = {isa = PBXBuildFile; fileRef = 0691F5D821B5346F00977383 /* iOS_Tutorial_InitialSetting_04.png */; };
+		0691F5E621B5346F00977383 /* iOS_Tutorial_StartScreenSharing_02.png in Resources */ = {isa = PBXBuildFile; fileRef = 0691F5D921B5346F00977383 /* iOS_Tutorial_StartScreenSharing_02.png */; };
+		0691F5E721B5346F00977383 /* iOS_Tutorial_BluetoothParing_02_01.png in Resources */ = {isa = PBXBuildFile; fileRef = 0691F5DA21B5346F00977383 /* iOS_Tutorial_BluetoothParing_02_01.png */; };
+		0691F5E821B5346F00977383 /* iOS_Tutorial_StartScreenSharing_01.png in Resources */ = {isa = PBXBuildFile; fileRef = 0691F5DB21B5346F00977383 /* iOS_Tutorial_StartScreenSharing_01.png */; };
+		0691F5E921B5346F00977383 /* iOS_Tutorial_StopScreenSharing1_02.png in Resources */ = {isa = PBXBuildFile; fileRef = 0691F5DC21B5346F00977383 /* iOS_Tutorial_StopScreenSharing1_02.png */; };
+		0691F5EA21B5346F00977383 /* iOS_Tutorial_StopScreenSharing2_02.png in Resources */ = {isa = PBXBuildFile; fileRef = 0691F5DD21B5346F00977383 /* iOS_Tutorial_StopScreenSharing2_02.png */; };
+		0691F5EB21B5346F00977383 /* iOS_Tutorial_StartScreenSharing_03.png in Resources */ = {isa = PBXBuildFile; fileRef = 0691F5DE21B5346F00977383 /* iOS_Tutorial_StartScreenSharing_03.png */; };
+		0691F5EC21B5346F00977383 /* iOS_Tutorial_InitialSetting_03.png in Resources */ = {isa = PBXBuildFile; fileRef = 0691F5DF21B5346F00977383 /* iOS_Tutorial_InitialSetting_03.png */; };
+		0691F5ED21B5346F00977383 /* iOS_Tutorial_InitialSetting_02.png in Resources */ = {isa = PBXBuildFile; fileRef = 0691F5E021B5346F00977383 /* iOS_Tutorial_InitialSetting_02.png */; };
+		0691F5EE21B5346F00977383 /* iOS_Tutorial_StopScreenSharing1_01.png in Resources */ = {isa = PBXBuildFile; fileRef = 0691F5E121B5346F00977383 /* iOS_Tutorial_StopScreenSharing1_01.png */; };
+		0691F5EF21B5346F00977383 /* iOS_Tutorial_BluetoothParing_02_02.png in Resources */ = {isa = PBXBuildFile; fileRef = 0691F5E221B5346F00977383 /* iOS_Tutorial_BluetoothParing_02_02.png */; };
+		0691F5F521B5348900977383 /* HUPageContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0691F5F121B5348900977383 /* HUPageContentViewController.swift */; };
+		0691F5F621B5348900977383 /* ManualPageInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0691F5F221B5348900977383 /* ManualPageInfo.swift */; };
+		0691F5F721B5348900977383 /* HUManualPageInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0691F5F321B5348900977383 /* HUManualPageInfo.swift */; };
+		0691F5FD21B5359E00977383 /* UserAgreementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0691F5FB21B5359D00977383 /* UserAgreementViewController.swift */; };
+		0691F5FE21B5359E00977383 /* UserAgreement.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0691F5FC21B5359E00977383 /* UserAgreement.storyboard */; };
+		0691F60121B5360100977383 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0691F5FF21B5360100977383 /* Localizable.strings */; };
+		0691F60321B5370200977383 /* PageContentHUViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0691F60221B5370200977383 /* PageContentHUViewController.storyboard */; };
 		06E8DACA2165AD7200249C98 /* ManualPageTopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06E8DAC32165AD7200249C98 /* ManualPageTopViewController.swift */; };
 		06E8DACB2165AD7200249C98 /* ManualPageTopViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 06E8DAC42165AD7200249C98 /* ManualPageTopViewController.storyboard */; };
 		06E8DACC2165AD7200249C98 /* PageManagerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06E8DAC52165AD7200249C98 /* PageManagerViewController.swift */; };
@@ -72,19 +91,6 @@
 		06E8DAD02165AD7200249C98 /* PageContentViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 06E8DAC92165AD7200249C98 /* PageContentViewController.storyboard */; };
 		06E8DAD22165AD8500249C98 /* PanelButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06E8DAD12165AD8500249C98 /* PanelButton.swift */; };
 		06E8DAD42165AD9100249C98 /* AutoLayoutUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06E8DAD32165AD9100249C98 /* AutoLayoutUtility.swift */; };
-		06EB0D042190041C008F8E62 /* Setting02.png in Resources */ = {isa = PBXBuildFile; fileRef = 06EB0CF72190041C008F8E62 /* Setting02.png */; };
-		06EB0D052190041C008F8E62 /* Stop1_02.png in Resources */ = {isa = PBXBuildFile; fileRef = 06EB0CF82190041C008F8E62 /* Stop1_02.png */; };
-		06EB0D062190041C008F8E62 /* Stop2_02.png in Resources */ = {isa = PBXBuildFile; fileRef = 06EB0CF92190041C008F8E62 /* Stop2_02.png */; };
-		06EB0D072190041C008F8E62 /* Stop1_01.png in Resources */ = {isa = PBXBuildFile; fileRef = 06EB0CFA2190041C008F8E62 /* Stop1_01.png */; };
-		06EB0D082190041C008F8E62 /* Setting01.png in Resources */ = {isa = PBXBuildFile; fileRef = 06EB0CFB2190041C008F8E62 /* Setting01.png */; };
-		06EB0D092190041C008F8E62 /* Start04.png in Resources */ = {isa = PBXBuildFile; fileRef = 06EB0CFC2190041C008F8E62 /* Start04.png */; };
-		06EB0D0A2190041C008F8E62 /* Stop2_01.png in Resources */ = {isa = PBXBuildFile; fileRef = 06EB0CFD2190041C008F8E62 /* Stop2_01.png */; };
-		06EB0D0B2190041C008F8E62 /* Start02.png in Resources */ = {isa = PBXBuildFile; fileRef = 06EB0CFE2190041C008F8E62 /* Start02.png */; };
-		06EB0D0C2190041C008F8E62 /* Start01.png in Resources */ = {isa = PBXBuildFile; fileRef = 06EB0CFF2190041C008F8E62 /* Start01.png */; };
-		06EB0D0D2190041C008F8E62 /* Setting03.png in Resources */ = {isa = PBXBuildFile; fileRef = 06EB0D002190041C008F8E62 /* Setting03.png */; };
-		06EB0D0E2190041C008F8E62 /* Setting04.png in Resources */ = {isa = PBXBuildFile; fileRef = 06EB0D012190041C008F8E62 /* Setting04.png */; };
-		06EB0D0F2190041C008F8E62 /* Start03.png in Resources */ = {isa = PBXBuildFile; fileRef = 06EB0D022190041C008F8E62 /* Start03.png */; };
-		06EB0D102190041C008F8E62 /* Setting05.png in Resources */ = {isa = PBXBuildFile; fileRef = 06EB0D032190041C008F8E62 /* Setting05.png */; };
 		06EC468A215DC8B80067808A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06EC4688215DC8B80067808A /* AppDelegate.swift */; };
 		06EC468B215DC8B80067808A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06EC4689215DC8B80067808A /* ViewController.swift */; };
 		06EC4693215DC9000067808A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 06EC4692215DC9000067808A /* Assets.xcassets */; };
@@ -167,12 +173,31 @@
 		0667734B215DFD940000B6B8 /* AccessoryConnectedView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AccessoryConnectedView.swift; path = ../../../VncServer/Views/AccessoryConnectedView.swift; sourceTree = "<group>"; };
 		06677354215DFDAD0000B6B8 /* ScreenCaptureObserver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ScreenCaptureObserver.swift; path = ../../../VncServer/Functions/ScreenCaptureObserver.swift; sourceTree = "<group>"; };
 		06677357215DFDC90000B6B8 /* RealVncSdkUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RealVncSdkUtility.swift; path = ../../../VncServer/Utility/RealVncSdkUtility.swift; sourceTree = "<group>"; };
-		0667735A215DFDE00000B6B8 /* use_policy.htm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = use_policy.htm; path = ../../../VncServer/Resources/use_policy.htm; sourceTree = "<group>"; };
-		0667735B215DFDE00000B6B8 /* app_summery.htm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = app_summery.htm; path = ../../../VncServer/Resources/app_summery.htm; sourceTree = "<group>"; };
 		0667735C215DFDE00000B6B8 /* open_source_license.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = open_source_license.html; path = ../../../VncServer/Resources/open_source_license.html; sourceTree = "<group>"; };
-		0687F54C218FE1F6001080BE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = ../../../JKEGCommonLib/Localize/en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		0687F54E218FE230001080BE /* FrameRateTableView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = FrameRateTableView.storyboard; path = ../../../VncServer/ViewControllers/Debug/FrameRateTableView.storyboard; sourceTree = "<group>"; };
 		0687F54F218FE230001080BE /* FrameRateTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FrameRateTableViewController.swift; path = ../../../VncServer/ViewControllers/Debug/FrameRateTableViewController.swift; sourceTree = "<group>"; };
+		0691F5D021B5344E00977383 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = en; path = ../../../VncServer/Resources/en.lproj/application_overview.html; sourceTree = "<group>"; };
+		0691F5D221B5344E00977383 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = en; path = ../../../VncServer/Resources/en.lproj/terms_of_service.html; sourceTree = "<group>"; };
+		0691F5D621B5346F00977383 /* iOS_Tutorial_StopScreenSharing2_01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = iOS_Tutorial_StopScreenSharing2_01.png; path = ../../../../VncServer/ViewControllers/ManualPages/Images/iOS_Tutorial_StopScreenSharing2_01.png; sourceTree = "<group>"; };
+		0691F5D721B5346F00977383 /* iOS_Tutorial_InitialSetting_01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = iOS_Tutorial_InitialSetting_01.png; path = ../../../../VncServer/ViewControllers/ManualPages/Images/iOS_Tutorial_InitialSetting_01.png; sourceTree = "<group>"; };
+		0691F5D821B5346F00977383 /* iOS_Tutorial_InitialSetting_04.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = iOS_Tutorial_InitialSetting_04.png; path = ../../../../VncServer/ViewControllers/ManualPages/Images/iOS_Tutorial_InitialSetting_04.png; sourceTree = "<group>"; };
+		0691F5D921B5346F00977383 /* iOS_Tutorial_StartScreenSharing_02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = iOS_Tutorial_StartScreenSharing_02.png; path = ../../../../VncServer/ViewControllers/ManualPages/Images/iOS_Tutorial_StartScreenSharing_02.png; sourceTree = "<group>"; };
+		0691F5DA21B5346F00977383 /* iOS_Tutorial_BluetoothParing_02_01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = iOS_Tutorial_BluetoothParing_02_01.png; path = ../../../../VncServer/ViewControllers/ManualPages/Images/iOS_Tutorial_BluetoothParing_02_01.png; sourceTree = "<group>"; };
+		0691F5DB21B5346F00977383 /* iOS_Tutorial_StartScreenSharing_01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = iOS_Tutorial_StartScreenSharing_01.png; path = ../../../../VncServer/ViewControllers/ManualPages/Images/iOS_Tutorial_StartScreenSharing_01.png; sourceTree = "<group>"; };
+		0691F5DC21B5346F00977383 /* iOS_Tutorial_StopScreenSharing1_02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = iOS_Tutorial_StopScreenSharing1_02.png; path = ../../../../VncServer/ViewControllers/ManualPages/Images/iOS_Tutorial_StopScreenSharing1_02.png; sourceTree = "<group>"; };
+		0691F5DD21B5346F00977383 /* iOS_Tutorial_StopScreenSharing2_02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = iOS_Tutorial_StopScreenSharing2_02.png; path = ../../../../VncServer/ViewControllers/ManualPages/Images/iOS_Tutorial_StopScreenSharing2_02.png; sourceTree = "<group>"; };
+		0691F5DE21B5346F00977383 /* iOS_Tutorial_StartScreenSharing_03.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = iOS_Tutorial_StartScreenSharing_03.png; path = ../../../../VncServer/ViewControllers/ManualPages/Images/iOS_Tutorial_StartScreenSharing_03.png; sourceTree = "<group>"; };
+		0691F5DF21B5346F00977383 /* iOS_Tutorial_InitialSetting_03.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = iOS_Tutorial_InitialSetting_03.png; path = ../../../../VncServer/ViewControllers/ManualPages/Images/iOS_Tutorial_InitialSetting_03.png; sourceTree = "<group>"; };
+		0691F5E021B5346F00977383 /* iOS_Tutorial_InitialSetting_02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = iOS_Tutorial_InitialSetting_02.png; path = ../../../../VncServer/ViewControllers/ManualPages/Images/iOS_Tutorial_InitialSetting_02.png; sourceTree = "<group>"; };
+		0691F5E121B5346F00977383 /* iOS_Tutorial_StopScreenSharing1_01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = iOS_Tutorial_StopScreenSharing1_01.png; path = ../../../../VncServer/ViewControllers/ManualPages/Images/iOS_Tutorial_StopScreenSharing1_01.png; sourceTree = "<group>"; };
+		0691F5E221B5346F00977383 /* iOS_Tutorial_BluetoothParing_02_02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = iOS_Tutorial_BluetoothParing_02_02.png; path = ../../../../VncServer/ViewControllers/ManualPages/Images/iOS_Tutorial_BluetoothParing_02_02.png; sourceTree = "<group>"; };
+		0691F5F121B5348900977383 /* HUPageContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HUPageContentViewController.swift; path = ../../../VncServer/ViewControllers/ManualPages/HUPageContentViewController.swift; sourceTree = "<group>"; };
+		0691F5F221B5348900977383 /* ManualPageInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ManualPageInfo.swift; path = ../../../VncServer/ViewControllers/ManualPages/ManualPageInfo.swift; sourceTree = "<group>"; };
+		0691F5F321B5348900977383 /* HUManualPageInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HUManualPageInfo.swift; path = ../../../VncServer/ViewControllers/ManualPages/HUManualPageInfo.swift; sourceTree = "<group>"; };
+		0691F5FB21B5359D00977383 /* UserAgreementViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserAgreementViewController.swift; path = ../../../VncServer/ViewControllers/UserAgreement/UserAgreementViewController.swift; sourceTree = "<group>"; };
+		0691F5FC21B5359E00977383 /* UserAgreement.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = UserAgreement.storyboard; path = ../../../VncServer/ViewControllers/UserAgreement/UserAgreement.storyboard; sourceTree = "<group>"; };
+		0691F60021B5360100977383 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = ../../../VncServer/Localize/en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		0691F60221B5370200977383 /* PageContentHUViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = PageContentHUViewController.storyboard; path = ../../../VncServer/ViewControllers/ManualPages/PageContentHUViewController.storyboard; sourceTree = "<group>"; };
 		06E8DAC32165AD7200249C98 /* ManualPageTopViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ManualPageTopViewController.swift; path = ../../../VncServer/ViewControllers/ManualPages/ManualPageTopViewController.swift; sourceTree = "<group>"; };
 		06E8DAC42165AD7200249C98 /* ManualPageTopViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = ManualPageTopViewController.storyboard; path = ../../../VncServer/ViewControllers/ManualPages/ManualPageTopViewController.storyboard; sourceTree = "<group>"; };
 		06E8DAC52165AD7200249C98 /* PageManagerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PageManagerViewController.swift; path = ../../../VncServer/ViewControllers/ManualPages/PageManagerViewController.swift; sourceTree = "<group>"; };
@@ -182,19 +207,6 @@
 		06E8DAC92165AD7200249C98 /* PageContentViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = PageContentViewController.storyboard; path = ../../../VncServer/ViewControllers/ManualPages/PageContentViewController.storyboard; sourceTree = "<group>"; };
 		06E8DAD12165AD8500249C98 /* PanelButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PanelButton.swift; path = ../../../VncServer/ViewControllers/ManualPages/Control/PanelButton.swift; sourceTree = "<group>"; };
 		06E8DAD32165AD9100249C98 /* AutoLayoutUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AutoLayoutUtility.swift; path = ../../../VncServer/ViewControllers/ManualPages/Utility/AutoLayoutUtility.swift; sourceTree = "<group>"; };
-		06EB0CF72190041C008F8E62 /* Setting02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Setting02.png; path = ../../../../VncServer/ViewControllers/ManualPages/Images/Setting02.png; sourceTree = "<group>"; };
-		06EB0CF82190041C008F8E62 /* Stop1_02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Stop1_02.png; path = ../../../../VncServer/ViewControllers/ManualPages/Images/Stop1_02.png; sourceTree = "<group>"; };
-		06EB0CF92190041C008F8E62 /* Stop2_02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Stop2_02.png; path = ../../../../VncServer/ViewControllers/ManualPages/Images/Stop2_02.png; sourceTree = "<group>"; };
-		06EB0CFA2190041C008F8E62 /* Stop1_01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Stop1_01.png; path = ../../../../VncServer/ViewControllers/ManualPages/Images/Stop1_01.png; sourceTree = "<group>"; };
-		06EB0CFB2190041C008F8E62 /* Setting01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Setting01.png; path = ../../../../VncServer/ViewControllers/ManualPages/Images/Setting01.png; sourceTree = "<group>"; };
-		06EB0CFC2190041C008F8E62 /* Start04.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Start04.png; path = ../../../../VncServer/ViewControllers/ManualPages/Images/Start04.png; sourceTree = "<group>"; };
-		06EB0CFD2190041C008F8E62 /* Stop2_01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Stop2_01.png; path = ../../../../VncServer/ViewControllers/ManualPages/Images/Stop2_01.png; sourceTree = "<group>"; };
-		06EB0CFE2190041C008F8E62 /* Start02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Start02.png; path = ../../../../VncServer/ViewControllers/ManualPages/Images/Start02.png; sourceTree = "<group>"; };
-		06EB0CFF2190041C008F8E62 /* Start01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Start01.png; path = ../../../../VncServer/ViewControllers/ManualPages/Images/Start01.png; sourceTree = "<group>"; };
-		06EB0D002190041C008F8E62 /* Setting03.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Setting03.png; path = ../../../../VncServer/ViewControllers/ManualPages/Images/Setting03.png; sourceTree = "<group>"; };
-		06EB0D012190041C008F8E62 /* Setting04.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Setting04.png; path = ../../../../VncServer/ViewControllers/ManualPages/Images/Setting04.png; sourceTree = "<group>"; };
-		06EB0D022190041C008F8E62 /* Start03.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Start03.png; path = ../../../../VncServer/ViewControllers/ManualPages/Images/Start03.png; sourceTree = "<group>"; };
-		06EB0D032190041C008F8E62 /* Setting05.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Setting05.png; path = ../../../../VncServer/ViewControllers/ManualPages/Images/Setting05.png; sourceTree = "<group>"; };
 		06EC4672215DC8990067808A /* VncServer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VncServer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		06EC4681215DC89A0067808A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		06EC4687215DC8B70067808A /* VncServerSimulator-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "VncServerSimulator-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -253,7 +265,6 @@
 				066772F5215DFBE10000B6B8 /* StringExtension.swift */,
 				066772F9215DFBE90000B6B8 /* JKEGCommon.strings */,
 				066772FC215DFBE90000B6B8 /* JKEGCommonString.swift */,
-				0687F54B218FE1F6001080BE /* Localizable.strings */,
 				066772FB215DFBE90000B6B8 /* Localize.swift */,
 				06677302215DFBF00000B6B8 /* LocalNotification.swift */,
 				06677303215DFBF00000B6B8 /* VNCServerLocalNotificationUserInfo.swift */,
@@ -273,7 +284,7 @@
 		06677331215DFD320000B6B8 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				06EB0CF621900407008F8E62 /* Images */,
+				0691F5D521B5345B00977383 /* Images */,
 				06677333215DFD420000B6B8 /* AboutAppTableViewController.swift */,
 				06677334215DFD420000B6B8 /* AppOverviewViewController.swift */,
 				06677335215DFD420000B6B8 /* OSSViewController.swift */,
@@ -294,6 +305,12 @@
 				06E8DAD32165AD9100249C98 /* AutoLayoutUtility.swift */,
 				0687F54E218FE230001080BE /* FrameRateTableView.storyboard */,
 				0687F54F218FE230001080BE /* FrameRateTableViewController.swift */,
+				0691F5F321B5348900977383 /* HUManualPageInfo.swift */,
+				0691F5F121B5348900977383 /* HUPageContentViewController.swift */,
+				0691F5F221B5348900977383 /* ManualPageInfo.swift */,
+				0691F60221B5370200977383 /* PageContentHUViewController.storyboard */,
+				0691F5FC21B5359E00977383 /* UserAgreement.storyboard */,
+				0691F5FB21B5359D00977383 /* UserAgreementViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -331,31 +348,39 @@
 		06677359215DFDD70000B6B8 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				0667735B215DFDE00000B6B8 /* app_summery.htm */,
 				0667735C215DFDE00000B6B8 /* open_source_license.html */,
-				0667735A215DFDE00000B6B8 /* use_policy.htm */,
+				0691F5CF21B5344E00977383 /* application_overview.html */,
+				0691F5D121B5344E00977383 /* terms_of_service.html */,
+				0691F5FF21B5360100977383 /* Localizable.strings */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
 		};
-		06EB0CF621900407008F8E62 /* Images */ = {
+		0691F5D521B5345B00977383 /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				06EB0CFB2190041C008F8E62 /* Setting01.png */,
-				06EB0CF72190041C008F8E62 /* Setting02.png */,
-				06EB0D002190041C008F8E62 /* Setting03.png */,
-				06EB0D012190041C008F8E62 /* Setting04.png */,
-				06EB0D032190041C008F8E62 /* Setting05.png */,
-				06EB0CFF2190041C008F8E62 /* Start01.png */,
-				06EB0CFE2190041C008F8E62 /* Start02.png */,
-				06EB0D022190041C008F8E62 /* Start03.png */,
-				06EB0CFC2190041C008F8E62 /* Start04.png */,
-				06EB0CFA2190041C008F8E62 /* Stop1_01.png */,
-				06EB0CF82190041C008F8E62 /* Stop1_02.png */,
-				06EB0CFD2190041C008F8E62 /* Stop2_01.png */,
-				06EB0CF92190041C008F8E62 /* Stop2_02.png */,
+				0691F5DA21B5346F00977383 /* iOS_Tutorial_BluetoothParing_02_01.png */,
+				0691F5E221B5346F00977383 /* iOS_Tutorial_BluetoothParing_02_02.png */,
+				0691F5D721B5346F00977383 /* iOS_Tutorial_InitialSetting_01.png */,
+				0691F5E021B5346F00977383 /* iOS_Tutorial_InitialSetting_02.png */,
+				0691F5DF21B5346F00977383 /* iOS_Tutorial_InitialSetting_03.png */,
+				0691F5D821B5346F00977383 /* iOS_Tutorial_InitialSetting_04.png */,
+				0691F5DB21B5346F00977383 /* iOS_Tutorial_StartScreenSharing_01.png */,
+				0691F5D921B5346F00977383 /* iOS_Tutorial_StartScreenSharing_02.png */,
+				0691F5DE21B5346F00977383 /* iOS_Tutorial_StartScreenSharing_03.png */,
+				0691F5E121B5346F00977383 /* iOS_Tutorial_StopScreenSharing1_01.png */,
+				0691F5DC21B5346F00977383 /* iOS_Tutorial_StopScreenSharing1_02.png */,
+				0691F5D621B5346F00977383 /* iOS_Tutorial_StopScreenSharing2_01.png */,
+				0691F5DD21B5346F00977383 /* iOS_Tutorial_StopScreenSharing2_02.png */,
 			);
 			path = Images;
+			sourceTree = "<group>";
+		};
+		0691F5F821B534A400977383 /* Debug */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Debug;
 			sourceTree = "<group>";
 		};
 		06EC4669215DC8990067808A = {
@@ -379,6 +404,7 @@
 		06EC4674215DC8990067808A /* VncServerSimulator */ = {
 			isa = PBXGroup;
 			children = (
+				0691F5F821B534A400977383 /* Debug */,
 				06677359215DFDD70000B6B8 /* Resources */,
 				06677356215DFDBD0000B6B8 /* AppUtility */,
 				06677353215DFDA00000B6B8 /* Functions */,
@@ -498,35 +524,37 @@
 			buildActionMask = 2147483647;
 			files = (
 				06E8DACE2165AD7200249C98 /* PageManagerViewController.storyboard in Resources */,
+				0691F5E621B5346F00977383 /* iOS_Tutorial_StartScreenSharing_02.png in Resources */,
 				06677326215DFC330000B6B8 /* AppLogger.storyboard in Resources */,
-				06EB0D0D2190041C008F8E62 /* Setting03.png in Resources */,
-				06EB0D052190041C008F8E62 /* Stop1_02.png in Resources */,
+				0691F5ED21B5346F00977383 /* iOS_Tutorial_InitialSetting_02.png in Resources */,
 				06E8DAD02165AD7200249C98 /* PageContentViewController.storyboard in Resources */,
-				06EB0D102190041C008F8E62 /* Setting05.png in Resources */,
-				06EB0D062190041C008F8E62 /* Stop2_02.png in Resources */,
-				06EB0D0E2190041C008F8E62 /* Setting04.png in Resources */,
-				0667735D215DFDE00000B6B8 /* use_policy.htm in Resources */,
-				06EB0D0B2190041C008F8E62 /* Start02.png in Resources */,
+				0691F5FE21B5359E00977383 /* UserAgreement.storyboard in Resources */,
+				0691F5EB21B5346F00977383 /* iOS_Tutorial_StartScreenSharing_03.png in Resources */,
+				0691F5D421B5344E00977383 /* terms_of_service.html in Resources */,
+				0691F5EE21B5346F00977383 /* iOS_Tutorial_StopScreenSharing1_01.png in Resources */,
+				0691F5E321B5346F00977383 /* iOS_Tutorial_StopScreenSharing2_01.png in Resources */,
 				0667734E215DFD940000B6B8 /* PleaseConnectView.xib in Resources */,
-				06EB0D082190041C008F8E62 /* Setting01.png in Resources */,
+				0691F5EC21B5346F00977383 /* iOS_Tutorial_InitialSetting_03.png in Resources */,
+				0691F60121B5360100977383 /* Localizable.strings in Resources */,
 				06F91E2E215E21E0000E2255 /* Main.storyboard in Resources */,
 				0687F550218FE230001080BE /* FrameRateTableView.storyboard in Resources */,
 				06677342215DFD510000B6B8 /* ProtocolStringTableViewController.storyboard in Resources */,
-				06EB0D042190041C008F8E62 /* Setting02.png in Resources */,
 				06EC4693215DC9000067808A /* Assets.xcassets in Resources */,
-				06EB0D0F2190041C008F8E62 /* Start03.png in Resources */,
+				0691F60321B5370200977383 /* PageContentHUViewController.storyboard in Resources */,
 				06677351215DFD940000B6B8 /* AccessoryConnectedView.xib in Resources */,
-				06EB0D072190041C008F8E62 /* Stop1_01.png in Resources */,
-				06EB0D0A2190041C008F8E62 /* Stop2_01.png in Resources */,
-				06EB0D0C2190041C008F8E62 /* Start01.png in Resources */,
 				06F91E2F215E21E0000E2255 /* LaunchScreen.storyboard in Resources */,
-				06EB0D092190041C008F8E62 /* Start04.png in Resources */,
-				0667735E215DFDE00000B6B8 /* app_summery.htm in Resources */,
 				06E8DACB2165AD7200249C98 /* ManualPageTopViewController.storyboard in Resources */,
-				0687F54D218FE1F6001080BE /* Localizable.strings in Resources */,
+				0691F5EA21B5346F00977383 /* iOS_Tutorial_StopScreenSharing2_02.png in Resources */,
+				0691F5D321B5344E00977383 /* application_overview.html in Resources */,
+				0691F5EF21B5346F00977383 /* iOS_Tutorial_BluetoothParing_02_02.png in Resources */,
 				0667735F215DFDE00000B6B8 /* open_source_license.html in Resources */,
+				0691F5E421B5346F00977383 /* iOS_Tutorial_InitialSetting_01.png in Resources */,
+				0691F5E921B5346F00977383 /* iOS_Tutorial_StopScreenSharing1_02.png in Resources */,
+				0691F5E521B5346F00977383 /* iOS_Tutorial_InitialSetting_04.png in Resources */,
 				06677350215DFD940000B6B8 /* LoadingView.xib in Resources */,
+				0691F5E721B5346F00977383 /* iOS_Tutorial_BluetoothParing_02_01.png in Resources */,
 				066772FD215DFBE90000B6B8 /* JKEGCommon.strings in Resources */,
+				0691F5E821B5346F00977383 /* iOS_Tutorial_StartScreenSharing_01.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -550,11 +578,13 @@
 				0667731D215DFC2A0000B6B8 /* AppExtentionLoggerUtility.swift in Sources */,
 				06677330215DFC5D0000B6B8 /* JKEGCommonLibInfo.swift in Sources */,
 				06E8DACD2165AD7200249C98 /* PageContentViewController.swift in Sources */,
+				0691F5F621B5348900977383 /* ManualPageInfo.swift in Sources */,
 				0667730B215DFBF70000B6B8 /* AppExtentionMessageInfo.swift in Sources */,
 				06677300215DFBE90000B6B8 /* JKEGCommonString.swift in Sources */,
 				06677327215DFC330000B6B8 /* AppLoggerSettingTableViewController.swift in Sources */,
 				0667732E215DFC480000B6B8 /* LogFileWriter.swift in Sources */,
 				0667733D215DFD4A0000B6B8 /* BaseViewController.swift in Sources */,
+				0691F5FD21B5359E00977383 /* UserAgreementViewController.swift in Sources */,
 				0667732A215DFC330000B6B8 /* AppLoggerAccountTableViewController.swift in Sources */,
 				06E8DACC2165AD7200249C98 /* PageManagerViewController.swift in Sources */,
 				06E8DACA2165AD7200249C98 /* ManualPageTopViewController.swift in Sources */,
@@ -565,10 +595,12 @@
 				06EC468B215DC8B80067808A /* ViewController.swift in Sources */,
 				06677314215DFBFF0000B6B8 /* AlertMessageUtility.swift in Sources */,
 				06677343215DFD510000B6B8 /* ProtocolStringTableViewController.swift in Sources */,
+				0691F5F721B5348900977383 /* HUManualPageInfo.swift in Sources */,
 				066772F6215DFBE10000B6B8 /* DataExtention.swift in Sources */,
 				06677316215DFBFF0000B6B8 /* PathUtility.swift in Sources */,
 				0667734C215DFD940000B6B8 /* LoadingView.swift in Sources */,
 				06677307215DFBF00000B6B8 /* VNCServerLocalNotificationUserInfo.swift in Sources */,
+				0691F5F521B5348900977383 /* HUPageContentViewController.swift in Sources */,
 				0687F551218FE230001080BE /* FrameRateTableViewController.swift in Sources */,
 				0667734D215DFD940000B6B8 /* MessageLabel.swift in Sources */,
 				06677337215DFD420000B6B8 /* AboutAppTableViewController.swift in Sources */,
@@ -608,10 +640,26 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		0687F54B218FE1F6001080BE /* Localizable.strings */ = {
+		0691F5CF21B5344E00977383 /* application_overview.html */ = {
 			isa = PBXVariantGroup;
 			children = (
-				0687F54C218FE1F6001080BE /* en */,
+				0691F5D021B5344E00977383 /* en */,
+			);
+			name = application_overview.html;
+			sourceTree = "<group>";
+		};
+		0691F5D121B5344E00977383 /* terms_of_service.html */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0691F5D221B5344E00977383 /* en */,
+			);
+			name = terms_of_service.html;
+			sourceTree = "<group>";
+		};
+		0691F5FF21B5360100977383 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0691F60021B5360100977383 /* en */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";

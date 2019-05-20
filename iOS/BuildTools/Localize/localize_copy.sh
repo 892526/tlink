@@ -5,7 +5,7 @@
 #######################################################
 
 # ローカライズファイル格納フォルダパス
-basePath="../../VncServer/Localize"
+basePath="../../VncServer/Resources"
 
 echo "BasePath = "${basePath}
 echo "Copying..."
@@ -18,17 +18,48 @@ echo "Copying..."
 function file_copy () {
     echo "Arg = "${1}
 
-    cp [ar]${1} ${basePath}/ar.lproj/${1}
-    cp [en]$1 ${basePath}/en.lproj/$1
-    cp [es]$1 ${basePath}/es.lproj/$1
-    cp [fr]$1 ${basePath}/fr.lproj/$1
-    cp [id]$1 ${basePath}/id.lproj/$1
-    cp [ja]$1 ${basePath}/ja.lproj/$1
-    cp [ms]$1 ${basePath}/ms.lproj/$1
-    cp [pt]$1 ${basePath}/pt-PT.lproj/$1
-    cp [th]$1 ${basePath}/th.lproj/$1
-    cp [zh-Hant]$1 ${basePath}/zh-Hant.lproj/$1
-    cp [zh-Hans]$1 ${basePath}/zh-Hans.lproj/$1
+    cp "(Arabic_WorldArabic)"${1} ${basePath}/ar.lproj/${1}
+    cp "(English_US)"${1} ${basePath}/en.lproj/${1}
+    cp "(Spanish)"${1} ${basePath}/es.lproj/${1}
+    cp "(French)"${1} ${basePath}/fr.lproj/${1}
+    cp "(BahasaIndonesia)"${1} ${basePath}/id.lproj/${1}
+    cp "(BahasaMalaysia)"${1} ${basePath}/ms.lproj/${1}
+    cp "(Portuguese)"${1} ${basePath}/pt-PT.lproj/${1}
+    cp "(Thai)"${1} ${basePath}/th.lproj/${1}
+    cp "(Chinese_Mandarin)"${1} ${basePath}/zh-Hant.lproj/${1}
+    cp "(Chinese_Cantonese)"${1} ${basePath}/zh-Hans.lproj/${1}
+}
+
+# アプリ概要ファイルを言語フォルダにコピーする
+function app_overview_file_copy () {
+    echo "Arg = "${1}
+
+    cp "(iOS)_[ar]"${1} ${basePath}/ar.lproj/${1}
+    cp "(iOS)_[en]"${1} ${basePath}/en.lproj/${1}
+    cp "(iOS)_[es]"${1} ${basePath}/es.lproj/${1}
+    cp "(iOS)_[fr]"${1} ${basePath}/fr.lproj/${1}
+    cp "(iOS)_[id]"${1} ${basePath}/id.lproj/${1}
+    cp "(iOS)_[ms]"${1} ${basePath}/ms.lproj/${1}
+    cp "(iOS)_[pt]"${1} ${basePath}/pt-PT.lproj/${1}
+    cp "(iOS)_[th]"${1} ${basePath}/th.lproj/${1}
+    cp "(iOS)_[zh-hk]"${1} ${basePath}/zh-Hant.lproj/${1}
+    cp "(iOS)_[zh-cn]"${1} ${basePath}/zh-Hans.lproj/${1}
+}
+
+# 利用規約ファイルを言語フォルダにコピーする
+function eula_file_copy () {
+    echo "Arg = "${1}
+
+    cp "[ar]"${1} ${basePath}/ar.lproj/${1}
+    cp "[en]"${1} ${basePath}/en.lproj/${1}
+    cp "[es]"${1} ${basePath}/es.lproj/${1}
+    cp "[fr]"${1} ${basePath}/fr.lproj/${1}
+    cp "[id]"${1} ${basePath}/id.lproj/${1}
+    cp "[ms]"${1} ${basePath}/ms.lproj/${1}
+    cp "[pt]"${1} ${basePath}/pt-PT.lproj/${1}
+    cp "[th]"${1} ${basePath}/th.lproj/${1}
+    cp "[zh-hk]"${1} ${basePath}/zh-Hant.lproj/${1}
+    cp "[zh-cn]"${1} ${basePath}/zh-Hans.lproj/${1}
 }
 
 
@@ -36,8 +67,8 @@ function file_copy () {
 # ----------------------------------------------
 # UI表示文言
 # ----------------------------------------------
-#uiFile="Localizable.strings"
-#fileCopy ${uiFile}
+uiFile="Localizable.strings"
+file_copy ${uiFile}
 
 #cp [ar]Localizable.strings ${basePath}/ar.lproj/Localizable.strings
 #cp [en]Localizable.strings ${basePath}/en.lproj/Localizable.strings
@@ -56,7 +87,7 @@ function file_copy () {
 # ----------------------------------------------
 tosFile="terms_of_service.html"
 
-file_copy ${tosFile}
+eula_file_copy ${tosFile}
 
 
 #cp [ar]${tosFile} ${basePath}/ar.lproj/${tosFile}
@@ -76,7 +107,7 @@ file_copy ${tosFile}
 # ----------------------------------------------
 appoverviewFile="application_overview.html"
 
-file_copy ${appoverviewFile}
+app_overview_file_copy ${appoverviewFile}
 
 #cp [ar]${tosFile} ${basePath}/ar.lproj/${tosFile}
 #cp [en]${tosFile} ${basePath}/en.lproj/${tosFile}

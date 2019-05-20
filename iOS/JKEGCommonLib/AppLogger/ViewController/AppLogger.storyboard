@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -20,19 +21,19 @@
                         <viewLayoutGuide key="safeArea" id="q9s-1V-Pvv"/>
                     </view>
                     <toolbarItems>
-                        <barButtonItem title="クリア" id="5EF-HW-VjR">
+                        <barButtonItem title="Clear" id="5EF-HW-VjR">
                             <connections>
                                 <action selector="tappedLogClear:" destination="8Gi-XX-jSb" id="TTj-zK-Z2n"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="HOG-6z-w2Y"/>
-                        <barButtonItem title="メールで送信" id="V8G-kZ-kZq">
+                        <barButtonItem title="Send by E-Mail" id="V8G-kZ-kZq">
                             <connections>
                                 <action selector="tappedEmail:" destination="8Gi-XX-jSb" id="dvZ-kE-esj"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="5Qu-2C-TFF"/>
-                        <barButtonItem title="保存" id="c8L-J4-Vae">
+                        <barButtonItem title="Save" id="c8L-J4-Vae">
                             <connections>
                                 <action selector="tappedLogSave:" destination="8Gi-XX-jSb" id="dYM-1x-I75"/>
                             </connections>
@@ -44,7 +45,7 @@
                                 <action selector="tappedDone:" destination="8Gi-XX-jSb" id="aMX-ML-Z5L"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="設定" id="Q0B-wU-Jwh">
+                        <barButtonItem key="rightBarButtonItem" title="Setting" id="Q0B-wU-Jwh">
                             <connections>
                                 <action selector="tappedSetting:" destination="8Gi-XX-jSb" id="X1C-LF-5Jv"/>
                                 <segue destination="YlL-kz-tZK" kind="show" id="Blf-rE-vQF"/>
@@ -70,7 +71,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <sections>
-                            <tableViewSection headerTitle="一般" id="Lpc-eE-n9j">
+                            <tableViewSection headerTitle="General" id="Lpc-eE-n9j">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="Pp1-T2-oRG" style="IBUITableViewCellStyleDefault" id="ZWk-h3-tJv">
                                         <rect key="frame" x="0.0" y="55.5" width="375" height="44"/>
@@ -79,7 +80,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="設定なし" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Pp1-T2-oRG">
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="No Setting" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Pp1-T2-oRG">
                                                     <rect key="frame" x="16" y="0.0" width="343" height="43.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -91,7 +92,7 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection headerTitle="ログメール送信先設定" id="AOH-f4-JhH">
+                            <tableViewSection headerTitle="Log mail destination setting" id="AOH-f4-JhH">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="6yZ-Po-dUe" detailTextLabel="YUF-VY-yzW" style="IBUITableViewCellStyleSubtitle" id="rxw-uD-xJn">
                                         <rect key="frame" x="0.0" y="155.5" width="375" height="44"/>
@@ -100,8 +101,8 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="アカウント" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="6yZ-Po-dUe">
-                                                    <rect key="frame" x="16" y="5" width="87" height="20.5"/>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Mail Address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="6yZ-Po-dUe">
+                                                    <rect key="frame" x="16" y="5" width="98.5" height="20.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -119,7 +120,7 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection headerTitle="デバッグ設定初期化" id="kh1-rz-EtX">
+                            <tableViewSection headerTitle="Debug setting initialization" id="kh1-rz-EtX">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="KEf-gg-yIp" style="IBUITableViewCellStyleDefault" id="KLa-dU-M6E">
                                         <rect key="frame" x="0.0" y="255.5" width="375" height="44"/>
@@ -128,7 +129,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="初期化" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="KEf-gg-yIp">
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Initialize" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="KEf-gg-yIp">
                                                     <rect key="frame" x="16" y="0.0" width="343" height="43.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>

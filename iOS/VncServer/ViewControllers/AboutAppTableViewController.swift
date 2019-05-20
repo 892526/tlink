@@ -17,6 +17,7 @@ class AboutAppTableViewController: UITableViewController {
     @IBOutlet weak var labelTermsOfUse: UILabel!
     @IBOutlet weak var labelOpenSourceLicenses: UILabel!
     @IBOutlet weak var labelVersion: UILabel!
+    @IBOutlet weak var switchErrorMessageDebug: UISwitch!
     
     /// セクション番号定義
     ///
@@ -48,8 +49,11 @@ class AboutAppTableViewController: UITableViewController {
         case sdkVersion = 0
         case protocolString = 1
         case frameRate = 2
-        case appLog = 3
-        case appExtentionLog = 4
+        case errorMessageDebug = 3
+        case initializeUseSettings = 4
+        case appLog = 5
+        case appExtentionLog = 6
+        case maxIndex = 7
     }
     
     @IBOutlet weak var labelVersionValue: UILabel!
@@ -70,15 +74,15 @@ class AboutAppTableViewController: UITableViewController {
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: UIBarButtonItem.Style.plain, target: nil, action: nil)
         
         // "本アプリケーションについて"
-        title = Localize.localizedString("SS_01_002")
+        title = Localize.localizedString("TID_5189")
         // アプリケーション概要
-        lableAppOverview.text = Localize.localizedString("SS_01_003")
+        lableAppOverview.text = Localize.localizedString("TID_5226")
         // アプリケーション利用規約
-        labelTermsOfUse.text = Localize.localizedString("SS_01_004")
+        labelTermsOfUse.text = Localize.localizedString("TID_5227")
         // オープンソースライセンス
-        labelOpenSourceLicenses.text = Localize.localizedString("SS_01_005")
+        labelOpenSourceLicenses.text = Localize.localizedString("TID_5228")
         // バージョン
-        labelVersion.text = Localize.localizedString("SS_01_006")
+        labelVersion.text = Localize.localizedString("TID_5229")
         
         // アプリバージョン取得
         var version: String = ApplicationUtility.version()
@@ -100,6 +104,9 @@ class AboutAppTableViewController: UITableViewController {
             
             // フレームレート表示
             updateFrameRate()
+            
+            // エラーメッセージデバッグ更新
+            updateErrorMessageDebug()
         #endif // ENABLE_LOG
     }
     
@@ -131,6 +138,10 @@ class AboutAppTableViewController: UITableViewController {
                     // デバッグログビューコントローラー表示する
                     showBroadcastServerLog()
                     
+                // ユーザー設定初期化
+                case DebugFunctionRowIndex.initializeUseSettings.rawValue:
+                    
+                    confirmInitializeUserSettings()
                 default:
                     print("undefine row index (Debug Function) ... >> rowIndex = " + String(indexPath.row))
                 }
@@ -173,7 +184,7 @@ class AboutAppTableViewController: UITableViewController {
             return 1
         // デバッグ設定セクション
         case AboutAppTableViewSectionIndex.debugFunction.rawValue:
-            return 5
+            return DebugFunctionRowIndex.maxIndex.rawValue
         // その他
         default:
             return 0
@@ -307,6 +318,37 @@ class AboutAppTableViewController: UITableViewController {
     
     #if ENABLE_LOG
         
+        /// ユーザ設定を初期化するかどうかアラート表示
+        private func confirmInitializeUserSettings() {
+            AppLogger.debug()
+            
+            let buttonTextArray = ["Cancel", "Intialize"]
+            AlertMessageUtility.show(owner: self, title: "", message: "Initialize user settings?", buttonTitles: buttonTextArray) { buttonIndex in
+                AppLogger.debug("\(buttonIndex)")
+                // "Intialize"選択
+                if buttonIndex == 1 {
+                    // ユーザ設定を初期化する
+                    AppGroupsManager.reset()
+                    
+                    DispatchQueue.main.async {
+                        // 使用プロトコルストリング表示
+                        self.updateProtocolString()
+                        
+                        // フレームレート表示
+                        self.updateFrameRate()
+                        
+                        // エラーメッセージデバッグ更新
+                        self.updateErrorMessageDebug()
+                    }
+                    
+                    AlertMessageUtility.show(owner: self, title: "",
+                                             message: "User settings initialied.",
+                                             type: AlertMessageUtility.AlertMessageUtilityType.typeOk,
+                                             completion: nil)
+                }
+            }
+        }
+        
         /// デバッグログ表示用ビューコントローラを表示する
         private func showDebugLogViewController() {
             AppLoggerViewer.show(owner: self, logger: AppLogger.sharedInstance)
@@ -336,13 +378,13 @@ class AboutAppTableViewController: UITableViewController {
                 // ログビュー表示
                 AppLoggerViewer.show(owner: self, logText: logText)
             } else {
-                AlertMessageUtility.show(owner: self, title: "LOG", message: "Broadcasr Serverログがありません。", type: .typeOk) { _ in
+                AlertMessageUtility.show(owner: self, title: "LOG", message: "Broadcast Server log is missing.", type: .typeOk) { _ in
                 }
             }
         }
         
         func updateProtocolString() {
-            let values = ["本番用", "デバッグ用"]
+            let values = ["For Production", "For Debug"]
             
             let index = AppGroupsManager.loadProtocolStringIndex()
             if index < values.count {
@@ -362,5 +404,15 @@ class AboutAppTableViewController: UITableViewController {
             }
         }
         
+        @IBAction func switchChanged(_ sender: Any) {
+            AppLogger.debug()
+            AppGroupsManager.saveErrorMessageDebug(switchErrorMessageDebug.isOn)
+        }
+        
+        func updateErrorMessageDebug() {
+            AppLogger.debug()
+            let value = AppGroupsManager.loadErrorMessageDebug()
+            switchErrorMessageDebug.setOn(value, animated: false)
+        }
     #endif // ENABLE_LOG
 }

@@ -28,17 +28,17 @@ class ManualPageTopViewController: UIViewController {
         
         // Do any additional setup after loading the view.
         
-        // タイトル表示
-        title = Localize.localizedString("SS_01_011")
+        // タイトル表示(チュートリアル)
+        title = Localize.localizedString("TID_5292")
         
-        // 画面共有の初期化設定方法
-        setButtonTilte(button: buttonInitiOperation, titleText: Localize.localizedString("SS_01_102"))
-        // 画面共有を開始する方法
-        setButtonTilte(button: buttonStartOperation, titleText: Localize.localizedString("SS_01_103"))
-        // 画面共有を停止する方法(1)
-        setButtonTilte(button: buttonStopOperation01, titleText: Localize.localizedString("SS_01_104"))
-        // 画面共有を停止する方法(2)
-        setButtonTilte(button: buttonStopOperation02, titleText: Localize.localizedString("SS_01_105"))
+        // 初期設定
+        setButtonTilte(button: buttonInitiOperation, titleText: Localize.localizedString("TID_5302"))
+        // 画面共有開始
+        setButtonTilte(button: buttonStartOperation, titleText: Localize.localizedString("TID_5303"))
+        // 画面共有停止-1
+        setButtonTilte(button: buttonStopOperation01, titleText: Localize.localizedString("TID_5304"))
+        // 画面共有停止-2
+        setButtonTilte(button: buttonStopOperation02, titleText: Localize.localizedString("TID_5305"))
     }
     
     override func didReceiveMemoryWarning() {
@@ -62,141 +62,139 @@ class ManualPageTopViewController: UIViewController {
     ///
     /// - Parameter sender: 送信元インスタンス
     @IBAction func showInitialSettingView(_ sender: Any) {
-        // タイトル文言
-        let pageTitles = [
-            // "(1)[設定]を起動"
-            Localize.localizedString("SS_01_102_01_01"),
-            // "(2)コントロールセンター表示"
-            Localize.localizedString("SS_01_102_02_01"),
-            // "(3)カスタマイズを表示",
-            Localize.localizedString("SS_01_102_03_01"),
-            // "(4)画面収録追加"
-            Localize.localizedString("SS_01_102_04_01"),
-            // "(5)画面収録追加完了"
-            Localize.localizedString("SS_01_102_05_01")
-        ]
         // 説明文言
         let pageDescriptions = [
-            // "iOSの[設定]を起動します。"
-            Localize.localizedString("SS_01_102_01_02"),
-            // "iOSの[設定]の[コントロールセンター]をタップします。",
-            Localize.localizedString("SS_01_102_02_02"),
-            // "[コントロールをカスタマイズ]をタップします。",
-            Localize.localizedString("SS_01_102_03_02"),
-            // "[画面収録]の[+]ボタンをタップして、追加します。"
-            Localize.localizedString("SS_01_102_04_02"),
-            // "[画面収録]が[含める]に移動すれば初期設定完了です。"
-            Localize.localizedString("SS_01_102_04_02")
+            Localize.localizedString("TID_5308"),
+            Localize.localizedString("TID_5309"),
+            Localize.localizedString("TID_5310"),
+            Localize.localizedString("TID_5311"),
+            Localize.localizedString("TID_5312"),
+            Localize.localizedString("TID_5313")
         ]
         
         // 表示画像ファイル名
         let pageImageNames = [
-            "Setting01",
-            "Setting02",
-            "Setting03",
-            "Setting04",
-            "Setting05"
+            "iOS_Tutorial_InitialSetting_01",
+            "iOS_Tutorial_InitialSetting_02",
+            "iOS_Tutorial_InitialSetting_03",
+            "iOS_Tutorial_InitialSetting_04",
+            "iOS_Tutorial_BluetoothParing_02_01",
+            "iOS_Tutorial_BluetoothParing_02_02"
         ]
         
+        // ページ種別
+        let pageTypes = [
+            ManualPageInfo.ManualPageType.normal,
+            ManualPageInfo.ManualPageType.normal,
+            ManualPageInfo.ManualPageType.normal,
+            ManualPageInfo.ManualPageType.normal,
+            ManualPageInfo.ManualPageType.headUnit
+        ]
+        
+        // ページ情報リスト作成する
+        var pageInfos: [ManualPageInfo] = []
+        for index in 0 ..< pageTypes.count {
+            var info: ManualPageInfo?
+            if pageTypes[index] == ManualPageInfo.ManualPageType.normal {
+                // アプリ説明お用ページ商法
+                info = ManualPageInfo(message: pageDescriptions[index], imageName: pageImageNames[index])
+            } else {
+                // HeadUnit用ページ情報
+                info = HUManualPageInfo(fristMesage: pageDescriptions[index], firstImageName: pageImageNames[index],
+                                        secondMessage: pageDescriptions[index + 1], secondImageName: pageImageNames[index + 1])
+            }
+            
+            if let info = info {
+                // リストに追加
+                pageInfos.append(info)
+            }
+        }
+        
         // 詳細画面表示（画面共有の初期設定）
-        pushDetailViewController(title: Localize.localizedString("SS_01_102"), pageTitles: pageTitles, pageDescriptions: pageDescriptions, imageNames: pageImageNames)
+        pushDetailViewController(headerTitle: Localize.localizedString("TID_5302"), pageInfos: pageInfos)
     }
     
     /// 共有開始ボタンタップ
     ///
     /// - Parameter sender: 送信元インスタンス
     @IBAction func showStartView(_ sender: Any) {
-        // タイトル文言
-        let pageTitles = [
-            // "(1)コントロールセンター表示"
-            Localize.localizedString("SS_01_103_01_01"),
-            // "(2)画面収録ボタン"
-            Localize.localizedString("SS_01_103_02_01"),
-            // "(3)ブロードキャスト開始"
-            Localize.localizedString("SS_01_103_03_01"),
-            // "(4)USBケーブルを接続"
-            Localize.localizedString("SS_01_103_04_01")
-        ]
-        
         // 説明文言
         let pageDescriptions = [
-            // "コントロールセンター表示します。",
-            Localize.localizedString("SS_01_103_01_02"),
-            // "[画面収録]ボタンをタップします。",
-            Localize.localizedString("SS_01_103_02_02"),
-            // "アプリケーションリストから[T-Link]を選択し、[ブロードキャストを開始]をタップします。このとき、マイクは[オフ]にします。",
-            Localize.localizedString("SS_01_103_03_02"),
-            // "画面収録アイコンが赤くなるのを確認したら、USBケーブルを接続します。"
-            Localize.localizedString("SS_01_103_04_02")
+            Localize.localizedString("TID_5314"),
+            Localize.localizedString("TID_5315"),
+            Localize.localizedString("TID_5316")
         ]
         
         // 画像ファイル名
         let pageImageNames = [
-            "Start01",
-            "Start02",
-            "Start03",
-            "Start04"
+            "iOS_Tutorial_StartScreenSharing_01",
+            "iOS_Tutorial_StartScreenSharing_02",
+            "iOS_Tutorial_StartScreenSharing_03"
         ]
+        
+        // ページ情報リスト作成する
+        var pageInfos: [ManualPageInfo] = []
+        for index in 0 ..< pageDescriptions.count {
+            let info = ManualPageInfo(message: pageDescriptions[index], imageName: pageImageNames[index])
+            pageInfos.append(info)
+        }
+        
         // 詳細画面表示(画面共有を開始する)
-        pushDetailViewController(title: Localize.localizedString("SS_01_103"), pageTitles: pageTitles, pageDescriptions: pageDescriptions, imageNames: pageImageNames)
+        pushDetailViewController(headerTitle: Localize.localizedString("TID_5303"), pageInfos: pageInfos)
     }
     
     /// 共有停止（1）ボタンタップ
     ///
     /// - Parameter sender: 送信元インスタンス
     @IBAction func showStopView(_ sender: Any) {
-        // タイトル文言
-        let pageTitles = [
-            // "(1)ステーターバーをタップ",
-            Localize.localizedString("SS_01_104_01_01"),
-            // "(2)ブロードキャスト停止"
-            Localize.localizedString("SS_01_104_02_01")
-        ]
-        
         // 説明文言
         let pageDescriptions = [
-            // "画面上部のステータスバーをタップします。",
-            Localize.localizedString("SS_01_104_01_01"),
-            // "ダイアログの[停止]をタップすると、ブロードキャスト停止します。"
-            Localize.localizedString("SS_01_104_02_01")
+            Localize.localizedString("TID_5317"),
+            Localize.localizedString("TID_5318")
         ]
         
         // 画像ファイル名
         let pageImageNames = [
-            "Stop1_01",
-            "Stop1_02"
+            "iOS_Tutorial_StopScreenSharing1_01",
+            "iOS_Tutorial_StopScreenSharing1_02"
         ]
+        
+        // ページ情報リスト作成する
+        var pageInfos: [ManualPageInfo] = []
+        for index in 0 ..< pageDescriptions.count {
+            let info = ManualPageInfo(message: pageDescriptions[index], imageName: pageImageNames[index])
+            pageInfos.append(info)
+        }
+        
         // 詳細画面表示(画面共有を停止する(1))
-        pushDetailViewController(title: Localize.localizedString("SS_01_104"), pageTitles: pageTitles, pageDescriptions: pageDescriptions, imageNames: pageImageNames)
+        pushDetailViewController(headerTitle: Localize.localizedString("TID_5304"), pageInfos: pageInfos)
     }
     
     /// 共有停止（2）ボタンタップ
     ///
     /// - Parameter sender: 送信元インスタンス
     @IBAction func showStopView2(_ sender: Any) {
-        // タイトル文言
-        let pageTitles = [
-            // "(1)コントロールセンター表示",
-            Localize.localizedString("SS_01_105_01_01"),
-            // "(2)ブロードキャスト停止"
-            Localize.localizedString("SS_01_105_02_01")
-        ]
-        
         // 説明文言
         let pageDescriptions = [
-            // "コントロールセンターを表示します。",
-            Localize.localizedString("SS_01_105_01_02"),
-            // "画面収録アイコンをタップすると、ブロードキャスト停止します。"
-            Localize.localizedString("SS_01_105_02_02")
+            Localize.localizedString("TID_5319"),
+            Localize.localizedString("TID_5320")
         ]
         
         // 画像ファイル名
         let pageImageNames = [
-            "Stop2_01",
-            "Stop2_02"
+            "iOS_Tutorial_StopScreenSharing2_01",
+            "iOS_Tutorial_StopScreenSharing2_02"
         ]
+        
+        // ページ情報リスト作成する
+        var pageInfos: [ManualPageInfo] = []
+        for index in 0 ..< pageDescriptions.count {
+            let info = ManualPageInfo(message: pageDescriptions[index], imageName: pageImageNames[index])
+            pageInfos.append(info)
+        }
+        
         // 詳細画面表示(画面共有を停止する(2))
-        pushDetailViewController(title: Localize.localizedString("SS_01_105"), pageTitles: pageTitles, pageDescriptions: pageDescriptions, imageNames: pageImageNames)
+        pushDetailViewController(headerTitle: Localize.localizedString("TID_5305"), pageInfos: pageInfos)
     }
     
     // MARK: - Private methods
@@ -213,11 +211,9 @@ class ManualPageTopViewController: UIViewController {
     /// 詳細ページビューコントローラーを表示(push)する
     ///
     /// - Parameters:
-    ///   - title: 画面タイトル
-    ///   - pageTitles: ページタイトル
-    ///   - pageDescriptions: 説明文
-    ///   - imageNames: イメージファイル名
-    private func pushDetailViewController(title: String, pageTitles: [String], pageDescriptions: [String], imageNames: [String]) {
+    ///   - headerTitle: ナビゲーションバータイトル
+    ///   - pageInfos: ページ情報
+    private func pushDetailViewController(headerTitle: String, pageInfos: [ManualPageInfo]) {
         AppLogger.debug()
         
         // ストーリーボードロード
@@ -225,14 +221,11 @@ class ManualPageTopViewController: UIViewController {
         
         // ビューコントローラー生成
         if let viewController = storyboard.instantiateInitialViewController() as? PageManagerViewController {
-            // 画面タイトルセット
-            viewController.title = title
-            // ページタイトルセット
-            viewController.pageTitles = pageTitles
-            // 説明文セット
-            viewController.pageDescriptions = pageDescriptions
-            // 画面ファイル名セット
-            viewController.pageImageNames = imageNames
+            // ナビゲーションバータイトル
+            viewController.title = headerTitle
+            
+            // ページ情報セット
+            viewController.pageInfos = pageInfos
             
             // 戻るボタンのテキスト非表示
             navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)

@@ -42,18 +42,24 @@ public class VNCServerLocalNotifiction {
                 // 規定メッセージセット
                 switch type {
                 case .connect:
-                    displayMessage = Localize.localizedString("SS_02_001")
+                    displayMessage = Localize.localizedString("TID_5115")
                 case .disconnect:
-                    displayMessage = Localize.localizedString("SS_02_002")
+                    displayMessage = Localize.localizedString("TID_5116")
                 case .error:
-                    displayMessage = Localize.localizedString("SS_02_003")
+                    displayMessage = ""
                 default:
                     displayMessage = "???"
                 }
                 
                 // サブメッセージがあれば連結
                 if !subMessage.isEmpty {
-                    displayMessage += "\n" + subMessage
+                    if !displayMessage.isEmpty {
+                        // 改行して連結
+                        displayMessage += "\n" + subMessage
+                    } else {
+                        // サブメッセージをそのまま表示
+                        displayMessage = subMessage
+                    }
                 }
                 
                 // ユーザ情報作成

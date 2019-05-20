@@ -7,28 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0603578521A3F82900390539 /* application_overview.html in Resources */ = {isa = PBXBuildFile; fileRef = 0603578721A3F82900390539 /* application_overview.html */; };
-		0603579221A3F84100390539 /* terms_of_service.html in Resources */ = {isa = PBXBuildFile; fileRef = 0603579421A3F84100390539 /* terms_of_service.html */; };
-		060736F4219032C0000CDE19 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 060736E621902A3D000CDE19 /* Localizable.strings */; };
 		06097313212A555000A0BF72 /* JKEGCommonLib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0660D23721191C7100C1E2F2 /* JKEGCommonLib.framework */; };
 		06097314212A565D00A0BF72 /* AESUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0660D4572119B12B00C1E2F2 /* AESUtility.swift */; };
 		06097316212A576800A0BF72 /* VncLicenseEncryptionConst.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0660D4532119B12400C1E2F2 /* VncLicenseEncryptionConst.swift */; };
-		060D707B216DB903002C3C9B /* Start04.png in Resources */ = {isa = PBXBuildFile; fileRef = 060D7077216DB8FF002C3C9B /* Start04.png */; };
-		060D707C216DB903002C3C9B /* Start03.png in Resources */ = {isa = PBXBuildFile; fileRef = 060D7078216DB900002C3C9B /* Start03.png */; };
-		060D707D216DB903002C3C9B /* Start02.png in Resources */ = {isa = PBXBuildFile; fileRef = 060D7079216DB903002C3C9B /* Start02.png */; };
-		060D708B216DB998002C3C9B /* Setting03.png in Resources */ = {isa = PBXBuildFile; fileRef = 060D7086216DB954002C3C9B /* Setting03.png */; };
-		060D708C216DB998002C3C9B /* Setting01.png in Resources */ = {isa = PBXBuildFile; fileRef = 060D7087216DB962002C3C9B /* Setting01.png */; };
-		060D708E216DB998002C3C9B /* Setting02.png in Resources */ = {isa = PBXBuildFile; fileRef = 060D7089216DB989002C3C9B /* Setting02.png */; };
-		060D708F216DB998002C3C9B /* Setting04.png in Resources */ = {isa = PBXBuildFile; fileRef = 060D708A216DB997002C3C9B /* Setting04.png */; };
-		060D7091216DBB40002C3C9B /* Setting05.png in Resources */ = {isa = PBXBuildFile; fileRef = 060D7090216DBB40002C3C9B /* Setting05.png */; };
-		060D7098216DC13E002C3C9B /* Stop1_02.png in Resources */ = {isa = PBXBuildFile; fileRef = 060D7096216DC13D002C3C9B /* Stop1_02.png */; };
-		060D709F216DC5E4002C3C9B /* Stop1_01.png in Resources */ = {isa = PBXBuildFile; fileRef = 060D709E216DC5E4002C3C9B /* Stop1_01.png */; };
-		060D70A2216DC7FE002C3C9B /* Stop2_01.png in Resources */ = {isa = PBXBuildFile; fileRef = 060D70A0216DC7FD002C3C9B /* Stop2_01.png */; };
-		060D70A3216DC7FE002C3C9B /* Stop2_02.png in Resources */ = {isa = PBXBuildFile; fileRef = 060D70A1216DC7FE002C3C9B /* Stop2_02.png */; };
-		060D70A5216DC976002C3C9B /* Start01.png in Resources */ = {isa = PBXBuildFile; fileRef = 060D70A4216DC976002C3C9B /* Start01.png */; };
-		06160C19211D32A500025357 /* BroadcastVNCServerSettingExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06160C18211D32A500025357 /* BroadcastVNCServerSettingExtention.swift */; };
-		06160C25211D6EFD00025357 /* RealVNCServer.vnclicense in Resources */ = {isa = PBXBuildFile; fileRef = 0660D2A02119376300C1E2F2 /* RealVNCServer.vnclicense */; };
-		06160C26211D6EFE00025357 /* RealVNCServer.vnclicense in Resources */ = {isa = PBXBuildFile; fileRef = 0660D2A02119376300C1E2F2 /* RealVNCServer.vnclicense */; };
 		061A281A212F862000F02E65 /* ScreenCaptureObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 061A2819212F862000F02E65 /* ScreenCaptureObserver.swift */; };
 		06213A392164844B00D6D5A0 /* ManualPageTopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06213A372164844A00D6D5A0 /* ManualPageTopViewController.swift */; };
 		06213A3A2164844B00D6D5A0 /* ManualPageTopViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 06213A382164844B00D6D5A0 /* ManualPageTopViewController.storyboard */; };
@@ -39,20 +20,20 @@
 		06213A462164AB5E00D6D5A0 /* PageContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06213A442164AB5C00D6D5A0 /* PageContentViewController.swift */; };
 		06213A472164AB5E00D6D5A0 /* PageContentViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 06213A452164AB5E00D6D5A0 /* PageContentViewController.storyboard */; };
 		06213A822164C76C00D6D5A0 /* AutoLayoutUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06213A812164C76C00D6D5A0 /* AutoLayoutUtility.swift */; };
+		06286FCA21EDE7F600DE1F8D /* jvck-production-server-e873585a-d2ce-441d-b409-3a6c90da8f3a.vnclicense in Resources */ = {isa = PBXBuildFile; fileRef = 06286FC821EDE70800DE1F8D /* jvck-production-server-e873585a-d2ce-441d-b409-3a6c90da8f3a.vnclicense */; };
 		06320FE4212E4C1F00CD38DE /* VNCServerLocalNotificationUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06320FE3212E4C1F00CD38DE /* VNCServerLocalNotificationUtility.swift */; };
 		06320FE5212E4CEB00CD38DE /* VNCServerLocalNotifiction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 069E9858211BD0F800C9F3F6 /* VNCServerLocalNotifiction.swift */; };
 		06320FE7212E574B00CD38DE /* VNCServerLocalNotificationUserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06320FE6212E574B00CD38DE /* VNCServerLocalNotificationUserInfo.swift */; };
 		06345662212BE1A2002D4F1A /* BroadcastServer.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 0660D4392119B0B400C1E2F2 /* BroadcastServer.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		0634566A212BE3DB002D4F1A /* AppExtentionLoggerUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06345669212BE3DB002D4F1A /* AppExtentionLoggerUtility.swift */; };
+		0637786E21EDC7B6000A28FD /* DescriptionLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0637786D21EDC7B5000A28FD /* DescriptionLabel.swift */; };
 		063ED7B5212CEBB500B2A864 /* JKEGCommon.strings in Resources */ = {isa = PBXBuildFile; fileRef = 063ED7B3212CEBB500B2A864 /* JKEGCommon.strings */; };
 		063ED7B6212CEBB500B2A864 /* JKEGCommonString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 063ED7B4212CEBB500B2A864 /* JKEGCommonString.swift */; };
 		063ED7B8212CF0AA00B2A864 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 063ED7B7212CF0AA00B2A864 /* AVFoundation.framework */; };
 		063ED7BA212CF0B100B2A864 /* VideoToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 063ED7B9212CF0B100B2A864 /* VideoToolbox.framework */; };
-		063ED7BD212D072E00B2A864 /* VNCServerErrorString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 063ED7BC212D072E00B2A864 /* VNCServerErrorString.swift */; };
 		063ED7C1212D5F3D00B2A864 /* DataExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 063ED7C0212D5F3D00B2A864 /* DataExtention.swift */; };
 		064B4F7221474B19005C75F2 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 064B4F7121474B19005C75F2 /* libc++.tbd */; };
 		06510FB7212BDBC400EF5109 /* JKEGCommonLibInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06510FB6212BDBC400EF5109 /* JKEGCommonLibInfo.swift */; };
-		0655842E21A543E400E40FF2 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 060736E621902A3D000CDE19 /* Localizable.strings */; };
 		0660D24021191C7100C1E2F2 /* JKEGCommonLib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0660D23721191C7100C1E2F2 /* JKEGCommonLib.framework */; };
 		0660D24721191C7100C1E2F2 /* JKEGCommonLibTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0660D24621191C7100C1E2F2 /* JKEGCommonLibTests.swift */; };
 		0660D24921191C7100C1E2F2 /* JKEGCommonLib.h in Headers */ = {isa = PBXBuildFile; fileRef = 0660D23921191C7100C1E2F2 /* JKEGCommonLib.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -118,6 +99,25 @@
 		0678DF6C212EC74600A0CC9E /* libvncserversdkios.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0660D41F2119AFD800C1E2F2 /* libvncserversdkios.a */; };
 		0678DF6D212EC77E00A0CC9E /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 063ED7B7212CF0AA00B2A864 /* AVFoundation.framework */; };
 		0678DF6E212EC78600A0CC9E /* VideoToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 063ED7B9212CF0B100B2A864 /* VideoToolbox.framework */; };
+		0682255721CB1F63008D535E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0682255921CB1F63008D535E /* Localizable.strings */; };
+		0682257221CB1FE4008D535E /* application_overview.html in Resources */ = {isa = PBXBuildFile; fileRef = 0682257421CB1FE4008D535E /* application_overview.html */; };
+		0682257E21CB1FFD008D535E /* terms_of_service.html in Resources */ = {isa = PBXBuildFile; fileRef = 0682258021CB1FFD008D535E /* terms_of_service.html */; };
+		0691F5C221B51FF000977383 /* iOS_Tutorial_StopScreenSharing2_01.png in Resources */ = {isa = PBXBuildFile; fileRef = 0691F5B521B51FEF00977383 /* iOS_Tutorial_StopScreenSharing2_01.png */; };
+		0691F5C321B51FF000977383 /* iOS_Tutorial_InitialSetting_01.png in Resources */ = {isa = PBXBuildFile; fileRef = 0691F5B621B51FEF00977383 /* iOS_Tutorial_InitialSetting_01.png */; };
+		0691F5C421B51FF000977383 /* iOS_Tutorial_InitialSetting_04.png in Resources */ = {isa = PBXBuildFile; fileRef = 0691F5B721B51FEF00977383 /* iOS_Tutorial_InitialSetting_04.png */; };
+		0691F5C521B51FF000977383 /* iOS_Tutorial_StartScreenSharing_02.png in Resources */ = {isa = PBXBuildFile; fileRef = 0691F5B821B51FEF00977383 /* iOS_Tutorial_StartScreenSharing_02.png */; };
+		0691F5C621B51FF000977383 /* iOS_Tutorial_BluetoothParing_02_01.png in Resources */ = {isa = PBXBuildFile; fileRef = 0691F5B921B51FEF00977383 /* iOS_Tutorial_BluetoothParing_02_01.png */; };
+		0691F5C721B51FF000977383 /* iOS_Tutorial_StartScreenSharing_01.png in Resources */ = {isa = PBXBuildFile; fileRef = 0691F5BA21B51FF000977383 /* iOS_Tutorial_StartScreenSharing_01.png */; };
+		0691F5C821B51FF000977383 /* iOS_Tutorial_StopScreenSharing1_02.png in Resources */ = {isa = PBXBuildFile; fileRef = 0691F5BB21B51FF000977383 /* iOS_Tutorial_StopScreenSharing1_02.png */; };
+		0691F5C921B51FF000977383 /* iOS_Tutorial_StopScreenSharing2_02.png in Resources */ = {isa = PBXBuildFile; fileRef = 0691F5BC21B51FF000977383 /* iOS_Tutorial_StopScreenSharing2_02.png */; };
+		0691F5CA21B51FF000977383 /* iOS_Tutorial_StartScreenSharing_03.png in Resources */ = {isa = PBXBuildFile; fileRef = 0691F5BD21B51FF000977383 /* iOS_Tutorial_StartScreenSharing_03.png */; };
+		0691F5CB21B51FF000977383 /* iOS_Tutorial_InitialSetting_03.png in Resources */ = {isa = PBXBuildFile; fileRef = 0691F5BE21B51FF000977383 /* iOS_Tutorial_InitialSetting_03.png */; };
+		0691F5CC21B51FF000977383 /* iOS_Tutorial_InitialSetting_02.png in Resources */ = {isa = PBXBuildFile; fileRef = 0691F5BF21B51FF000977383 /* iOS_Tutorial_InitialSetting_02.png */; };
+		0691F5CD21B51FF000977383 /* iOS_Tutorial_StopScreenSharing1_01.png in Resources */ = {isa = PBXBuildFile; fileRef = 0691F5C021B51FF000977383 /* iOS_Tutorial_StopScreenSharing1_01.png */; };
+		0691F5CE21B51FF000977383 /* iOS_Tutorial_BluetoothParing_02_02.png in Resources */ = {isa = PBXBuildFile; fileRef = 0691F5C121B51FF000977383 /* iOS_Tutorial_BluetoothParing_02_02.png */; };
+		0691F60521B5379D00977383 /* PageContentHUViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0691F60421B5379D00977383 /* PageContentHUViewController.storyboard */; };
+		069B2C7621B4D205008581B3 /* BroadcastVNCServerSettingExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06160C18211D32A500025357 /* BroadcastVNCServerSettingExtention.swift */; };
+		069B2C7721B4D205008581B3 /* VNCServerErrorString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 063ED7BC212D072E00B2A864 /* VNCServerErrorString.swift */; };
 		069C50CB2118535D0087CF1B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 069C50CA2118535D0087CF1B /* AppDelegate.swift */; };
 		069C50CD2118535D0087CF1B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 069C50CC2118535D0087CF1B /* ViewController.swift */; };
 		069C50D02118535D0087CF1B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 069C50CE2118535D0087CF1B /* Main.storyboard */; };
@@ -135,6 +135,10 @@
 		069E985E211BD94E00C9F3F6 /* AppExtentionMessageInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 069E985D211BD94E00C9F3F6 /* AppExtentionMessageInfo.swift */; };
 		069E98A3211C145F00C9F3F6 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 069E98A2211C145F00C9F3F6 /* BaseViewController.swift */; };
 		06B7C46F2192C1A00075F9D5 /* TransparentButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B7C46E2192C1A00075F9D5 /* TransparentButton.swift */; };
+		06D2743221B6665200ECA1B2 /* HUManualPageInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06D2743121B6665200ECA1B2 /* HUManualPageInfo.swift */; };
+		06D2743421B6666500ECA1B2 /* HUPageContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06D2743321B6666500ECA1B2 /* HUPageContentViewController.swift */; };
+		06D2743621B6667300ECA1B2 /* ManualPageInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06D2743521B6667300ECA1B2 /* ManualPageInfo.swift */; };
+		06D2743921B673BE00ECA1B2 /* VNCServerErrorString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06D2743821B673BE00ECA1B2 /* VNCServerErrorString.swift */; };
 		06DC6207212A9823004B140C /* UnitTestFileCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06DC6206212A9823004B140C /* UnitTestFileCoordinator.swift */; };
 		06DFF9F22137F0C1009AA24A /* AppGroupsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06DFF9F12137F0C1009AA24A /* AppGroupsManager.swift */; };
 		06DFF9F52137FE5D009AA24A /* ProtocolStringTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06DFF9F42137FE5D009AA24A /* ProtocolStringTableViewController.swift */; };
@@ -144,6 +148,7 @@
 		06EA6AD121893AB4002CBA31 /* FrameRateTableView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 06EA6AD021893AB4002CBA31 /* FrameRateTableView.storyboard */; };
 		06EA6AD321893B7D002CBA31 /* FrameRateTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06EA6AD221893B7D002CBA31 /* FrameRateTableViewController.swift */; };
 		06F7B613212A820F006C4AB1 /* FileCoordinatorUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06F7B612212A820F006C4AB1 /* FileCoordinatorUtility.swift */; };
+		06F825CD21CB7241009CA193 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0682255921CB1F63008D535E /* Localizable.strings */; };
 		06F8F9DA212ED3DE006CA51C /* RealVncSdkUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06F8F9D9212ED3DE006CA51C /* RealVncSdkUtility.swift */; };
 		06F950AB212C1330001E5572 /* DebugSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06F950AA212C1330001E5572 /* DebugSettings.swift */; };
 		06FCDC4521745C3900E2CF6A /* LoadingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 069C51172118553E0087CF1B /* LoadingView.xib */; };
@@ -214,22 +219,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		0603578621A3F82900390539 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = en; path = en.lproj/application_overview.html; sourceTree = "<group>"; };
-		0603579321A3F84100390539 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = en; path = en.lproj/terms_of_service.html; sourceTree = "<group>"; };
-		060736E521902A3D000CDE19 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
-		060D7077216DB8FF002C3C9B /* Start04.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Start04.png; sourceTree = "<group>"; };
-		060D7078216DB900002C3C9B /* Start03.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Start03.png; sourceTree = "<group>"; };
-		060D7079216DB903002C3C9B /* Start02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Start02.png; sourceTree = "<group>"; };
-		060D7086216DB954002C3C9B /* Setting03.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Setting03.png; sourceTree = "<group>"; };
-		060D7087216DB962002C3C9B /* Setting01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Setting01.png; sourceTree = "<group>"; };
-		060D7089216DB989002C3C9B /* Setting02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Setting02.png; sourceTree = "<group>"; };
-		060D708A216DB997002C3C9B /* Setting04.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Setting04.png; sourceTree = "<group>"; };
-		060D7090216DBB40002C3C9B /* Setting05.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Setting05.png; sourceTree = "<group>"; };
-		060D7096216DC13D002C3C9B /* Stop1_02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Stop1_02.png; sourceTree = "<group>"; };
-		060D709E216DC5E4002C3C9B /* Stop1_01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Stop1_01.png; sourceTree = "<group>"; };
-		060D70A0216DC7FD002C3C9B /* Stop2_01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Stop2_01.png; sourceTree = "<group>"; };
-		060D70A1216DC7FE002C3C9B /* Stop2_02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Stop2_02.png; sourceTree = "<group>"; };
-		060D70A4216DC976002C3C9B /* Start01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Start01.png; sourceTree = "<group>"; };
 		06160C18211D32A500025357 /* BroadcastVNCServerSettingExtention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BroadcastVNCServerSettingExtention.swift; sourceTree = "<group>"; };
 		06160C1D211D4CB800025357 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		06160C24211D546B00025357 /* VncServer.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = VncServer.entitlements; sourceTree = "<group>"; };
@@ -243,9 +232,11 @@
 		06213A442164AB5C00D6D5A0 /* PageContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageContentViewController.swift; sourceTree = "<group>"; };
 		06213A452164AB5E00D6D5A0 /* PageContentViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PageContentViewController.storyboard; sourceTree = "<group>"; };
 		06213A812164C76C00D6D5A0 /* AutoLayoutUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoLayoutUtility.swift; sourceTree = "<group>"; };
+		06286FC821EDE70800DE1F8D /* jvck-production-server-e873585a-d2ce-441d-b409-3a6c90da8f3a.vnclicense */ = {isa = PBXFileReference; lastKnownFileType = file; path = "jvck-production-server-e873585a-d2ce-441d-b409-3a6c90da8f3a.vnclicense"; sourceTree = "<group>"; };
 		06320FE3212E4C1F00CD38DE /* VNCServerLocalNotificationUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VNCServerLocalNotificationUtility.swift; sourceTree = "<group>"; };
 		06320FE6212E574B00CD38DE /* VNCServerLocalNotificationUserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VNCServerLocalNotificationUserInfo.swift; sourceTree = "<group>"; };
 		06345669212BE3DB002D4F1A /* AppExtentionLoggerUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppExtentionLoggerUtility.swift; sourceTree = "<group>"; };
+		0637786D21EDC7B5000A28FD /* DescriptionLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DescriptionLabel.swift; sourceTree = "<group>"; };
 		063ED7B3212CEBB500B2A864 /* JKEGCommon.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = JKEGCommon.strings; sourceTree = "<group>"; };
 		063ED7B4212CEBB500B2A864 /* JKEGCommonString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JKEGCommonString.swift; sourceTree = "<group>"; };
 		063ED7B7212CF0AA00B2A864 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -275,7 +266,6 @@
 		0660D27621191D0200C1E2F2 /* ApplicationUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplicationUtility.swift; sourceTree = "<group>"; };
 		0660D27721191D0200C1E2F2 /* FileUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileUtility.swift; sourceTree = "<group>"; };
 		0660D2882119327400C1E2F2 /* VncServer-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "VncServer-Bridging-Header.h"; sourceTree = "<group>"; };
-		0660D2A02119376300C1E2F2 /* RealVNCServer.vnclicense */ = {isa = PBXFileReference; lastKnownFileType = file; path = RealVNCServer.vnclicense; sourceTree = "<group>"; };
 		0660D30E21194A5A00C1E2F2 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
 		0660D31021194A6100C1E2F2 /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
 		0660D31221194A6800C1E2F2 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -309,6 +299,50 @@
 		0660D45E2119B1AB00C1E2F2 /* BroadcastVNCServer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BroadcastVNCServer.swift; sourceTree = "<group>"; };
 		0660D47F2119BDD100C1E2F2 /* ExternalAccessory.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ExternalAccessory.framework; path = System/Library/Frameworks/ExternalAccessory.framework; sourceTree = SDKROOT; };
 		0678DF46212E7BCB00A0CC9E /* Localize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localize.swift; sourceTree = "<group>"; };
+		0682255821CB1F63008D535E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		0682255A21CB1F67008D535E /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		0682255B21CB1F6A008D535E /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		0682255C21CB1F6D008D535E /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
+		0682255D21CB1F6F008D535E /* pt-PT */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-PT"; path = "pt-PT.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		0682255E21CB1F70008D535E /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Localizable.strings; sourceTree = "<group>"; };
+		0682255F21CB1F72008D535E /* th */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = th; path = th.lproj/Localizable.strings; sourceTree = "<group>"; };
+		0682256021CB1F74008D535E /* id */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = id; path = id.lproj/Localizable.strings; sourceTree = "<group>"; };
+		0682256121CB1F75008D535E /* ms */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ms; path = ms.lproj/Localizable.strings; sourceTree = "<group>"; };
+		0682256221CB1F77008D535E /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
+		0682257321CB1FE4008D535E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = en; path = en.lproj/application_overview.html; sourceTree = "<group>"; };
+		0682257521CB1FE7008D535E /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = "zh-Hans"; path = "zh-Hans.lproj/application_overview.html"; sourceTree = "<group>"; };
+		0682257621CB1FE8008D535E /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = "zh-Hant"; path = "zh-Hant.lproj/application_overview.html"; sourceTree = "<group>"; };
+		0682257721CB1FEA008D535E /* es */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = es; path = es.lproj/application_overview.html; sourceTree = "<group>"; };
+		0682257821CB1FED008D535E /* pt-PT */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = "pt-PT"; path = "pt-PT.lproj/application_overview.html"; sourceTree = "<group>"; };
+		0682257921CB1FEF008D535E /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = ar; path = ar.lproj/application_overview.html; sourceTree = "<group>"; };
+		0682257A21CB1FF0008D535E /* th */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = th; path = th.lproj/application_overview.html; sourceTree = "<group>"; };
+		0682257B21CB1FF2008D535E /* id */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = id; path = id.lproj/application_overview.html; sourceTree = "<group>"; };
+		0682257C21CB1FF4008D535E /* ms */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = ms; path = ms.lproj/application_overview.html; sourceTree = "<group>"; };
+		0682257D21CB1FF6008D535E /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = fr; path = fr.lproj/application_overview.html; sourceTree = "<group>"; };
+		0682257F21CB1FFD008D535E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = en; path = en.lproj/terms_of_service.html; sourceTree = "<group>"; };
+		0682258121CB1FFF008D535E /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = "zh-Hans"; path = "zh-Hans.lproj/terms_of_service.html"; sourceTree = "<group>"; };
+		0682258221CB2001008D535E /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = "zh-Hant"; path = "zh-Hant.lproj/terms_of_service.html"; sourceTree = "<group>"; };
+		0682258321CB2003008D535E /* es */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = es; path = es.lproj/terms_of_service.html; sourceTree = "<group>"; };
+		0682258421CB2005008D535E /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = ar; path = ar.lproj/terms_of_service.html; sourceTree = "<group>"; };
+		0682258521CB2006008D535E /* pt-PT */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = "pt-PT"; path = "pt-PT.lproj/terms_of_service.html"; sourceTree = "<group>"; };
+		0682258621CB2008008D535E /* th */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = th; path = th.lproj/terms_of_service.html; sourceTree = "<group>"; };
+		0682258721CB200A008D535E /* id */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = id; path = id.lproj/terms_of_service.html; sourceTree = "<group>"; };
+		0682258821CB200C008D535E /* ms */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = ms; path = ms.lproj/terms_of_service.html; sourceTree = "<group>"; };
+		0682258921CB200D008D535E /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = fr; path = fr.lproj/terms_of_service.html; sourceTree = "<group>"; };
+		0691F5B521B51FEF00977383 /* iOS_Tutorial_StopScreenSharing2_01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iOS_Tutorial_StopScreenSharing2_01.png; sourceTree = "<group>"; };
+		0691F5B621B51FEF00977383 /* iOS_Tutorial_InitialSetting_01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iOS_Tutorial_InitialSetting_01.png; sourceTree = "<group>"; };
+		0691F5B721B51FEF00977383 /* iOS_Tutorial_InitialSetting_04.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iOS_Tutorial_InitialSetting_04.png; sourceTree = "<group>"; };
+		0691F5B821B51FEF00977383 /* iOS_Tutorial_StartScreenSharing_02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iOS_Tutorial_StartScreenSharing_02.png; sourceTree = "<group>"; };
+		0691F5B921B51FEF00977383 /* iOS_Tutorial_BluetoothParing_02_01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iOS_Tutorial_BluetoothParing_02_01.png; sourceTree = "<group>"; };
+		0691F5BA21B51FF000977383 /* iOS_Tutorial_StartScreenSharing_01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iOS_Tutorial_StartScreenSharing_01.png; sourceTree = "<group>"; };
+		0691F5BB21B51FF000977383 /* iOS_Tutorial_StopScreenSharing1_02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iOS_Tutorial_StopScreenSharing1_02.png; sourceTree = "<group>"; };
+		0691F5BC21B51FF000977383 /* iOS_Tutorial_StopScreenSharing2_02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iOS_Tutorial_StopScreenSharing2_02.png; sourceTree = "<group>"; };
+		0691F5BD21B51FF000977383 /* iOS_Tutorial_StartScreenSharing_03.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iOS_Tutorial_StartScreenSharing_03.png; sourceTree = "<group>"; };
+		0691F5BE21B51FF000977383 /* iOS_Tutorial_InitialSetting_03.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iOS_Tutorial_InitialSetting_03.png; sourceTree = "<group>"; };
+		0691F5BF21B51FF000977383 /* iOS_Tutorial_InitialSetting_02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iOS_Tutorial_InitialSetting_02.png; sourceTree = "<group>"; };
+		0691F5C021B51FF000977383 /* iOS_Tutorial_StopScreenSharing1_01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iOS_Tutorial_StopScreenSharing1_01.png; sourceTree = "<group>"; };
+		0691F5C121B51FF000977383 /* iOS_Tutorial_BluetoothParing_02_02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iOS_Tutorial_BluetoothParing_02_02.png; sourceTree = "<group>"; };
+		0691F60421B5379D00977383 /* PageContentHUViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PageContentHUViewController.storyboard; sourceTree = "<group>"; };
 		069C50C72118535D0087CF1B /* VncServer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VncServer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		069C50CA2118535D0087CF1B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		069C50CC2118535D0087CF1B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -340,6 +374,10 @@
 		069E98A1211C0CE700C9F3F6 /* BroadcastServer.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BroadcastServer.entitlements; sourceTree = "<group>"; };
 		069E98A2211C145F00C9F3F6 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		06B7C46E2192C1A00075F9D5 /* TransparentButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransparentButton.swift; sourceTree = "<group>"; };
+		06D2743121B6665200ECA1B2 /* HUManualPageInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HUManualPageInfo.swift; sourceTree = "<group>"; };
+		06D2743321B6666500ECA1B2 /* HUPageContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HUPageContentViewController.swift; sourceTree = "<group>"; };
+		06D2743521B6667300ECA1B2 /* ManualPageInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManualPageInfo.swift; sourceTree = "<group>"; };
+		06D2743821B673BE00ECA1B2 /* VNCServerErrorString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = VNCServerErrorString.swift; path = BroadcastServer/BroadcastServer/VNCServerErrorString.swift; sourceTree = SOURCE_ROOT; };
 		06DC6206212A9823004B140C /* UnitTestFileCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitTestFileCoordinator.swift; sourceTree = "<group>"; };
 		06DFF9F12137F0C1009AA24A /* AppGroupsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppGroupsManager.swift; sourceTree = "<group>"; };
 		06DFF9F42137FE5D009AA24A /* ProtocolStringTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtocolStringTableViewController.swift; sourceTree = "<group>"; };
@@ -426,14 +464,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		060736E821902AEE000CDE19 /* Localize */ = {
-			isa = PBXGroup;
-			children = (
-				060736E621902A3D000CDE19 /* Localizable.strings */,
-			);
-			path = Localize;
-			sourceTree = "<group>";
-		};
 		0609731F212A5BCA00A0BF72 /* UnitTestApp */ = {
 			isa = PBXGroup;
 			children = (
@@ -462,6 +492,10 @@
 				06213A422164AB3500D6D5A0 /* PageViewController.swift */,
 				06213A452164AB5E00D6D5A0 /* PageContentViewController.storyboard */,
 				06213A442164AB5C00D6D5A0 /* PageContentViewController.swift */,
+				06D2743521B6667300ECA1B2 /* ManualPageInfo.swift */,
+				06D2743121B6665200ECA1B2 /* HUManualPageInfo.swift */,
+				06D2743321B6666500ECA1B2 /* HUPageContentViewController.swift */,
+				0691F60421B5379D00977383 /* PageContentHUViewController.storyboard */,
 			);
 			path = ManualPages;
 			sourceTree = "<group>";
@@ -470,6 +504,7 @@
 			isa = PBXGroup;
 			children = (
 				06213A3C2164914400D6D5A0 /* PanelButton.swift */,
+				0637786D21EDC7B5000A28FD /* DescriptionLabel.swift */,
 			);
 			path = Control;
 			sourceTree = "<group>";
@@ -477,19 +512,19 @@
 		06213A652164B0E100D6D5A0 /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				060D7087216DB962002C3C9B /* Setting01.png */,
-				060D7089216DB989002C3C9B /* Setting02.png */,
-				060D7086216DB954002C3C9B /* Setting03.png */,
-				060D708A216DB997002C3C9B /* Setting04.png */,
-				060D7090216DBB40002C3C9B /* Setting05.png */,
-				060D70A4216DC976002C3C9B /* Start01.png */,
-				060D7079216DB903002C3C9B /* Start02.png */,
-				060D7078216DB900002C3C9B /* Start03.png */,
-				060D7077216DB8FF002C3C9B /* Start04.png */,
-				060D709E216DC5E4002C3C9B /* Stop1_01.png */,
-				060D7096216DC13D002C3C9B /* Stop1_02.png */,
-				060D70A0216DC7FD002C3C9B /* Stop2_01.png */,
-				060D70A1216DC7FE002C3C9B /* Stop2_02.png */,
+				0691F5B921B51FEF00977383 /* iOS_Tutorial_BluetoothParing_02_01.png */,
+				0691F5C121B51FF000977383 /* iOS_Tutorial_BluetoothParing_02_02.png */,
+				0691F5B621B51FEF00977383 /* iOS_Tutorial_InitialSetting_01.png */,
+				0691F5BF21B51FF000977383 /* iOS_Tutorial_InitialSetting_02.png */,
+				0691F5BE21B51FF000977383 /* iOS_Tutorial_InitialSetting_03.png */,
+				0691F5B721B51FEF00977383 /* iOS_Tutorial_InitialSetting_04.png */,
+				0691F5BA21B51FF000977383 /* iOS_Tutorial_StartScreenSharing_01.png */,
+				0691F5B821B51FEF00977383 /* iOS_Tutorial_StartScreenSharing_02.png */,
+				0691F5BD21B51FF000977383 /* iOS_Tutorial_StartScreenSharing_03.png */,
+				0691F5C021B51FF000977383 /* iOS_Tutorial_StopScreenSharing1_01.png */,
+				0691F5BB21B51FF000977383 /* iOS_Tutorial_StopScreenSharing1_02.png */,
+				0691F5B521B51FEF00977383 /* iOS_Tutorial_StopScreenSharing2_01.png */,
+				0691F5BC21B51FF000977383 /* iOS_Tutorial_StopScreenSharing2_02.png */,
 			);
 			path = Images;
 			sourceTree = "<group>";
@@ -595,7 +630,7 @@
 		0660D29F2119372600C1E2F2 /* LicenseFile */ = {
 			isa = PBXGroup;
 			children = (
-				0660D2A02119376300C1E2F2 /* RealVNCServer.vnclicense */,
+				06286FC821EDE70800DE1F8D /* jvck-production-server-e873585a-d2ce-441d-b409-3a6c90da8f3a.vnclicense */,
 			);
 			path = LicenseFile;
 			sourceTree = "<group>";
@@ -719,7 +754,7 @@
 		069C50C92118535D0087CF1B /* VncServer */ = {
 			isa = PBXGroup;
 			children = (
-				060736E821902AEE000CDE19 /* Localize */,
+				06D2743721B6738500ECA1B2 /* Debug */,
 				06160C24211D546B00025357 /* VncServer.entitlements */,
 				069C51002118544B0087CF1B /* ViewControllers */,
 				069C51122118553E0087CF1B /* Views */,
@@ -833,8 +868,9 @@
 			isa = PBXGroup;
 			children = (
 				069C512B2118588D0087CF1B /* open_source_license.html */,
-				0603578721A3F82900390539 /* application_overview.html */,
-				0603579421A3F84100390539 /* terms_of_service.html */,
+				0682257421CB1FE4008D535E /* application_overview.html */,
+				0682258021CB1FFD008D535E /* terms_of_service.html */,
+				0682255921CB1F63008D535E /* Localizable.strings */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -856,6 +892,14 @@
 				06DFF9F12137F0C1009AA24A /* AppGroupsManager.swift */,
 			);
 			path = SharedSetting;
+			sourceTree = "<group>";
+		};
+		06D2743721B6738500ECA1B2 /* Debug */ = {
+			isa = PBXGroup;
+			children = (
+				06D2743821B673BE00ECA1B2 /* VNCServerErrorString.swift */,
+			);
+			path = Debug;
 			sourceTree = "<group>";
 		};
 		06DFF9F32137FE3D009AA24A /* Debug */ = {
@@ -941,6 +985,8 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0660D4422119B0B400C1E2F2 /* Build configuration list for PBXNativeTarget "BroadcastServer" */;
 			buildPhases = (
+				0660D4632119B59C00C1E2F2 /* Swift Format */,
+				0660D4642119B5B800C1E2F2 /* Swift Lint */,
 				0660D4352119B0B400C1E2F2 /* Sources */,
 				0660D4362119B0B400C1E2F2 /* Frameworks */,
 				0660D4372119B0B400C1E2F2 /* Resources */,
@@ -958,6 +1004,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 069C50EF2118535E0087CF1B /* Build configuration list for PBXNativeTarget "VncServer" */;
 			buildPhases = (
+				0660D35C211976BF00C1E2F2 /* Swift Format */,
+				0660D35D211976F300C1E2F2 /* Swift Lint */,
+				06B7A81C212BF3DE00C83F11 /* iTunes sharing Setting */,
 				069C50C32118535D0087CF1B /* Sources */,
 				069C50C42118535D0087CF1B /* Frameworks */,
 				069C50C52118535D0087CF1B /* Resources */,
@@ -1044,6 +1093,15 @@
 			knownRegions = (
 				en,
 				Base,
+				"zh-Hans",
+				"zh-Hant",
+				es,
+				"pt-PT",
+				ar,
+				th,
+				id,
+				ms,
+				fr,
 			);
 			mainGroup = 069C50BE2118535D0087CF1B;
 			productRefGroup = 069C50C82118535D0087CF1B /* Products */;
@@ -1080,8 +1138,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				06160C26211D6EFE00025357 /* RealVNCServer.vnclicense in Resources */,
-				060736F4219032C0000CDE19 /* Localizable.strings in Resources */,
+				06286FCA21EDE7F600DE1F8D /* jvck-production-server-e873585a-d2ce-441d-b409-3a6c90da8f3a.vnclicense in Resources */,
+				06F825CD21CB7241009CA193 /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1089,34 +1147,34 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0655842E21A543E400E40FF2 /* Localizable.strings in Resources */,
-				060D7098216DC13E002C3C9B /* Stop1_02.png in Resources */,
-				060D70A2216DC7FE002C3C9B /* Stop2_01.png in Resources */,
-				060D70A3216DC7FE002C3C9B /* Stop2_02.png in Resources */,
+				0691F5C221B51FF000977383 /* iOS_Tutorial_StopScreenSharing2_01.png in Resources */,
 				06FCDC4521745C3900E2CF6A /* LoadingView.xib in Resources */,
-				060D70A5216DC976002C3C9B /* Start01.png in Resources */,
+				0691F5C921B51FF000977383 /* iOS_Tutorial_StopScreenSharing2_02.png in Resources */,
 				069C512F2118588D0087CF1B /* open_source_license.html in Resources */,
-				060D709F216DC5E4002C3C9B /* Stop1_01.png in Resources */,
+				0691F5CA21B51FF000977383 /* iOS_Tutorial_StartScreenSharing_03.png in Resources */,
+				0691F5CC21B51FF000977383 /* iOS_Tutorial_InitialSetting_02.png in Resources */,
+				0691F5CE21B51FF000977383 /* iOS_Tutorial_BluetoothParing_02_02.png in Resources */,
+				0682257E21CB1FFD008D535E /* terms_of_service.html in Resources */,
+				0691F5C621B51FF000977383 /* iOS_Tutorial_BluetoothParing_02_01.png in Resources */,
+				0691F5C321B51FF000977383 /* iOS_Tutorial_InitialSetting_01.png in Resources */,
+				0691F5CD21B51FF000977383 /* iOS_Tutorial_StopScreenSharing1_01.png in Resources */,
+				0691F5C521B51FF000977383 /* iOS_Tutorial_StartScreenSharing_02.png in Resources */,
 				06DFF9F72137FEA2009AA24A /* ProtocolStringTableViewController.storyboard in Resources */,
-				060D708F216DB998002C3C9B /* Setting04.png in Resources */,
 				06213A412164AAE800D6D5A0 /* PageManagerViewController.storyboard in Resources */,
-				060D708E216DB998002C3C9B /* Setting02.png in Resources */,
 				069C50D52118535D0087CF1B /* LaunchScreen.storyboard in Resources */,
 				06E087502191552300B3352B /* UserAgreement.storyboard in Resources */,
-				060D707C216DB903002C3C9B /* Start03.png in Resources */,
-				06160C25211D6EFD00025357 /* RealVNCServer.vnclicense in Resources */,
 				06213A472164AB5E00D6D5A0 /* PageContentViewController.storyboard in Resources */,
+				0691F5C421B51FF000977383 /* iOS_Tutorial_InitialSetting_04.png in Resources */,
 				069C50D22118535D0087CF1B /* Assets.xcassets in Resources */,
 				069C50D02118535D0087CF1B /* Main.storyboard in Resources */,
-				060D7091216DBB40002C3C9B /* Setting05.png in Resources */,
 				06EA6AD121893AB4002CBA31 /* FrameRateTableView.storyboard in Resources */,
-				0603579221A3F84100390539 /* terms_of_service.html in Resources */,
-				060D708B216DB998002C3C9B /* Setting03.png in Resources */,
+				0682255721CB1F63008D535E /* Localizable.strings in Resources */,
 				06213A3A2164844B00D6D5A0 /* ManualPageTopViewController.storyboard in Resources */,
-				0603578521A3F82900390539 /* application_overview.html in Resources */,
-				060D707B216DB903002C3C9B /* Start04.png in Resources */,
-				060D708C216DB998002C3C9B /* Setting01.png in Resources */,
-				060D707D216DB903002C3C9B /* Start02.png in Resources */,
+				0691F5CB21B51FF000977383 /* iOS_Tutorial_InitialSetting_03.png in Resources */,
+				0682257221CB1FE4008D535E /* application_overview.html in Resources */,
+				0691F5C721B51FF000977383 /* iOS_Tutorial_StartScreenSharing_01.png in Resources */,
+				0691F60521B5379D00977383 /* PageContentHUViewController.storyboard in Resources */,
+				0691F5C821B51FF000977383 /* iOS_Tutorial_StopScreenSharing1_02.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1135,6 +1193,79 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0660D35C211976BF00C1E2F2 /* Swift Format */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Swift Format";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "#\"${PROJECT_DIR}/BuildTools/SwiftFormat/CommandLineTool/swiftformat\" . --exclude Carthage,Pods --trimwhitespace nonblank-lines --stripunusedargs closure-only --disable strongOutlets,trailingCommas\n";
+		};
+		0660D35D211976F300C1E2F2 /* Swift Lint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Swift Lint";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "#if which \"${PROJECT_DIR}/BuildTools/SwiftLint/swiftlint\" >/dev/null; then\n#swiftlint\n#else\n#echo \"SwiftLint does not exist, download from https://github.com/realm/SwiftLint\"\n#fi\n";
+		};
+		0660D4632119B59C00C1E2F2 /* Swift Format */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Swift Format";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "#\"${PROJECT_DIR}/BuildTools/SwiftFormat/CommandLineTool/swiftformat\" . --exclude Carthage,Pods --trimwhitespace nonblank-lines --stripunusedargs closure-only --disable strongOutlets,trailingCommas\n";
+		};
+		0660D4642119B5B800C1E2F2 /* Swift Lint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Swift Lint";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "#if which \"${PROJECT_DIR}/BuildTools/SwiftLint/swiftlint\" >/dev/null; then\n#swiftlint\n#else\n#echo \"SwiftLint does not exist, download from https://github.com/realm/SwiftLint\"\n#fi\n";
+		};
+		06B7A81C212BF3DE00C83F11 /* iTunes sharing Setting */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "iTunes sharing Setting";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# plutilでdictの中の値を更新する方法が不明だったので、remove and insertで対応しました。\n#plutil=\"/usr/bin/plutil\"\n#infoPlistFileDestination=\"${TEMP_DIR}/Preprocessed-Info.plist\"\n\n# リリース向け以外は、iTunesファイル共有をON(true/YES)にする！！！\n#if [ ${CONFIGURATION} != \"Release\" ]; then\n#$plutil -replace 'UIFileSharingEnabled' -xml '<true/>' $infoPlistFileDestination\n#fi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		0660D23221191C7100C1E2F2 /* Sources */ = {
@@ -1182,13 +1313,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				069B2C7621B4D205008581B3 /* BroadcastVNCServerSettingExtention.swift in Sources */,
 				0660D43D2119B0B400C1E2F2 /* SampleHandler.swift in Sources */,
 				0660D4542119B12400C1E2F2 /* LicenseLoader.swift in Sources */,
 				0660D4552119B12400C1E2F2 /* VncLicenseEncryptionConst.swift in Sources */,
-				063ED7BD212D072E00B2A864 /* VNCServerErrorString.swift in Sources */,
-				06160C19211D32A500025357 /* BroadcastVNCServerSettingExtention.swift in Sources */,
 				0660D4582119B12B00C1E2F2 /* AESUtility.swift in Sources */,
 				0660D45F2119B1AB00C1E2F2 /* BroadcastVNCServer.swift in Sources */,
+				069B2C7721B4D205008581B3 /* VNCServerErrorString.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1208,15 +1339,20 @@
 				06213A432164AB3500D6D5A0 /* PageViewController.swift in Sources */,
 				069C510C2118544B0087CF1B /* BaseWebViewController.swift in Sources */,
 				06213A392164844B00D6D5A0 /* ManualPageTopViewController.swift in Sources */,
+				06D2743621B6667300ECA1B2 /* ManualPageInfo.swift in Sources */,
 				061A281A212F862000F02E65 /* ScreenCaptureObserver.swift in Sources */,
 				0660D48A2119C2AC00C1E2F2 /* AESUtility.swift in Sources */,
 				069C50CB2118535D0087CF1B /* AppDelegate.swift in Sources */,
+				0637786E21EDC7B6000A28FD /* DescriptionLabel.swift in Sources */,
 				0660D4892119C2AA00C1E2F2 /* VncLicenseEncryptionConst.swift in Sources */,
 				069C510D2118544B0087CF1B /* AboutAppTableViewController.swift in Sources */,
 				0660D4882119C2A600C1E2F2 /* LicenseLoader.swift in Sources */,
 				069E98A3211C145F00C9F3F6 /* BaseViewController.swift in Sources */,
 				06DFF9F52137FE5D009AA24A /* ProtocolStringTableViewController.swift in Sources */,
 				06F8F9DA212ED3DE006CA51C /* RealVncSdkUtility.swift in Sources */,
+				06D2743421B6666500ECA1B2 /* HUPageContentViewController.swift in Sources */,
+				06D2743221B6665200ECA1B2 /* HUManualPageInfo.swift in Sources */,
+				06D2743921B673BE00ECA1B2 /* VNCServerErrorString.swift in Sources */,
 				06E087512191552300B3352B /* UserAgreementViewController.swift in Sources */,
 				069C510A2118544B0087CF1B /* AppOverviewViewController.swift in Sources */,
 				069C510B2118544B0087CF1B /* BaseSafariViewController.swift in Sources */,
@@ -1270,28 +1406,55 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		0603578721A3F82900390539 /* application_overview.html */ = {
+		0682255921CB1F63008D535E /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				0603578621A3F82900390539 /* en */,
+				0682255821CB1F63008D535E /* en */,
+				0682255A21CB1F67008D535E /* zh-Hans */,
+				0682255B21CB1F6A008D535E /* zh-Hant */,
+				0682255C21CB1F6D008D535E /* es */,
+				0682255D21CB1F6F008D535E /* pt-PT */,
+				0682255E21CB1F70008D535E /* ar */,
+				0682255F21CB1F72008D535E /* th */,
+				0682256021CB1F74008D535E /* id */,
+				0682256121CB1F75008D535E /* ms */,
+				0682256221CB1F77008D535E /* fr */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		0682257421CB1FE4008D535E /* application_overview.html */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0682257321CB1FE4008D535E /* en */,
+				0682257521CB1FE7008D535E /* zh-Hans */,
+				0682257621CB1FE8008D535E /* zh-Hant */,
+				0682257721CB1FEA008D535E /* es */,
+				0682257821CB1FED008D535E /* pt-PT */,
+				0682257921CB1FEF008D535E /* ar */,
+				0682257A21CB1FF0008D535E /* th */,
+				0682257B21CB1FF2008D535E /* id */,
+				0682257C21CB1FF4008D535E /* ms */,
+				0682257D21CB1FF6008D535E /* fr */,
 			);
 			name = application_overview.html;
 			sourceTree = "<group>";
 		};
-		0603579421A3F84100390539 /* terms_of_service.html */ = {
+		0682258021CB1FFD008D535E /* terms_of_service.html */ = {
 			isa = PBXVariantGroup;
 			children = (
-				0603579321A3F84100390539 /* en */,
+				0682257F21CB1FFD008D535E /* en */,
+				0682258121CB1FFF008D535E /* zh-Hans */,
+				0682258221CB2001008D535E /* zh-Hant */,
+				0682258321CB2003008D535E /* es */,
+				0682258421CB2005008D535E /* ar */,
+				0682258521CB2006008D535E /* pt-PT */,
+				0682258621CB2008008D535E /* th */,
+				0682258721CB200A008D535E /* id */,
+				0682258821CB200C008D535E /* ms */,
+				0682258921CB200D008D535E /* fr */,
 			);
 			name = terms_of_service.html;
-			sourceTree = "<group>";
-		};
-		060736E621902A3D000CDE19 /* Localizable.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				060736E521902A3D000CDE19 /* en */,
-			);
-			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 		069C50CE2118535D0087CF1B /* Main.storyboard */ = {
@@ -1377,7 +1540,7 @@
 				CLANG_WARN_DOCUMENTATION_COMMENTS = NO;
 				CODE_SIGN_ENTITLEMENTS = VncServer/VncServer.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = H4BX256Q5G;
+				DEVELOPMENT_TEAM = CNSGP427AZ;
 				ENABLE_BITCODE = NO;
 				GCC_PREFIX_HEADER = "";
 				HEADER_SEARCH_PATHS = (
@@ -1396,7 +1559,7 @@
 					"$(PROJECT_DIR)/SDK/libs",
 					"$(PROJECT_DIR)/SDK/Bearers/libs",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.jvckenwood.ce.kleasylink;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.jvckenwood-eng.product.kleasylink";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "VncServer/VncServer-Bridging-Header.h";
 				SWIFT_VERSION = 4.2;
@@ -1410,7 +1573,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = BroadcastServer/BroadcastServer.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = H4BX256Q5G;
+				DEVELOPMENT_TEAM = CNSGP427AZ;
 				ENABLE_BITCODE = NO;
 				HEADER_SEARCH_PATHS = (
 					"$(SRCROOT)/SDK/Bearers",
@@ -1428,7 +1591,7 @@
 					"$(PROJECT_DIR)/SDK/Bearers/libs",
 					"$(PROJECT_DIR)/SDK/libs",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.jvckenwood.ce.kleasylink.broadcastserver;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.jvckenwood-eng.product.kleasylink.broadcastserver";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "BroadcastServer/BroadcastServer-Bridging-Header.h";
@@ -1628,7 +1791,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = BroadcastServer/BroadcastServer.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = H4BX256Q5G;
+				DEVELOPMENT_TEAM = CNSGP427AZ;
 				ENABLE_BITCODE = NO;
 				HEADER_SEARCH_PATHS = (
 					"$(SRCROOT)/SDK/Bearers",
@@ -1646,7 +1809,7 @@
 					"$(PROJECT_DIR)/SDK/Bearers/libs",
 					"$(PROJECT_DIR)/SDK/libs",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.jvckenwood.ce.kleasylink.broadcastserver;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.jvckenwood-eng.product.kleasylink.broadcastserver";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "BroadcastServer/BroadcastServer-Bridging-Header.h";
@@ -1662,7 +1825,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = BroadcastServer/BroadcastServer.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = H4BX256Q5G;
+				DEVELOPMENT_TEAM = CNSGP427AZ;
 				ENABLE_BITCODE = NO;
 				HEADER_SEARCH_PATHS = (
 					"$(SRCROOT)/SDK/Bearers",
@@ -1680,7 +1843,7 @@
 					"$(PROJECT_DIR)/SDK/Bearers/libs",
 					"$(PROJECT_DIR)/SDK/libs",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.jvckenwood.ce.kleasylink.broadcastserver;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.jvckenwood-eng.product.kleasylink.broadcastserver";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "BroadcastServer/BroadcastServer-Bridging-Header.h";
@@ -1813,7 +1976,7 @@
 				CLANG_WARN_DOCUMENTATION_COMMENTS = NO;
 				CODE_SIGN_ENTITLEMENTS = VncServer/VncServer.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = H4BX256Q5G;
+				DEVELOPMENT_TEAM = CNSGP427AZ;
 				ENABLE_BITCODE = NO;
 				GCC_PREFIX_HEADER = "";
 				HEADER_SEARCH_PATHS = (
@@ -1832,7 +1995,7 @@
 					"$(PROJECT_DIR)/SDK/libs",
 					"$(PROJECT_DIR)/SDK/Bearers/libs",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.jvckenwood.ce.kleasylink;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.jvckenwood-eng.product.kleasylink";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "VncServer/VncServer-Bridging-Header.h";
 				SWIFT_VERSION = 4.2;
@@ -1848,7 +2011,7 @@
 				CLANG_WARN_DOCUMENTATION_COMMENTS = NO;
 				CODE_SIGN_ENTITLEMENTS = VncServer/VncServer.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = H4BX256Q5G;
+				DEVELOPMENT_TEAM = CNSGP427AZ;
 				ENABLE_BITCODE = NO;
 				GCC_PREFIX_HEADER = "";
 				HEADER_SEARCH_PATHS = (
@@ -1867,7 +2030,7 @@
 					"$(PROJECT_DIR)/SDK/libs",
 					"$(PROJECT_DIR)/SDK/Bearers/libs",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.jvckenwood.ce.kleasylink;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.jvckenwood-eng.product.kleasylink";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "VncServer/VncServer-Bridging-Header.h";
 				SWIFT_VERSION = 4.2;

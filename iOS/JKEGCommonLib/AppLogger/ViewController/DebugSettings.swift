@@ -65,7 +65,7 @@ public class DebugSettingInfo: NSObject, NSCoding {
     }
     
     /// アカウント名
-    public var accountName: String = "板垣勇次"
+    public var accountName: String = "Yuji Itagaki"
     
     /// メールアドレス
     public var accountAddress: String = "itagaki.yuji@jvckenwood.com"

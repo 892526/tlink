@@ -12,24 +12,26 @@ import UIKit
 class PageContentViewController: UIViewController {
     @IBOutlet weak var labelTitle: UILabel!
     @IBOutlet weak var imageView: UIImageView!
-    @IBOutlet weak var labelSescription: UILabel!
     @IBOutlet weak var viewCentering: UIView!
     
-    // @IBOutlet weak var contentView: PageContentView!
-    
-    private var pageIndex: Int = 0
-    private var pageTitle: String = ""
-    private var pageDescription: String = ""
-    private var pageImageName: String = ""
+    var pageIndex: Int = 0
+    var manualPageInfo: ManualPageInfo?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
         
-        labelTitle.text = pageTitle
-        labelSescription.text = pageDescription
-        imageView.image = getImage(pageImageName)
+        if manualPageInfo?.pageType() == ManualPageInfo.ManualPageType.normal {
+            if let info = manualPageInfo {
+                labelTitle.text = info.message
+                imageView.image = getImage(info.imageName)
+            } else {
+                labelTitle.text = ""
+                imageView.image = nil
+            }
+        }
+        
         view.layer.backgroundColor = UIColor.clear.cgColor
     }
     
@@ -68,7 +70,7 @@ class PageContentViewController: UIViewController {
     
     // MARK: - private methods
     
-    private func getImage(_ named: String) -> UIImage {
+    func getImage(_ named: String) -> UIImage {
         if let image = UIImage(named: named) {
             return image
         }
@@ -83,10 +85,17 @@ class PageContentViewController: UIViewController {
     
     // MARK: - public methods
     
-    public func setup(index: Int, title: String, description: String, imageName: String) {
+    /// セットアップする
+    ///
+    /// - Parameter pageInfo: ページ情報
+    
+    /// セットアップする
+    ///
+    /// - Parameters:
+    ///   - index: ページインデックス
+    ///   - pageInfo: ページ情報
+    public func setup(index: Int, pageInfo: ManualPageInfo) {
         pageIndex = index
-        pageTitle = title
-        pageDescription = description
-        pageImageName = imageName
+        manualPageInfo = pageInfo
     }
 }

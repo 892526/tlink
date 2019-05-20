@@ -14,6 +14,8 @@ class PageViewController: UIPageViewController, UIPageViewControllerDelegate, UI
     var manualViewController: PageContentViewController?
     var pageViewControllers: [PageContentViewController]?
     
+    var manualPageInfos: [ManualPageInfo]?
+    
     /// ページタイトル
     public var pageTitles: [String]?
     
@@ -183,37 +185,29 @@ class PageViewController: UIPageViewController, UIPageViewControllerDelegate, UI
         return storyboard.instantiateInitialViewController() as! PageContentViewController
     }
     
-    /// ページ（ビューコントローラー）作成する
+    /// 全ページビルドする。
     ///
-    /// - Parameter index: ページインデックス番号
-    /// - Returns: ビューコントローラー
-    private func createPage(_ index: Int) -> PageContentViewController? {
-        // 1ページ分のビューコントローラ作成
-        let viewController = loadViewControllerForName("PageContentViewController")
-        
-        // ビューコントローラをセットアップする
-        viewController.setup(index: index, title: pageTitles![index], description: pageDescriptions![index], imageName: pageImageNames![index])
-        viewController.view.setNeedsUpdateConstraints()
-        return viewController
-    }
-    
-    /// 全ページ作成する
-    ///
-    /// - Parameters:
-    ///   - titles: タイトル
-    ///   - descriptions: 説明分
-    ///   - imageNames: 画像ファイル名
-    private func buildPages(titles: [String], descriptions: [String], imageNames: [String]) {
+    /// - Parameter manualPageInfos: ページ情報リスト
+    private func buildPages(_ manualPageInfos: [ManualPageInfo]) {
         // ビューコントローラー配列初期化
         pageViewControllers = []
         
         // ページ数分作成
-        for index in 0 ..< titles.count {
+        for index in 0 ..< manualPageInfos.count {
+            // ページ情報取得
+            let pageInfo = manualPageInfos[index]
+            
+            // ページ種別からロードするストリーボードを選択する
+            var resourceName = "PageContentViewController"
+            if pageInfo.pageType() == ManualPageInfo.ManualPageType.headUnit {
+                resourceName = "PageContentHUViewController"
+            }
+            
             // 1ページ分のビューコントローラ作成
-            let viewController = loadViewControllerForName("PageContentViewController")
+            let viewController = loadViewControllerForName(resourceName)
             
             // ビューコントローラをセットアップする
-            viewController.setup(index: index, title: titles[index], description: pageDescriptions![index], imageName: pageImageNames![index])
+            viewController.setup(index: index, pageInfo: pageInfo)
             
             // リストにう追加
             pageViewControllers?.append(viewController)
@@ -225,48 +219,27 @@ class PageViewController: UIPageViewController, UIPageViewControllerDelegate, UI
     /// セットアップする。
     ///
     /// - Parameters:
-    ///   - titles: ページタイトル
-    ///   - descriptions: 説明文
-    ///   - imageNames: 画像ファイル名
+    ///   - manualPageInfos: マニュアルページ情報リスト
     ///   - indexChanged: インデックス変更通知メソッド
-    public func setup(titles: [String], descriptions: [String], imageNames: [String], indexChanged: @escaping (Int) -> Void) {
+    public func setup(manualPageInfos: [ManualPageInfo], indexChanged: @escaping (Int) -> Void) {
         // インデックス変更通知ハンドラ保持
         indexChangedHandler = indexChanged
         
-        // ページ情報保持
-        pageTitles = titles
-        pageDescriptions = descriptions
-        pageImageNames = imageNames
+        // ページ情報リスト
+        self.manualPageInfos = manualPageInfos
         
-        // 　ページ再構築
-        buildPages(titles: titles, descriptions: pageDescriptions!, imageNames: pageImageNames!)
-        
-        /*
-         // ビューコントローラー配列初期化
-         pageViewControllers = []
-         
-         // ページ数分作成
-         for index in 0 ..< titles.count {
-         // 1ページ分のビューコントローラ作成
-         let viewController = loadViewControllerForName("PageContentViewController")
-         
-         // ビューコントローラをセットアップする
-         viewController.setup(index: index, title: titles[index], description: descriptions[index], imageName: imageNames[index])
-         
-         // リストにう追加
-         pageViewControllers?.append(viewController)
-         }
-         */
+        // 　ページ構築
+        buildPages(manualPageInfos)
     }
     
     /// ページ再構築
     public func rebuildPage() {
-        if let titles = pageTitles {
+        if let infos = manualPageInfos {
             // 現在表示中のインデックス番号
             let nowIndex = currentIndex
             
             // 　ページ再構築
-            buildPages(titles: titles, descriptions: pageDescriptions!, imageNames: pageImageNames!)
+            buildPages(infos)
             
             // カレントビューをセット
             let viewController = pageViewControllers![nowIndex]

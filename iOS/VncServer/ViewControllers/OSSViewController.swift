@@ -16,7 +16,7 @@ class OSSViewController: BaseWebViewController {
         
         // オープンソースライセンス
         // タイトルヘッダービュー
-        setupTitleView(Localize.localizedString("SS_01_005"))
+        setupTitleView(Localize.localizedString("TID_5228"))
         
         // HTMLファイルロードする
         let filePath = Bundle.main.path(forResource: "open_source_license", ofType: "html")

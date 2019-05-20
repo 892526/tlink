@@ -80,9 +80,11 @@ class SampleHandler: RPBroadcastSampleHandler {
     private func showNotificationForNotAgreeMessage() {
         AppLogger.debug()
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.25, execute: {
+            // let message = Localize.localizedString("TID_5140") + "\n" + Localize.localizedString("TID_5141")
+            
             // "利用規約に同意されていません。"/"ブロードキャストを停止し、T-Linkアプリを起動して利用規約に同意して下さい。"
             LocalNotification.show(requestIdentifier: VNCServerLocalNotifiction.requestIdentifier, timeInterval: 0.25,
-                                   title: Localize.localizedString("SS_02_004"), body: Localize.localizedString("SS_02_005"), userInfo: nil, completionHandler: nil)
+                                   title: Localize.localizedString("TID_5140"), body: Localize.localizedString("TID_5141"), userInfo: nil, completionHandler: nil)
             
             // 監視タイマー
             self.startUpdateTimer()

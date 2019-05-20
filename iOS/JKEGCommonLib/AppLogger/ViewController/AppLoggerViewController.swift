@@ -40,10 +40,10 @@ public class AppLoggerViewController: UIViewController, WKUIDelegate, WKNavigati
     private var currentLogData: Data = Data()
     
     /// E-Mailの件名
-    private var textEMailSubject: String = "iOS Appログファイル"
+    private var textEMailSubject: String = "iOS App Log File"
     
     /// E-Mailのメッセージ
-    private var textEMailMessageBody: String = "iOSアプリの動作ログファイルです。"
+    private var textEMailMessageBody: String = "iOS App Log File"
     
     private let appExtentionLogFileNameFormat = "LOG_BroadcastServer_%@.txt"
     
@@ -112,9 +112,9 @@ public class AppLoggerViewController: UIViewController, WKUIDelegate, WKNavigati
     /// - Parameter sender: 送信元
     @IBAction func tappedLogClear(_: Any) {
         // ActionSheet作成
-        let alertController = UIAlertController(title: "ログクリア", message: "ログをどのようにしますか？", preferredStyle: UIAlertController.Style.actionSheet)
+        let alertController = UIAlertController(title: "Clear Log", message: "How do you log?", preferredStyle: UIAlertController.Style.actionSheet)
         
-        alertController.addAction(UIAlertAction(title: "現在のログをクリアする", style: UIAlertAction.Style.destructive, handler: { _ in
+        alertController.addAction(UIAlertAction(title: "Clear the current log.", style: UIAlertAction.Style.destructive, handler: { _ in
             
             if self.logDataType == .appLogger {
                 // ログをクリアする
@@ -128,13 +128,13 @@ public class AppLoggerViewController: UIViewController, WKUIDelegate, WKNavigati
             // 表示更新
             self.updateDisplay()
         }))
-        alertController.addAction(UIAlertAction(title: "保存ログをすべて削除する", style: UIAlertAction.Style.default, handler: { _ in
+        alertController.addAction(UIAlertAction(title: "Delete all saved logs.", style: UIAlertAction.Style.default, handler: { _ in
             
             // 保存しているすべてのログを削除する
             self.logger?.clearSaveLogFiles()
             
             // Alertメッセージ表示
-            AlertMessageUtility.show(owner: self, title: self.textTitle, message: "ログファイルを削除しました。", type: .typeOk, completion: { selectedButtonType in
+            AlertMessageUtility.show(owner: self, title: self.textTitle, message: "The log file was deleted.", type: .typeOk, completion: { selectedButtonType in
                 
                 switch selectedButtonType {
                 case .typeOk:
@@ -144,16 +144,16 @@ public class AppLoggerViewController: UIViewController, WKUIDelegate, WKNavigati
                 }
             })
         }))
-        alertController.addAction(UIAlertAction(title: "キャンセル", style: UIAlertAction.Style.cancel, handler: nil))
+        alertController.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: nil))
         
         // ActionSheet表示
         present(alertController, animated: true, completion: nil)
     }
     
-    private let messageAppLoggerNoInstance = "AppLoggerインスタンスエラー"
-    private let messageSaveLogSuccess = "ログファイルを保存しました。\n保存ファイルは、iTunesのファイル共有で取得できます。"
-    private let messageSaveLogFailed = "ログファイルの保存に失敗しました。"
-    private let messageSaveLogNoData = "ログデータがありません。"
+    private let messageAppLoggerNoInstance = "AppLogger Instance Error"
+    private let messageSaveLogSuccess = "Log file saved.\nSave file can be earned on iTunes file sharing."
+    private let messageSaveLogFailed = "Failed to save log."
+    private let messageSaveLogNoData = "No log data."
     
     /// ログ保存ボタンをタップしたとき
     ///
@@ -203,7 +203,7 @@ public class AppLoggerViewController: UIViewController, WKUIDelegate, WKNavigati
     @IBAction func tappedEmail(_: Any) {
         if !setupEMail() {
             // エラーメッセージ表示
-            AlertMessageUtility.show(owner: self, title: "ERROR", message: "E−mailの初期化に失敗しました。", type: .typeOk, completion: nil)
+            AlertMessageUtility.show(owner: self, title: "ERROR", message: "Failed to initialize e-mail.", type: .typeOk, completion: nil)
         }
     }
     

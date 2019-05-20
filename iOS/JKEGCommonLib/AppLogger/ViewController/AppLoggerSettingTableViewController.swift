@@ -26,7 +26,7 @@ public class AppLoggerSettingTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
         
-        title = "ログ設定"
+        title = "Log Setting"
         
         // 設定セル更新
         if let setting = DebugSettings.loadSetting() {
@@ -69,13 +69,13 @@ public class AppLoggerSettingTableViewController: UITableViewController {
         tableView.deselectRow(at: indexPath, animated: true)
         
         if indexPath.section == JKLoggerSettingType.destinationAccount.rawValue {
-            AlertMessageUtility.showInputView(owner: self, title: "アカウント設定", message: "メール送信先のアカウント(名前、メールアドレス)を設定してください。",
-                                              placeholders: ["名前", "メールアドレス"]) { inputValues in
+            AlertMessageUtility.showInputView(owner: self, title: "Account Setting", message: "Please set the destination account (name, mail address) by e-mail.",
+                                              placeholders: ["Name", "Mail Address"]) { inputValues in
                 print("\(inputValues[0]), \(inputValues[1])")
                 
                 if inputValues[0].isEmpty || inputValues[1].isEmpty {
                     DispatchQueue.main.async {
-                        AlertMessageUtility.show(owner: self, title: "エラー", message: "名前、またはメールアドレスが入力されていません。",
+                        AlertMessageUtility.show(owner: self, title: "ERROR", message: "Your name or email address has not been entered.",
                                                  type: AlertMessageUtility.AlertMessageUtilityType.typeOk, completion: nil)
                     }
                     
@@ -87,7 +87,7 @@ public class AppLoggerSettingTableViewController: UITableViewController {
                 }
             }
         } else if indexPath.section == JKLoggerSettingType.resetSettings.rawValue {
-            AlertMessageUtility.show(owner: self, title: "確認", message: "デバッグ設定を初期化しますか？", type: .typeCancelOk) { selectedButtonType in
+            AlertMessageUtility.show(owner: self, title: "Comfirmation", message: "Intialize the debug setting.\nIs it OK?", type: .typeCancelOk) { selectedButtonType in
                 if selectedButtonType == AlertMessageUtility.AlertMessageUtilityButtonType.typeOk {
                     let settings = DebugSettingInfo()
                     if DebugSettings.saveSetting(info: settings) {

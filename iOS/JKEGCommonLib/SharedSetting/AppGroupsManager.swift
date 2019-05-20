@@ -10,16 +10,16 @@ import Foundation
 
 /// ファイル共有アクセスクラス
 public class AppGroupsManager: NSObject {
-    // #warning("TODO: AppStore用は、本番用バンドルID、プロトコルストリングをInfo.plistに設定してください!")
-    // #warning("TODO: AppStore用は、本番用App GroupIDを設定してください!")
+    #warning("TODO: AppStore用は、本番用バンドルID、プロトコルストリングをInfo.plistに設定してください!")
+    #warning("TODO: AppStore用は、本番用App GroupIDを設定してください!")
     
     /// ファイル共有アクセス名(App Groupd ID)
     
     /// 開発用App Group ID
-    // public static let groupID = "group.com.jvckenwood-eng.product.kleasylink"
+    public static let groupID = "group.com.jvckenwood-eng.product.kleasylink"
     
     /// 本番用App Grroup ID
-    public static let groupID = "group.com.jvckenwood.ce.kleasylink"
+    // public static let groupID = "group.com.jvckenwood.ce.kleasylink"
     
     /// 初期化済みかどうか
     static let intializeState = "SHARED_USER_DEFAULTS_KEY_INITIALIZED"
@@ -40,6 +40,9 @@ public class AppGroupsManager: NSObject {
     /// 利用規約許諾状態
     static let userAgreementState = "SHARED_USER_DEFAULTS_KEY_USER_AGREEMENT_STATE"
     
+    /// エラーメッセージデバッグ
+    static let errorMessageDebug = "SHARED_USER_DEFAULTS_KEY_ERROR_MESSAGE_DEBUG"
+    
     /// 同期する
     public class func synchronize() {
         if let userDefaults = UserDefaults(suiteName: groupID) {
@@ -52,9 +55,11 @@ public class AppGroupsManager: NSObject {
         AppGroupsManager.saveConnectionState(false)
         AppGroupsManager.saveConnectionUpdateTime(nil)
         AppGroupsManager.saveErrorInfo(nil)
+        AppGroupsManager.saveUserAgreementState(false)
         
         AppGroupsManager.saveProtocolStringIndex(index: 0) // 本番用優先
         AppGroupsManager.saveFrameRateIndex(index: 0) // 60 fps
+        AppGroupsManager.saveErrorMessageDebug(false) // エラーメッセージデバッグ無効
     }
     
     /// 初期化済みかどうか設定する。
@@ -147,6 +152,25 @@ public class AppGroupsManager: NSObject {
         return nil
     }
     
+    /// 利用規約の許諾状態を取得する。
+    ///
+    /// - Returns: 許諾状態（true: 許諾、false: 未許諾）
+    public class func loadUserAgreementState() -> Bool {
+        if let userDefaults = UserDefaults(suiteName: groupID) {
+            return userDefaults.bool(forKey: userAgreementState)
+        }
+        return false
+    }
+    
+    /// 利用規約の許諾状態を保存する。
+    ///
+    /// - Parameter state: 許諾状態（true: 許諾、false: 未許諾）
+    public class func saveUserAgreementState(_ state: Bool) {
+        if let userDefaults = UserDefaults(suiteName: groupID) {
+            userDefaults.set(state, forKey: userAgreementState)
+        }
+    }
+    
     // MARK: - Debug methods
     
     /// 使用するプロトコルストリングのインデックス番号を取得する
@@ -187,22 +211,22 @@ public class AppGroupsManager: NSObject {
         }
     }
     
-    /// 利用規約の許諾状態を取得する。
+    /// エラーメッセージデバッグ機能の有効/無効を取得する。
     ///
-    /// - Returns: 許諾状態（true: 許諾、false: 未許諾）
-    public class func loadUserAgreementState() -> Bool {
+    /// - Returns: true:有効/false:無効
+    public class func loadErrorMessageDebug() -> Bool {
         if let userDefaults = UserDefaults(suiteName: groupID) {
-            return userDefaults.bool(forKey: userAgreementState)
+            return userDefaults.bool(forKey: errorMessageDebug)
         }
         return false
     }
     
-    /// 利用規約の許諾状態を保存する。
+    /// エラーメッセージデバッグ機能の有効/無効を保存する。
     ///
-    /// - Parameter state: 許諾状態（true: 許諾、false: 未許諾）
-    public class func saveUserAgreementState(state: Bool) {
+    /// - Parameter enabled: true:有効/false:無効
+    public class func saveErrorMessageDebug(_ enabled: Bool) {
         if let userDefaults = UserDefaults(suiteName: groupID) {
-            userDefaults.set(state, forKey: userAgreementState)
+            userDefaults.set(enabled, forKey: errorMessageDebug)
         }
     }
 }

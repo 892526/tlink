@@ -17,9 +17,9 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.0.1</string>
+	<string>1.0.3</string>
 	<key>CFBundleVersion</key>
-	<string>1.0.1</string>
+	<string>1.0.3</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>UIFileSharingEnabled</key>
@@ -35,6 +35,7 @@
 	<key>UISupportedExternalAccessoryProtocols</key>
 	<array>
 		<string>com.jvckenwood.ce.kleasylink</string>
+		<string>com.realvnc.sample.rfb4</string>
 	</array>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>

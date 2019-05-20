@@ -40,154 +40,155 @@ public class VNCServerErrorString {
         
         switch errorCode {
         case VNCServerErrorNone:
-            // Code:0
-            displayString = Localize.localizedString("SS_03_204")
+            // Code:0 この文言は実際に表示しないため、文言ファイルにありません。
+            displayString = "No Error"
         case VNCServerErrorResources:
             // Code:1
-            displayString = Localize.localizedString("SS_03_205")
+            displayString = Localize.localizedString("TID_5136")
         case VNCServerErrorState:
             // Code:2 (Androidと異なります)
-            displayString = Localize.localizedString("SS_03_300")
+            displayString = Localize.localizedString("TID_5158")
         case VNCServerErrorPermissionDenied:
             // Code:3
-            displayString = Localize.localizedString("SS_03_207")
+            displayString = Localize.localizedString("TID_5138")
         case VNCServerErrorNetworkUnreachable:
             // Code:20
-            displayString = Localize.localizedString("SS_03_20")
+            displayString = Localize.localizedString("TID_5139")
         case VNCServerErrorHostUnreachable:
             // Code:21
-            displayString = Localize.localizedString("SS_03_21")
+            displayString = Localize.localizedString("TID_5187")
         case VNCServerErrorConnectionRefused:
             // Code:22
-            displayString = Localize.localizedString("SS_03_22")
+            displayString = Localize.localizedString("TID_5178")
         case VNCServerErrorDNSFailure:
             // Code:23
-            displayString = Localize.localizedString("SS_03_23")
+            displayString = Localize.localizedString("TID_5250")
         case VNCServerErrorAddressInUse:
             // Code:24
-            displayString = Localize.localizedString("SS_03_24")
+            displayString = Localize.localizedString("TID_5143")
         case VNCServerErrorBadPort:
             // Code:25
-            displayString = Localize.localizedString("SS_03_25")
+            displayString = Localize.localizedString("TID_5144")
         case VNCServerErrorDisconnected:
             // Code:26
-            displayString = Localize.localizedString("SS_03_26")
+            displayString = Localize.localizedString("TID_5145")
         case VNCServerErrorConnectionTimedOut:
             // Code:27
-            displayString = Localize.localizedString("SS_03_27")
+            displayString = Localize.localizedString("TID_5146")
         case VNCServerErrorBearerAuthenticationFailed:
             // Code:28 (Androidと異なります)
-            displayString = Localize.localizedString("SS_03_301")
+            displayString = Localize.localizedString("TID_5147")
         case VNCServerErrorUSBNotConnected:
             // Code:30
-            displayString = Localize.localizedString("SS_03_217")
+            displayString = Localize.localizedString("TID_5148")
         case VNCServerErrorUnderlyingLibraryNotFound:
             // Code:31
-            displayString = Localize.localizedString("SS_03_218")
+            displayString = Localize.localizedString("TID_5155")
         case VNCServerErrorBearerConfigurationNotProvided:
             // Code:32 (iOSのみ)
-            displayString = Localize.localizedString("SS_03_302")
+            displayString = Localize.localizedString("TID_5150")
         case VNCServerErrorBearerConfigurationInvalid:
             // Code:33 (iOSのみ)
-            displayString = Localize.localizedString("SS_03_303")
+            displayString = Localize.localizedString("TID_5151")
         case VNCServerErrorBearerLoadFailed:
             // Code:34 (iOSのみ)
-            displayString = Localize.localizedString("SS_03_304")
+            displayString = Localize.localizedString("TID_5134")
         case VNCServerErrorProtocolMismatch:
             // Code:40
-            displayString = Localize.localizedString("SS_03_219")
+            displayString = Localize.localizedString("TID_5160")
         case VNCServerErrorLoginRejected:
             // Code:41
-            displayString = Localize.localizedString("SS_03_220")
+            displayString = Localize.localizedString("TID_5253")
         case VNCServerErrorNotLicensedForViewer:
             // Code:42
-            displayString = Localize.localizedString("SS_03_221")
+            displayString = Localize.localizedString("TID_5252")
         case VNCServerErrorConnectionClosed:
             // Code:43
-            displayString = Localize.localizedString("SS_03_222")
+            displayString = Localize.localizedString("TID_5254")
         case VNCServerErrorInvalidCommandString:
             // Code:44
-            displayString = Localize.localizedString("SS_03_223")
+            displayString = Localize.localizedString("TID_5157")
         case VNCServerErrorUnsupportedAuth:
             // Code:45
-            displayString = Localize.localizedString("SS_03_224")
+            displayString = Localize.localizedString("TID_5154")
         case VNCServerErrorKeyTooBig:
             // Code:46
-            displayString = Localize.localizedString("SS_03_225")
+            displayString = Localize.localizedString("TID_5159")
         case VNCServerErrorBadCrypt:
             // Code:47
-            displayString = Localize.localizedString("SS_03_226")
+            displayString = Localize.localizedString("TID_5255")
         case VNCServerErrorNoEncodings:
             // Code:48
-            displayString = Localize.localizedString("SS_03_227")
+            displayString = Localize.localizedString("TID_5162")
         case VNCServerErrorBadPixelformat:
             // Code:49
-            displayString = Localize.localizedString("SS_03_228")
+            displayString = Localize.localizedString("TID_5256")
         case VNCServerErrorBearerNotFound:
             // Code:50
-            displayString = Localize.localizedString("SS_03_229")
+            displayString = Localize.localizedString("TID_5152")
         case VNCServerErrorSignatureRejected:
             // Code:51
-            displayString = Localize.localizedString("SS_03_230")
+            displayString = Localize.localizedString("TID_5142")
         case VNCServerErrorInsufficientBufferSpace:
             // Code:52
-            displayString = Localize.localizedString("SS_03_231")
+            displayString = Localize.localizedString("TID_5165")
         case VNCServerErrorLicenseNotValid:
             // Code:53
-            displayString = Localize.localizedString("SS_03_232")
+            displayString = Localize.localizedString("TID_5166")
         case VNCServerErrorFeatureNotLicensed:
             // Code:54
-            displayString = Localize.localizedString("SS_03_233")
+            displayString = Localize.localizedString("TID_5167")
         case VNCServerErrorInvalidParameter:
             // Code:60
-            displayString = Localize.localizedString("SS_03_235")
+            displayString = Localize.localizedString("TID_5168")
         case VNCServerErrorKeyGeneration:
             // Code:63
-            displayString = Localize.localizedString("SS_03_238")
+            displayString = Localize.localizedString("TID_5169")
         case VNCServerErrorUnableToStartService:
             // Code:64
-            displayString = Localize.localizedString("SS_03_239")
+            displayString = Localize.localizedString("TID_5170")
         case VNCServerErrorAlreadyExists:
             // Code:65
-            displayString = Localize.localizedString("SS_03_240")
+            displayString = Localize.localizedString("TID_5171")
         case VNCServerErrorTooManyExtensions:
             // Code:66 (iOSのみ)
-            displayString = Localize.localizedString("SS_03_305")
+            displayString = Localize.localizedString("TID_5172")
         case VNCServerErrorReset:
             // Code:67 (iOSのみ)
-            displayString = Localize.localizedString("SS_03_306")
+            displayString = Localize.localizedString("TID_5173")
         case VNCServerErrorDataRelayProtocolError:
             // Code:80
-            displayString = Localize.localizedString("SS_03_241")
+            displayString = Localize.localizedString("TID_5174")
         case VNCServerErrorUnknownDataRelaySessionId:
             // Code:81
-            displayString = Localize.localizedString("SS_03_242")
+            displayString = Localize.localizedString("TID_5259")
         case VNCServerErrorBadChallenge:
             // Code:82
-            displayString = Localize.localizedString("SS_03_243")
+            displayString = Localize.localizedString("TID_5260")
         case VNCServerErrorDataRelayChannelTimeout:
             // Code:83
-            displayString = Localize.localizedString("SS_03_244")
+            displayString = Localize.localizedString("TID_5177")
         case VNCServerErrorUserRefusedConnection:
             // Code:100
-            displayString = Localize.localizedString("SS_03_245")
+            displayString = Localize.localizedString("TID_5156")
         case VNCServerErrorCommandFetchFailed:
             // Code:101
-            displayString = Localize.localizedString("SS_03_246")
+            displayString = Localize.localizedString("TID_5163")
         case VNCServerErrorFailed:
             // Code:102
-            displayString = Localize.localizedString("SS_03_247")
+            displayString = Localize.localizedString("TID_5261")
         case VNCServerErrorNotImplemented:
-            // Code:103
-            displayString = Localize.localizedString("SS_03_307")
+            // Code:103 (Androidと異なる)
+            displayString = Localize.localizedString("TID_5181")
         case VNCServerErrorCommandSuperseded:
             // Code:106
-            displayString = Localize.localizedString("SS_03_251")
+            displayString = Localize.localizedString("TID_5265")
         case VNCServerErrorEnvironment:
             // Code:107
-            displayString = Localize.localizedString("SS_03_252")
+            displayString = Localize.localizedString("TID_5183")
         case VNCServerErrorCaptureFrameBufferNotImplemented:
-            displayString = makeServerErrorString(errorCode: errorCode, name: "VNCServerErrorCaptureFrameBufferNotImplemented")
+            // Code:120
+            displayString = Localize.localizedString("TID_5184")
         default:
             displayString = makeServerErrorString(errorCode: errorCode, name: "Error")
         }

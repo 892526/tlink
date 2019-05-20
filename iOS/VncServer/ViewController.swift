@@ -23,6 +23,7 @@ class ViewController: BaseViewController, UNUserNotificationCenterDelegate {
     
     @IBOutlet weak var buttonShareScreen: UIButton!
     @IBOutlet weak var buttonAboutApp: UIButton!
+    @IBOutlet weak var errorMessageControlView: UIView!
     
     // 最新のエラーメッセージ
     private var latestDisplayMessage: String = String.Empty
@@ -72,10 +73,20 @@ class ViewController: BaseViewController, UNUserNotificationCenterDelegate {
         // アクセサリ通信通知受信開始
         updateProtocolString()
         
+        // アプリ説明文
+        messageLabel.text = Localize.localizedString("TID_5293")
+        messageLabel.adjustsFontSizeToFitWidth = true
+        
         // 本アプリケーションについて
-        buttonAboutApp.setTitle(Localize.localizedString("SS_01_002"), for: .normal)
-        // 画面共有方法
-        buttonShareScreen.setTitle(Localize.localizedString("SS_01_011"), for: .normal)
+        buttonAboutApp.setTitle(Localize.localizedString("TID_5189"), for: .normal)
+        // チュートリアル
+        buttonShareScreen.setTitle(Localize.localizedString("TID_5292"), for: .normal)
+        
+        #if ENABLE_LOG
+            // エラーメッセージデバッグ初期化
+            initErrorMessageDebug()
+            
+        #endif // ENABLE_LOG
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -91,6 +102,10 @@ class ViewController: BaseViewController, UNUserNotificationCenterDelegate {
             // ローカル通知許諾確認ダイアログ表示
             confirmLocalNotificationPermission()
         }
+        
+        #if ENABLE_LOG
+            enableErrorMessageDebugView()
+        #endif // ENABLE_LOG
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -122,7 +137,7 @@ class ViewController: BaseViewController, UNUserNotificationCenterDelegate {
             let userAgreementViewController = segue.source as! UserAgreementViewController
             if userAgreementViewController.agreed {
                 // 同意済みにする
-                AppGroupsManager.saveUserAgreementState(state: true)
+                AppGroupsManager.saveUserAgreementState(true)
                 
                 // ローカル通知許諾確認
                 confirmLocalNotificationPermission()
@@ -241,55 +256,6 @@ class ViewController: BaseViewController, UNUserNotificationCenterDelegate {
                                                name: UIDevice.orientationDidChangeNotification, object: nil)
     }
     
-    /// エラーメッセージを取得する。
-    ///
-    /// - Returns: エラーメッセージ
-    func getErrorMessage() -> String {
-        var message = String.Empty
-        
-        // BroadcastServerからのメッセージを取得
-        if let info = AppGroupsManager.loadErrorInfo() {
-            // メッセージを取得したので、クリア
-            AppGroupsManager.saveErrorInfo(nil)
-            
-            switch info.messageType {
-            case .undefined:
-                message = String.Empty
-            case .connect:
-                message = String.Empty
-            case .disconnect:
-                message = String.Empty
-            case .unknownError:
-                // 不明なエラー
-                message = Localize.localizedString("SS_02_003")
-            // message = NSLocalizedString("SS_ERR-001", comment: "SS_ERR-001")
-            case .licenseError:
-                // ライセンス認証に失敗
-                message = Localize.localizedString("SS_02_003")
-            // message = NSLocalizedString("SS_ERR-002", comment: "SS_ERR-002")
-            case .userAuthError:
-                // ユーザー認証失敗
-                message = Localize.localizedString("SS_02_003")
-            // message = NSLocalizedString("SS_ERR-003", comment: "SS_ERR-003")
-            case .remoteFeatureFailed:
-                // リモートフィーチャー不一致
-                message = Localize.localizedString("SS_02_003")
-            // message = NSLocalizedString("SS_ERR-004", comment: "SS_ERR-004")
-            case .internalServerError:
-                // サーバー内部エラー
-                message = Localize.localizedString("SS_02_003")
-                // message = NSLocalizedString("SS_ERR-005", comment: "SS_ERR-005")
-                
-                if info.additionalMessage.isEmpty {
-                    message += "\n\(info.additionalMessage) [Code:\(info.additionalIntValue)])"
-                } else {
-                    message += "\n[Code:\(info.additionalIntValue)])"
-                }
-            }
-        }
-        return message
-    }
-    
     // MARK: - User Agreement
     
     /// 利用規約の許諾ほ状態を確認し、利用規約の表示が必要か確認する。
@@ -319,7 +285,7 @@ class ViewController: BaseViewController, UNUserNotificationCenterDelegate {
         let url: URL = URL(fileURLWithPath: filePath!)
         
         // 利用規約ビューコントローラーセットアップ("アプリケーション利用規約", "同意する")
-        viewController.setup(title: Localize.localizedString("SS_01_004"), url: url, agreeButtonTitle: Localize.localizedString("SS_01_010"))
+        viewController.setup(title: Localize.localizedString("TID_5227"), url: url, agreeButtonTitle: Localize.localizedString("TID_5287"))
         
         // モーダル表示
         present(navController, animated: true, completion: nil)
@@ -345,5 +311,175 @@ class ViewController: BaseViewController, UNUserNotificationCenterDelegate {
         
         // 0.5秒後に表示
         confirmLocalNotificationPermission(0.5)
+    }
+    
+    // ========================================================================================================
+    
+    // MARK: - Message Debug
+    
+    // ========================================================================================================
+    
+    #if ENABLE_LOG
+        private var errorMessageIndex: Int = 0
+        
+        func initErrorMessageDebug() {
+            updateMessageCode(errorMessageIndex)
+            errorMessageControlView.layer.cornerRadius = 5
+            errorMessageControlView.layer.masksToBounds = true
+        }
+        
+        func enableErrorMessageDebugView() {
+            if AppGroupsManager.loadErrorMessageDebug() {
+                errorMessageControlView.isHidden = false
+            } else {
+                errorMessageControlView.isHidden = true
+            }
+        }
+        
+        func getNextIndex() -> Int {
+            errorMessageIndex += 1
+            if errorMessageItems.count <= errorMessageIndex {
+                errorMessageIndex = 0
+            }
+            return errorMessageIndex
+        }
+        
+        func getPrevIndex() -> Int {
+            errorMessageIndex = (errorMessageIndex + (errorMessageItems.count - 1)) % errorMessageItems.count
+            return errorMessageIndex
+        }
+        
+        let errorMessageItems =
+            [
+                VNCServerErrorResources,
+                VNCServerErrorState,
+                VNCServerErrorPermissionDenied,
+                VNCServerErrorNetworkUnreachable,
+                VNCServerErrorHostUnreachable,
+                VNCServerErrorConnectionRefused,
+                VNCServerErrorDNSFailure,
+                VNCServerErrorAddressInUse,
+                VNCServerErrorBadPort,
+                VNCServerErrorDisconnected,
+                VNCServerErrorConnectionTimedOut,
+                VNCServerErrorBearerAuthenticationFailed,
+                VNCServerErrorUSBNotConnected,
+                VNCServerErrorUnderlyingLibraryNotFound,
+                VNCServerErrorBearerConfigurationNotProvided,
+                VNCServerErrorBearerConfigurationInvalid,
+                VNCServerErrorBearerLoadFailed,
+                VNCServerErrorProtocolMismatch,
+                VNCServerErrorLoginRejected,
+                VNCServerErrorNotLicensedForViewer,
+                VNCServerErrorConnectionClosed,
+                VNCServerErrorInvalidCommandString,
+                VNCServerErrorUnsupportedAuth,
+                VNCServerErrorKeyTooBig,
+                VNCServerErrorBadCrypt,
+                VNCServerErrorNoEncodings,
+                VNCServerErrorBadPixelformat,
+                VNCServerErrorBearerNotFound,
+                VNCServerErrorSignatureRejected,
+                VNCServerErrorInsufficientBufferSpace,
+                VNCServerErrorLicenseNotValid,
+                VNCServerErrorFeatureNotLicensed,
+                VNCServerErrorInvalidParameter,
+                VNCServerErrorKeyGeneration,
+                VNCServerErrorUnableToStartService,
+                VNCServerErrorAlreadyExists,
+                VNCServerErrorTooManyExtensions,
+                VNCServerErrorReset,
+                VNCServerErrorDataRelayProtocolError,
+                VNCServerErrorUnknownDataRelaySessionId,
+                VNCServerErrorBadChallenge,
+                VNCServerErrorDataRelayChannelTimeout,
+                VNCServerErrorUserRefusedConnection,
+                VNCServerErrorCommandFetchFailed,
+                VNCServerErrorFailed,
+                VNCServerErrorNotImplemented,
+                VNCServerErrorCommandSuperseded,
+                VNCServerErrorEnvironment,
+                VNCServerErrorCaptureFrameBufferNotImplemented
+            ]
+        
+        func showNotification(_ index: Int) {
+            let errorCode = errorMessageItems[index]
+            let errorMessage = VNCServerErrorString.toString(errorCode: errorCode)
+            
+            VNCServerLocalNotifiction.showLocalNotification(type: .error, subMessage: errorMessage)
+        }
+        
+        private func updateMessageCode(_ index: Int) {
+            let erroCode = errorMessageItems[index]
+            labelMessageIndex.text = String(erroCode.rawValue)
+        }
+        
+    #endif
+    
+    @IBOutlet weak var labelMessageIndex: UILabel!
+    
+    @IBAction func tappedPrev10(_ sender: Any) {
+        AppLogger.debug()
+        #if ENABLE_LOG
+            errorMessageIndex -= 4
+            updateMessageCode(getPrevIndex())
+        #endif
+    }
+    
+    @IBAction func tappedPrev(_ sender: Any) {
+        AppLogger.debug()
+        #if ENABLE_LOG
+            updateMessageCode(getPrevIndex())
+        #endif
+    }
+    
+    @IBAction func tappedNext(_ sender: Any) {
+        AppLogger.debug()
+        #if ENABLE_LOG
+            updateMessageCode(getNextIndex())
+        #endif
+    }
+    
+    @IBAction func tappedNext10(_ sender: Any) {
+        AppLogger.debug()
+        #if ENABLE_LOG
+            errorMessageIndex += 4
+            updateMessageCode(getNextIndex())
+        #endif
+    }
+    
+    @IBAction func tappedMessageShow(_ sender: Any) {
+        AppLogger.debug()
+        #if ENABLE_LOG
+            showNotification(errorMessageIndex)
+        #endif
+    }
+    
+    @IBAction func tappedConnect(_ sender: Any) {
+        AppLogger.debug()
+        #if ENABLE_LOG
+            VNCServerLocalNotifiction.showLocalNotification(type: .connect)
+        #endif
+    }
+    
+    @IBAction func tappedDisconnect(_ sender: Any) {
+        AppLogger.debug()
+        #if ENABLE_LOG
+            VNCServerLocalNotifiction.showLocalNotification(type: .disconnect)
+        #endif
+    }
+    
+    @IBAction func tappedTermsOfService(_ sender: Any) {
+        AppLogger.debug()
+        #if ENABLE_LOG
+            // "利用規約に同意されていません。"/"ブロードキャストを停止し、T-Linkアプリを起動して利用規約に同意して下さい。"
+            
+            // LocalNotification.show(requestIdentifier: VNCServerLocalNotifiction.requestIdentifier, timeInterval: 0.1,
+            //                           title: Localize.localizedString("TID_5140"), body: Localize.localizedString("TID_5141"), userInfo: nil, completionHandler: nil)
+            
+            let message = Localize.localizedString("TID_5140") + "\n" + Localize.localizedString("TID_5141")
+            LocalNotification.show(requestIdentifier: VNCServerLocalNotifiction.requestIdentifier, timeInterval: 0.1,
+                                   title: "", body: message, userInfo: nil, completionHandler: nil)
+        #endif
     }
 }
