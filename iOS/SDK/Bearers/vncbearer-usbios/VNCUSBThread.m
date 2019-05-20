@@ -55,9 +55,9 @@
 
 -(void) stream:(NSStream *)aStream handleEvent:(NSStreamEvent)eventCode {
 	(void) eventCode;
-	@synchronized(aStream) {
+	//@synchronized(aStream) {
 		[m_condition activate];
-	}
+	//}
 }
 
 @end
