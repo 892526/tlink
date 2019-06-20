@@ -20,8 +20,8 @@ android {
         applicationId 'com.jvckenwood.tlink'
         minSdkVersion 21
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 10100
-        versionName '1.1.0'
+        versionCode 10101
+        versionName '1.1.1'
 
         buildConfigField "long", "TIMESTAMP", System.currentTimeMillis() + "L"
     }
@@ -46,10 +46,6 @@ android {
             }
         }
         debug {
-
-            // test
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-project.txt'
-
             if (keystoreProps != null) {
                 signingConfig signingConfigs.sample
             }

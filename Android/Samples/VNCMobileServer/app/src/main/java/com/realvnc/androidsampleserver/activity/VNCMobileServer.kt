@@ -10,12 +10,17 @@ import android.Manifest.permission
 import android.annotation.TargetApi
 import android.app.Activity
 import android.app.Dialog
+import android.app.DialogFragment
+import android.app.FragmentTransaction
 import android.content.*
 import android.content.pm.PackageManager
 import android.net.Uri
+import android.nfc.Tag
 import android.os.*
 import android.provider.Settings
 import android.support.design.widget.NavigationView
+import android.support.v4.app.Fragment
+import android.support.v4.app.FragmentManager
 import android.support.v4.content.FileProvider
 import android.support.v4.view.GravityCompat
 import android.support.v7.app.ActionBarDrawerToggle
@@ -26,6 +31,7 @@ import android.view.View
 import android.widget.Toast
 import com.realvnc.androidsampleserver.*
 import com.realvnc.androidsampleserver.VncServerState.VncServerMainState
+import com.realvnc.androidsampleserver.fragment.handler.PauseHandler
 import com.realvnc.androidsampleserver.service.HTTPTriggerService
 import com.realvnc.androidsampleserver.service.VncServerService
 import com.realvnc.vncserver.core.VncServerCoreErrors
@@ -37,6 +43,7 @@ import java.io.FileInputStream
 import java.io.FileOutputStream
 import java.io.IOException
 import java.util.*
+
 
 // We could use
 //   import com.android.future.usb.UsbManager;
@@ -87,6 +94,31 @@ class VNCMobileServer : AppCompatActivity(), NavigationView.OnNavigationItemSele
 
     private val isEnableErrorMessageDebug = false
 
+
+    /**
+     * Serviceからのイベント種別
+     *
+     * @property rawValue イベント種別のInt型の数値データ
+     */
+    enum class PauseMessageType(val rawValue :Int) {
+        // 未定義
+        UNDEFINE(0),
+
+        // 接続承諾ダイアログ表示要求（T-Linkアプリでは使用しない）
+        ACCEPT_PROMPT_DIALOG_INTENT(1),
+
+        // AAP選択ダイアログ表示要求（T-Linkアプリでは使用しない）
+        AAP_NOT_CHOSEN_DIALOG_INTENT(2),
+
+        // Accessibilityパーミッション許可ダイアログ表示要求
+        ACCESSIBILITY_DIALOG_INTENT(3),
+
+        // Overlayパーミッション許可ダイアログ表示要求
+        OVERLAY_PERMISSION_DIALOG_INTENT(4),
+
+        // 指定されたパーミッション許可ダイアログ表示要求（T-Linkアプリでは使用しない）
+        REQUEST_PERMISSIONS_INTENT(5)
+    }
 
     fun dialogDismissed() {
         // Nothing to do
@@ -146,6 +178,11 @@ class VNCMobileServer : AppCompatActivity(), NavigationView.OnNavigationItemSele
         if (BuildConfig.DEBUG && isEnableErrorMessageDebug) {
             setErrorMessageDebugControls()
         }
+
+        // ダイアログ表示管理に溜まっているダイアログ表示要求を処理する（onResume時に呼び出される）
+        PauseHandler.setProcessMessage( ::resumeProcessMessage )
+        // Resumeになるまでは、表示しないようにするため、初期状態はPasuse状態にしておく。
+        PauseHandler.pause()
     }
 
     /*
@@ -196,6 +233,20 @@ class VNCMobileServer : AppCompatActivity(), NavigationView.OnNavigationItemSele
         }
     }
 
+    public override fun onResumeFragments() {
+        super.onResumeFragments()
+
+        // ダイアログ表示管理にResume状態になったことを通知
+        PauseHandler.resume()
+    }
+
+    public override fun onPause() {
+        super.onPause()
+
+        // ダイアログ表示管理にPause状態になったことを通知
+        PauseHandler.pause()
+    }
+
     public override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
 
@@ -231,6 +282,61 @@ class VNCMobileServer : AppCompatActivity(), NavigationView.OnNavigationItemSele
         }
     }
 
+    /**
+     * Pause状態での処理待ちメッセージをOnResumeで処理する
+     *
+     * @param message 処理するメッセージ
+     * @return　true固定（Voidにできないので、Booleanとしている）
+     */
+    fun resumeProcessMessage(message: Message) : Boolean {
+        Log.d(TAG, "!!!!! resumeProcessMessage() >> what = " + message.what.toString())
+
+        when (message.what) {
+            PauseMessageType.ACCEPT_PROMPT_DIALOG_INTENT.rawValue -> {
+                Log.d(TAG, "resumeProcessMessage() >> ACCEPT_PROMPT_DIALOG_INTENT")
+
+                val bundle = message.obj as? Bundle
+                showDialog(DIALOG_ACCEPT, bundle)
+            }
+            PauseMessageType.AAP_NOT_CHOSEN_DIALOG_INTENT.rawValue -> {
+                Log.d(TAG, "resumeProcessMessage() >> AAP_NOT_CHOSEN_DIALOG_INTENT")
+                val bundle = message.obj as? Bundle
+                showDialog(DIALOG_AAP_NOT_CHOSEN, bundle)
+            }
+            PauseMessageType.ACCESSIBILITY_DIALOG_INTENT.rawValue -> {
+                Log.d(TAG, "resumeProcessMessage() >> ACCESSIBILITY_DIALOG_INTENT")
+
+                val dialog = AccessibilityDialogFragment()
+                // commitからcommitNowに変更
+                dialog.showNow(supportFragmentManager, "")
+            }
+            PauseMessageType.OVERLAY_PERMISSION_DIALOG_INTENT.rawValue -> {
+                Log.d(TAG, "resumeProcessMessage() >> OVERLAY_PERMISSION_DIALOG_INTENT")
+
+                val dialog = OverlayPermissionDialogFragment()
+                // commitからcommitNowに変更
+                dialog.showNow(supportFragmentManager, "")
+            }
+            PauseMessageType.REQUEST_PERMISSIONS_INTENT.rawValue -> {
+                Log.d(TAG, "resumeProcessMessage() >> REQUEST_PERMISSIONS_INTENT")
+
+                val bundle = message.obj as? Bundle
+                if (bundle != null) {
+                    var perms = bundle?.getStringArray("permissions")
+                    perms?.let {
+                        doRequestPermissions(it, PERMISSIONS_REQUEST_STARTUP)
+                    }
+                }
+            }
+        }
+
+        return true
+    }
+
+    /**
+     * VNCServerServiceからの通知を処理する
+     *
+     */
     private fun takeAction() {
         // Don't try to redo the action if relaunched from history
         val intent =
@@ -244,34 +350,38 @@ class VNCMobileServer : AppCompatActivity(), NavigationView.OnNavigationItemSele
 
             val args = Bundle()
             args.putString("address", mState!!.connectedAddress)
-            showDialog(DIALOG_ACCEPT, args)
+
+            // ダイアログ表示管理に、ダイアログ表示要求を渡す
+            PauseHandler.sendMessage(PauseMessageType.ACCEPT_PROMPT_DIALOG_INTENT.rawValue, args)
 
         } else if (intent == SampleIntents.AAP_NOT_CHOSEN_DIALOG_INTENT) {
-            Log.i(TAG, "Asked to display warning about AAP")
+            Log.d(TAG, "Asked to display warning about AAP")
             val args = Bundle()
-            showDialog(DIALOG_AAP_NOT_CHOSEN, args)
+
+            // ダイアログ表示管理に、ダイアログ表示要求を渡す
+            PauseHandler.sendMessage(PauseMessageType.AAP_NOT_CHOSEN_DIALOG_INTENT.rawValue, args)
+
         } else if (intent == SampleIntents.ACCESSIBILITY_DIALOG_INTENT) {
-            Log.i(TAG, "Asked to request that the accessibilty service be enabled")
-            /*
-            val args = Bundle()
-            showDialog(DIALOG_ACCESSIBILITY, args)
-            */
-            val dialog = AccessibilityDialogFragment()
-            dialog.show(supportFragmentManager, "")
+            Log.d(TAG, "Asked to request that the accessibilty service be enabled")
+
+            // ダイアログ表示管理に、ダイアログ表示要求を渡す
+            PauseHandler.sendMessage(PauseMessageType.ACCESSIBILITY_DIALOG_INTENT.rawValue, null)
 
         } else if (intent == SampleIntents.OVERLAY_PERMISSION_DIALOG_INTENT) {
-            Log.i(TAG, "Asked to request overlay permission")
-            /*
-            val args = Bundle()
-            showDialog(DIALOG_OVERLAY_PERMISSION, args)
-            */
-            val dialog = OverlayPermissionDialogFragment()
-            dialog.show(supportFragmentManager, "")
+            Log.d(TAG, "Asked to request overlay permission")
+
+            // ダイアログ表示管理に、ダイアログ表示要求を渡す
+            PauseHandler.sendMessage(PauseMessageType.OVERLAY_PERMISSION_DIALOG_INTENT.rawValue, null)
 
         } else if (intent == SampleIntents.REQUEST_PERMISSIONS_INTENT) {
+            Log.d(TAG, "Asked to request permissions")
+
             val perms = getIntent().getStringArrayExtra("permissions")
-            Log.i(TAG, "Asked to request permissions")
-            doRequestPermissions(perms, PERMISSIONS_REQUEST_STARTUP)
+            val args = Bundle()
+
+            args.putStringArray("permissions", perms)
+            // ダイアログ表示管理に、ダイアログ表示要求を渡す
+            PauseHandler.sendMessage(PauseMessageType.REQUEST_PERMISSIONS_INTENT.rawValue, null)
         }
 
         setIntent(Intent(SampleIntents.LAUNCHER_INTENT))
@@ -1040,7 +1150,6 @@ class VNCMobileServer : AppCompatActivity(), NavigationView.OnNavigationItemSele
         val input = content_main_debug_text_view.text
         content_main_debug_text_view.text = "$input$num"
     }
-
 
 
 }

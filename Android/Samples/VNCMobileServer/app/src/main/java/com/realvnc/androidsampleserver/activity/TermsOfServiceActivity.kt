@@ -33,9 +33,10 @@ class TermsOfServiceActivity : AppCompatActivity() {
         }
     }
 
-    override fun onResume() {
-        super.onResume()
+    override fun onResumeFragments() {
+        super.onResumeFragments()
 
+        // フラグメント表示
         setSettingsFragment()
     }
 

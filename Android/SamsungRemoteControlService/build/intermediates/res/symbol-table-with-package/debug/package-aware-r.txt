@@ -1,1 +1,0 @@
-com.realvnc.android.remote.samsung
