@@ -534,7 +534,11 @@ public class VncServerService extends Service
         for (VncRemoteControlInfo rc : rcInfo) {
             boolean injectionSupported = rc.getMotionInjectionSupport() && rc.getKeyInjectionSupport();
             Log.i(TAG, "View-only allowed: " + allowViewOnly + ", this method supports injection: " + injectionSupported);
-            boolean suitable = allowViewOnly || injectionSupported;
+
+// test-s (landscape workaround)
+//            boolean suitable = allowViewOnly || injectionSupported;
+            boolean suitable = allowViewOnly && !injectionSupported;
+// test-e (landscape workaround)
             // Inform the SDK about whether this remote control method should be used
             try {
                 mServer.blacklistRemoteControl(rc, !suitable);
@@ -872,6 +876,9 @@ public class VncServerService extends Service
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M
                         && !Settings.canDrawOverlays(VncServerService.this)) {
                     LOG.info("Requesting Overlay Permission to lock orientation");
+
+                    LOG.info("DDD Requesting Overlay Permission to lock orientation");      // landscape workaround
+
                     final Intent intent = new Intent(
                             VncServerService.this,
                             VNCMobileServer.class);
@@ -1006,6 +1013,8 @@ public class VncServerService extends Service
         private void connected() {
             Log.d(TAG, "connected");
             setStayAwake(true);
+
+// landscape workaround
             setLandscapeLock(true);
 
             VncServerService.this.mAsyncHandler.post(new Runnable() {
@@ -1020,6 +1029,8 @@ public class VncServerService extends Service
         private void disconnected() {
             Log.d(TAG, "disconnected");
             setStayAwake(false);
+
+// landscape workaround
             setLandscapeLock(false);
 
             VncServerService.this.mAsyncHandler.post(new Runnable() {

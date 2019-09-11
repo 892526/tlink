@@ -20,6 +20,9 @@ class OverlayPermissionDialogFragment : DialogFragment() {
     }
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
+
+        Log.e(TAG,"DDD onCreateDialog in");     // landscape workaround
+
         val builder = AlertDialog.Builder(activity as Context)
                 .setTitle(R.string.TID_5279)
                 .setMessage(R.string.TID_5280)
@@ -36,6 +39,9 @@ class OverlayPermissionDialogFragment : DialogFragment() {
                                     Settings.ACTION_MANAGE_OVERLAY_PERMISSION,
                                     Uri.parse("package:" + activity?.packageName)
                             )
+
+                            Log.e(TAG,"DDD onCreateDialog : Intent Settings.ACTION_MANAGE_OVERLAY_PERMISSION");     // landscape workaround
+
 
                             activity?.startActivityForResult(
                                     intent,

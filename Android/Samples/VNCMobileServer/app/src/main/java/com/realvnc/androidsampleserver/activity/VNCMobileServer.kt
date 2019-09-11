@@ -255,6 +255,10 @@ class VNCMobileServer : AppCompatActivity(), NavigationView.OnNavigationItemSele
         } else if (requestCode == ACTIVITY_INSTALL_SERVICE) {
             reportInstallationResult(VncServerCoreErrors.VNCSERVER_ERR_NONE)
         } else if (requestCode == MANAGE_OVERLAY_PERMISSION_REQUEST) {
+
+            Log.e(TAG,"DDD onActivityResult : requestCode == MANAGE_OVERLAY_PERMISSION_REQUEST");   // landscape workaround
+
+
             handleOverlayPermissionRequestResult()
         }
 
@@ -313,6 +317,9 @@ class VNCMobileServer : AppCompatActivity(), NavigationView.OnNavigationItemSele
             PauseMessageType.OVERLAY_PERMISSION_DIALOG_INTENT.rawValue -> {
                 Log.d(TAG, "resumeProcessMessage() >> OVERLAY_PERMISSION_DIALOG_INTENT")
 
+                Log.d(TAG, "DDD resumeProcessMessage() >> OVERLAY_PERMISSION_DIALOG_INTENT")    // landscape workaround
+
+
                 val dialog = OverlayPermissionDialogFragment()
                 // commitからcommitNowに変更
                 dialog.showNow(supportFragmentManager, "")
@@ -369,6 +376,9 @@ class VNCMobileServer : AppCompatActivity(), NavigationView.OnNavigationItemSele
 
         } else if (intent == SampleIntents.OVERLAY_PERMISSION_DIALOG_INTENT) {
             Log.d(TAG, "Asked to request overlay permission")
+
+            Log.d(TAG, "DDD Asked to request overlay permission")   // landscape workaround
+
 
             // ダイアログ表示管理に、ダイアログ表示要求を渡す
             PauseHandler.sendMessage(PauseMessageType.OVERLAY_PERMISSION_DIALOG_INTENT.rawValue, null)
